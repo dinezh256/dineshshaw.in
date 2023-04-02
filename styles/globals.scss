@@ -1,0 +1,34 @@
+* {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  background-color: oldlace;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: center;
+  position: sticky;
+  height: 100px;
+}
+
+button {
+  width: 120px;
+  height: 35px;
+  background: rgba(255, 255, 255, 0.5);
+  transition: all 0.15s ease;
+  border: 1px solid #DEDCD9;
+  border-radius: 20px;
+  color: black;
+  font-size: 15px;
+  font-weight: 600;
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+
+  &:hover {
+    background-color: black;
+    color: white;
+    border: 1px solid black;
+    transition: all 0.15s ease;
+  }
+}
