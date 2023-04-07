@@ -1,5 +1,6 @@
-import Link from "next/link";
 import { useState } from "react";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 const navMenuItems = [
   {
@@ -20,11 +21,14 @@ const navMenuItems = [
 ];
 
 const Navbar = () => {
-  const [activeTab, setActiveTab] = useState(0);
+  const router = useRouter();
+  const [activeTab, setActiveTab] = useState(
+    navMenuItems.find((item) => router?.pathname === item.url)?.id
+  );
 
   const handleTabChange = (id) => {
     setActiveTab(id);
-  }
+  };
 
   return (
     <div className="navbar">
