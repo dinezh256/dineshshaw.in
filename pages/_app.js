@@ -27,7 +27,9 @@ function MyApp({ Component, pageProps }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <Navbar />
-      <Component {...pageProps} />
+      <div className="main-wrapper">
+        <Component {...pageProps} />
+      </div>
       <Analytics />
     </>
   );

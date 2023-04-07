@@ -1,4 +1,5 @@
 import Head from "next/head";
+import NameCard from "./nameCard";
 
 const About = () => {
   return (
@@ -10,7 +11,20 @@ const About = () => {
           content="Experienced Web Developer and Freelancer with a demonstrated history of working in the computer software industry. Skilled in JavaScript, ReactJS and NodeJS."
         />
       </Head>
-      <div>About</div>
+      <div className="about-section">
+        <NameCard />
+        <div>
+          <h6 className="">ABOUT</h6>
+          <h4>
+            Hello, there! <span>👋</span>
+          </h4>
+          <h4>
+            I am Dinesh Shaw, an experienced Web Developer and Freelancer with a
+            demonstrated history of working in the computer software industry.
+            Skilled in JavaScript, ReactJS and NodeJS.
+          </h4>
+        </div>
+      </div>
     </>
   );
 };
