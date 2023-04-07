@@ -52,8 +52,8 @@ const Contact = () => {
               make sure to send it via carrier pigeon for that authentic vintage
               touch.
             </h3>
-            <a href="mailto:idineshshaw7@gmail.com" target="_blank">
-              idineshshaw7@gmail.com
+            <a href="mailto:heydineshshaw@gmail.com" target="_blank">
+              heydineshshaw@gmail.com
             </a>
           </div>
         </div>
