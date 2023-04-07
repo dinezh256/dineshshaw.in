@@ -24,6 +24,7 @@ body {
   position: fixed;
   height: 100px;
   width: 100%;
+  animation: peakDown ease 0.5s both;
 }
 
 .navbar-menu {
@@ -255,6 +256,7 @@ body {
   .navbar {
     height: 40px;
     bottom: 30px;
+    animation: peakUp ease 0.5s both;
   }
 
   .about-section {
@@ -300,6 +302,15 @@ body {
       height: 280px;
     }
   }
+
+  @keyframes peakUp {
+    from {
+      bottom: -100px;
+    }
+    to {
+      bottom: 30px;
+    }
+  }
 }
 
 @keyframes waive {
@@ -326,5 +337,14 @@ body {
   }
   100% {
     transform: rotate(0deg);
+  }
+}
+
+@keyframes peakDown {
+  from {
+    top: -100px;
+  }
+  to {
+    top: 0;
   }
 }
