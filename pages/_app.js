@@ -1,8 +1,9 @@
 import Head from "next/head";
 // import Script from "next/script";
 import { Analytics } from '@vercel/analytics/react';
+import Navbar from "../components/navbar";
 
-import styles from "../styles/globals.scss";
+import "../styles/globals.scss";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -25,6 +26,7 @@ function MyApp({ Component, pageProps }) {
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
+      <Navbar />
       <Component {...pageProps} />
       <Analytics />
     </>

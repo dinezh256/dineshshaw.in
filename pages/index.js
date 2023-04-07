@@ -1,19 +1,7 @@
-import Head from "next/head";
-import Navbar from "../components";
+import About from "../components/about";
 
 function Home() {
-  return (
-    <>
-      <Head>
-        <title>Dinesh Shaw</title>
-        <meta
-          title="description"
-          content="Experienced Web Developer and Freelancer with a demonstrated history of working in the computer software industry. Skilled in JavaScript, ReactJS and NodeJS."
-        />
-      </Head>
-      <Navbar />
-    </>
-  );
+  return <About />;
 }
 
 export default Home;
