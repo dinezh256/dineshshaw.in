@@ -36,7 +36,7 @@ class MyDocument extends Document {
           <meta property="og:title" content="Dinesh Shaw" />
           <meta
             property="og:description"
-            content="TExperienced Web Developer and Freelancer with a demonstrated history of working in the computer software industry. Skilled in JavaScript, ReactJS and NodeJS"
+            content="Experienced Web Developer and Freelancer with a demonstrated history of working in the computer software industry. Skilled in JavaScript, ReactJS and NodeJS"
           />
           <meta
             property="og:image"
