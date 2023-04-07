@@ -1,12 +1,12 @@
 * {
   font-family: "Montserrat", "Helvetica Neue";
-  background-color: oldlace;
   -webkit-tap-highlight-color: transparent;
   margin: 0;
 }
 
 body {
   margin: 0px;
+  background-color: oldlace;
 }
 
 .main-wrapper {
@@ -24,6 +24,7 @@ body {
   position: fixed;
   height: 100px;
   width: 100%;
+  background-color: transparent;
 }
 
 .navbar-menu {
@@ -32,11 +33,11 @@ body {
   border-radius: 25px;
   overflow: hidden;
   position: relative;
-  background: rgba(255, 255, 255, 0.65);
+  background: rgba(255, 255, 255, 0.4);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(6px);
 }
 
 .slider {
@@ -271,18 +272,26 @@ body {
     }
 
     h2 {
-      font-size: 18px;
+      font-size: 20px;
     }
   }
 
   .work-section {
     flex-direction: column;
     gap: 40px;
+
+    h6 {
+      font-size: 12px;
+    }
   }
 
   .contact-section {
     flex-direction: column;
     gap: 40px;
+
+    h6 {
+      font-size: 12px;
+    }
 
     .emails {
       h3 {
