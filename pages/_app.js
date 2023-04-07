@@ -1,5 +1,5 @@
 import Head from "next/head";
-// import Script from "next/script";
+import Script from "next/script";
 import { Analytics } from '@vercel/analytics/react';
 import Navbar from "../components/navbar";
 
@@ -8,9 +8,10 @@ import "../styles/globals.scss";
 function MyApp({ Component, pageProps }) {
   return (
     <>
-      {/* <Script
+      <Script
+        async
         strategy="lazyOnload"
-        src={"https://www.googletagmanager.com/gtag/js?id=G-41BV8P41YT"}
+        src="https://www.googletagmanager.com/gtag/js?id=G-DZ5VTRTBNF"
       />
 
       <Script strategy="lazyOnload" id="g-tag">
@@ -18,11 +19,9 @@ function MyApp({ Component, pageProps }) {
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', 'G-41BV8P41YT', {
-            page_path: window.location.pathname,
-          });
+          gtag('config', 'G-DZ5VTRTBNF');
         `}
-      </Script> */}
+      </Script>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>

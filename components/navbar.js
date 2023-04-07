@@ -22,17 +22,22 @@ const navMenuItems = [
 const Navbar = () => {
   const [activeTab, setActiveTab] = useState(0);
 
+  const handleTabChange = (id) => {
+    setActiveTab(id);
+    Navigator.vibrate(50);
+  }
+
   return (
     <div className="navbar">
       <div className="navbar-menu">
-        <div className="slider" style={{ left: `${activeTab * 120}px` }} />
+        <div className="slider" style={{ left: `${activeTab * 110}px` }} />
         {navMenuItems.map(({ name, id, url }) => (
           <Link
             href={url}
             as={url}
             key={id}
             className={activeTab === id ? "btn active" : "btn"}
-            onClick={() => setActiveTab(id)}
+            onClick={() => handleTabChange(id)}
           >
             {name}
           </Link>

@@ -25,20 +25,12 @@ class MyDocument extends Document {
             sizes="16x16"
             href="/favicon-16x16.png"
           />
-          <link rel="manifest" href="/site.webmanifest" />
           <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
           <meta name="msapplication-TileColor" content="#2b5797" />
           <meta name="theme-color" content="#ffffff" />
           <meta name="description" content="Dinesh Shaw" />
           <meta name="msapplication-TileColor" content="#3291ff"></meta>
           <link rel="manifest" href="/manifest.json" />
-          <link
-            rel="preload"
-            href="/fonts/Berkshire_Swash/BerkshireSwash-Regular.ttf"
-            as="font"
-            type="font/ttf"
-            crossOrigin="true"
-          />
           <meta property="og:type" content="website" />
           <meta property="og:url" content="http://localhost:3000" />
           <meta property="og:title" content="Dinesh Shaw" />

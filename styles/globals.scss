@@ -1,6 +1,7 @@
 * {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   background-color: oldlace;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .navbar {
@@ -28,7 +29,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 120px;
+  width: 110px;
   height: 35px;
   border-radius: 20px;
   background-color: black;
@@ -37,7 +38,7 @@
 }
 
 .btn {
-  width: 120px;
+  width: 110px;
   height: 35px;
   transition: all 0.15s ease;
   border: none;
