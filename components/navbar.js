@@ -24,7 +24,6 @@ const Navbar = () => {
 
   const handleTabChange = (id) => {
     setActiveTab(id);
-    Navigator.vibrate(50);
   }
 
   return (
