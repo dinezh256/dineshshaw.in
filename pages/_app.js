@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Script from "next/script";
-import { Analytics } from '@vercel/analytics/react';
+import { Analytics } from "@vercel/analytics/react";
 
 import Navbar from "../components/navbar";
 

@@ -33,12 +33,12 @@ class MyDocument extends Document {
           />
           <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
           <meta name="msapplication-TileColor" content="#2b5797" />
-          <meta name="theme-color" content="#fdf5e6" />
+          <meta name="theme-color" content="#f5f1eb" />
           <meta name="description" content="Dinesh Shaw" />
           <meta name="msapplication-TileColor" content="#3291ff"></meta>
           <link rel="manifest" href="/manifest.json" />
           <meta property="og:type" content="website" />
-          <meta property="og:url" content="https://devdns.vercel.app/" />
+          <meta property="og:url" content="https://dineshshaw.in" />
           <meta property="og:title" content="Dinesh Shaw" />
           <meta
             property="og:description"
@@ -46,7 +46,7 @@ class MyDocument extends Document {
           />
           <meta
             property="og:image"
-            content="https://devdns.vercel.app//logo512.png"
+            content="https://dineshshaw.in/logo512.png"
           />
           <meta property="og:image:type" content="image/png" />
           <meta property="og:image:width" content="512" />
