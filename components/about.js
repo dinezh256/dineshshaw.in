@@ -16,7 +16,7 @@ const About = () => {
         <div>
           <h6 className="">ABOUT</h6>
           <h4>
-            Hello, there! <span>👋</span>
+            Hello, there! <span className="waive-hand">👋🏼</span>
           </h4>
           <h4>
             I am Dinesh Shaw, an experienced Web Developer and Freelancer with a
