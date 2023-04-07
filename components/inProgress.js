@@ -10,7 +10,6 @@ const InProgress = () => {
         alt="under-construction"
         draggable={false}
         priority
-        placeholder="blur"
       />
       <h4>Under Progress</h4>
     </div>
