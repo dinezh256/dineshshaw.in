@@ -24,7 +24,6 @@ body {
   position: fixed;
   height: 100px;
   width: 100%;
-  background-color: transparent;
 }
 
 .navbar-menu {
@@ -122,7 +121,6 @@ body {
 
   .waive-hand {
     display: inline-block;
-    background-color: transparent;
     animation: waive 2.5s ease both;
     animation-iteration-count: infinite;
   }
@@ -172,10 +170,6 @@ body {
       svg {
         stroke: white;
       }
-    }
-
-    svg {
-      background: transparent;
     }
   }
 
