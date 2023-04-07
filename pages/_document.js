@@ -32,7 +32,7 @@ class MyDocument extends Document {
           <meta name="msapplication-TileColor" content="#3291ff"></meta>
           <link rel="manifest" href="/manifest.json" />
           <meta property="og:type" content="website" />
-          <meta property="og:url" content="http://localhost:3000" />
+          <meta property="og:url" content="https://devdns.vercel.app/" />
           <meta property="og:title" content="Dinesh Shaw" />
           <meta
             property="og:description"
@@ -40,7 +40,7 @@ class MyDocument extends Document {
           />
           <meta
             property="og:image"
-            content="http://localhost:3000/logo512.png"
+            content="https://devdns.vercel.app//logo512.png"
           />
           <meta property="og:image:type" content="image/png" />
           <meta property="og:image:width" content="512" />
