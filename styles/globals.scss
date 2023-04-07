@@ -21,18 +21,18 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  position: absolute;
+  position: fixed;
   height: 100px;
   width: 100%;
 }
 
 .navbar-menu {
-  height: 35px;
+  height: 40px;
   border: 1px solid #dedcd9;
-  border-radius: 20px;
+  border-radius: 25px;
   overflow: hidden;
   position: relative;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.65);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -44,7 +44,7 @@ body {
   top: 0;
   left: 0;
   width: 110px;
-  height: 35px;
+  height: 40px;
   border-radius: 20px;
   background-color: black;
   z-index: 1;
@@ -53,7 +53,7 @@ body {
 
 .btn {
   width: 110px;
-  height: 35px;
+  height: 40px;
   transition: all 0.15s ease;
   border: none;
   color: black;
@@ -81,7 +81,7 @@ body {
   max-width: 300px;
   font-family: "Courier New", Courier, monospace;
   h1 {
-    font-size: 30px;
+    font-size: 32px;
     font-weight: 700;
   }
 
@@ -89,7 +89,7 @@ body {
     font-size: 16px;
     font-weight: 500;
     line-height: 40px;
-    margin-top: 20px;
+    margin-top: 10px;
     color: grey;
   }
 }
@@ -107,10 +107,16 @@ body {
     margin: 0;
   }
 
-  h4 {
+  h2 {
     margin-top: 20px;
     font-weight: 500;
-    font-size: 18px;
+    font-size: 28px;
+    color: rgb(72, 72, 72);
+
+    b {
+      font-weight: 600;
+      color: black;
+    }
   }
 
   .waive-hand {
@@ -118,6 +124,178 @@ body {
     background-color: transparent;
     animation: waive 2.5s ease both;
     animation-iteration-count: infinite;
+  }
+}
+
+//work
+
+.work-section {
+  padding: 20px 20px;
+  display: flex;
+  gap: 100px;
+
+  h6 {
+    font-weight: 400;
+    color: grey;
+    font-size: 14px;
+    margin: 0;
+  }
+}
+
+//contact section
+
+.contact-section {
+  padding: 20px 20px;
+  display: flex;
+  gap: 100px;
+
+  h6 {
+    font-weight: 400;
+    color: grey;
+    font-size: 14px;
+    margin: 0;
+  }
+
+  a {
+    text-decoration: none;
+    font-size: 24px;
+    color: rgb(72, 72, 72);
+    font-weight: 500;
+    width: fit-content;
+
+    transition: all 0.15s ease;
+    &:hover {
+      color: white;
+      transition: all 0.15s ease;
+
+      svg {
+        stroke: white;
+      }
+    }
+
+    svg {
+      background: transparent;
+    }
+  }
+
+  .socials {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    h6 {
+      margin-bottom: 25px;
+    }
+
+    .linkedin {
+      &:hover {
+        background-color: #0077b5;
+      }
+    }
+
+    .twitter {
+      &:hover {
+        background-color: #1da1f2;
+      }
+    }
+
+    .instagram {
+      &:hover {
+        background-color: #ed4c67;
+      }
+    }
+  }
+
+  .emails {
+    margin-top: 50px;
+    h3 {
+      color: grey;
+      font-weight: 500;
+      margin-bottom: 20px;
+      width: 500px;
+    }
+
+    h6 {
+      margin-bottom: 25px;
+    }
+
+    a {
+      color: lightcoral;
+      transition: all 0.15s ease;
+
+      &:hover {
+        color: white;
+        background-color: lightcoral;
+      }
+    }
+  }
+}
+
+//in progress section
+
+.inprogress-section {
+  padding-top: 50px;
+  text-align: center;
+
+  .progress-image {
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
+    margin: auto;
+  }
+
+  h4 {
+    font-size: 16px;
+    font-weight: 500;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .main-wrapper {
+    padding-top: 20px;
+    padding-bottom: 200px;
+  }
+
+  .navbar {
+    height: 40px;
+    bottom: 30px;
+  }
+
+  .about-section {
+    flex-direction: column;
+    gap: 40px;
+
+    h6 {
+      font-size: 12px;
+    }
+
+    h2 {
+      font-size: 18px;
+    }
+  }
+
+  .work-section {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .contact-section {
+    flex-direction: column;
+    gap: 40px;
+
+    .emails {
+      h3 {
+        width: auto;
+      }
+    }
+  }
+
+  .inprogress-section {
+    .progress-image {
+      width: 280px;
+      height: 280px;
+    }
   }
 }
 
@@ -145,21 +323,5 @@ body {
   }
   100% {
     transform: rotate(0deg);
-  }
-}
-
-@media screen and (max-width: 500px) {
-  .main-wrapper {
-    padding-top: 20px;
-  }
-
-  .navbar {
-    height: 40px;
-    bottom: 30px;
-  }
-
-  .about-section {
-    flex-direction: column;
-    gap: 40px;
   }
 }

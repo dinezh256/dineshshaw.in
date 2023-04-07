@@ -1,16 +1,22 @@
 import Head from "next/head";
 
+import NameCard from "../components/nameCard";
+import InProgress from "../components/inProgress";
+
 const Work = () => {
   return (
     <>
       <Head>
         <title>Work - Dinesh Shaw</title>
-        <meta
-          title="description"
-          content="Experienced Web Developer and Freelancer with a demonstrated history of working in the computer software industry. Skilled in JavaScript, ReactJS and NodeJS."
-        />
+        <meta title="description" content="My works as a web developer" />
       </Head>
-      <div>Work</div>
+      <div className="work-section">
+        <NameCard />
+        <div>
+          <h6>WORK</h6>
+          <InProgress />
+        </div>
+      </div>
     </>
   );
 };
