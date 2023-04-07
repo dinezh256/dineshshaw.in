@@ -1,5 +1,5 @@
 import Image from "next/image";
-import InProgressImage from "../assets/in-progress.png";
+import InProgressImage from "../assets/in-progress.webp";
 
 const InProgress = () => {
   return (
@@ -9,7 +9,8 @@ const InProgress = () => {
         className="progress-image"
         alt="under-construction"
         draggable={false}
-        priority={true}
+        priority
+        placeholder="blur"
       />
       <h4>Under Progress</h4>
     </div>
