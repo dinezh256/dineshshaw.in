@@ -27,7 +27,7 @@ class MyDocument extends Document {
           />
           <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
           <meta name="msapplication-TileColor" content="#2b5797" />
-          <meta name="theme-color" content="#ffffff" />
+          <meta name="theme-color" content="#dedcd9" />
           <meta name="description" content="Dinesh Shaw" />
           <meta name="msapplication-TileColor" content="#3291ff"></meta>
           <link rel="manifest" href="/manifest.json" />
