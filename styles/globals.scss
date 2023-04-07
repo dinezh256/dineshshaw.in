@@ -14,6 +14,8 @@ body {
   margin: 0 auto;
   padding: 20px;
   padding-top: 100px;
+  animation: fadeIn 0.75s ease both;
+  animation-delay: 0.2s;
 }
 
 // navbar
@@ -24,7 +26,9 @@ body {
   position: fixed;
   height: 100px;
   width: 100%;
-  animation: peakDown ease 0.5s both;
+  animation: peakDown ease 0.35s both;
+  z-index: 5;
+  backdrop-filter: blur(5px);
 }
 
 .navbar-menu {
@@ -37,7 +41,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  backdrop-filter: blur(6px);
 }
 
 .slider {
@@ -101,6 +104,10 @@ body {
   display: flex;
   gap: 100px;
 
+  .about-section-inner {
+    animation: fadeIn 0.5s ease both;
+  }
+
   h6 {
     font-weight: 400;
     color: grey;
@@ -111,7 +118,7 @@ body {
   h2 {
     margin-top: 20px;
     font-weight: 500;
-    font-size: 28px;
+    font-size: 20px;
     color: rgb(72, 72, 72);
 
     b {
@@ -134,6 +141,10 @@ body {
   display: flex;
   gap: 100px;
 
+  .work-section-inner {
+    animation: fadeIn 0.5s ease both;
+  }
+
   h6 {
     font-weight: 400;
     color: grey;
@@ -148,6 +159,10 @@ body {
   padding: 20px 20px;
   display: flex;
   gap: 100px;
+
+  .contact-section-inner {
+    animation: fadeIn 0.5s ease both;
+  }
 
   h6 {
     font-weight: 400;
@@ -233,6 +248,7 @@ body {
 .inprogress-section {
   padding-top: 50px;
   text-align: center;
+  animation: fadeIn 0.5s ease both;
 
   .progress-image {
     width: 500px;
@@ -250,13 +266,12 @@ body {
 @media screen and (max-width: 500px) {
   .main-wrapper {
     padding-top: 20px;
-    padding-bottom: 200px;
+    padding-bottom: 100px;
   }
 
   .navbar {
     height: 40px;
-    bottom: 30px;
-    animation: peakUp ease 0.5s both;
+    animation: peakUp ease 0.35s both;
   }
 
   .about-section {
@@ -302,15 +317,6 @@ body {
       height: 280px;
     }
   }
-
-  @keyframes peakUp {
-    from {
-      bottom: -100px;
-    }
-    to {
-      bottom: 30px;
-    }
-  }
 }
 
 @keyframes waive {
@@ -343,8 +349,30 @@ body {
 @keyframes peakDown {
   from {
     top: -100px;
+    opacity: 0.5;
   }
   to {
     top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes peakUp {
+  from {
+    bottom: -100px;
+    opacity: 0.5;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }

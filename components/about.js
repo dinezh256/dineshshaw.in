@@ -13,12 +13,12 @@ const About = () => {
       </Head>
       <div className="about-section">
         <NameCard />
-        <div>
+        <div className="about-section-inner">
           <h6>ABOUT</h6>
           <h2>
             Hello, there! <span className="waive-hand">👋🏼</span>
           </h2>
-          <h2>
+          <h2 style={{ animationDelay: '' }}>
             My name is <b>Dinesh Shaw</b> and I'm a <b>Web Developer</b> and{" "}
             <b>Freelancer</b> based in Jamshedpur. I've been working in the
             Computer Software industry for a while now gaining a lot of

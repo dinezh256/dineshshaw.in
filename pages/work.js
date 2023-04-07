@@ -12,7 +12,7 @@ const Work = () => {
       </Head>
       <div className="work-section">
         <NameCard />
-        <div>
+        <div className="work-section-inner">
           <h6>WORK</h6>
           <InProgress />
         </div>
