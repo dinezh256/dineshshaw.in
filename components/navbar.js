@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
@@ -22,13 +22,25 @@ const navMenuItems = [
 
 const Navbar = () => {
   const router = useRouter();
+
+  const [vibrate, setVibrate] = useState(false);
   const [activeTab, setActiveTab] = useState(
     navMenuItems.find((item) => router?.pathname === item.url)?.id
   );
 
   const handleTabChange = (id) => {
-    setActiveTab(id);
+    if (id !== activeTab) {
+      setActiveTab(id);
+      setVibrate(true);
+    }
   };
+
+  useEffect(() => {
+    if (vibrate) {
+      navigator.vibrate(20);
+      setVibrate(false);
+    }
+  }, [vibrate]);
 
   return (
     <div className="navbar">

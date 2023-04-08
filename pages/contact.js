@@ -46,11 +46,10 @@ const Contact = () => {
           <div className="emails">
             <h6>EMAIL</h6>
             <h3>
-              Hey there, are you stuck in the Stone Age of email writing? Well,
-              fear not my prehistoric friend, because here's my email address -
-              feel free to drop me a message on your trusty typewriter. Just
-              make sure to send it via carrier pigeon for that authentic vintage
-              touch.
+              Hey there, are you stuck in the Stone Age of email writing? Well
+              my prehistoric friend here's my email address - feel free
+              to drop me a message on your trusty typewriter. Just make sure to
+              send it via carrier pigeon for that authentic vintage touch.
             </h3>
             <a href="mailto:heydineshshaw@gmail.com" target="_blank">
               heydineshshaw@gmail.com
