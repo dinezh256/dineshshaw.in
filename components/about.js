@@ -1,5 +1,4 @@
 import Head from "next/head";
-import NameCard from "./nameCard";
 
 const About = () => {
   return (
@@ -12,7 +11,6 @@ const About = () => {
         />
       </Head>
       <div className="about-section">
-        <NameCard />
         <div className="about-section-inner">
           <h6>ABOUT</h6>
           <h2>

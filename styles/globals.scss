@@ -6,14 +6,14 @@
 
 body {
   margin: 0px;
-  background-color: #ececec;
+  background-color: #fafafa;
 }
 
 .main-wrapper {
   max-width: 1280px;
   margin: 0 auto;
   padding: 20px;
-  padding-top: 100px;
+  padding-top: 60px;
   animation: fadeIn 0.75s ease both;
   animation-delay: 0.2s;
 }
@@ -24,11 +24,14 @@ body {
   align-items: center;
   justify-content: center;
   position: fixed;
-  height: 100px;
-  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 40px;
+  width: 330px;
   animation: peakDown ease 0.35s both;
   z-index: 5;
   backdrop-filter: blur(5px);
+  border-radius: 25px;
 }
 
 .navbar-menu {
@@ -83,7 +86,9 @@ body {
 .name-card {
   min-width: 300px;
   max-width: 300px;
-  font-family: "Courier New", Courier, monospace;
+  position: sticky;
+  top: 150px;
+
   h1 {
     font-size: 32px;
     font-weight: 700;
@@ -98,11 +103,81 @@ body {
   }
 }
 
+// project card
+
+.project-card {
+  width: 400px;
+  height: 400px;
+  overflow: hidden;
+  transition: all 0.2s ease;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+
+  &:hover {
+    transform: scale(1.025);
+    transition: all 0.2s ease;
+  }
+
+  .project-card-top {
+    width: 100%;
+    height: 75%;
+
+    .card-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      cursor: pointer;
+    }
+
+    .project-details {
+      padding: 0 25px;
+      .project-name {
+        font-weight: 600;
+        margin-top: 15px;
+        margin-bottom: 10px;
+      }
+
+      .project-buttons {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        a {
+          width: 120px;
+          height: 30px;
+          background-color: black;
+          color: white;
+          text-decoration: none;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 25px;
+          font-weight: 500;
+          border: 1px solid grey;
+          font-size: 14px;
+        }
+
+        .visit {
+          width: 70px;
+        }
+      }
+    }
+  }
+
+  &.solid {
+    .project-card-top {
+      background-color: lightsteelblue;
+
+      .card-image {
+        object-fit: contain;
+      }
+    }
+  }
+}
+
 // about
 .about-section {
-  padding: 20px 20px;
-  display: flex;
-  gap: 100px;
+  padding: 0 20px;
+  padding-left: 400px;
 
   .about-section-inner {
     animation: fadeIn 0.5s ease both;
@@ -137,12 +212,18 @@ body {
 //work
 
 .work-section {
-  padding: 20px 20px;
-  display: flex;
-  gap: 100px;
+  padding: 0 20px;
+  padding-left: 400px;
 
   .work-section-inner {
     animation: fadeIn 0.5s ease both;
+
+    .project-section {
+      margin-top: 20px;
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
   }
 
   h6 {
@@ -156,9 +237,8 @@ body {
 //contact section
 
 .contact-section {
-  padding: 20px 20px;
-  display: flex;
-  gap: 100px;
+  padding: 0 20px;
+  padding-left: 400px;
 
   .contact-section-inner {
     animation: fadeIn 0.5s ease both;
@@ -281,15 +361,20 @@ body {
     padding-bottom: 100px;
   }
 
+  .name-card {
+    position: relative;
+    top: 0;
+    padding: 20px 20px;
+  }
+
   .navbar {
     height: 40px;
     animation: peakUp ease 0.35s both;
+    width: 360px;
   }
 
   .about-section {
-    flex-direction: column;
-    gap: 40px;
-
+    padding: 20px 20px;
     h6 {
       font-size: 12px;
     }
@@ -300,8 +385,7 @@ body {
   }
 
   .work-section {
-    flex-direction: column;
-    gap: 40px;
+    padding: 20px 20px;
 
     h6 {
       font-size: 12px;
@@ -309,8 +393,7 @@ body {
   }
 
   .contact-section {
-    flex-direction: column;
-    gap: 40px;
+    padding: 20px 20px;
 
     h6 {
       font-size: 12px;
@@ -369,7 +452,7 @@ body {
     opacity: 0.5;
   }
   to {
-    top: 0;
+    top: 30px;
     opacity: 1;
   }
 }

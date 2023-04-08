@@ -5,6 +5,7 @@ import { Analytics } from "@vercel/analytics/react";
 import Navbar from "../components/navbar";
 
 import "../styles/globals.scss";
+import NameCard from "../components/nameCard";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -28,6 +29,7 @@ function MyApp({ Component, pageProps }) {
       </Head>
       <Navbar />
       <div className="main-wrapper">
+        <NameCard />
         <Component {...pageProps} />
       </div>
       <Analytics />

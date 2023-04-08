@@ -1,6 +1,5 @@
 import Head from "next/head";
 
-import NameCard from "../components/nameCard";
 
 import ArrowTopRight from "../assets/icons/arrowTopRight";
 
@@ -16,7 +15,6 @@ const Contact = () => {
         />
       </Head>
       <div className="contact-section">
-        <NameCard />
         <div className="contact-section-inner">
           <h6>CONTACT</h6>
           <div className="socials">
