@@ -29,6 +29,13 @@ const Contact = () => {
               LinkedIn <ArrowTopRight />
             </a>
             <a
+              href="https://github.com/dinezh256"
+              target="_blank"
+              className="github"
+            >
+              Github <ArrowTopRight />
+            </a>
+            <a
               href="https://twitter.com/Dinezh256"
               target="_blank"
               className="twitter"
@@ -47,9 +54,9 @@ const Contact = () => {
             <h6>EMAIL</h6>
             <h3>
               Hey there, are you stuck in the Stone Age of email writing? Well
-              my prehistoric friend here's my email address - feel free
-              to drop me a message on your trusty typewriter. Just make sure to
-              send it via carrier pigeon for that authentic vintage touch.
+              my prehistoric friend here's my email address - feel free to drop
+              me a message on your trusty typewriter. Just make sure to send it
+              via carrier pigeon for that authentic vintage touch.
             </h3>
             <a href="mailto:heydineshshaw@gmail.com" target="_blank">
               heydineshshaw@gmail.com

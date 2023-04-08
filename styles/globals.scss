@@ -205,6 +205,12 @@ body {
       }
     }
 
+    .github {
+      &:hover {
+        background-color: rgb(94, 94, 94);
+      }
+    }
+
     .twitter {
       &:hover {
         background-color: #1da1f2;
