@@ -3,9 +3,9 @@ import Script from "next/script";
 import { Analytics } from "@vercel/analytics/react";
 
 import Navbar from "../components/navbar";
+import NameCard from "../components/nameCard";
 
 import "../styles/globals.scss";
-import NameCard from "../components/nameCard";
 
 function MyApp({ Component, pageProps }) {
   return (

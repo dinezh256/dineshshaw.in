@@ -2,23 +2,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-const navMenuItems = [
-  {
-    id: 0,
-    name: "About",
-    url: "/",
-  },
-  {
-    id: 1,
-    name: "Work",
-    url: "/work",
-  },
-  {
-    id: 2,
-    name: "Contact",
-    url: "/contact",
-  },
-];
+import { navMenuItems } from "../utils/constants";
 
 const Navbar = () => {
   const router = useRouter();
