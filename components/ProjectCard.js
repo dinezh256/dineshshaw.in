@@ -3,7 +3,7 @@ import Image from "next/image";
 const ProjectCard = ({
   src,
   type,
-  name = "project-image",
+  name,
   codeUrl,
   websiteUrl,
 }) => {
@@ -20,7 +20,7 @@ const ProjectCard = ({
         <div className="project-details">
           <h4 className="project-name">{name}</h4>
           <div className="project-buttons">
-            <a href={websiteUrl} target="_blank" className="visit">
+            <a className="visit" href={websiteUrl} target="_blank">
               <span>Visit</span>
             </a>
             {codeUrl && (
