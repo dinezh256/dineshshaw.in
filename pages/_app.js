@@ -2,8 +2,8 @@ import Head from "next/head";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/react";
 
-import Navbar from "../components/Navbar";
-import NameCard from "../components/NameCard";
+import Navbar from "../components/navbar";
+import NameCard from "../components/nameCard";
 
 import "../styles/globals.scss";
 

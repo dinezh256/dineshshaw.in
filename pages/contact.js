@@ -1,6 +1,4 @@
 import Head from "next/head";
-
-
 import ArrowTopRight from "../assets/icons/arrowTopRight";
 
 const Contact = () => {
