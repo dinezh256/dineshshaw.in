@@ -1,6 +1,6 @@
 import Head from "next/head";
 
-import ProjectCard from "../components/projectCard";
+import ProjectCard from "../components/projectCardLayout";
 import { projects } from "../utils/constants";
 
 const Work = () => {
