@@ -14,8 +14,8 @@ const ProjectCard = ({
           className="card-image"
           src={src}
           priority
-          alt={name}
           draggable={false}
+          alt={name}
         />
         <div className="project-details">
           <h4 className="project-name">{name}</h4>
