@@ -16,7 +16,7 @@ const Contact = () => {
       </Head>
       <div className="contact-section">
         <div className="contact-section-inner">
-          <h6>CONTACT</h6>
+          {/* <h6>CONTACT</h6> */}
           <div className="socials">
             <h6>SOCIALS</h6>
             <a
