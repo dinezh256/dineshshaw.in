@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import Head from "next/head";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/react";
@@ -5,9 +6,13 @@ import { Analytics } from "@vercel/analytics/react";
 import Navbar from "../components/navbar";
 import NameCard from "../components/nameCard";
 
+import { whiteListRoutes } from '../utils/constants';
 import "../styles/globals.scss";
 
 function MyApp({ Component, pageProps }) {
+  const router = useRouter();
+  const showComponent = whiteListRoutes.includes(router.pathname);
+  
   return (
     <>
       <Script
@@ -27,9 +32,9 @@ function MyApp({ Component, pageProps }) {
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <Navbar />
+      {showComponent && <Navbar />}
       <div className="main-wrapper">
-        <NameCard />
+        {showComponent && <NameCard />}
         <Component {...pageProps} />
       </div>
       <Analytics />

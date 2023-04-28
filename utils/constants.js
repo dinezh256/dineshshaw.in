@@ -118,3 +118,9 @@ export const navMenuItems = [
     url: "/contact",
   },
 ];
+
+export const whiteListRoutes = [
+  '/',
+  '/work',
+  '/contact',
+];
