@@ -9,10 +9,10 @@ import NameCard from "../components/nameCard";
 import { whiteListRoutes } from '../utils/constants';
 import "../styles/globals.scss";
 
-function MyApp({ Component, pageProps }) {
+const MyApp = ({ Component, pageProps }) => {
   const router = useRouter();
   const showComponent = whiteListRoutes.includes(router.pathname);
-  
+
   return (
     <>
       <Script

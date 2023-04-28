@@ -1,7 +1,5 @@
 import About from "../components/about";
 
-function Home() {
-  return <About />;
-}
+const Home = () => <About />;
 
 export default Home;
