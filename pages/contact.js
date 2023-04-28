@@ -14,9 +14,9 @@ const Contact = () => {
       </Head>
       <div className="contact-section">
         <div className="contact-section-inner">
-          {/* <h6>CONTACT</h6> */}
+          {/* <h1>CONTACT</h1> */}
           <div className="socials">
-            <h6>SOCIALS</h6>
+            <h1>SOCIALS</h1>
             <a
               href="https://in.linkedin.com/in/shawdinesh"
               target="_blank"
@@ -47,13 +47,13 @@ const Contact = () => {
             </a>
           </div>
           <div className="emails">
-            <h6>EMAIL</h6>
-            <h3>
+            <h1>EMAIL</h1>
+            <h2>
               Hey there, are you stuck in the Stone Age of email writing? Well
               my prehistoric friend here's my email address - feel free to drop
               me a message on your trusty typewriter. Just make sure to send it
               via carrier pigeon for that authentic vintage touch.
-            </h3>
+            </h2>
             <a href="mailto:heydineshshaw@gmail.com" target="_blank">
               heydineshshaw@gmail.com
             </a>

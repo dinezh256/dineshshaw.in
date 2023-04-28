@@ -12,7 +12,7 @@ const Work = () => {
       </Head>
       <div className="work-section">
         <div className="work-section-inner">
-          <h6>WORK</h6>
+          <h1>WORK</h1>
           <div className="project-section">
             {projects.map((project) => (
               <ProjectCard key={project.id} {...project} />
