@@ -42,7 +42,7 @@ const About = () => {
             .sort((a, b) => b.orgId - a.orgId)
             .map(({ orgId, orgName, yearwise }) => (
               <div className="timeline-org" key={orgId}>
-                <h4>{orgName}</h4>
+                <h3>{orgName}</h3>
                 <div
                   className={
                     yearwise.length < 2 ? "org-levels" : `org-levels border`
@@ -52,8 +52,8 @@ const About = () => {
                     .sort((a, b) => b.id - a.id)
                     .map(({ id, start, end, position }) => (
                       <div className="org-level" key={id}>
-                        <CupIcon /> <h5>{`${start} - ${end}`}</h5>
-                        <h5>—&nbsp;&nbsp;{position}</h5>
+                        <CupIcon /> <h4>{`${start} - ${end}`}</h4>
+                        <h4>—&nbsp;&nbsp;{position}</h4>
                       </div>
                     ))}
                 </div>

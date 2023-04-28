@@ -13,7 +13,7 @@ const NameCard = () => {
           priority
         />
         <h1>Dinesh Shaw</h1>
-        <h5>Software Engineer</h5>
+        <h2>Software Engineer</h2>
       </div>
     </div>
   );

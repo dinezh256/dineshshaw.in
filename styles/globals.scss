@@ -123,11 +123,11 @@ body {
       margin-top: 10px;
     }
 
-    h5 {
+    h2 {
       font-size: 16px;
       font-weight: 500;
       line-height: 40px;
-      color: grey;
+      color: rgb(108, 108, 108);
     }
   }
 }
@@ -181,7 +181,7 @@ body {
           justify-content: center;
           border-radius: 25px;
           font-weight: 500;
-          border: 1px solid grey;
+          border: 1px solid rgb(108, 108, 108);
           font-size: 14px;
         }
 
@@ -217,6 +217,10 @@ body {
     .timeline-org {
       margin-top: 30px;
 
+      h3 {
+        font-size: 16px;
+      }
+
       .org-levels {
         margin: 10px 7.5px;
         margin-right: 0;
@@ -226,7 +230,7 @@ body {
         border-left: 2px solid transparent;
 
         &.border {
-          border-left: 2px solid grey;
+          border-left: 2px solid rgb(108, 108, 108);
         }
 
         .org-level {
@@ -240,7 +244,7 @@ body {
             border-radius: 50%;
           }
 
-          h5 {
+          h4 {
             font-weight: 500;
             font-size: 14px;
           }
@@ -251,7 +255,7 @@ body {
 
   h6 {
     font-weight: 400;
-    color: grey;
+    color: rgb(108, 108, 108);
     font-size: 14px;
     margin: 0;
   }
@@ -303,7 +307,7 @@ body {
 
   h6 {
     font-weight: 400;
-    color: grey;
+    color: rgb(108, 108, 108);
     font-size: 14px;
     margin: 0;
   }
@@ -322,7 +326,7 @@ body {
 
   h6 {
     font-weight: 400;
-    color: grey;
+    color: rgb(108, 108, 108);
     font-size: 14px;
     margin: 0;
   }
