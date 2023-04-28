@@ -103,7 +103,6 @@ body {
   max-width: 300px;
   position: sticky;
   top: 150px;
-  margin: auto;
 
   .name-card-inner {
     margin: auto;
@@ -441,6 +440,7 @@ body {
     position: relative;
     top: 0;
     padding: 20px 20px;
+    margin: auto;
   }
 
   .navbar {
