@@ -35,13 +35,13 @@ export const timeline = [
       {
         id: 0,
         start: "Feb",
-        end: "Aug 2022",
+        end: "Aug 2021",
         position: "SDE I",
       },
       {
         id: 1,
         start: "Sep",
-        end: "Dec 2023",
+        end: "Dec 2021",
         position: "SDE II",
       },
     ],
