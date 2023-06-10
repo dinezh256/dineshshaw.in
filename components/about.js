@@ -1,5 +1,5 @@
 import Head from "next/head";
-import CupIcon from "../assets/icons/cup";
+import CheckMarkIcon from "../assets/icons/checkMarkIcon";
 import { timeline } from "../utils/constants";
 
 const About = () => {
@@ -53,7 +53,7 @@ const About = () => {
                     .sort((a, b) => b.id - a.id)
                     .map(({ id, start, end, position }) => (
                       <div className="org-level" key={id}>
-                        <CupIcon /> <h4>{`${start} - ${end}`}</h4>
+                        <CheckMarkIcon /> <h4>{`${start} - ${end}`}</h4>
                         <h4>—&nbsp;&nbsp;{position}</h4>
                       </div>
                     ))}

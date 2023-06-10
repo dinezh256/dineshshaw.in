@@ -6,7 +6,7 @@
 
 body {
   margin: 0px;
-  background-color: #fafafa;
+  background-color: #e8e8e8;
   overflow: overlay;
 
   &::-webkit-scrollbar {
@@ -115,8 +115,8 @@ body {
       width: 210px;
       height: 210px;
       border-radius: 20px;
-      border: 10px solid rgb(231, 231, 231);
-      background-color: rgb(231, 231, 231);
+      border: 10px solid rgb(215, 215, 215);
+      background-color: rgb(215, 215, 215);
 
       .display-image {
         width: 210px;
@@ -276,7 +276,7 @@ body {
   h2 {
     margin-top: 20px;
     font-weight: 500;
-    font-size: 20px;
+    font-size: 18px;
     color: rgb(72, 72, 72);
 
     b {
