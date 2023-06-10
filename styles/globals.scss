@@ -152,16 +152,6 @@ body {
   border: 1px solid #ccc;
   margin-bottom: 40px;
 
-  @media screen and (max-width: 767px) {
-    width: 100%;
-    height: 400px;
-    margin-bottom: 30px;
-
-    .project-card-top {
-      height: 75%;
-    }
-  }
-
   &:hover {
     transform: scale(1.025);
     transition: all 0.2s ease;
@@ -209,6 +199,16 @@ body {
           width: 70px;
         }
       }
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    width: 100%;
+    height: 400px;
+    margin-bottom: 30px;
+
+    .project-card-top {
+      height: 75%;
     }
   }
 
