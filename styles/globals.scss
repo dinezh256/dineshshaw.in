@@ -104,17 +104,25 @@ body {
   max-width: 300px;
   position: sticky;
   top: 150px;
+  z-index: 2;
 
   .name-card-inner {
     margin: auto;
     width: 230px;
     text-align: center;
 
-    .display-image {
+    .name-card-image {
       width: 210px;
       height: 210px;
       border-radius: 20px;
       border: 10px solid rgb(231, 231, 231);
+      background-color: rgb(231, 231, 231);
+
+      .display-image {
+        width: 210px;
+        height: 210px;
+        border-radius: 12px;
+      }
     }
 
     h1 {
@@ -212,13 +220,18 @@ body {
   animation: fadeIn 0.5s ease both;
 
   .timeline-wrapper {
-    margin: 15px 0;
+    margin: 50px 0 25px 0;
+
+    h1 {
+      text-transform: uppercase;
+    }
 
     .timeline-org {
       margin-top: 30px;
 
       h3 {
-        font-size: 16px;
+        font-size: 18px;
+        font-weight: 600;
       }
 
       .org-levels {
@@ -230,7 +243,7 @@ body {
         border-left: 2px solid transparent;
 
         &.border {
-          border-left: 2px solid rgb(108, 108, 108);
+          border-left: 2px solid rgb(227, 227, 227);
         }
 
         .org-level {

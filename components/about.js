@@ -38,6 +38,7 @@ const About = () => {
           </h2>
         </div>
         <div className="timeline-wrapper">
+          <h1>Journey</h1>
           {timeline
             .sort((a, b) => b.orgId - a.orgId)
             .map(({ orgId, orgName, yearwise }) => (
