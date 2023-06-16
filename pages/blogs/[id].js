@@ -32,7 +32,7 @@ export async function getStaticProps({ params }) {
 
 export async function getStaticPaths() {
   return {
-    paths: ["/blogs/article"],
+    paths: ["/blogs/securely-transmit-data-in-unexpected-situations-using-react"],
     fallback: true,
   };
 }
