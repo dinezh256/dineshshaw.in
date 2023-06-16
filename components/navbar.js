@@ -20,8 +20,14 @@ const Navbar = () => {
   };
 
   useEffect(() => {
+    if (router.pathname.includes('/blogs/')) {
+      setActiveTab(2);
+    }
+  }, [router.pathname])
+
+  useEffect(() => {
     if (vibrate) {
-      navigator.vibrate(20);
+      navigator.vibrate(21);
       setVibrate(false);
     }
   }, [vibrate]);

@@ -1,7 +1,16 @@
+import path from "path";
+import formatDuration from "date-fns/formatDuration";
+import intervalToDuration from "date-fns/intervalToDuration";
+
 import PustackImage from "../assets/Pustack.webp";
 import CovidStatsImage from "../assets/CovidStats.webp";
 import RoyalMintImage from "../assets/RoyalMint.webp";
 import DubariImage from "../assets/Dubari.webp";
+
+export const humanizeDuration = (time) => {
+  const durations = intervalToDuration({ start: 0, end: time * 1000 });
+  return formatDuration(durations);
+};
 
 export const timeline = [
   {
@@ -114,13 +123,30 @@ export const navMenuItems = [
   },
   {
     id: 2,
-    name: "Contact",
-    url: "/contact",
+    name: "Blogs",
+    url: "/blogs",
   },
 ];
 
-export const whiteListRoutes = [
-  '/',
-  '/work',
-  '/contact',
+export const whiteListRoutes = ["/", "/work", "/contact", "/blogs"];
+
+export const navbarRoutes = ["/", "/work", "/contact", "/blogs"];
+
+const docsDirectory = path.join(process.cwd(), "markdown");
+
+export const blogsList = [
+  {
+    id: 0,
+    slug: "securely-transmit-data-in-unexpected-situations-using-react",
+    fileName: "secure-transmission",
+    createdAt: 1686933164331,
+    readDuration: 120,
+    name: "Securely Transmit Data in Unexpected Situations using React",
+  },
 ];
+
+export const getDocBySlug = (slug) => {
+  const blogRecord = blogsList.find((blog) => blog.slug === slug);
+  if (blogRecord) return path.join(docsDirectory, `${blogRecord.fileName}.md`);
+  return path.join(docsDirectory, "not-found.md");
+};

@@ -6,27 +6,22 @@
 
 body {
   margin: 0px;
-  background-color: #e8e8e8;
-
-  &::-webkit-scrollbar-track {
-    border-left: 5px solid #e8e8e8;
-    border-right: 5px solid #e8e8e8;
-    background-color: #b2bec3;
-  }
+  background-color: #f9f9f9;
 
   &::-webkit-scrollbar {
-    width: 15px;
-    background-color: #dfe6e9;
+    width: 10px;
   }
 
-  &::-webkit-scrollbar-thumb {
-    background-color: #111111;
-    border-radius: 8px;
+  &::-webkit-scrollbar-thumb,
+  &::-webkit-scrollbar-thumb:horizontal {
+    width: 10px;
+    border-radius: 5px;
+    background: rgba(17, 27, 39, 0.75);
   }
 }
 
 .main-wrapper {
-  max-width: 1280px;
+  max-width: 800px;
   margin: 0 auto;
   padding: 20px;
   padding-top: 60px;
@@ -47,17 +42,17 @@ body {
   top: 30px;
   animation: peakDown ease 0.35s both;
   z-index: 5;
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(6px);
   border-radius: 25px;
 }
 
 .navbar-menu {
   height: 40px;
-  border: 1px solid #dedcd9;
+  border: 1.5px solid rgba(218, 229, 241, 0.15);
   border-radius: 25px;
   overflow: hidden;
   position: relative;
-  background: rgba(255, 255, 255, 0.4);
+  background: rgba(218, 229, 241, 0.5);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -70,7 +65,7 @@ body {
   width: 110px;
   height: 40px;
   border-radius: 20px;
-  background-color: black;
+  background-color: rgb(0, 0, 0);
   z-index: 1;
   transition: left 0.25s linear;
 }
@@ -101,10 +96,10 @@ body {
 
 // name card
 .name-card {
-  min-width: 300px;
-  max-width: 300px;
+  min-width: 230px;
+  max-width: 230px;
   position: sticky;
-  top: 150px;
+  top: 140px;
   z-index: 2;
 
   .name-card-inner {
@@ -144,45 +139,58 @@ body {
 // project card
 
 .project-card {
-  width: 540px;
-  height: 540px;
+  width: 245px;
+  height: 245px;
   overflow: hidden;
-  transition: all 0.2s ease;
   border-radius: 12px;
   border: 1px solid #ccc;
-  margin-bottom: 40px;
-
+  margin-bottom: 25px;
+  position: relative;
   &:hover {
-    transform: scale(1.025);
-    transition: all 0.2s ease;
+    .card-image {
+      transform: scale(1.05);
+      transition: all 0.2s ease;
+    }
   }
 
   .project-card-top {
     width: 100%;
-    height: 80%;
+    height: 100%;
 
     .card-image {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      cursor: pointer;
+      object-position: top;
+      transition: all 0.2s ease;
     }
 
     .project-details {
-      padding: 0 25px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      padding: 0px 15px 0px 15px;
+      height: 100%;
+      background: linear-gradient(
+        180deg,
+        transparent 20%,
+        rgba(176, 196, 222, 1) 100%
+      );
+      width: calc(100% - 30px);
       .project-name {
+        padding-top: 175px;
         font-weight: 600;
-        margin-top: 15px;
         margin-bottom: 10px;
+        color: white;
       }
 
       .project-buttons {
         display: flex;
         align-items: center;
-        gap: 20px;
+        gap: 10px;
         a {
-          width: 120px;
-          height: 30px;
+          width: 80px;
+          height: 24px;
           background-color: black;
           color: white;
           text-decoration: none;
@@ -192,29 +200,39 @@ body {
           border-radius: 25px;
           font-weight: 500;
           border: 1px solid rgb(108, 108, 108);
-          font-size: 14px;
+          font-size: 11px;
+          transition: all 0.2s ease;
+
+          &:hover {
+            transform: scale(1.05);
+            transition: all 0.2s ease;
+          }
         }
 
         .visit {
-          width: 70px;
+          width: 60px;
         }
       }
     }
   }
 
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 500px) {
     width: 100%;
-    height: 400px;
-    margin-bottom: 30px;
+    height: 300px;
+    margin-bottom: 25px;
 
     .project-card-top {
-      height: 75%;
+      .project-details {
+        .project-name {
+          padding-top: 225px;
+        }
+      }
     }
   }
 
   &.solid {
     .project-card-top {
-      background-color: lightsteelblue;
+      background-color: rgb(124, 164, 215);
 
       .card-image {
         object-fit: contain;
@@ -225,8 +243,7 @@ body {
 
 // about
 .about-section {
-  padding: 0 20px;
-  padding-left: 400px;
+  padding-left: 280px;
   position: relative;
   margin-top: -240px;
   animation: fadeIn 0.5s ease both;
@@ -288,8 +305,26 @@ body {
     font-weight: 500;
     font-size: 18px;
     color: rgb(72, 72, 72);
+    div {
+      display: inline-block;
+      position: relative;
+      span {
+        animation: changeword 4s linear infinite;
+        display: inline-block;
+        position: absolute;
+        top: -17px;
+        opacity: 0;
+        width: max-content;
+      }
 
-    b {
+      span:nth-child(1) {
+        animation-delay: 0s;
+      }
+      span:nth-child(2) {
+        animation-delay: 2s;
+      }
+    }
+    span {
       font-weight: 600;
       color: black;
     }
@@ -313,8 +348,7 @@ body {
 //work
 
 .work-section {
-  padding: 0 20px;
-  padding-left: 400px;
+  padding-left: 280px;
   margin-top: -240px;
 
   .work-section-inner {
@@ -322,6 +356,9 @@ body {
 
     .project-section {
       margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
     }
   }
 
@@ -336,10 +373,7 @@ body {
 //contact section
 
 .contact-section {
-  padding: 0 20px;
-  padding-left: 400px;
-  margin-top: -240px;
-
+  margin: 50px 0;
   .contact-section-inner {
     animation: fadeIn 0.5s ease both;
   }
@@ -410,7 +444,6 @@ body {
       color: rgb(70, 70, 70);
       font-weight: 500;
       margin-bottom: 20px;
-      width: 620px;
     }
 
     h1 {
@@ -418,12 +451,12 @@ body {
     }
 
     a {
-      color: dodgerblue;
+      color: #0077b5;
       transition: all 0.15s ease;
 
       &:hover {
         color: white;
-        background-color: dodgerblue;
+        background-color: #0077b5;
       }
     }
   }
@@ -452,6 +485,93 @@ body {
   h4 {
     font-size: 16px;
     font-weight: 500;
+  }
+}
+
+.blog-section {
+  padding-left: 280px;
+  position: relative;
+  margin-top: -240px;
+  animation: fadeIn 0.5s ease both;
+  min-height: 500px;
+
+  h1 {
+    font-weight: 400;
+    color: rgb(108, 108, 108);
+    font-size: 14px;
+    margin: 0;
+  }
+
+  .blog-list {
+    margin-top: 30px;
+    a {
+      text-decoration: none;
+    }
+    .blog-card {
+      margin-bottom: 25px;
+      border: 1px solid rgba(180, 180, 180, 0.25);
+      box-shadow: 0px 0px 10px rgba(180, 180, 180, 0.5);
+      background-color: white;
+      padding: 10px 12.5px;
+      border-radius: 8px;
+      cursor: pointer;
+
+      span {
+        color: lightslategray;
+        font-weight: 500;
+        font-size: 16px;
+      }
+
+      .blog-meta {
+        margin-top: 10px;
+        span {
+          color: rgb(102, 102, 102);
+          font-weight: 400;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}
+
+.blog-page-wrapper {
+  margin-top: 60px;
+  .highlighted-code {
+    background-color: #fdf6e3;
+    padding: 1px 4px;
+    border-radius: 4px;
+    color: rgb(181, 137, 0);
+  }
+
+  h1 {
+    margin: 20px 0;
+  }
+  h3 {
+    margin: 15px 0;
+    font-weight: 600;
+  }
+
+  h4 {
+    font-weight: 500;
+    margin: 20px 0 10px 0;
+  }
+
+  p {
+    margin: 0 0 12.5px 0;
+    line-height: 24px;
+    color: rgb(96, 96, 96);
+  }
+
+  code {
+    font-size: 14px !important;
+    font-family: monospace !important;
+    * {
+      font-family: monospace !important;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    margin-top: 0px;
   }
 }
 
@@ -484,7 +604,14 @@ body {
     }
 
     h2 {
+      margin-top: 10px;
       font-size: 16px;
+
+      div {
+        span {
+          top: -16px;
+        }
+      }
     }
   }
 
@@ -498,9 +625,6 @@ body {
   }
 
   .contact-section {
-    padding: 20px 20px;
-    margin-top: 0;
-
     .emails {
       h2 {
         font-size: 15px;
@@ -511,6 +635,11 @@ body {
         font-size: 20px;
       }
     }
+  }
+
+  .blog-section {
+    padding: 20px 20px;
+    margin-top: 0;
   }
 
   .inprogress-section {
@@ -576,5 +705,27 @@ body {
   }
   to {
     opacity: 1;
+  }
+}
+
+@keyframes changeword {
+  0% {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+
+  2% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  48% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  52% {
+    opacity: 0;
+    transform: translateY(10px);
   }
 }

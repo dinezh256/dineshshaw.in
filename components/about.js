@@ -1,6 +1,8 @@
 import Head from "next/head";
+
 import CheckMarkIcon from "../assets/icons/checkMarkIcon";
 import { timeline } from "../utils/constants";
+import Contact from "./contact";
 
 const About = () => {
   return (
@@ -18,23 +20,15 @@ const About = () => {
           <h2>
             Hello, there! <span className="waive-hand">👋🏼</span>
           </h2>
-          <h2 style={{ animationDelay: "" }}>
-            My name is <b>Dinesh Shaw</b> and I'm a <b>Web Developer</b> and{" "}
-            <b>Freelancer</b> based in Jamshedpur. I've been working in the
-            Computer Software industry for a while now gaining a lot of
-            experience in this field.
+          <h2>
+            My name is <b>Dinesh Shaw</b>
           </h2>
           <h2>
-            I specialize in <b>JavaScript, ReactJS, NodeJS</b>, etc. I always
-            strive to create innovative solutions that meet the needs of my
-            clients. Paying attention to details is what sets me apart to
-            deliver the best results possible.
-          </h2>
-          <h2>
-            In this fast-paced industry, I'm always looking for ways to improve
-            my skills and I'm constantly learning new things. If you're looking
-            for a guy who is reliable, skilled, and passionate about their work,
-            then I'm your guy. Let's work together to create something amazing!
+            I'm a passionate{" "}
+            <div>
+              <span>Web Developer</span>
+              <span>Freelancer</span>
+            </div>
           </h2>
         </div>
         <div className="timeline-wrapper">
@@ -61,6 +55,7 @@ const About = () => {
               </div>
             ))}
         </div>
+        <Contact />
       </div>
     </>
   );
