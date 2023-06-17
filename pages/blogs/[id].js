@@ -15,17 +15,22 @@ export default function Page({ markdownContent, meta = notFoundBlogMeta }) {
         <title>{meta.name} - Dinesh Shaw</title>
         <meta title="description" content={meta.description} />
       </Head>
-      <div className="flex-between blogs-nav">
+      <div className="back-to-blogs">
         <Link href="/blogs" as="/blogs" className="flex-start">
-          <ChevronLeft size={22} /> Blogs
+          <ChevronLeft size={20} /> Back
         </Link>
+      </div>
+      <div className="flex-between blogs-nav">
         {meta.createdAt > 0 && (
-          <span className="flex-start">
+          <h6 className="flex-start">
             <Calendar size={16} /> {format(meta.createdAt, "PPP")}
-          </span>
+          </h6>
         )}
       </div>
-      <MarkdownRenderer content={markdownContent} />
+
+      <div className="markdown">
+        <MarkdownRenderer content={markdownContent} />
+      </div>
     </div>
   );
 }

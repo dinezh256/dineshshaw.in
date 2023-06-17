@@ -564,22 +564,41 @@ body {
   margin-top: 60px;
   animation: peakUpBlog 0.2s ease both;
 
-  .blogs-nav {
+  .back-to-blogs {
+    position: sticky;
+    top: 35px;
+    z-index: 5;
     margin-bottom: 30px;
+    background-color: rgba(255, 255, 255, 1);
+    border: 1px solid #e3e3e3;
+    border-radius: 20px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    padding: 0 10px 0 5px;
+    width: max-content;
+
     a {
       text-decoration: none;
       color: rgb(64, 114, 164);
       font-weight: 500;
-      gap: 0px;
 
       svg {
         padding-top: 1px;
       }
     }
+  }
 
-    span {
+  .blogs-nav {
+    margin-top: -45px;
+    position: relative;
+    float: right;
+
+    h6 {
       gap: 5px;
       color: dimgray;
+      font-size: 14px;
+      font-weight: 400;
     }
   }
 
@@ -797,15 +816,15 @@ body {
 
   .blog-page-wrapper {
     max-width: calc(100vw - 40px);
-    overflow: hidden;
+
+    .markdown {
+      padding-top: 20px;
+    }
 
     .blogs-nav {
-      margin-top: 20px;
-
-      a,
-      span {
-        font-size: 16px;
-      }
+      margin-top: -20px;
+      justify-content: flex-end;
+      float: none;
     }
 
     h2 {
