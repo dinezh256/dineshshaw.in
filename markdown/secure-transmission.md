@@ -10,9 +10,9 @@ As web developers, we often encounter scenarios where we need to send data to a 
 
 Let's briefly discuss the window events that we'll be utilizing:
 
-1. `beforeunload`: This event is triggered just before the user leaves the page, either by closing the tab or navigating to another URL. It provides an opportunity to execute some code before the page unloads.
+1. `beforeunload` : This event is triggered just before the user leaves the page, either by closing the tab or navigating to another URL. It provides an opportunity to execute some code before the page unloads.
 
-2. `unload`: This event is fired when the page unloads. It allows us to perform final actions before the user leaves the page completely.
+2. `unload` : This event is fired when the page unloads. It allows us to perform final actions before the user leaves the page completely.
 
 Let's dive into the implementation
 
@@ -67,7 +67,7 @@ export default MyComponent;
 
 To send data reliably to the server, we'll use the Beacon API's `sendBeacon()` method. This method creates an asynchronous and reliable HTTP request in the background without delaying the page unload or affecting the user experience.
 
-In the `sendDataToServer()` function above, we use `navigator.sendBeacon()` to send the data to the server. You can replace `'/api/endpoint'` with the appropriate server endpoint URL, and `data` with the actual data you want to transmit.
+In the `sendDataToServer()` function above, we use `navigator.sendBeacon()` to send the data to the server. You can replace `/api/endpoint` with the appropriate server endpoint URL, and `data` with the actual data you want to transmit.
 
 #### Step 4: Cleaning Up Event Listeners
 
@@ -75,7 +75,7 @@ To ensure proper memory management and prevent memory leaks, it's crucial to rem
 
 ### Conclusion
 
-In this blog post, we explored how to send data to a server when a user closes the tab, reloads the page, or navigates to another route in a ReactJS application. By leveraging window events such as `beforeunload` and `unload`, along with the Beacon API, we can reliably transmit important data to the server, even in unexpected scenarios.
+In this blog post, we explored how to send data to a server when a user closes the tab, reloads the page, or navigates to another route in a ReactJS application. By leveraging window events such as `beforeunload` and `unload`, along with the `Beacon` API, we can reliably transmit important data to the server, even in unexpected scenarios.
 
 Remember, handling user actions like closing the tab or reloading the page can be sensitive, so make sure to handle and process data securely on the server side. With these techniques, you can enhance your application's functionality and provide a smoother experience for your users.
 

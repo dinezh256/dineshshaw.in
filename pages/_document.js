@@ -43,7 +43,7 @@ class MyDocument extends Document {
           <meta name="msapplication-TileColor" content="#2b5797" />
           <meta name="theme-color" content="#fafafa" />
           <meta name="description" content="Dinesh Shaw" />
-          <meta name="msapplication-TileColor" content="#3291ff"></meta>
+          <meta name="msapplication-TileColor" content="#145bcd"></meta>
           <link rel="manifest" href="/manifest.json" />
           <meta property="og:type" content="website" />
           <meta property="og:url" content="https://dineshshaw.in" />

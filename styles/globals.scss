@@ -58,10 +58,10 @@ body {
   animation: peakDown ease 0.35s both;
   z-index: 5;
   border-radius: 20px;
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(3px);
   background: radial-gradient(
     rgba(0, 0, 0, 0.1) 1px,
-    rgba(213, 235, 253, 0.5) 1px
+    rgba(184, 230, 255, 0.5) 1px
   );
   background-size: 4px 4px;
 }
@@ -475,13 +475,13 @@ body {
     }
 
     a {
-      color: #0077b5;
+      color: #145bcd;
       transition: all 0.15s ease;
       font-size: 20px;
 
       &:hover {
         color: white;
-        background-color: #0077b5;
+        background-color: #145bcd;
       }
     }
   }
@@ -541,7 +541,7 @@ body {
       cursor: pointer;
 
       h3 {
-        color: rgb(64, 114, 164);
+        color: #145bcd;
         font-weight: 600;
         font-size: 18px;
       }
@@ -584,10 +584,13 @@ body {
   }
 
   .highlighted-code {
-    background-color: #fdf6e3;
-    padding: 1px 4px;
+    font-weight: 600;
+    font-size: 12px;
+    padding: 2px 4px;
     border-radius: 4px;
-    color: rgb(181, 137, 0);
+    background: #f1f1f1;
+    border: 1px dashed #e1e1e1;
+    color: rgb(60, 60, 60);
   }
 
   h2 {
@@ -664,7 +667,7 @@ body {
   }
 
   .name-card {
-    top: 20px;
+    top: 0px;
     position: relative;
     margin: auto;
     margin: 20px;
@@ -682,15 +685,15 @@ body {
       align-items: center;
       gap: 30px;
       text-align: left;
-      background-color: #0076b549;
+      background-color: hwb(201 0% 29% / 0.286);
       border-radius: 8px;
 
       .name-card-image {
         width: 52px;
         height: 52px;
-        border: 2px solid #0076b522;
+        border: 2px solid white;
         border-radius: 7px;
-        background-color: #0076b522;
+        background-color: white;
 
         .display-image {
           border-radius: 5px;
@@ -707,7 +710,7 @@ body {
 
       h1 {
         font-size: 22px;
-        color: #3291ff;
+        color: #145bcd;
       }
 
       h2 {
