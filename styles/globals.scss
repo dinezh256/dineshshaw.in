@@ -559,8 +559,6 @@ body {
 
 .blog-page-wrapper {
   margin-top: 60px;
-  max-width: 800px;
-  width: 100%;
   animation: peakUpBlog 0.2s ease both;
 
   .blogs-nav {
@@ -714,6 +712,19 @@ body {
     .image-wrapper .progress-image {
       width: 280px;
       height: 280px;
+    }
+  }
+
+  .blog-page-wrapper {
+    max-width: 100vw;
+    overflow: hidden;
+
+    .blogs-nav {
+      margin-top: 20px;
+    }
+
+    h2 {
+      font-size: 18px;
     }
   }
 }
