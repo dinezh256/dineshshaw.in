@@ -19,7 +19,7 @@ export const timeline = [
     yearwise: [
       {
         id: 0,
-        start: "Aug",
+        start: "Aug 2020",
         end: "Dec 2020",
         position: "Freelancer (FE)",
       },
@@ -31,7 +31,7 @@ export const timeline = [
     yearwise: [
       {
         id: 0,
-        start: "Nov",
+        start: "Nov 2020",
         end: "Dec 2020",
         position: "Freelancer (FE)",
       },
@@ -43,13 +43,13 @@ export const timeline = [
     yearwise: [
       {
         id: 0,
-        start: "Feb",
+        start: "Feb 2021",
         end: "Aug 2021",
         position: "SDE I",
       },
       {
         id: 1,
-        start: "Sep",
+        start: "Sep 2021",
         end: "Dec 2021",
         position: "SDE II",
       },
@@ -61,7 +61,7 @@ export const timeline = [
     yearwise: [
       {
         id: 0,
-        start: "Jan",
+        start: "Jan 2022",
         end: "Dec 2022",
         position: "SWE I",
       },
@@ -141,12 +141,35 @@ export const blogsList = [
     fileName: "secure-transmission",
     createdAt: 1686933164331,
     readDuration: 120,
-    name: "Securely Transmit Data in Unexpected Situations using React",
+    name: "Securely Transmit Data in Unexpected Situations using React and Window events",
+    description: "Sending data to the Server when the User navigates away, closes/reloads the tab."
   },
 ];
 
+const notFoundBlogMeta = {
+  id: 0,
+  slug: "",
+  fileName: "",
+  createdAt: 0,
+  readDuration: 0,
+  name: "No Blog Found",
+};
+
+export const getBlogMeta = (slug) =>
+  blogsList.find((blog) => blog.slug === slug);
+
 export const getDocBySlug = (slug) => {
-  const blogRecord = blogsList.find((blog) => blog.slug === slug);
-  if (blogRecord) return path.join(docsDirectory, `${blogRecord.fileName}.md`);
-  return path.join(docsDirectory, "not-found.md");
+  const blogMeta = getBlogMeta(slug);
+
+  if (blogMeta) {
+    return {
+      file: path.join(docsDirectory, `${blogMeta.fileName}.md`),
+      blogMeta,
+    };
+  }
+
+  return {
+    file: path.join(docsDirectory, "not-found.md"),
+    blogMeta: notFoundBlogMeta,
+  };
 };

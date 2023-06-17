@@ -1,12 +1,12 @@
-# Securely Transmit Data in Unexpected Situations using React
+## Securely Transmit Data in Unexpected Situations using React and Window events
 
-Sending data to the Server when the User navigates away, closes/reloads the tab.
+Sending data to the Server when the User navigates away, closes or reloads the browser tab.
 
 ### Introduction
 
 As web developers, we often encounter scenarios where we need to send data to a server when a user performs specific actions, such as closing the tab, reloading the page, or navigating to another route. In this blog post, we'll learn how to achieve this efficiently using ReactJS, window events, and the Beacon API. By implementing this approach, you can ensure that critical data is securely transmitted even in unexpected situations.
 
-Understanding Window Events
+#### Understanding Window Events
 
 Let's briefly discuss the window events that we'll be utilizing:
 

@@ -6,23 +6,39 @@
 
 body {
   margin: 0px;
-  background-color: #f9f9f9;
+  background: radial-gradient(rgba(0, 0, 0, 0.035) 1px, rgb(255, 255, 255) 1px);
+  background-size: 2.5px 2.5px;
 
   &::-webkit-scrollbar {
     width: 10px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: radial-gradient(
+      rgba(0, 0, 0, 0.05) 1px,
+      rgb(255, 255, 255) 1px
+    );
+    background-size: 2.5px 2.5px;
   }
 
   &::-webkit-scrollbar-thumb,
   &::-webkit-scrollbar-thumb:horizontal {
     width: 10px;
     border-radius: 5px;
-    background: rgba(17, 27, 39, 0.75);
+    background: rgba(17, 27, 39, 0.85);
+  }
+
+  #__next {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
   }
 }
 
 .main-wrapper {
   max-width: 800px;
   margin: 0 auto;
+  flex: 1;
   padding: 20px;
   padding-top: 60px;
   animation: fadeIn 0.75s ease both;
@@ -42,17 +58,21 @@ body {
   top: 30px;
   animation: peakDown ease 0.35s both;
   z-index: 5;
-  backdrop-filter: blur(6px);
-  border-radius: 25px;
+  border-radius: 20px;
+  backdrop-filter: blur(4px);
+  background: radial-gradient(
+    rgba(0, 0, 0, 0.1) 1px,
+    rgba(213, 235, 253, 0.5) 1px
+  );
+  background-size: 4px 4px;
 }
 
 .navbar-menu {
   height: 40px;
-  border: 1.5px solid rgba(218, 229, 241, 0.15);
-  border-radius: 25px;
+  border: 1.5px solid rgba(213, 235, 253, 0.25);
+  border-radius: 20px;
   overflow: hidden;
   position: relative;
-  background: rgba(218, 229, 241, 0.5);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -65,7 +85,8 @@ body {
   width: 110px;
   height: 40px;
   border-radius: 20px;
-  background-color: rgb(0, 0, 0);
+  background: radial-gradient(rgba(0, 0, 0, 0.85) 1px, rgba(0, 0, 0, 0.95) 1px);
+  background-size: 4px 4px;
   z-index: 1;
   transition: left 0.25s linear;
 }
@@ -80,7 +101,7 @@ body {
   z-index: 3;
   font-size: 15px;
   position: relative;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -90,39 +111,41 @@ body {
 
   &.active {
     color: white;
+    font-weight: 600;
     transition: all 0.15s ease;
   }
 }
 
 // name card
 .name-card {
-  min-width: 230px;
-  max-width: 230px;
+  min-width: 210px;
+  max-width: 210px;
   position: sticky;
-  top: 150px;
+  top: 140px;
   z-index: 2;
 
   .name-card-inner {
     margin: auto;
-    width: 230px;
+    width: 210px;
     text-align: center;
 
     .name-card-image {
-      width: 210px;
-      height: 210px;
-      border-radius: 20px;
-      border: 10px solid rgb(215, 215, 215);
-      background-color: rgb(215, 215, 215);
+      width: 200px;
+      height: 200px;
+      border-radius: 18px;
+      background-color: rgb(230, 230, 230);
+      border: 8px solid rgba(230, 230, 230, 0.25);
+      box-shadow: 0px 0px 12px rgba(120, 120, 120, 0.35);
 
       .display-image {
-        width: 210px;
-        height: 210px;
+        width: 200px;
+        height: 200px;
         border-radius: 12px;
       }
     }
 
     h1 {
-      font-size: 32px;
+      font-size: 28px;
       font-weight: 700;
       margin-top: 10px;
     }
@@ -178,9 +201,9 @@ body {
       padding: 0px 15px 0px 15px;
       height: 100%;
       background: linear-gradient(
-        180deg,
-        transparent 20%,
-        rgba(176, 196, 222, 1) 100%
+        to bottom,
+        transparent 50%,
+        rgb(152, 176, 208) 100%
       );
       width: calc(100% - 30px);
       .project-name {
@@ -195,9 +218,12 @@ body {
         align-items: center;
         gap: 10px;
         a {
-          width: 80px;
-          height: 24px;
-          background-color: black;
+          height: 26px;
+          background: radial-gradient(
+            rgba(0, 0, 0, 0.85) 1px,
+            rgba(0, 0, 0, 0.95) 1px
+          );
+          background-size: 4px 4px;
           color: white;
           text-decoration: none;
           display: flex;
@@ -206,17 +232,14 @@ body {
           border-radius: 25px;
           font-weight: 500;
           border: 1px solid rgb(108, 108, 108);
-          font-size: 11px;
+          font-size: 12px;
           transition: all 0.2s ease;
+          padding: 0 14px;
 
           &:hover {
             transform: scale(1.05);
             transition: all 0.2s ease;
           }
-        }
-
-        .visit {
-          width: 60px;
         }
       }
     }
@@ -224,13 +247,13 @@ body {
 
   @media screen and (max-width: 500px) {
     width: 100%;
-    height: 300px;
+    height: 325px;
     margin-bottom: 25px;
 
     .project-card-top {
       .project-details {
         .project-name {
-          padding-top: 225px;
+          padding-top: 250px;
         }
       }
     }
@@ -238,7 +261,7 @@ body {
 
   &.solid {
     .project-card-top {
-      background-color: rgb(124, 164, 215);
+      background-color: rgb(112, 156, 214);
 
       .card-image {
         object-fit: contain;
@@ -274,7 +297,7 @@ body {
         margin-right: 0;
         display: flex;
         flex-direction: column;
-        gap: 25px;
+        gap: 20px;
         border-left: 2px solid transparent;
 
         &.border {
@@ -287,7 +310,7 @@ body {
           gap: 10px;
 
           svg {
-            margin-left: -11px;
+            margin-left: -10px;
           }
 
           h4 {
@@ -310,17 +333,20 @@ body {
     padding-bottom: 10px;
     font-weight: 500;
     font-size: 18px;
-    color: rgb(72, 72, 72);
+    color: rgb(60, 60, 60);
+
     div {
       display: inline-block;
       position: relative;
+
       span {
         animation: changeword 4s linear infinite;
-        display: inline-block;
         position: absolute;
-        top: -17px;
+        top: -17.5px;
         opacity: 0;
         width: max-content;
+        font-weight: 600;
+        color: rgb(60, 60, 60);
       }
 
       span:nth-child(1) {
@@ -329,10 +355,6 @@ body {
       span:nth-child(2) {
         animation-delay: 2s;
       }
-    }
-    span {
-      font-weight: 600;
-      color: black;
     }
   }
 
@@ -494,7 +516,7 @@ body {
   position: relative;
   margin-top: -240px;
   animation: fadeIn 0.5s ease both;
-  min-height: 500px;
+  min-height: 600px;
 
   h1 {
     font-weight: 400;
@@ -510,17 +532,17 @@ body {
     }
     .blog-card {
       margin-bottom: 25px;
-      border: 1px solid rgba(180, 180, 180, 0.25);
-      box-shadow: 0px 0px 10px rgba(180, 180, 180, 0.5);
+      border: 1px solid rgba(180, 180, 180, 0.15);
+      box-shadow: 0px 0px 18px rgba(180, 180, 180, 0.15);
       background-color: white;
-      padding: 10px 12.5px;
+      padding: 12px 15px;
       border-radius: 8px;
       cursor: pointer;
 
       span {
         color: lightslategray;
         font-weight: 500;
-        font-size: 16px;
+        font-size: 18px;
       }
 
       .blog-meta {
@@ -537,6 +559,21 @@ body {
 
 .blog-page-wrapper {
   margin-top: 60px;
+  animation: peakUpBlog 0.2s ease both;
+
+  .blogs-nav {
+    margin-bottom: 30px;
+    a {
+      text-decoration: none;
+      color: darkslateblue;
+      font-weight: 500;
+    }
+
+    span {
+      color: dimgray;
+    }
+  }
+
   .highlighted-code {
     background-color: #fdf6e3;
     padding: 1px 4px;
@@ -544,9 +581,12 @@ body {
     color: rgb(181, 137, 0);
   }
 
-  h1 {
-    margin: 20px 0;
+  h2 {
+    margin: 20px 0 40px 0;
+    text-align: center;
+    font-size: 32px;
   }
+
   h3 {
     margin: 15px 0;
     font-weight: 600;
@@ -557,10 +597,16 @@ body {
     margin: 20px 0 10px 0;
   }
 
+  h5 {
+    font-weight: 500;
+    margin: 20px 0 10px 0;
+  }
+
   p {
     margin: 0 0 12.5px 0;
     line-height: 24px;
-    color: rgb(96, 96, 96);
+    color: rgb(48, 48, 48);
+    font-size: 15px;
   }
 
   code {
@@ -576,10 +622,29 @@ body {
   }
 }
 
+.footer {
+  max-width: 800px;
+  padding: 40px 0;
+  margin: auto;
+  .footer-section {
+    h5 {
+      font-weight: 500;
+    }
+  }
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 @media screen and (max-width: 500px) {
+  .footer {
+    padding-bottom: 100px;
+  }
   .main-wrapper {
     padding-top: 20px;
-    padding-bottom: 100px;
   }
 
   .name-card {
@@ -673,6 +738,17 @@ body {
   }
 }
 
+@keyframes peakUpBlog {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -684,7 +760,7 @@ body {
 
 @keyframes changeword {
   0% {
-    transform: translateY(-10px);
+    transform: translateY(10px);
     opacity: 0;
   }
 
@@ -698,8 +774,8 @@ body {
     transform: translateY(0);
   }
 
-  52% {
+  50% {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(-10px);
   }
 }

@@ -5,6 +5,7 @@ import { Analytics } from "@vercel/analytics/react";
 
 import Navbar from "../components/navbar";
 import NameCard from "../components/nameCard";
+import Footer from "../components/footer";
 
 import { whiteListRoutes, navbarRoutes } from "../utils/constants";
 import "../styles/globals.scss";
@@ -40,9 +41,11 @@ const MyApp = ({ Component, pageProps }) => {
         {showComponent && <NameCard />}
         <Component {...pageProps} />
       </div>
+      {showNavbar && <Footer />}
+
       <Analytics />
     </>
   );
-}
+};
 
 export default MyApp;
