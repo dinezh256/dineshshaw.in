@@ -4,9 +4,9 @@ import Link from "next/link";
 import format from "date-fns/format";
 
 import MarkdownRenderer from "../../components/markdownRenderer";
-import { getDocBySlug } from "../../utils/constants";
+import { getDocBySlug, notFoundBlogMeta } from "../../utils/constants";
 
-export default function Page({ markdownContent, meta }) {
+export default function Page({ markdownContent, meta = notFoundBlogMeta }) {
   return (
     <div className="blog-page-wrapper">
       <Head>
@@ -17,7 +17,7 @@ export default function Page({ markdownContent, meta }) {
         <Link href="/blogs" as="/blogs">
           ← Back to Blogs
         </Link>
-        <span>{format(meta.createdAt, "PPP")}</span>
+        <span>{meta.createdAt > 0 && format(meta.createdAt, "PPP")}</span>
       </div>
       <MarkdownRenderer content={markdownContent} />
     </div>

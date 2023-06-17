@@ -146,13 +146,13 @@ export const blogsList = [
   },
 ];
 
-const notFoundBlogMeta = {
+export const notFoundBlogMeta = {
   id: 0,
   slug: "",
   fileName: "",
   createdAt: 0,
   readDuration: 0,
-  name: "No Blog Found",
+  name: "Blogs",
 };
 
 export const getBlogMeta = (slug) =>

@@ -559,6 +559,8 @@ body {
 
 .blog-page-wrapper {
   margin-top: 60px;
+  max-width: 800px;
+  width: 100%;
   animation: peakUpBlog 0.2s ease both;
 
   .blogs-nav {
