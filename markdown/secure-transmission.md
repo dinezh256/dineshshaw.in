@@ -77,8 +77,6 @@ To ensure proper memory management and prevent memory leaks, it's crucial to rem
 
 In this blog post, we explored how to send data to a server when a user closes the tab, reloads the page, or navigates to another route in a ReactJS application. By leveraging window events such as `beforeunload` and `unload`, along with the Beacon API, we can reliably transmit important data to the server, even in unexpected scenarios.
 
-Remember, handling user actions like closing the tab or reloading the page can be sensitive, so make sure to handle and process data securely on the
-
- server side. With these techniques, you can enhance your application's functionality and provide a smoother experience for your users.
+Remember, handling user actions like closing the tab or reloading the page can be sensitive, so make sure to handle and process data securely on the server side. With these techniques, you can enhance your application's functionality and provide a smoother experience for your users.
 
 Now you're equipped with the knowledge to handle critical data transmission effectively. Happy coding!
