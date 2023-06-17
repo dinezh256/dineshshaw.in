@@ -15,7 +15,8 @@ const NameCard = () => {
           />
         </div>
         <h1>Dinesh Shaw</h1>
-        <h2>Software Engineer</h2>
+        <h2>👨🏻‍💻 Software Engineer</h2>
+        <span>📍 Jamshedpur, Jharkhand</span>
       </div>
     </div>
   );

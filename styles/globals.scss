@@ -99,7 +99,7 @@ body {
   min-width: 230px;
   max-width: 230px;
   position: sticky;
-  top: 140px;
+  top: 150px;
   z-index: 2;
 
   .name-card-inner {
@@ -128,9 +128,15 @@ body {
     }
 
     h2 {
-      font-size: 16px;
+      font-size: 18px;
       font-weight: 500;
       line-height: 40px;
+      color: rgb(108, 108, 108);
+    }
+
+    span {
+      font-size: 14px;
+      font-weight: 500;
       color: rgb(108, 108, 108);
     }
   }
@@ -301,7 +307,7 @@ body {
   }
 
   h2 {
-    margin-top: 20px;
+    padding-bottom: 10px;
     font-weight: 500;
     font-size: 18px;
     color: rgb(72, 72, 72);
@@ -336,12 +342,6 @@ body {
     height: 150px;
     border-radius: 10px;
     filter: grayscale(0.25);
-  }
-
-  .waive-hand {
-    display: inline-block;
-    animation: waive 2.5s ease both;
-    animation-iteration-count: infinite;
   }
 }
 
@@ -410,7 +410,7 @@ body {
     gap: 10px;
 
     h1 {
-      margin-bottom: 25px;
+      margin-bottom: 15px;
     }
 
     .linkedin {
@@ -453,6 +453,7 @@ body {
     a {
       color: #0077b5;
       transition: all 0.15s ease;
+      font-size: 20px;
 
       &:hover {
         color: white;
@@ -647,33 +648,6 @@ body {
       width: 280px;
       height: 280px;
     }
-  }
-}
-
-@keyframes waive {
-  0% {
-    transform: rotate(0deg);
-  }
-  10% {
-    transform: rotate(14deg);
-  }
-  20% {
-    transform: rotate(-8deg);
-  }
-  30% {
-    transform: rotate(14deg);
-  }
-  40% {
-    transform: rotate(-4deg);
-  }
-  50% {
-    transform: rotate(10deg);
-  }
-  70% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(0deg);
   }
 }
 

@@ -16,9 +16,8 @@ const About = () => {
       </Head>
       <div className="about-section">
         <div className="about-section-inner">
-          <h1>ABOUT</h1>
           <h2>
-            Hello, there! <span className="waive-hand">👋🏼</span>
+            Hey there! <span>👋🏼</span>
           </h2>
           <h2>
             My name is <b>Dinesh Shaw</b>

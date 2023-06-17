@@ -9,7 +9,9 @@ const Navbar = () => {
 
   const [vibrate, setVibrate] = useState(false);
   const [activeTab, setActiveTab] = useState(
-    navMenuItems.find((item) => router?.pathname === item.url)?.id
+    router.pathname.includes("/blogs/")
+      ? 2
+      : navMenuItems.find((item) => router?.pathname === item.url)?.id
   );
 
   const handleTabChange = (id) => {
@@ -18,12 +20,6 @@ const Navbar = () => {
       setVibrate(true);
     }
   };
-
-  useEffect(() => {
-    if (router.pathname.includes('/blogs/')) {
-      setActiveTab(2);
-    }
-  }, [router.pathname])
 
   useEffect(() => {
     if (vibrate) {
