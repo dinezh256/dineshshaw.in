@@ -25,8 +25,8 @@ const About = () => {
           <h2>
             I'm a passionate{" "}
             <div>
-              <span>Web Developer</span>
-              <span>Freelancer</span>
+              <span><b>Web Developer</b></span>
+              <span><b>Freelancer</b></span>
             </div>
           </h2>
         </div>

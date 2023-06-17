@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Head from "next/head";
 import format from "date-fns/format";
+import { Calendar, Clock } from "react-feather";
 
 import { blogsList, humanizeDuration } from "../utils/constants";
 
@@ -16,11 +17,16 @@ const Blogs = () => (
       {blogsList.map(({ id, slug, name, readDuration, createdAt }) => (
         <Link href={`/blogs/${slug}`} as={`/blogs/${slug}`}>
           <div className="blog-card" key={id}>
-            <span>{name}</span>
-            <div className="blog-meta">
-              <span>{format(createdAt, "PPP")}</span>
-              <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
-              <span>{humanizeDuration(readDuration)} read</span>
+            <h3>{name}</h3>
+            <div className="flex-start blog-meta">
+              <span className="flex-start">
+                <Calendar size={12} /> {format(createdAt, "PPP")}
+              </span>
+              <span>•</span>
+              <span className="flex-start">
+                <Clock size={12} />
+                {humanizeDuration(readDuration)} read
+              </span>
             </div>
           </div>
         </Link>

@@ -1,4 +1,4 @@
-const ArrowTopRight = ({ stroke = "#000000", size = 16 }) => {
+const ArrowTopRight = ({ stroke = "#000000", size = 14 }) => {
   return (
     <svg
       width={size}
