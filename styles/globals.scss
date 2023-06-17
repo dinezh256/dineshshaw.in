@@ -664,14 +664,14 @@ body {
   }
 
   .name-card {
-    top: 0px;
-    position: relative;
+    top: 20px;
     margin: auto;
     margin: 20px;
     min-width: calc(100% - 40px);
     max-width: calc(100% - 40px);
     backdrop-filter: blur(10px);
     border-radius: 8px;
+    background-color: rgba(255, 255, 255, 1);
 
     .name-card-inner {
       width: calc(100% - 30px);
@@ -683,14 +683,13 @@ body {
       text-align: left;
       background-color: #0076b549;
       border-radius: 8px;
-      backdrop-filter: blur(10px);
 
       .name-card-image {
         width: 52px;
         height: 52px;
-        border: 2px solid #12476440;
+        border: 2px solid #0076b522;
         border-radius: 7px;
-        background-color: #124764;
+        background-color: #0076b522;
 
         .display-image {
           border-radius: 5px;
