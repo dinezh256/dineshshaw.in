@@ -5,9 +5,16 @@ import { Calendar, Clock } from "react-feather";
 
 import { blogsList, humanizeDuration } from "../utils/constants";
 
-const BlogCard = ({ id, slug, name, readDuration, createdAt }) => (
+const renderBlogCard = (
+  { id, slug, name, readDuration, createdAt },
+  position
+) => (
   <Link href={`/blogs/${slug}`} as={`/blogs/${slug}`} key={id}>
-    <div className="blog-card" key={id}>
+    <div
+      className="blog-card"
+      key={id}
+      style={{ animationDelay: `${0.25 * (position + 1)}s` }}
+    >
       <h3>{name}</h3>
       <div className="flex-start blog-meta">
         <span className="flex-start">
@@ -32,7 +39,9 @@ const Blogs = () => (
     <h1>BLOGS</h1>
 
     <div className="blog-list">
-      {blogsList.sort((a, b) => b.createdAt - a.createdAt).map(BlogCard)}
+      {blogsList
+        .sort((a, b) => b.createdAt - a.createdAt)
+        .map((blog, position) => renderBlogCard(blog, position))}
     </div>
   </div>
 );

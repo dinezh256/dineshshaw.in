@@ -506,13 +506,14 @@ body {
       text-decoration: none;
     }
     .blog-card {
-      margin-bottom: 25px;
+      margin-bottom: 20px;
       border: 1px solid rgba(180, 180, 180, 0.15);
       box-shadow: 0px 0px 18px rgba(180, 180, 180, 0.15);
       background-color: white;
       padding: 16px 20px;
       border-radius: 8px;
       cursor: pointer;
+      animation: peakDownBlog 0.25s ease both;
 
       h3 {
         color: #145bcd;
