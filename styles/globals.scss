@@ -536,7 +536,7 @@ body {
 
 .blog-page-wrapper {
   margin-top: 60px;
-  animation: peakUpBlog 0.2s ease both;
+  animation: peakDownBlog 0.2s ease both;
 
   .back-to-blogs {
     position: sticky;
@@ -622,6 +622,17 @@ body {
     }
   }
 
+  .markdown > div > div {
+    line-height: 24px;
+    color: rgb(48, 48, 48);
+    font-size: 15px;
+    p {
+      padding-top: 10px;
+      padding-left: 20px;
+      margin: 0px;
+    }
+  }
+
   @media screen and (max-width: 500px) {
     margin-top: 0px;
   }
@@ -699,7 +710,8 @@ body {
         display: none;
       }
 
-      h1, h2 {
+      h1,
+      h2 {
         margin: 0;
       }
 
@@ -825,13 +837,13 @@ body {
   }
 }
 
-@keyframes peakUpBlog {
+@keyframes peakDownBlog {
   from {
-    transform: translateY(20px);
+    transform: translateY(-10px);
     opacity: 0;
   }
   to {
-    transform: translateY(0);
+    transform: translateY(0px);
     opacity: 1;
   }
 }

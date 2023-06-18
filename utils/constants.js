@@ -142,7 +142,18 @@ export const blogsList = [
     createdAt: 1686933164331,
     readDuration: 120,
     name: "Securely Transmit Data in Unexpected Situations using React and Window events",
-    description: "Sending data to the Server when the User navigates away, closes/reloads the tab."
+    description:
+      "Sending data to the Server when the User navigates away, closes/reloads the tab.",
+  },
+  {
+    id: 1,
+    slug: "understanding-the-challenges-of-lazy-oading-and-code-splitting-in-react",
+    fileName: "react-lazy-loading-challenges",
+    createdAt: 1687086811265,
+    readDuration: 110,
+    name: "Understanding the Challenges of Lazy Loading and Code Splitting in React",
+    description:
+      "Explore the challenges of lazy loading and code splitting in React, and discover strategies to overcome them for optimized performance and user experience.",
   },
 ];
 

@@ -46,6 +46,7 @@ export async function getStaticPaths() {
   return {
     paths: [
       "/blogs/securely-transmit-data-in-unexpected-situations-using-react",
+      "/blogs/understanding-the-challenges-of-lazy-oading-and-code-splitting-in-react"
     ],
     fallback: true,
   };
