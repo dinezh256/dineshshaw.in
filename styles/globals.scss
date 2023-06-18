@@ -58,7 +58,7 @@ body {
   animation: peakDown ease 0.35s both;
   z-index: 5;
   border-radius: 20px;
-  backdrop-filter: blur(3px);
+  backdrop-filter: blur(4px);
   background: radial-gradient(
     rgba(0, 0, 0, 0.1) 1px,
     rgba(184, 230, 255, 0.5) 1px
@@ -487,32 +487,6 @@ body {
   }
 }
 
-//in progress section
-
-.inprogress-section {
-  padding-top: 50px;
-  text-align: center;
-  animation: fadeIn 0.5s ease both;
-
-  .image-wrapper {
-    width: 100%;
-    height: 100%;
-    position: relative;
-
-    .progress-image {
-      width: 500px;
-      height: 500px;
-      object-fit: cover;
-      margin: auto;
-    }
-  }
-
-  h4 {
-    font-size: 16px;
-    font-weight: 500;
-  }
-}
-
 .blog-section {
   padding-left: 280px;
   position: relative;
@@ -725,8 +699,7 @@ body {
         display: none;
       }
 
-      h1,
-      h2 {
+      h1, h2 {
         margin: 0;
       }
 
@@ -785,7 +758,6 @@ body {
         font-size: 15px;
         width: auto;
       }
-
       a {
         font-size: 20px;
       }
@@ -804,13 +776,6 @@ body {
           font-size: 14px;
         }
       }
-    }
-  }
-
-  .inprogress-section {
-    .image-wrapper .progress-image {
-      width: 280px;
-      height: 280px;
     }
   }
 
@@ -862,7 +827,7 @@ body {
 
 @keyframes peakUpBlog {
   from {
-    transform: translateY(10px);
+    transform: translateY(20px);
     opacity: 0;
   }
   to {
@@ -885,17 +850,14 @@ body {
     transform: translateY(10px);
     opacity: 0;
   }
-
   2% {
     opacity: 1;
     transform: translateY(0);
   }
-
   48% {
     opacity: 1;
     transform: translateY(0);
   }
-
   50% {
     opacity: 0;
     transform: translateY(-10px);
