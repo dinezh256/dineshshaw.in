@@ -1,10 +1,10 @@
 import ArrowTopRight from "../assets/icons/arrowTopRight";
 
-const Contact = () => {
+const Contact = ({ animate }) => {
   return (
     <>
       <div className="contact-section">
-        <div className="contact-section-inner">
+        <div className={`contact-section-inner${animate ? " animate-contact" : ""}`}>
           {/* <h1>CONTACT</h1> */}
           <div className="socials">
             <h1>SOCIALS</h1>
@@ -40,8 +40,8 @@ const Contact = () => {
           <div className="emails">
             <h1>EMAIL</h1>
             <h2>
-              Are you stuck in the Stone Age of e-mail writing? Well
-              my prehistoric friend here's my e-mail address - feel free to drop
+              Are you stuck in the Stone Age of e-mail writing? <br /> Well
+              my prehistoric friend here's my e-mail address, feel free to drop
               me a message on your trusty typewriter.
             </h2>
             <a href="mailto:heydineshshaw@gmail.com" target="_blank">

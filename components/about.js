@@ -1,11 +1,24 @@
+import { useState } from "react";
 import Head from "next/head";
+import Link from "next/link";
+import { Circle, Mail } from "react-feather";
 
-import CheckMarkIcon from "../assets/icons/checkMarkIcon";
-import { timeline } from "../utils/constants";
 import Contact from "./contact";
 import Skills from "./skills";
 
+import { resumeLink, timeline } from "../utils/constants";
+import CheckMarkIcon from "../assets/icons/checkMarkIcon";
+
 const About = () => {
+  const [animateContact, setAnimateContact] = useState(false);
+
+  const onClickContact = () => {
+    window.scrollTo({ top: 750, behavior: "smooth" });
+
+    if (!animateContact) setTimeout(() => setAnimateContact(false), 2000);
+    setAnimateContact(true);
+
+  };
   return (
     <>
       <Head>
@@ -26,10 +39,34 @@ const About = () => {
           <h2>
             I'm a passionate{" "}
             <div>
-              <span><b>Web Developer</b></span>
-              <span><b>Freelancer</b></span>
+              <span>
+                <b>Web Developer</b>
+              </span>
+              <span>
+                <b>Freelancer</b>
+              </span>
             </div>
           </h2>
+          <div className="available-to-contact">
+            <div className="contact-heading">
+              <Circle size={12} fill="#00ac00" stroke="#00ac00" />
+              <span>Available for new opportunities</span>
+            </div>
+            <div className="contact-cta-wrapper">
+              <button className="contact-cta" onClick={onClickContact}>
+                <Mail size={15} strokeWidth={2.5} />
+                <span>Contact Me</span>
+              </button>
+              <Link
+                className="resume-button"
+                href={resumeLink}
+                as={resumeLink}
+                target="_blank"
+              >
+                Resume
+              </Link>
+            </div>
+          </div>
         </div>
         <Skills />
         <div className="timeline-wrapper">
@@ -56,7 +93,7 @@ const About = () => {
               </div>
             ))}
         </div>
-        <Contact />
+        <Contact animate={animateContact} />
       </div>
     </>
   );
