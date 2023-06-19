@@ -7,6 +7,18 @@ import CovidStatsImage from "../assets/CovidStats.webp";
 import RoyalMintImage from "../assets/RoyalMint.webp";
 import DubariImage from "../assets/Dubari.webp";
 
+import Javascript from "../assets/svg/javascript.svg";
+import React from "../assets/svg/react.svg";
+import NextJs from "../assets/svg/nextjs.svg";
+import HTML from "../assets/svg/html.svg";
+import SCSS from "../assets/svg/scss.svg";
+import StyledComponents from "../assets/svg/styled-components.svg";
+import SemanticUI from "../assets/svg/semantic.svg";
+import Firebase from "../assets/svg/firebase.svg";
+import Express from "../assets/svg/express.svg";
+import Node from "../assets/svg/node.svg";
+import Git from "../assets/svg/git.svg";
+
 export const humanizeDuration = (time) => {
   const durations = intervalToDuration({ start: 0, end: time * 1000 });
   return formatDuration(durations);
@@ -184,3 +196,61 @@ export const getDocBySlug = (slug) => {
     blogMeta: notFoundBlogMeta,
   };
 };
+
+export const skillsList = [
+  {
+    id: 0,
+    imgSrc: Javascript,
+    name: "Javascript",
+  },
+  {
+    id: 1,
+    imgSrc: React,
+    name: "React.js",
+  },
+  {
+    id: 2,
+    imgSrc: NextJs,
+    name: "Next.js",
+  },
+  {
+    id: 3,
+    imgSrc: HTML,
+    name: "HTML 5",
+  },
+  {
+    id: 4,
+    imgSrc: SCSS,
+    name: "SCSS",
+  },
+  {
+    id: 5,
+    imgSrc: Firebase,
+    name: "Firebase",
+  },
+  {
+    id: 6,
+    imgSrc: Node,
+    name: "Node.js",
+  },
+  {
+    id: 7,
+    imgSrc: Express,
+    name: "Express.js",
+  },
+  {
+    id: 8,
+    imgSrc: Git,
+    name: "Git",
+  },
+  {
+    id: 9,
+    imgSrc: SemanticUI,
+    name: "Semantic UI",
+  },
+  {
+    id: 10,
+    imgSrc: StyledComponents,
+    name: "Styled Components",
+  }, 
+]

@@ -3,6 +3,7 @@ import Head from "next/head";
 import CheckMarkIcon from "../assets/icons/checkMarkIcon";
 import { timeline } from "../utils/constants";
 import Contact from "./contact";
+import Skills from "./skills";
 
 const About = () => {
   return (
@@ -30,6 +31,7 @@ const About = () => {
             </div>
           </h2>
         </div>
+        <Skills />
         <div className="timeline-wrapper">
           <h1>Journey</h1>
           {timeline
