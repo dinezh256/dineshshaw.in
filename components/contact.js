@@ -40,8 +40,8 @@ const Contact = ({ animate }) => {
           <div className="emails">
             <h1>EMAIL</h1>
             <h2>
-              Are you stuck in the Stone Age of e-mail writing? <br /> Well
-              my prehistoric friend here's my e-mail address, feel free to drop
+              Are you stuck in the Stone Age of e-mail writing? Well
+              my prehistoric friend here's my e-mail, feel free to drop
               me a message on your trusty typewriter.
             </h2>
             <a href="mailto:heydineshshaw@gmail.com" target="_blank">

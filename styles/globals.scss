@@ -333,23 +333,24 @@ body {
 
       span {
         font-weight: 500;
-        font-size: 14px;
+        font-size: 14.5px;
         color: rgb(60, 60, 60);
       }
     }
 
     .contact-cta-wrapper {
       display: flex;
-      gap: 10px;
+      gap: 18px;
       align-items: center;
       margin: 15px 0;
 
       .contact-cta {
         background-color: rgb(39, 110, 224);
         color: white;
-        padding: 8px 14px;
+        padding: 7px 14px;
         border: rgba(20, 91, 205, 0.25) 1px solid;
         border-radius: 6px;
+        gap: 8px;
         cursor: pointer;
         transition: all 0.2s ease;
         span {
@@ -370,7 +371,7 @@ body {
       }
 
       .resume-button {
-        padding: 8px 14px;
+        padding: 7px 14px;
         text-decoration: none;
         border: 1px solid rgba(20, 91, 205, 0.25);
         border-radius: 6px;
