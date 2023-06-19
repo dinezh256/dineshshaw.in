@@ -2,8 +2,8 @@ const CheckMarkIcon = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      height={20}
-      width={20}
+      height={16}
+      width={16}
       viewBox="0 0 512 512"
     >
       <path

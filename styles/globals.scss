@@ -288,16 +288,16 @@ body {
       margin-top: 30px;
 
       h3 {
-        font-size: 18px;
+        font-size: 16px;
         font-weight: 600;
       }
 
       .org-levels {
-        margin: 10px 10px;
+        margin: 10px 5px;
         margin-right: 0;
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        gap: 16px;
         border-left: 3px solid transparent;
 
         &.border {
@@ -310,7 +310,7 @@ body {
           gap: 10px;
 
           svg {
-            margin-left: -11.5px;
+            margin-left: -9.5px;
           }
 
           h4 {
@@ -468,6 +468,7 @@ body {
       color: rgb(70, 70, 70);
       font-weight: 500;
       margin-bottom: 20px;
+      font-size: 14px;
     }
 
     h1 {
@@ -477,7 +478,7 @@ body {
     a {
       color: #145bcd;
       transition: all 0.15s ease;
-      font-size: 20px;
+      font-size: 16px;
 
       &:hover {
         color: white;
@@ -740,17 +741,17 @@ body {
   .about-section {
     padding: 20px 20px;
     margin-top: 0;
-    h1 {
-      font-size: 14px;
-    }
+    .about-section-inner {
+      margin: 40px 0 80px 0;
 
-    h2 {
-      margin-top: 0px;
-      font-size: 18px;
+      h2 {
+        margin-top: 10px;
+        font-size: 18px;
 
-      div {
-        span {
-          top: -17.5px;
+        div {
+          span {
+            top: -17.5px;
+          }
         }
       }
     }

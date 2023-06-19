@@ -3,7 +3,7 @@ import Head from "next/head";
 import format from "date-fns/format";
 import { Calendar, Clock } from "react-feather";
 
-import { blogsList, humanizeDuration } from "../utils/constants";
+import { blogsList, humanizeDuration } from "../../utils/constants";
 
 const renderBlogCard = (
   { id, slug, name, readDuration, createdAt },
