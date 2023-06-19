@@ -1,28 +1,23 @@
-import fs from "fs";
+import Head from "next/head";
+
 import { blogsList } from "../utils/constants";
 
-const Sitemap = () => {
-  return null;
-};
+const Sitemap = () => (
+  <Head>
+    <title>Sitemap - Dinesh Shaw</title>
+    <meta title="description" content="Sitemap of the website" />
+  </Head>
+);
 
 export const getServerSideProps = async ({ res }) => {
   const BASE_URL = "https://dineshshaw.in";
 
-  const blockedFiles = [
-    "api",
-    "_app.js",
-    "_document.js",
-    "404.js",
-    "sitemap.xml.js",
-  ];
+  const staticFiles = ["", "work", "blogs"];
 
-  const staticPaths = fs
-    .readdirSync("pages")
-    .filter((staticPage) => !blockedFiles.includes(staticPage))
-    .map((staticPath) => ({
-      url: `${BASE_URL}/${staticPath.replace(".js", "")}`,
-      lastMod: new Date().toISOString().split("T")[0],
-    }));
+  const staticPaths = staticFiles.map((staticPath) => ({
+    url: `${BASE_URL}/${staticPath}`,
+    lastMod: new Date().toISOString().split("T")[0],
+  }));
 
   const blogPaths = blogsList.map((blog) => ({
     url: `${BASE_URL}/blogs/${blog.slug}`,
