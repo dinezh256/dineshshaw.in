@@ -257,3 +257,7 @@ export const skillsList = [
     name: "Styled Components",
   },
 ];
+
+export const getBlogUrl = (slug) => {
+  return `https://dineshshaw.in/blogs/${slug}`
+}
