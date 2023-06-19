@@ -2,7 +2,7 @@ import fs from "fs";
 import Head from "next/head";
 import Link from "next/link";
 import format from "date-fns/format";
-import { Calendar } from "react-feather";
+import { Calendar, Share2 } from "react-feather";
 import { ChevronLeft } from "react-feather";
 
 import MarkdownRenderer from "../../components/markdownRenderer";
@@ -13,6 +13,13 @@ import {
 } from "../../utils/constants";
 
 export default function Page({ markdownContent, meta = notFoundBlogMeta }) {
+  const handleShare = async () => {
+    const sharableData = { url: meta.slug };
+    if (navigator.canShare(sharableData)) {
+      await navigator.share(sharableData);
+    }
+  };
+
   return (
     <div className="blog-page-wrapper">
       <Head>
@@ -25,6 +32,9 @@ export default function Page({ markdownContent, meta = notFoundBlogMeta }) {
         </Link>
       </div>
       <div className="flex-between blogs-nav">
+        <div title="Share this blog" className="blogs-share flex-start">
+          <Share2 size={16} onClick={handleShare} />
+        </div>
         {meta.createdAt > 0 && (
           <h6 className="flex-start">
             <Calendar size={16} /> {format(meta.createdAt, "PPP")}
@@ -48,7 +58,7 @@ export async function getStaticProps({ params }) {
 
 export async function getStaticPaths() {
   return {
-    paths: blogsList.map(blog => `/blogs/${blog.slug}`),
+    paths: blogsList.map((blog) => `/blogs/${blog.slug}`),
     fallback: true,
   };
 }

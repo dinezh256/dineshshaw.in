@@ -703,9 +703,15 @@ body {
   }
 
   .blogs-nav {
-    margin-top: -45px;
+    margin-top: -50px;
     position: relative;
     float: right;
+
+    .blogs-share {
+      margin-right: 20px;
+      color: dimgray;
+      cursor: pointer;
+    }
 
     h6 {
       gap: 5px;
