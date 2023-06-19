@@ -1,6 +1,6 @@
 # Overview
 
-![Banner](https://github.com/dinezh256/portfolio/blob/main/public/logo512.png)
+![Banner](https://github.com/dinezh256/portfolio/blob/main/public/preview.png)
 
 This website serves as an online portfolio to showcase
 - my resume
