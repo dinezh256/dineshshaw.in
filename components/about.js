@@ -15,10 +15,10 @@ const About = () => {
   const onClickContact = () => {
     window.scrollTo({ top: window.outerHeight * 2, behavior: "smooth" });
 
-    if (!animateContact) setTimeout(() => setAnimateContact(false), 2000);
+    if (!animateContact) setTimeout(() => setAnimateContact(false), 1500);
     setAnimateContact(true);
-
   };
+
   return (
     <>
       <Head>
