@@ -17,7 +17,7 @@ import {
 export default function Page({ markdownContent, meta = notFoundBlogMeta }) {
   const sharableData = {
     url: getBlogUrl(meta.slug),
-    text: meta.fileName,
+    text: meta.name,
     title: meta.name,
   };
 
