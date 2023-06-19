@@ -201,7 +201,7 @@ export const skillsList = [
   {
     id: 0,
     imgSrc: Javascript,
-    name: "Javascript",
+    name: "JavaScript",
   },
   {
     id: 1,
