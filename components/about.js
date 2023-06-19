@@ -13,7 +13,7 @@ const About = () => {
   const [animateContact, setAnimateContact] = useState(false);
 
   const onClickContact = () => {
-    window.scrollTo({ top: 750, behavior: "smooth" });
+    window.scrollTo({ top: window.outerHeight * 2, behavior: "smooth" });
 
     if (!animateContact) setTimeout(() => setAnimateContact(false), 2000);
     setAnimateContact(true);
