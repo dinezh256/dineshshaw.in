@@ -6,7 +6,11 @@ import { Calendar } from "react-feather";
 import { ChevronLeft } from "react-feather";
 
 import MarkdownRenderer from "../../components/markdownRenderer";
-import { getDocBySlug, notFoundBlogMeta } from "../../utils/constants";
+import {
+  blogsList,
+  getDocBySlug,
+  notFoundBlogMeta,
+} from "../../utils/constants";
 
 export default function Page({ markdownContent, meta = notFoundBlogMeta }) {
   return (
@@ -44,10 +48,7 @@ export async function getStaticProps({ params }) {
 
 export async function getStaticPaths() {
   return {
-    paths: [
-      "/blogs/securely-transmit-data-in-unexpected-situations-using-react",
-      "/blogs/understanding-the-challenges-of-lazy-oading-and-code-splitting-in-react"
-    ],
+    paths: blogsList.map(blog => `/blogs/${blog.slug}`),
     fallback: true,
   };
 }

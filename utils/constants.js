@@ -162,7 +162,7 @@ export const blogsList = [
   },
   {
     id: 1,
-    slug: "understanding-the-challenges-of-lazy-oading-and-code-splitting-in-react",
+    slug: "understanding-the-challenges-of-lazy-loading-and-code-splitting-in-react",
     fileName: "react-lazy-loading-challenges",
     createdAt: 1687086811265,
     readDuration: 110,
