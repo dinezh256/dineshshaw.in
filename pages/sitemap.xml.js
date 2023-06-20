@@ -1,21 +1,14 @@
-import Head from "next/head";
-
 import { blogsList } from "../utils/constants";
 
-const Sitemap = () => (
-  <Head>
-    <title>Sitemap - Dinesh Shaw</title>
-    <meta title="description" content="Sitemap of the website" />
-  </Head>
-);
+const Sitemap = () => null;
 
 export const getServerSideProps = async ({ res }) => {
   const BASE_URL = "https://dineshshaw.in";
 
-  const staticFiles = ["", "work", "blogs"];
+  const staticFiles = ["", "/work", "/blogs"];
 
   const staticPaths = staticFiles.map((staticPath) => ({
-    url: `${BASE_URL}/${staticPath}`,
+    url: `${BASE_URL}${staticPath}`,
     lastMod: new Date().toISOString().split("T")[0],
   }));
 
