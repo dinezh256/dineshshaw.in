@@ -8,6 +8,7 @@ import Skills from "./skills";
 
 import { resumeLink, timeline } from "../utils/constants";
 import CheckMarkIcon from "../assets/icons/checkMarkIcon";
+import ArrowTopRight from "../assets/icons/arrowTopRight";
 
 const About = () => {
   const [animateContact, setAnimateContact] = useState(false);
@@ -63,7 +64,7 @@ const About = () => {
                 as={resumeLink}
                 target="_blank"
               >
-                Resume
+                View Résumé <ArrowTopRight />
               </Link>
             </div>
           </div>
