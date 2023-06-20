@@ -176,6 +176,8 @@ body {
   border: 1px solid rgb(204, 204, 204);
   margin-bottom: 25px;
   position: relative;
+  animation: peakDownItem 0.2s ease both;
+
   &:hover {
     .card-image {
       transform: scale(1.05);
@@ -311,6 +313,7 @@ body {
         border-radius: 20px;
         padding: 5px 7.5px;
         transition: all 0.125s ease;
+        animation: peakDownItem 100ms ease both;
 
         span {
           font-size: 14px;
@@ -403,6 +406,7 @@ body {
       h3 {
         font-size: 16px;
         font-weight: 600;
+        padding-bottom: 5px;
       }
 
       .org-levels {
@@ -658,7 +662,7 @@ body {
       padding: 16px 20px;
       border-radius: 8px;
       cursor: pointer;
-      animation: peakDownBlog 0.25s ease both;
+      animation: peakDownItem 0.2s ease both;
 
       h3 {
         color: rgb(20, 91, 205);
@@ -682,7 +686,7 @@ body {
 
 .blog-page-wrapper {
   margin-top: 60px;
-  animation: peakDownBlog 0.2s ease both;
+  animation: peakDownItem 0.2s ease both;
 
   .back-to-blogs {
     position: sticky;
@@ -920,6 +924,10 @@ body {
     padding: 20px 20px;
     margin-top: 0;
 
+    .work-section-inner .project-section {
+      margin-top: 40px;
+    }
+
     h1 {
       font-size: 14px;
     }
@@ -942,7 +950,7 @@ body {
     margin-top: 0;
 
     .blog-list {
-      margin-top: 20px;
+      margin-top: 40px;
       .blog-card {
         padding: 12px;
         h3 {
@@ -983,7 +991,6 @@ body {
     border-radius: 0.5rem !important;
     overflow: hidden !important;
     max-width: 500px !important;
-    
 
     header {
       font-size: 20px !important;
@@ -1013,7 +1020,7 @@ body {
   }
 }
 
-@keyframes peakDownBlog {
+@keyframes peakDownItem {
   from {
     transform: translateY(-10px);
     opacity: 0;

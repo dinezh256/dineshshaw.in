@@ -6,9 +6,10 @@ const ProjectCard = ({
   name,
   codeUrl,
   websiteUrl,
+  position,
 }) => {
   return (
-    <div className={`project-card ${type}`}>
+    <div className={`project-card ${type}`} style={{ animationDelay: `${0.1 * (position + 1)}s` }}>
       <div className="project-card-top">
         <Image
           className="card-image"

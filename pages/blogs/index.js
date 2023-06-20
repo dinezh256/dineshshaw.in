@@ -13,7 +13,7 @@ const renderBlogCard = (
     <div
       className="blog-card"
       key={id}
-      style={{ animationDelay: `${0.25 * (position + 1)}s` }}
+      style={{ animationDelay: `${0.1 * (position + 1)}s` }}
     >
       <h3>{name}</h3>
       <div className="flex-start blog-meta">

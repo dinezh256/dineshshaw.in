@@ -3,7 +3,11 @@ import Image from "next/image";
 import { skillsList } from "../utils/constants";
 
 const SkillPill = ({ id, imgSrc, name }) => (
-  <div className="skill-pill" key={id}>
+  <div
+    className="skill-pill"
+    key={id}
+    style={{ animationDelay: `${0.05 * (id + 1)}s` }}
+  >
     <Image
       className="skill-image"
       width={16}

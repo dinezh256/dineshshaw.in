@@ -14,8 +14,8 @@ const Work = () => {
         <div className="work-section-inner">
           <h1>WORK</h1>
           <div className="project-section">
-            {projects.map((project) => (
-              <ProjectCard key={project.id} {...project} />
+            {projects.map((project, index) => (
+              <ProjectCard key={project.id} {...project} position={index} />
             ))}
           </div>
         </div>
