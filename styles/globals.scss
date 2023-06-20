@@ -805,11 +805,12 @@ body {
   padding: 40px 0;
   margin: auto;
   .footer-section {
-    h5 {
+    span {
       font-weight: 500;
       border-left: 1px solid rgb(60, 60, 60);
       margin-left: 7.5px;
       padding-left: 7.5px;
+      font-size: 14px;
     }
   }
 }
