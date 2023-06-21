@@ -9,7 +9,7 @@ const NameCard = () => {
           <Image
             src={DisplayImage}
             className="display-image"
-            alt="Dinesh Shaw"
+            alt="profile photo"
             draggable={false}
             priority
           />

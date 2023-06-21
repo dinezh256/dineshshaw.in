@@ -33,8 +33,8 @@ const renderBlogCard = (
 const Blogs = () => (
   <div className="blog-section">
     <Head>
-      <title>Blogs - Dinesh Shaw</title>
-      <meta title="description" content="" />
+      <title>Blogs | Dinesh Shaw</title>
+      <meta title="description" content="Sharing how I've overcame challenges in Software Engineering in the form of blogs" key="desc" />
     </Head>
     <h1>BLOGS</h1>
 

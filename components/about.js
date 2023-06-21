@@ -27,6 +27,7 @@ const About = () => {
         <meta
           title="description"
           content="Experienced Web Developer, Freelancer. Skilled in JavaScript, ReactJS and NodeJS."
+          key="desc"
         />
       </Head>
       <div className="about-section">

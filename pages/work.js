@@ -7,8 +7,8 @@ const Work = () => {
   return (
     <>
       <Head>
-        <title>Work - Dinesh Shaw</title>
-        <meta title="description" content="My works as a web developer" />
+        <title>Work | Dinesh Shaw</title>
+        <meta title="description" content="Showcasing my works as a web developer" key="desc" />
       </Head>
       <div className="work-section">
         <div className="work-section-inner">

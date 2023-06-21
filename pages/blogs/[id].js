@@ -21,15 +21,11 @@ export default function Page({ markdownContent, meta = notFoundBlogMeta }) {
     title: meta.name,
   };
 
-  const handleShare = async () => {
-    await navigator.share(sharableData);
-  };
-
   return (
     <div className="blog-page-wrapper">
       <Head>
-        <title>{meta.name} - Dinesh Shaw</title>
-        <meta title="description" content={meta.description} />
+        <title>{meta.name} | Dinesh Shaw</title>
+        <meta title="description" content={meta.description} key="desc" />
       </Head>
       <div className="back-to-blogs">
         <Link href="/blogs" as="/blogs" className="flex-start">
