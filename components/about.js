@@ -39,13 +39,13 @@ const About = () => {
             My name is <b>Dinesh Shaw</b>
           </h2>
           <h2>
-            I'm a passionate{" "}
+            I'm a passionate
             <div>
               <span>
-                <b>Web Developer</b>
+                <b> Web Developer</b>
               </span>
               <span>
-                <b>Freelancer</b>
+                <b> Freelancer</b>
               </span>
             </div>
           </h2>

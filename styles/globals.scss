@@ -460,6 +460,7 @@ body {
         animation: changeword 4s linear infinite;
         position: absolute;
         top: -23.5px;
+        left: 7.5px;
         opacity: 0;
         width: max-content;
         font-weight: 600;
@@ -915,6 +916,7 @@ body {
         div {
           span {
             top: -17.5px;
+            left: 5px;
           }
         }
       }
