@@ -26,6 +26,10 @@ export default function Page({ markdownContent, meta = notFoundBlogMeta }) {
       <Head>
         <title>{meta.name} | Dinesh Shaw</title>
         <meta title="description" content={meta.description} key="desc" />
+        <meta name="keywords" content={meta.keywords}></meta>
+        <meta property="og:title" content={meta.name + ' | Dinesh Shaw'} />
+        <meta property="og:type" content="blog" />
+        <meta property="og:url" content={sharableData.url} />
       </Head>
       <div className="back-to-blogs">
         <Link href="/blogs" as="/blogs" className="flex-start">

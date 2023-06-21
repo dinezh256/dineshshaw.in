@@ -159,6 +159,7 @@ export const blogsList = [
     name: "Securely Transmit Data in Unexpected Situations using React and Window events",
     description:
       "Sending data to the Server when the User navigates away, closes/reloads the tab.",
+    keywords: "Server,React,React.js,Browser,unload,beforeunload,window,events"
   },
   {
     id: 1,
@@ -169,6 +170,7 @@ export const blogsList = [
     name: "Understanding the Challenges of Lazy Loading and Code Splitting in React",
     description:
       "Explore the challenges of lazy loading and code splitting in React, and discover strategies to overcome them for optimized performance and user experience.",
+    keywords: "lazy loading,React,React.js,code splitting,user experience"
   },
 ];
 
