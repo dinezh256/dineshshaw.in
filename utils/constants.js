@@ -18,6 +18,7 @@ import Firebase from "../assets/svg/firebase.svg";
 import Express from "../assets/svg/express.svg";
 import Node from "../assets/svg/node.svg";
 import Git from "../assets/svg/git.svg";
+import { PenTool, Command, User } from "react-feather";
 
 export const humanizeDuration = (time) => {
   const durations = intervalToDuration({ start: 0, end: time * 1000 });
@@ -130,16 +131,19 @@ export const navMenuItems = [
     id: 0,
     name: "About",
     url: "/",
+    icon: (props) => <User {...props} />
   },
   {
     id: 1,
     name: "Work",
     url: "/work",
+    icon: (props) => <Command {...props}  />
   },
   {
     id: 2,
     name: "Blogs",
     url: "/blogs",
+    icon: (props) => <PenTool {...props}  />
   },
 ];
 

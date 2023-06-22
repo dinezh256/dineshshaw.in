@@ -65,7 +65,7 @@ const About = () => {
                 as={resumeLink}
                 target="_blank"
               >
-                View Résumé <ArrowTopRight />
+                <ArrowTopRight /> View Résumé 
               </Link>
             </div>
           </div>

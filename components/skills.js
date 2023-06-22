@@ -10,8 +10,8 @@ const SkillPill = ({ id, imgSrc, name }) => (
   >
     <Image
       className="skill-image"
-      width={16}
-      height={16}
+      width={11}
+      height={11}
       src={imgSrc}
       alt={name}
       draggable={false}

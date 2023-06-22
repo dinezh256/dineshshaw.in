@@ -8,7 +8,7 @@ const ArrowTopRight = ({ stroke = "#000000", size = 14 }) => {
       xmlns="http://www.w3.org/2000/svg"
       aria-labelledby="arrowRightTopIconTitle"
       stroke={stroke}
-      strokeWidth="1"
+      strokeWidth="2.5"
       strokeLinecap="square"
       strokeLinejoin="miter"
       fill="none"

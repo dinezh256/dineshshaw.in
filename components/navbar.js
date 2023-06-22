@@ -23,7 +23,7 @@ const Navbar = () => {
 
   useEffect(() => {
     if (vibrate) {
-      navigator.vibrate(21);
+      navigator.vibrate(15);
       setVibrate(false);
     }
   }, [vibrate]);
@@ -31,8 +31,8 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <div className="navbar-menu">
-        <div className="slider" style={{ left: `${activeTab * 110}px` }} />
-        {navMenuItems.map(({ name, id, url }) => (
+        <div className="slider" style={{ left: `${activeTab * 116}px` }} />
+        {navMenuItems.map(({ name, id, url, icon }) => (
           <Link
             href={url}
             as={url}
@@ -40,6 +40,7 @@ const Navbar = () => {
             className={activeTab === id ? "btn active" : "btn"}
             onClick={() => handleTabChange(id)}
           >
+            {icon({ size: 15, strokeWidth: 2.65 })}
             {name}
           </Link>
         ))}
