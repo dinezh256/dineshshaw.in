@@ -170,7 +170,7 @@ export const blogsList = [
     slug: "understanding-the-challenges-of-lazy-loading-and-code-splitting-in-react",
     fileName: "react-lazy-loading-challenges",
     createdAt: 1687086811265,
-    readDuration: 110,
+    readDuration: 150,
     name: "Understanding the Challenges of Lazy Loading and Code Splitting in React",
     description:
       "Explore the challenges of lazy loading and code splitting in React, and discover strategies to overcome them for optimized performance and user experience.",
