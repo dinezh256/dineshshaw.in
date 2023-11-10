@@ -28,6 +28,16 @@ const Navbar = () => {
     }
   }, [vibrate]);
 
+  useEffect(() => {
+    if (router.pathname) {
+      setActiveTab(
+        router.pathname.includes("/blogs/")
+          ? 2
+          : navMenuItems.find((item) => router?.pathname === item.url)?.id
+      );
+    }
+  }, [router.pathname]);
+
   return (
     <div className="navbar">
       <div className="navbar-menu">
