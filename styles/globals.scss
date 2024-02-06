@@ -16,30 +16,26 @@ body {
   background-attachment: scroll;
   background-clip: border-box;
   background-size: 320px 320px;
-  overflow: hidden;
+
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #e8e3e2;
+  }
+
+  &::-webkit-scrollbar-thumb,
+  &::-webkit-scrollbar-thumb:horizontal {
+    width: 10px;
+    border-radius: 5px;
+    background: rgba(17, 27, 39, 1);
+  }
 
   #__next {
     display: flex;
     flex-direction: column;
-    height: 100vh;
-    overflow-y: auto;
-
-    @media (hover: hover) {
-      &::-webkit-scrollbar {
-        width: 10px;
-      }
-
-      &::-webkit-scrollbar-track {
-        background: #e8e3e2;
-      }
-
-      &::-webkit-scrollbar-thumb,
-      &::-webkit-scrollbar-thumb:horizontal {
-        width: 10px;
-        border-radius: 5px;
-        background: rgba(17, 27, 39, 1);
-      }
-    }
+    min-height: 100vh;
   }
 }
 
