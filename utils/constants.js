@@ -35,9 +35,9 @@ export const timeline = [
     yearwise: [
       {
         id: 0,
-        start: "Aug 2020",
-        end: "Dec 2020",
-        position: "Freelancer (FE)",
+        start: "Jul 2020",
+        end: "Oct 2020",
+        position: "Intern (FE)",
       },
     ],
   },
@@ -49,7 +49,7 @@ export const timeline = [
         id: 0,
         start: "Nov 2020",
         end: "Dec 2020",
-        position: "Freelancer (FE)",
+        position: "Intern (FE)",
       },
     ],
   },
@@ -131,19 +131,19 @@ export const navMenuItems = [
     id: 0,
     name: "About",
     url: "/",
-    icon: (props) => <User {...props} />
+    icon: (props) => <User {...props} />,
   },
   {
     id: 1,
     name: "Work",
     url: "/work",
-    icon: (props) => <Command {...props}  />
+    icon: (props) => <Command {...props} />,
   },
   {
     id: 2,
     name: "Blogs",
     url: "/blogs",
-    icon: (props) => <PenTool {...props}  />
+    icon: (props) => <PenTool {...props} />,
   },
 ];
 
@@ -163,7 +163,7 @@ export const blogsList = [
     name: "Securely Transmit Data in Unexpected Situations using React and Window events",
     description:
       "Sending data to the Server when the User navigates away, closes/reloads the tab.",
-    keywords: "Server,React,React.js,Browser,unload,beforeunload,window,events"
+    keywords: "Server,React,React.js,Browser,unload,beforeunload,window,events",
   },
   {
     id: 1,
@@ -174,7 +174,7 @@ export const blogsList = [
     name: "Understanding the Challenges of Lazy Loading and Code Splitting in React",
     description:
       "Explore the challenges of lazy loading and code splitting in React, and discover strategies to overcome them for optimized performance and user experience.",
-    keywords: "lazy loading,React,React.js,code splitting,user experience"
+    keywords: "lazy loading,React,React.js,code splitting,user experience",
   },
 ];
 
@@ -265,5 +265,5 @@ export const skillsList = [
 ];
 
 export const getBlogUrl = (slug) => {
-  return `https://dineshshaw.in/blogs/${slug}`
-}
+  return `https://dineshshaw.in/blogs/${slug}`;
+};

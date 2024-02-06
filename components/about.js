@@ -45,7 +45,7 @@ const About = () => {
                 <b> Web Developer</b>
               </span>
               <span>
-                <b> Freelancer</b>
+                <b> Software Engineer</b>
               </span>
             </div>
           </h2>
@@ -65,7 +65,7 @@ const About = () => {
                 as={resumeLink}
                 target="_blank"
               >
-                <ArrowTopRight /> View Résumé 
+                <ArrowTopRight /> View Résumé
               </Link>
             </div>
           </div>
