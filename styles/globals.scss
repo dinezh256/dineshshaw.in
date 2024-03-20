@@ -5,17 +5,17 @@
 }
 
 html {
-  background-color: #e8e3e2;
+  background-color: #f8f8f8;
 }
 
 body {
   margin: 0px;
-  background-image: url(../assets/paper.webp);
+  background-image: url(../assets/cement.webp);
   background-position: 0 0;
   background-repeat: repeat;
   background-attachment: scroll;
   background-clip: border-box;
-  background-size: 320px 320px;
+  background-size: 600px 600px;
 
   &::-webkit-scrollbar {
     width: 10px;
