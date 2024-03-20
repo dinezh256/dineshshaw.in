@@ -2,7 +2,7 @@ import { useState } from "react";
 import Image from "next/image";
 import clsx from "clsx";
 
-import DisplayImage from "../assets/DisplayPicture.webp";
+import DisplayImage from "../assets/DisplayPicture.jpeg";
 
 const NameCard = () => {
   const [loaded, setLoaded] = useState(false);
