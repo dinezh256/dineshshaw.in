@@ -143,17 +143,16 @@ body {
     .name-card-image {
       width: 170px;
       height: 170px;
-      border-radius: 18px;
-      background-color: rgba(230, 230, 230, 0.2);
-      border: 8px solid rgba(230, 230, 230, 0.2);
-      box-shadow: 0px 0px 12px rgba(120, 120, 120, 0.35);
-      overflow: hidden;
 
       .display-image {
         width: 100%;
         height: 100%;
         border-radius: 12px;
         transition: all 0.5s ease;
+
+        animation: morph 8s ease-in-out infinite;
+        border: 5px solid #e2e2e2;
+        box-shadow: 0px 0px 12px rgba(120, 120, 120, 0.35);
       }
     }
 
@@ -878,13 +877,8 @@ body {
       .name-card-image {
         width: 52px;
         height: 52px;
-        background-color: rgba(230, 230, 230, 0.2);
-        border: 2px solid rgba(230, 230, 230, 0.2);
-        border-radius: 7px;
-        box-shadow: 0px 0px 8px rgba(120, 120, 120, 0.35);
-
         .display-image {
-          border-radius: 5px;
+          border: 3px solid #e2e2e2;
         }
       }
 
@@ -1107,5 +1101,18 @@ body {
   50% {
     background-color: rgb(20, 91, 205);
     color: white;
+  }
+}
+
+@keyframes morph {
+  0% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+
+  50% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
+  100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
   }
 }

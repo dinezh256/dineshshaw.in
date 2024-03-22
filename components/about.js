@@ -26,7 +26,7 @@ const About = () => {
         <title>Dinesh Shaw</title>
         <meta
           title="description"
-          content="Experienced Web Developer, Freelancer. Skilled in JavaScript, ReactJS and NodeJS."
+          content="Experienced Frontend Developer with a keen eye for detail and a demonstrated history of working in the computer software industry. Skilled in JavaScript, React.js, React Native and Node.js"
           key="desc"
         />
       </Head>
