@@ -186,7 +186,7 @@ export const blogsList = [
     description:
       "Learn how to improve the accessibility of your React application by ensuring that focus shifts seamlessly from triggering elements to popups. Explore a step-by-step guide utilizing React hooks and Semantic UI components to create a more inclusive user experience for keyboard and screen reader users.",
     keywords:
-      "react accessibility, keyboard navigation, assistive technologies, semantic ui popup, focus management, accessibility in web development, inclusive user experience, react hooks, DOM manipulation, web accessibility best practices",
+      "react accessibility, keyboard navigation, assistive technologies, semantic ui popup, focus management, accessibility in web development, inclusive user experience, react hooks, web accessibility best practices",
   },
 ];
 

@@ -148,4 +148,4 @@ To achieve the desired behavior, we'll employ a combination of React hooks and D
 
 #### **Conclusion**
 
-In this blog post, we've addressed the accessibility challenge of shifting focus from an element to a popup in a React application. By using React hooks and DOM manipulation techniques, we ensure that users navigating our application with keyboards or assistive technologies have a seamless experience when interacting with popups. Remember, accessibility isn't just a feature; it's a fundamental aspect of building inclusive web applications. Let's continue to prioritize it in our development workflows.
+In this blog post, we've addressed the accessibility challenge of shifting focus from an element to a popup in a React application. By using React hooks, we ensure that users navigating our application with keyboards or assistive technologies have a seamless experience when interacting with popups. Remember, accessibility isn't just a feature; it's a fundamental aspect of building inclusive web applications. Let's continue to prioritize it in our development workflows.
