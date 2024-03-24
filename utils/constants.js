@@ -176,6 +176,18 @@ export const blogsList = [
       "Explore the challenges of lazy loading and code splitting in React, and discover strategies to overcome them for optimized performance and user experience.",
     keywords: "lazy loading,React,React.js,code splitting,user experience",
   },
+  {
+    id: 2,
+    slug: "shifting-focus-from-an-element-to-popup-in-react",
+    fileName: "shift-focus-to-popup",
+    createdAt: 1711269071522,
+    readDuration: 210,
+    name: "Enhancing Accessibility: Shifting Focus from an Element to Popup in React",
+    description:
+      "Learn how to improve the accessibility of your React application by ensuring that focus shifts seamlessly from triggering elements to popups. Explore a step-by-step guide utilizing React hooks and Semantic UI components to create a more inclusive user experience for keyboard and screen reader users.",
+    keywords:
+      "react accessibility, keyboard navigation, assistive technologies, semantic ui popup, focus management, accessibility in web development, inclusive user experience, react hooks, DOM manipulation, web accessibility best practices",
+  },
 ];
 
 export const notFoundBlogMeta = {
