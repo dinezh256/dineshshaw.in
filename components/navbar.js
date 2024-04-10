@@ -44,11 +44,10 @@ const Navbar = () => {
         <div className="slider" style={{ left: `${activeTab * 116}px` }} />
         <ul className="navbar-menu">
           {navMenuItems.map(({ name, id, url, icon }) => (
-            <li>
+            <li key={id}>
               <Link
                 href={url}
                 as={url}
-                key={id}
                 className={activeTab === id ? "btn active" : "btn"}
                 onClick={() => handleTabChange(id)}
               >
