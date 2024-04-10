@@ -16,7 +16,7 @@ const ProjectCard = ({ src, type, name, codeUrl, websiteUrl, position }) => {
           src={src}
           priority
           draggable={false}
-          alt={name}
+          alt={`${name} thumbnail`}
           onLoadingComplete={() => setLoaded(true)}
         />
         <div className="project-details">

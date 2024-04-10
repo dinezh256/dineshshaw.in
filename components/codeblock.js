@@ -1,6 +1,6 @@
 import React from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import blockStyle from "react-syntax-highlighter/dist/cjs/styles/prism/solarizedlight";
+import blockStyle from "react-syntax-highlighter/dist/cjs/styles/prism/coldark-dark";
 
 const CodeBlock = ({ language, value }) => {
   return (

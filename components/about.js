@@ -43,6 +43,11 @@ const About = () => {
             <div>
               <span>
                 <b> Web Developer</b>
+                <b>,</b>
+              </span>
+              <span>
+                <b> App Developer</b>
+                <b>,</b>
               </span>
               <span>
                 <b> Software Engineer</b>
@@ -50,10 +55,10 @@ const About = () => {
             </div>
           </h2>
           <div className="available-to-contact">
-            <div className="contact-heading">
+            <h3 className="contact-heading">
               <Circle size={12} fill="#00ac00" stroke="#00ac00" />
               <span>Available for new opportunities</span>
-            </div>
+            </h3>
             <div className="contact-cta-wrapper">
               <button className="contact-cta" onClick={onClickContact}>
                 <Mail size={15} strokeWidth={2.5} />

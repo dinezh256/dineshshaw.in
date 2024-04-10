@@ -27,7 +27,7 @@ export default function Page({ markdownContent, meta = notFoundBlogMeta }) {
         <title>{meta.name} | Dinesh Shaw</title>
         <meta title="description" content={meta.description} key="desc" />
         <meta name="keywords" content={meta.keywords}></meta>
-        <meta property="og:title" content={meta.name + ' | Dinesh Shaw'} />
+        <meta property="og:title" content={meta.name + " | Dinesh Shaw"} />
         <meta property="og:type" content="blog" />
         <meta property="og:url" content={sharableData.url} />
       </Head>
@@ -38,7 +38,11 @@ export default function Page({ markdownContent, meta = notFoundBlogMeta }) {
       </div>
       <div className="flex-between blogs-nav">
         <RWebShare data={sharableData}>
-          <div title="Share this blog" className="blogs-share flex-start">
+          <div
+            title="Share this blog"
+            className="blogs-share flex-start"
+            tabIndex={0}
+          >
             <Share2 size={16} />
           </div>
         </RWebShare>

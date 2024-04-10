@@ -5,6 +5,8 @@ const ArrowTopRight = ({ stroke = "#000000", size = 14 }) => {
       height={size}
       viewBox="0 0 24 24"
       role="img"
+      alt="arrow top right"
+      title="arrow top right"
       xmlns="http://www.w3.org/2000/svg"
       aria-labelledby="arrowRightTopIconTitle"
       stroke={stroke}

@@ -39,23 +39,27 @@ const Navbar = () => {
   }, [router.pathname]);
 
   return (
-    <div className="navbar">
-      <div className="navbar-menu">
+    <nav className="navbar">
+      <div>
         <div className="slider" style={{ left: `${activeTab * 116}px` }} />
-        {navMenuItems.map(({ name, id, url, icon }) => (
-          <Link
-            href={url}
-            as={url}
-            key={id}
-            className={activeTab === id ? "btn active" : "btn"}
-            onClick={() => handleTabChange(id)}
-          >
-            {icon({ size: 15, strokeWidth: 2.65 })}
-            {name}
-          </Link>
-        ))}
+        <ul className="navbar-menu">
+          {navMenuItems.map(({ name, id, url, icon }) => (
+            <li>
+              <Link
+                href={url}
+                as={url}
+                key={id}
+                className={activeTab === id ? "btn active" : "btn"}
+                onClick={() => handleTabChange(id)}
+              >
+                {icon({ size: 15, strokeWidth: 2.65 })}
+                {name}
+              </Link>
+            </li>
+          ))}
+        </ul>
       </div>
-    </div>
+    </nav>
   );
 };
 
