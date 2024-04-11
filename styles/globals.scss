@@ -16,28 +16,25 @@ body {
   background-attachment: scroll;
   background-clip: border-box;
   background-size: 600px 600px;
-  filter: invert(1);
+  // filter: invert(1);
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb,
+  &::-webkit-scrollbar-thumb:horizontal {
+    border-radius: 4px;
+    background: rgba(17, 27, 39, 0.5);
+  }
 
   #__next {
     display: flex;
     flex-direction: column;
-    max-height: 100vh;
     min-height: 100vh;
-    overflow-y: scroll;
-
-    &::-webkit-scrollbar {
-      width: 8px;
-    }
-
-    &::-webkit-scrollbar-track {
-      background: transparent;
-    }
-
-    &::-webkit-scrollbar-thumb,
-    &::-webkit-scrollbar-thumb:horizontal {
-      border-radius: 4px;
-      background: rgba(17, 27, 39, 0.5);
-    }
   }
 }
 
@@ -47,7 +44,7 @@ body {
 .footer-section img,
 .contact-heading svg,
 .project-name {
-  filter: invert(1) !important;
+  // filter: invert(1) !important;
 }
 
 .main-wrapper {
@@ -64,7 +61,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  position: fixed;
+  position: sticky;
   left: 50%;
   transform: translateX(-50%);
   height: 40px;
@@ -933,9 +930,9 @@ body {
   }
 
   .navbar {
-    top: auto;
-    bottom: 20px;
+    top: calc(100vh - 60px);
     animation: peakUp ease 0.35s both;
+    margin-left: 50%;
   }
 
   .about-section {
