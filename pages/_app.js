@@ -36,14 +36,12 @@ const MyApp = ({ Component, pageProps }) => {
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <main>
-        {showNavbar && <Navbar />}
-        <div className="main-wrapper">
-          {showComponent && <NameCard />}
-          <Component {...pageProps} />
-        </div>
-        {showNavbar && <Footer />}
+      {showNavbar && <Navbar />}
+      <main className="main-wrapper">
+        {showComponent && <NameCard />}
+        <Component {...pageProps} />
       </main>
+      {showNavbar && <Footer />}
 
       <Analytics />
     </>
