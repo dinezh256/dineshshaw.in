@@ -937,10 +937,12 @@ body {
       border-radius: 8px;
 
       .name-card-image {
-        width: 52px;
-        height: 52px;
+        width: 60px;
+        height: 60px;
         .display-image {
           border: 3px solid #e2e2e2;
+          width: calc(100% - 6px);
+          height: calc(100% - 6px);
         }
       }
 
