@@ -4,7 +4,11 @@ const Contact = ({ animate }) => {
   return (
     <>
       <div className="contact-section">
-        <div className={`contact-section-inner${animate ? " animate-contact" : ""}`}>
+        <div
+          className={`contact-section-inner${
+            animate ? " animate-contact" : ""
+          }`}
+        >
           {/* <h1>CONTACT</h1> */}
           <div className="socials">
             <h1>SOCIALS</h1>
@@ -40,9 +44,8 @@ const Contact = ({ animate }) => {
           <div className="emails">
             <h1>EMAIL</h1>
             <h2>
-              Are you stuck in the Stone Age of e-mail writing? Well
-              my prehistoric friend here's my e-mail, feel free to drop
-              me a message on your trusty typewriter.
+              Interested in talking? Let's do it, feel free to drop me a message
+              on your trusty typewriter and we can connect at a suitable time.
             </h2>
             <a href="mailto:heydineshshaw@gmail.com" target="_blank">
               heydineshshaw@gmail.com 📬
