@@ -160,9 +160,7 @@ body {
         height: 100%;
         border-radius: 12px;
         transition: all 0.5s ease;
-
-        animation: morph 8s ease-in-out infinite;
-        border: 5px solid #e2e2e2;
+        border: 8px solid #ededed;
         box-shadow: 0px 0px 12px rgba(120, 120, 120, 0.35);
       }
     }
@@ -170,7 +168,7 @@ body {
     h1 {
       font-size: 24px;
       font-weight: 700;
-      margin-top: 10px;
+      margin-top: 30px;
       margin-bottom: 10px;
     }
 
@@ -226,6 +224,7 @@ body {
       left: 0;
       padding: 0px 15px 0px 15px;
       height: 100%;
+      text-align: center;
       background: linear-gradient(
         to bottom,
         transparent 50%,
@@ -242,6 +241,7 @@ body {
       .project-buttons {
         display: flex;
         align-items: center;
+        justify-content: center;
         gap: 10px;
         a {
           height: 26px;
@@ -503,6 +503,14 @@ body {
     }
   }
 
+  .about-desc {
+    font-weight: 400;
+    margin: 72px 0 72px 0;
+    color: rgb(88, 88, 88);
+    font-size: 15px;
+    animation: fadeIn 0.25s ease both;
+  }
+
   .display-image {
     margin-top: 20px;
     width: 150px;
@@ -523,10 +531,31 @@ body {
     animation: fadeIn 0.5s ease both;
 
     .project-section {
+      margin-block: 0;
       margin-top: 30px;
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
+      list-style: none;
+      padding-inline: 0;
+    }
+
+    .view-more {
+      margin-top: 10px;
+      background-color: black;
+      color: white;
+      text-decoration: none;
+      text-align: center;
+      border-radius: 20px;
+      padding: 6px 12px;
+      transition: all 0.2s ease;
+      animation: peakDownItem 0.2s ease both;
+      animation-delay: 0.55s;
+
+      &:hover {
+        transform: scale(1.05);
+        transition: all 0.2s ease;
+      }
     }
   }
 
@@ -680,6 +709,9 @@ body {
   }
 
   .blog-list {
+    margin-block: 0;
+    padding-inline: 0;
+    list-style: none;
     margin-top: 30px;
     a {
       text-decoration: none;
@@ -884,6 +916,7 @@ body {
     min-width: calc(100% - 38px);
     max-width: calc(100% - 38px);
     border-radius: 8px;
+    position: relative;
     background-color: rgba(218, 218, 218, 0.65);
     border: 2px solid rgba(218, 218, 218, 0.8);
     box-shadow: 0px 0px 12px rgba(180, 180, 180, 0.15);
@@ -1127,18 +1160,5 @@ body {
   50% {
     background-color: rgb(20, 91, 205);
     color: white;
-  }
-}
-
-@keyframes morph {
-  0% {
-    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-  }
-
-  50% {
-    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
-  }
-  100% {
-    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
   }
 }

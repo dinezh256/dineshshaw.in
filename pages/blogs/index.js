@@ -34,15 +34,21 @@ const Blogs = () => (
   <div className="blog-section">
     <Head>
       <title>Blogs | Dinesh Shaw</title>
-      <meta title="description" content="Sharing how I've overcame challenges in Software Engineering in the form of blogs" key="desc" />
+      <meta
+        title="description"
+        content="Sharing how I've overcame challenges in Software Engineering in the form of blogs"
+        key="desc"
+      />
     </Head>
     <h1>BLOGS</h1>
 
-    <div className="blog-list">
+    <ul className="blog-list">
       {blogsList
         .sort((a, b) => b.createdAt - a.createdAt)
-        .map((blog, position) => renderBlogCard(blog, position))}
-    </div>
+        .map((blog, position) => (
+          <li key={blog.id}>{renderBlogCard(blog, position)}</li>
+        ))}
+    </ul>
   </div>
 );
 

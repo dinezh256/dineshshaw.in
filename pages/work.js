@@ -8,15 +8,30 @@ const Work = () => {
     <>
       <Head>
         <title>Work | Dinesh Shaw</title>
-        <meta title="description" content="Showcasing my works as a web developer" key="desc" />
+        <meta
+          title="description"
+          content="Showcasing my works as a web developer"
+          key="desc"
+        />
       </Head>
       <div className="work-section">
         <div className="work-section-inner">
           <h1>WORK</h1>
-          <div className="project-section">
+          <ul className="project-section">
             {projects.map((project, index) => (
-              <ProjectCard key={project.id} {...project} position={index} />
+              <li key={project.id}>
+                <ProjectCard {...project} position={index} />
+              </li>
             ))}
+          </ul>
+          <div className="flex-center">
+            <a
+              className="view-more"
+              href="https://github.com/dinezh256?tab=repositories"
+              target="_blank"
+            >
+              <span>View Other Projects</span>
+            </a>
           </div>
         </div>
       </div>

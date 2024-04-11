@@ -54,6 +54,18 @@ const About = () => {
               </span>
             </div>
           </h2>
+
+          <h3 className="about-desc">
+            With over three years of experience in Software Development, I bring
+            expertise in Frontend Web Development using JavaScript and ReactJS.
+            Currently, I'm diving into app development using React Native to
+            broaden my skills. As a keen learner and attentive collaborator, I
+            thrive on crafting efficient and scalable solutions. My passion lies
+            in developing user-friendly applications that tackle real-world
+            problems, aiming to empower users and organizations alike. Explore
+            my journey with projects, each reflecting my commitment to
+            innovation and problem-solving.
+          </h3>
           <div className="available-to-contact">
             <h3 className="contact-heading">
               <Circle size={12} fill="#00ac00" stroke="#00ac00" />
