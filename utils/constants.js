@@ -121,7 +121,7 @@ export const projects = [
     src: DubariImage,
     name: "Dubari",
     codeUrl: "https://github.com/dinezh256/dubari",
-    websiteUrl: "https://www.dubari.com",
+    websiteUrl: "https://dubari.netlify.app/",
     type: "",
   },
 ];
