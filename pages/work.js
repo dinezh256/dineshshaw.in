@@ -24,7 +24,7 @@ const Work = () => {
               </li>
             ))}
           </ul>
-          <div className="flex-center">
+          <div className="flex-center view-more-wrapper">
             <a
               className="view-more"
               href="https://github.com/dinezh256?tab=repositories"

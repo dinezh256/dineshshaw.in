@@ -544,21 +544,24 @@ body {
       padding-inline: 0;
     }
 
-    .view-more {
-      margin-top: 10px;
-      background-color: black;
-      color: white;
-      text-decoration: none;
-      text-align: center;
-      border-radius: 20px;
-      padding: 6px 12px;
-      transition: all 0.2s ease;
+    .view-more-wrapper {
       animation: peakDownItem 0.2s ease both;
       animation-delay: 0.55s;
 
-      &:hover {
-        transform: scale(1.05);
+      .view-more {
+        margin-top: 10px;
+        background-color: black;
+        color: white;
+        text-decoration: none;
+        text-align: center;
+        border-radius: 20px;
+        padding: 10px 20px;
         transition: all 0.2s ease;
+
+        &:hover {
+          transform: scale(1.05);
+          transition: all 0.2s ease;
+        }
       }
     }
   }
