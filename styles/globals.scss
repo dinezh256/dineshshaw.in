@@ -38,14 +38,14 @@ body {
   }
 }
 
-.display-image,
-.card-image,
-.rws-backdrop,
-.footer-section img,
-.contact-heading svg,
-.project-name {
-  // filter: invert(1) !important;
-}
+// .display-image,
+// .card-image,
+// .rws-backdrop,
+// .footer-section img,
+// .contact-heading svg,
+// .project-name {
+//    filter: invert(1) !important;
+// }
 
 .main-wrapper {
   max-width: 800px;
@@ -235,6 +235,7 @@ body {
         padding-top: 190px;
         font-weight: 600;
         margin-bottom: 10px;
+        text-shadow: 0 0 5px #555555;
         color: white;
       }
 
@@ -275,7 +276,13 @@ body {
     .project-card-top {
       .project-details {
         .project-name {
-          padding-top: 250px;
+          padding-top: 230px;
+          padding-bottom: 4px;
+          font-size: 24px;
+        }
+
+        .project-buttons a {
+          font-size: 16px;
         }
       }
     }
