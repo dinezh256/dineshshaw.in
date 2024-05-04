@@ -43,7 +43,7 @@ body {
   margin: 0 auto;
   flex: 1;
   padding: 60px 20px 0 20px;
-  animation: fadeIn 0.75s ease both;
+  animation: fadeIn 0.5s ease both;
   animation-delay: 0.2s;
 }
 
@@ -313,7 +313,8 @@ body {
   padding-left: 240px;
   position: relative;
   margin-top: -220px;
-  animation: fadeIn 0.5s ease both;
+  animation: fadeIn 0.25s ease both;
+  animation-delay: 0.35s;
 
   .skills-section {
     margin-top: 40px;
@@ -564,7 +565,7 @@ body {
   padding-bottom: 60px;
 
   .work-section-inner {
-    animation: fadeIn 0.5s ease both;
+    animation: fadeIn 0.25s ease both;
 
     .project-section {
       margin-block: 0;
@@ -738,7 +739,7 @@ body {
   padding-bottom: 60px;
   position: relative;
   margin-top: -220px;
-  animation: fadeIn 0.5s ease both;
+  animation: fadeIn 0.25s ease both;
 
   h1 {
     font-weight: 400;
