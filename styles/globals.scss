@@ -339,6 +339,7 @@ body {
         display: flex;
         gap: 5px;
         align-items: center;
+        text-decoration: none;
         background-color: rgba(184, 230, 255, 0.45);
         transition: all 0.125s ease;
         border: rgba(184, 230, 255, 0.65) 1px solid;
@@ -347,6 +348,12 @@ body {
         padding: 4px 7px;
         transition: all 0.125s ease;
         animation: peakDownItem 100ms ease both;
+        transition: all 0.1s ease;
+
+        &:hover {
+          background-color: rgba(184, 230, 255, 1);
+          transition: all 0.2s ease;
+        }
 
         span {
           font-size: 12px;

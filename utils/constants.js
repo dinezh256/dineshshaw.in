@@ -223,56 +223,67 @@ export const skillsList = [
     id: 0,
     imgSrc: Javascript,
     name: "JavaScript",
+    url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript'
   },
   {
     id: 1,
     imgSrc: React,
     name: "React.js",
+    url: "https://react.dev/",
   },
   {
     id: 2,
     imgSrc: NextJs,
     name: "Next.js",
+    url: "https://nextjs.org/",
   },
   {
     id: 3,
     imgSrc: HTML,
     name: "HTML 5",
+    url: "https://developer.mozilla.org/en-US/docs/Web/HTML",
   },
   {
     id: 4,
     imgSrc: SCSS,
     name: "SCSS",
+    url: "https://sass-lang.com/",
   },
   {
     id: 5,
     imgSrc: Firebase,
     name: "Firebase",
+    url: "https://firebase.google.com/",
   },
   {
     id: 6,
     imgSrc: Node,
     name: "Node.js",
+    url: "https://nodejs.org/en",
   },
   {
     id: 7,
     imgSrc: Express,
     name: "Express.js",
+    url: "https://expressjs.com/",
   },
   {
     id: 8,
     imgSrc: Git,
     name: "Git",
+    url: "https://git-scm.com/",
   },
   {
     id: 9,
     imgSrc: SemanticUI,
     name: "Semantic UI",
+    url: "https://semantic-ui.com/",
   },
   {
     id: 10,
     imgSrc: StyledComponents,
     name: "Styled Components",
+    url: "https://styled-components.com/",
   },
 ];
 

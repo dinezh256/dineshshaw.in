@@ -1,11 +1,14 @@
+import Link from "next/link";
 import Image from "next/image";
 
 import AnimateText from "./animateText";
 import { skillsList } from "../utils/constants";
 
-const SkillPill = ({ id, imgSrc, name }) => (
-  <div
+const SkillPill = ({ id, imgSrc, name, url }) => (
+  <Link
     className="skill-pill"
+    href={url}
+    target="_blank"
     key={id}
     style={{ animationDelay: `${0.05 * (id + 1)}s` }}
   >
@@ -19,7 +22,7 @@ const SkillPill = ({ id, imgSrc, name }) => (
       priority
     />
     <span>{name}</span>
-  </div>
+  </Link>
 );
 
 const Skills = () => (
