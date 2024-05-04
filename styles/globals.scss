@@ -152,6 +152,8 @@ body {
   position: sticky;
   top: 125px;
   z-index: 2;
+  animation: peakDownName 0.4s ease both;
+  animation-delay: 0.2s;
 
   .name-card-inner {
     margin: auto;
@@ -785,7 +787,7 @@ body {
 
 .blog-page-wrapper {
   margin-top: 60px;
-  animation: peakDownItem 0.2s ease both;
+  animation: peakDownItem 0.4s ease both;
 
   .back-to-blogs {
     position: sticky;
@@ -1151,12 +1153,33 @@ body {
   }
 }
 
+@keyframes peakDownName {
+  0% {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  60% {
+    transform: translateY(20px);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
 @keyframes peakDownItem {
-  from {
+  0% {
     transform: translateY(-10px);
     opacity: 0;
   }
-  to {
+  40% {
+    transform: translateY(10px);
+    opacity: 1;
+  }
+
+  100% {
     transform: translateY(0px);
     opacity: 1;
   }
