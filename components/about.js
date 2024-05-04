@@ -1,15 +1,14 @@
 import { useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
-import { Circle, ChevronsDown } from "react-feather";
+import { Circle, ChevronsDown, ChevronsUp } from "react-feather";
 
 import Contact from "./contact";
 import Skills from "./skills";
 import AnimateText from "./animateText";
 
-import { getGreeting, resumeLink, timeline } from "../utils";
+import { resumeLink, timeline } from "../utils";
 import CheckMarkIcon from "../assets/icons/checkMarkIcon";
-import ArrowTopRight from "../assets/icons/arrowTopRight";
 
 const About = () => {
   const [animateContact, setAnimateContact] = useState(false);
@@ -35,7 +34,7 @@ const About = () => {
         <div className="about-section-inner">
           <div className="about-main">
             <h2>
-              Hey there! <span>👋🏼</span>
+              Hey there <span>👋🏼</span>
             </h2>
             <h2>
               My name is <b>Dinesh Shaw</b>
@@ -68,7 +67,7 @@ const About = () => {
                   as={resumeLink}
                   target="_blank"
                 >
-                  <ArrowTopRight />
+                  <ChevronsUp size={18} strokeWidth={2.5} />
                   <span>Résumé</span>
                 </Link>
                 <button className="contact-cta" onClick={onClickContact}>

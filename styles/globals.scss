@@ -43,8 +43,6 @@ body {
   margin: 0 auto;
   flex: 1;
   padding: 60px 20px 0 20px;
-  animation: fadeIn 0.5s ease both;
-  animation-delay: 0.35s;
 }
 
 // navbar
@@ -205,7 +203,6 @@ body {
 }
 
 // project card
-
 .project-card {
   width: 265px;
   height: 265px;
@@ -389,11 +386,13 @@ body {
         gap: 8px;
         cursor: pointer;
         transition: all 0.2s ease;
+
         span {
           font-weight: 500;
           font-size: 15px;
           color: white;
         }
+
         &:hover {
           background-color: rgba(20, 91, 205, 1);
           border: 1px solid rgb(0, 66, 173);
@@ -419,6 +418,7 @@ body {
 
         svg {
           stroke: rgb(22, 99, 222);
+          transform: rotate(45deg);
         }
 
         &:hover {
@@ -983,15 +983,15 @@ body {
       border-radius: 8px;
 
       .name-card-image {
-        width: 88px;
-        height: 88px;
+        width: 80px;
+        height: 80px;
         overflow: hidden;
         border: 4px solid #e2e2e2;
 
         .display-image {
           width: calc(100% - 6px);
           height: calc(100% - 6px);
-          transform: scale(1.45);
+          transform: scale(1.5);
           transform-origin: 36px 10px;
         }
       }
@@ -1024,16 +1024,17 @@ body {
     .name-logo-left {
       display: block;
       position: absolute;
-      right: -140px;
-      top: -84px;
+      right: -150px;
+      top: -90px;
       z-index: 5;
-      opacity: 0.15;
+      opacity: 0.1;
       filter: grayscale(1) blur(1px);
       width: 240px;
     }
 
     .name-logo-left {
       left: -150px;
+      top: -88px;
     }
   }
 
@@ -1046,12 +1047,13 @@ body {
   .about-section {
     padding: 20px 20px;
     margin-top: 0;
+    animation: peakDownName ease 0.5s both;
 
     .about-section-inner {
       margin: 0px 0 40px 0;
 
       .about-main {
-        height: calc(100vh - 180px);
+        height: calc(100vh - 170px);
         margin-bottom: 0;
         display: flex;
         flex-direction: column;
@@ -1059,11 +1061,14 @@ body {
         justify-content: center;
 
         .available-to-contact {
-          margin: 120px 0 60px 0;
+          margin: 140px 0 40px 0;
 
-          h3 {
+          .contact-heading {
             justify-content: center;
             margin-bottom: 30px;
+            span {
+              font-size: 16px;
+            }
           }
 
           .contact-cta-wrapper {
@@ -1091,6 +1096,12 @@ body {
         margin-top: 0px;
         font-size: 32px;
         text-align: center;
+
+        &:nth-child(1) {
+          span {
+            font-size: 26px;
+          }
+        }
 
         &:nth-child(2) {
           display: none;
