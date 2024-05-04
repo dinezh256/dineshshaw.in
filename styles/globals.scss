@@ -780,8 +780,9 @@ body {
     border: 1px solid rgb(217, 217, 217);
     border-radius: 20px;
     height: 28px;
-    padding: 0 5px 0 5px;
+    padding: 0 5px;
     overflow: hidden;
+    width: 0;
     animation: backBtnAnimation 6s ease both;
     transform: scale(1.1);
 
