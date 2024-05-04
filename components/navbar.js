@@ -40,9 +40,7 @@ const Navbar = () => {
 
   return (
     <nav>
-      <div className="navbar-backdrop">
-        <div className="navbar-backdrop-inner" />
-      </div>
+      <div className="navbar-backdrop" />
       <div className="navbar">
         <div className="slider" style={{ left: `${activeTab * 116}px` }} />
         <ul className="navbar-menu">

@@ -31,11 +31,9 @@ export default function Page({ markdownContent, meta = notFoundBlogMeta }) {
         <meta property="og:type" content="blog" />
         <meta property="og:url" content={sharableData.url} />
       </Head>
-      <div className="back-to-blogs">
-        <Link href="/blogs" as="/blogs" className="flex-start">
-          <ChevronLeft size={20} /> Back
-        </Link>
-      </div>
+      <Link href="/blogs" as="/blogs" className="flex-start back-to-blogs">
+        <ChevronLeft size={20} /> Back
+      </Link>
       <div className="flex-between blogs-nav">
         <RWebShare data={sharableData}>
           <div
