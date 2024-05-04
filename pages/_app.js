@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import Script from "next/script";
@@ -19,11 +20,16 @@ const font = FontFamily({
 });
 
 const MyApp = ({ Component, pageProps }) => {
+  const [isMounted, setMounted] = useState(false);
   const router = useRouter();
   const showComponent = whiteListRoutes.includes(router.pathname);
   const showNavbar =
     navbarRoutes.includes(router.pathname) ||
     router.pathname.includes("/blogs/");
+
+  useEffect(() => {
+    setMounted(true);
+  }, [])
 
   return (
     <>
@@ -51,13 +57,12 @@ const MyApp = ({ Component, pageProps }) => {
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      {showNavbar && <Navbar />}
+      {showNavbar && <Navbar isMounted={isMounted} />}
       <main className="main-wrapper">
         {showComponent && <NameCard />}
-        <Component {...pageProps} />
+        {isMounted && <Component {...pageProps} />}
       </main>
-      {showNavbar && <Footer />}
-
+      {showNavbar && isMounted && <Footer />}
       <Analytics />
     </>
   );

@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 
 import { navMenuItems } from "../utils";
 
-const Navbar = () => {
+const Navbar = ({ isMounted }) => {
   const router = useRouter();
   const isBlogPage = router?.pathname?.includes("/blogs/");
   const activeIdx = isBlogPage ? 2 : navMenuItems.find((item) => router?.pathname === item.url)?.id;
@@ -32,7 +32,7 @@ const Navbar = () => {
     }
   }, [router.pathname]);
 
-  return (
+  return isMounted ? (
     <nav>
       <div className="navbar-backdrop" />
       <div className="navbar">
@@ -54,7 +54,7 @@ const Navbar = () => {
         </ul>
       </div>
     </nav>
-  );
+  ) : <></>;
 };
 
 export default Navbar;
