@@ -5,6 +5,7 @@ import { Circle, Mail } from "react-feather";
 
 import Contact from "./contact";
 import Skills from "./skills";
+import AnimateText from "./animateText";
 
 import { resumeLink, timeline } from "../utils/constants";
 import CheckMarkIcon from "../assets/icons/checkMarkIcon";
@@ -61,10 +62,6 @@ const About = () => {
                 <span>Available for new opportunities</span>
               </h3>
               <div className="contact-cta-wrapper">
-                <button className="contact-cta" onClick={onClickContact}>
-                  <Mail size={15} strokeWidth={2.5} />
-                  <span>Contact Me</span>
-                </button>
                 <Link
                   className="resume-button"
                   href={resumeLink}
@@ -73,25 +70,34 @@ const About = () => {
                 >
                   <ArrowTopRight /> View Résumé
                 </Link>
+                <button className="contact-cta" onClick={onClickContact}>
+                  <Mail size={15} strokeWidth={2.5} />
+                  <span>Contact Me</span>
+                </button>
               </div>
             </div>
           </div>
           <div className="about-me">
-            <h1>ABOUT ME</h1>
-            <h3 className="about-desc">
-              With over three years of experience in Software Development, I
-              bring expertise in Frontend Web Development using JavaScript and
-              ReactJS. Currently, I'm diving into app development using React
-              Native to broaden my skills. As a keen learner and attentive
-              collaborator, I thrive on crafting efficient and scalable
-              solutions. Explore my journey with projects, each reflecting my
-              commitment to innovation and problem-solving.
-            </h3>
+            <AnimateText text="ABOUT ME" />
+            <ul className="about-desc">
+              <li>
+                With over <b>three years</b> of experience in Software Development, I bring expertise in Frontend Web Dev using <b>JavaScript</b> and <b>ReactJS</b>.
+              </li>
+              <li>
+                Currently, I'm diving into app development using <b>React Native</b> and <b>SwiftUI</b> to broaden my skills.
+              </li>
+              <li>
+                As a keen learner and attentive collaborator, I thrive on crafting efficient and scalable solutions.
+              </li>
+              <li>
+                Other than being a Software Engineer, I love to <b>Workout</b> 4 times a week. When time permits, I love to travel, read blogs, play &amp; watch Cricket.
+              </li>
+            </ul>
           </div>
         </div>
         <Skills />
         <div className="timeline-wrapper">
-          <h1>Experience History</h1>
+          <AnimateText text="EXPERIENCE" />
           {timeline
             .sort((a, b) => b.orgId - a.orgId)
             .map(({ orgId, orgName, yearwise }) => (

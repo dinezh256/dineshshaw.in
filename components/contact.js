@@ -1,3 +1,4 @@
+import AnimateText from "./animateText";
 import ArrowTopRight from "../assets/icons/arrowTopRight";
 
 const Contact = ({ animate }) => {
@@ -5,13 +6,11 @@ const Contact = ({ animate }) => {
     <>
       <div className="contact-section">
         <div
-          className={`contact-section-inner${
-            animate ? " animate-contact" : ""
-          }`}
+          className={`contact-section-inner${animate ? " animate-contact" : ""
+            }`}
         >
-          {/* <h1>CONTACT</h1> */}
           <div className="socials">
-            <h1>SOCIALS</h1>
+            <AnimateText text="SOCIALS" />
             <a
               href="https://in.linkedin.com/in/shawdinesh"
               target="_blank"
@@ -42,7 +41,7 @@ const Contact = ({ animate }) => {
             </a>
           </div>
           <div className="emails">
-            <h1>EMAIL</h1>
+            <AnimateText text="EMAIL" />
             <h2>
               Interested in talking? Let's do it, feel free to drop me a message
               on your trusty typewriter and we can connect at a suitable time.

@@ -3,6 +3,7 @@ import Head from "next/head";
 import format from "date-fns/format";
 import { Calendar, Clock } from "react-feather";
 
+import AnimateText from "../../components/animateText";
 import { blogsList, humanizeDuration } from "../../utils/constants";
 
 const renderBlogCard = (
@@ -40,8 +41,7 @@ const Blogs = () => (
         key="desc"
       />
     </Head>
-    <h1>BLOGS</h1>
-
+    <AnimateText text="BLOGS" />
     <ul className="blog-list">
       {blogsList
         .sort((a, b) => b.createdAt - a.createdAt)

@@ -16,7 +16,6 @@ body {
   background-attachment: scroll;
   background-clip: border-box;
   background-size: 600px 600px;
-  // filter: invert(1);
   &::-webkit-scrollbar {
     width: 8px;
   }
@@ -38,15 +37,6 @@ body {
   }
 }
 
-// .display-image,
-// .card-image,
-// .rws-backdrop,
-// .footer-section img,
-// .contact-heading svg,
-// .project-name {
-//    filter: invert(1) !important;
-// }
-
 .main-wrapper {
   max-width: 800px;
   margin: 0 auto;
@@ -57,6 +47,33 @@ body {
 }
 
 // navbar
+
+.navbar-backdrop {
+  height: 60px;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 4;
+
+  .navbar-backdrop-inner {
+    height: 60px;
+    width: 100vw;
+    display: flex;
+    flex-direction: column-reverse;
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(255, 255, 255, 0.2)
+    );
+
+    .background-blur {
+      height: 2px;
+      width: 100vw;
+    }
+  }
+}
+
 .navbar {
   display: flex;
   align-items: center;
@@ -101,7 +118,7 @@ body {
   );
   background-size: 4px 4px;
   z-index: 1;
-  transition: left 0.25s linear;
+  transition: left 0.2s linear;
 }
 
 .btn {
@@ -422,10 +439,6 @@ body {
   .timeline-wrapper {
     margin: 40px 0 25px 0;
 
-    h1 {
-      text-transform: uppercase;
-    }
-
     .timeline-org {
       margin-top: 30px;
 
@@ -512,13 +525,26 @@ body {
 
   .about-me {
     margin-top: 100px;
+
     .about-desc {
       font-weight: 400;
-      margin: 28px 0 0px 0;
-      color: rgb(64, 64, 64);
+      margin: 28px 0 0 0;
       font-size: 15px;
-      line-height: 22px;
-      animation: fadeIn 0.25s ease both;
+      animation: fadeIn 0.2s ease both;
+      padding-inline-start: 20px;
+      margin-block-start: 20px;
+      margin-block-end: 0px;
+
+      li {
+        padding: 6px 0;
+        line-height: 22px;
+        color: rgb(64, 64, 64);
+
+        b {
+          font-weight: 500;
+          color: black;
+        }
+      }
     }
   }
 
@@ -591,29 +617,29 @@ body {
     &.animate-contact {
       .socials {
         .linkedin {
-          animation: animate-linkedin 0.25s ease both;
+          animation: animate-linkedin 0.2s ease both;
           animation-delay: 0.75s;
         }
 
         .github {
-          animation: animate-github 0.25s ease both;
+          animation: animate-github 0.2s ease both;
           animation-delay: 0.875s;
         }
 
         .twitter {
-          animation: animate-twitter 0.25s ease both;
+          animation: animate-twitter 0.2s ease both;
           animation-delay: 1s;
         }
 
         .instagram {
-          animation: animate-instagram 0.25s ease both;
+          animation: animate-instagram 0.2s ease both;
           animation-delay: 1.125s;
         }
       }
 
       .emails {
         a {
-          animation: animate-email 0.25s ease both;
+          animation: animate-email 0.2s ease both;
           animation-delay: 1.25s;
         }
       }
@@ -767,7 +793,7 @@ body {
   .back-to-blogs {
     position: sticky;
     top: 30px;
-    z-index: 5;
+    z-index: 10;
     margin-bottom: 30px;
     background-color: rgb(247, 247, 247);
     border: 1px solid rgb(217, 217, 217);
@@ -913,6 +939,21 @@ body {
   #__next {
     &::-webkit-scrollbar {
       width: 0px !important;
+    }
+  }
+
+  .navbar-backdrop {
+    height: 60px;
+    bottom: 0px;
+    top: auto;
+
+    .navbar-backdrop-inner {
+      flex-direction: column;
+      background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(255, 255, 255, 0.2)
+      );
     }
   }
 
