@@ -16,6 +16,7 @@ body {
   background-attachment: scroll;
   background-clip: border-box;
   background-size: 600px 600px;
+
   &::-webkit-scrollbar {
     width: 8px;
   }
@@ -520,12 +521,12 @@ body {
       margin: 28px 0 0 0;
       font-size: 15px;
       animation: fadeIn 0.2s ease both;
-      padding-inline-start: 20px;
+      padding-inline-start: 14px;
       margin-block-start: 20px;
       margin-block-end: 0px;
 
       li {
-        padding: 6px 0;
+        padding: 6px 0 6px 2px;
         line-height: 22px;
         color: rgb(64, 64, 64);
 
