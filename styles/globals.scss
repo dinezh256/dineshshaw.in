@@ -38,15 +38,6 @@ body {
   }
 }
 
-// .display-image,
-// .card-image,
-// .rws-backdrop,
-// .footer-section img,
-// .contact-heading svg,
-// .project-name {
-//    filter: invert(1) !important;
-// }
-
 .main-wrapper {
   max-width: 800px;
   margin: 0 auto;
@@ -57,6 +48,41 @@ body {
 }
 
 // navbar
+
+.navbar-backdrop {
+  height: 80px;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 4;
+
+  .navbar-backdrop-inner {
+    height: 80px;
+    width: 100vw;
+    background-image: linear-gradient(
+      to top,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 1) 80%
+    );
+  }
+
+  .navbar-backdrop-inner::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(
+      to top,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 1) 80%
+    );
+    z-index: -1;
+  }
+}
+
 .navbar {
   display: flex;
   align-items: center;
@@ -101,7 +127,7 @@ body {
   );
   background-size: 4px 4px;
   z-index: 1;
-  transition: left 0.25s linear;
+  transition: left 0.2s linear;
 }
 
 .btn {
@@ -422,10 +448,6 @@ body {
   .timeline-wrapper {
     margin: 40px 0 25px 0;
 
-    h1 {
-      text-transform: uppercase;
-    }
-
     .timeline-org {
       margin-top: 30px;
 
@@ -512,13 +534,26 @@ body {
 
   .about-me {
     margin-top: 100px;
+
     .about-desc {
       font-weight: 400;
-      margin: 28px 0 0px 0;
-      color: rgb(64, 64, 64);
+      margin: 28px 0 0 0;
       font-size: 15px;
-      line-height: 22px;
-      animation: fadeIn 0.25s ease both;
+      animation: fadeIn 0.2s ease both;
+      padding-inline-start: 20px;
+      margin-block-start: 20px;
+      margin-block-end: 0px;
+
+      li {
+        padding: 6px 0;
+        line-height: 22px;
+        color: rgb(64, 64, 64);
+
+        b {
+          font-weight: 500;
+          color: black;
+        }
+      }
     }
   }
 
@@ -591,29 +626,29 @@ body {
     &.animate-contact {
       .socials {
         .linkedin {
-          animation: animate-linkedin 0.25s ease both;
+          animation: animate-linkedin 0.2s ease both;
           animation-delay: 0.75s;
         }
 
         .github {
-          animation: animate-github 0.25s ease both;
+          animation: animate-github 0.2s ease both;
           animation-delay: 0.875s;
         }
 
         .twitter {
-          animation: animate-twitter 0.25s ease both;
+          animation: animate-twitter 0.2s ease both;
           animation-delay: 1s;
         }
 
         .instagram {
-          animation: animate-instagram 0.25s ease both;
+          animation: animate-instagram 0.2s ease both;
           animation-delay: 1.125s;
         }
       }
 
       .emails {
         a {
-          animation: animate-email 0.25s ease both;
+          animation: animate-email 0.2s ease both;
           animation-delay: 1.25s;
         }
       }
@@ -913,6 +948,30 @@ body {
   #__next {
     &::-webkit-scrollbar {
       width: 0px !important;
+    }
+  }
+
+  .navbar-backdrop {
+    height: 60px;
+    bottom: 0px;
+    top: auto;
+
+    .navbar-backdrop-inner {
+      height: 60px;
+      background-image: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 1) 80%
+      );
+    }
+
+    .navbar-backdrop-inner::after {
+      bottom: 0;
+      background-image: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 1) 80%
+      );
     }
   }
 

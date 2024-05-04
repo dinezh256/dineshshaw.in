@@ -1,5 +1,6 @@
 import Image from "next/image";
 
+import AnimateText from "./animateText";
 import { skillsList } from "../utils/constants";
 
 const SkillPill = ({ id, imgSrc, name }) => (
@@ -23,7 +24,7 @@ const SkillPill = ({ id, imgSrc, name }) => (
 
 const Skills = () => (
   <div className="skills-section">
-    <h1>SKILLS</h1>
+    <AnimateText text="SKILLS" />
     <div className="skills-list">{skillsList.map(SkillPill)}</div>
   </div>
 );

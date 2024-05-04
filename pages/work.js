@@ -1,6 +1,7 @@
 import Head from "next/head";
 
 import ProjectCard from "../components/projectCardLayout";
+import AnimateText from "../components/animateText";
 import { projects } from "../utils/constants";
 
 const Work = () => {
@@ -16,7 +17,7 @@ const Work = () => {
       </Head>
       <div className="work-section">
         <div className="work-section-inner">
-          <h1>WORK</h1>
+          <AnimateText text="WORK" />
           <ul className="project-section">
             {projects.map((project, index) => (
               <li key={project.id}>
