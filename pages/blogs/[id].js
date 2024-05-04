@@ -32,7 +32,7 @@ export default function Page({ markdownContent, meta = notFoundBlogMeta }) {
         <meta property="og:url" content={sharableData.url} />
       </Head>
       <Link href="/blogs" as="/blogs" className="flex-start back-to-blogs">
-        <ChevronLeft size={20} /> Back
+        <ChevronLeft size={20} /> <span>Back</span>
       </Link>
       <div className="flex-between blogs-nav">
         <RWebShare data={sharableData}>
