@@ -1,4 +1,4 @@
-import { blogsList } from "../utils/constants";
+import { blogsList } from "../utils";
 
 const Sitemap = () => null;
 

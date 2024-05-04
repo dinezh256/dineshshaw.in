@@ -30,31 +30,7 @@ export const resumeLink =
 
 export const timeline = [
   {
-    orgId: 0,
-    orgName: "Pronation Events",
-    yearwise: [
-      {
-        id: 0,
-        start: "Jul 2020",
-        end: "Oct 2020",
-        position: "Intern (FE)",
-      },
-    ],
-  },
-  {
     orgId: 1,
-    orgName: "Code Policy",
-    yearwise: [
-      {
-        id: 0,
-        start: "Nov 2020",
-        end: "Dec 2020",
-        position: "Intern (FE)",
-      },
-    ],
-  },
-  {
-    orgId: 2,
     orgName: "PuStack Technologies",
     yearwise: [
       {
@@ -72,7 +48,7 @@ export const timeline = [
     ],
   },
   {
-    orgId: 3,
+    orgId: 2,
     orgName: "Auzmor Inc.",
     yearwise: [
       {

@@ -10,7 +10,8 @@ const NameCard = () => {
 
   return (
     <div className="name-card">
-      <Image className="name-logo" src={logo} alt="logo" />
+      <Image className="name-logo-left" src={logo} alt="logo" />
+      <Image className="name-logo-right" src={logo} alt="logo" />
       <div className="name-card-inner">
         <div className="name-card-image">
           <Image

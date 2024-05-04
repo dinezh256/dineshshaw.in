@@ -8,7 +8,7 @@ import Navbar from "../components/navbar";
 import NameCard from "../components/nameCard";
 import Footer from "../components/footer";
 
-import { whiteListRoutes, navbarRoutes } from "../utils/constants";
+import { whiteListRoutes, navbarRoutes } from "../utils";
 import "../styles/globals.scss";
 
 const font = FontFamily({

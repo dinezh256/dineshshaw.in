@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useInView } from "react-intersection-observer";
 
 import AnimateText from "./animateText";
-import { skillsList } from "../utils/constants";
+import { skillsList } from "../utils";
 
 const SkillPill = ({ id, imgSrc, name, url }) => (
   <Link

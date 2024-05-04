@@ -2,7 +2,7 @@ import Head from "next/head";
 
 import ProjectCard from "../components/projectCardLayout";
 import AnimateText from "../components/animateText";
-import { projects } from "../utils/constants";
+import { projects } from "../utils";
 
 const Work = () => {
   return (

@@ -2,17 +2,15 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-import { navMenuItems } from "../utils/constants";
+import { navMenuItems } from "../utils";
 
 const Navbar = () => {
   const router = useRouter();
+  const isBlogPage = router?.pathname?.includes("/blogs/");
+  const activeIdx = isBlogPage ? 2 : navMenuItems.find((item) => router?.pathname === item.url)?.id;
 
   const [vibrate, setVibrate] = useState(false);
-  const [activeTab, setActiveTab] = useState(
-    router.pathname.includes("/blogs/")
-      ? 2
-      : navMenuItems.find((item) => router?.pathname === item.url)?.id
-  );
+  const [activeTab, setActiveTab] = useState(activeIdx);
 
   const handleTabChange = (id) => {
     if (id !== activeTab) {
@@ -23,18 +21,14 @@ const Navbar = () => {
 
   useEffect(() => {
     if (vibrate) {
-      navigator.vibrate(15);
+      navigator.vibrate(10);
       setVibrate(false);
     }
   }, [vibrate]);
 
   useEffect(() => {
     if (router.pathname) {
-      setActiveTab(
-        router.pathname.includes("/blogs/")
-          ? 2
-          : navMenuItems.find((item) => router?.pathname === item.url)?.id
-      );
+      setActiveTab(activeIdx);
     }
   }, [router.pathname]);
 
@@ -52,7 +46,7 @@ const Navbar = () => {
                 className={activeTab === id ? "btn active" : "btn"}
                 onClick={() => handleTabChange(id)}
               >
-                {icon({ size: 15, strokeWidth: 2.65 })}
+                {icon({ size: 15, strokeWidth: 2.25 })}
                 {name}
               </Link>
             </li>

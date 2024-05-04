@@ -4,7 +4,7 @@ import format from "date-fns/format";
 import { Calendar, Clock } from "react-feather";
 
 import AnimateText from "../../components/animateText";
-import { blogsList, humanizeDuration } from "../../utils/constants";
+import { blogsList, humanizeDuration } from "../../utils";
 
 const renderBlogCard = (
   { id, slug, name, readDuration, createdAt },

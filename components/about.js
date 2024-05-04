@@ -1,13 +1,13 @@
 import { useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
-import { Circle, Mail } from "react-feather";
+import { Circle, ChevronsDown } from "react-feather";
 
 import Contact from "./contact";
 import Skills from "./skills";
 import AnimateText from "./animateText";
 
-import { resumeLink, timeline } from "../utils/constants";
+import { getGreeting, resumeLink, timeline } from "../utils";
 import CheckMarkIcon from "../assets/icons/checkMarkIcon";
 import ArrowTopRight from "../assets/icons/arrowTopRight";
 
@@ -68,10 +68,11 @@ const About = () => {
                   as={resumeLink}
                   target="_blank"
                 >
-                  <ArrowTopRight /> View Résumé
+                  <ArrowTopRight />
+                  <span>Résumé</span>
                 </Link>
                 <button className="contact-cta" onClick={onClickContact}>
-                  <Mail size={15} strokeWidth={2.5} />
+                  <ChevronsDown size={18} strokeWidth={2.5} />
                   <span>Contact Me</span>
                 </button>
               </div>
@@ -81,10 +82,10 @@ const About = () => {
             <AnimateText text="ABOUT ME" />
             <ul className="about-desc">
               <li>
-                With over <b>three years</b> of experience in Software Development, I bring expertise in Frontend Web Dev using <b>JavaScript</b> and <b>ReactJS</b>.
+                With over <b>three years</b> of experience in Software Development, I bring expertise in Frontend Web Development using <b>JavaScript</b> and <b>ReactJS</b>.
               </li>
               <li>
-                Currently, I'm diving into app development using <b>React Native</b> and <b>SwiftUI</b> to broaden my skills.
+                Currently, I'm diving into App Development using <b>React Native</b> and <b>SwiftUI</b> to diversify my skills.
               </li>
               <li>
                 As a keen learner and attentive collaborator, I thrive on crafting efficient and scalable solutions.
@@ -96,7 +97,7 @@ const About = () => {
           </div>
         </div>
         <Skills />
-        <div className="timeline-wrapper">
+        <div className="timeline-section">
           <AnimateText text="EXPERIENCE" />
           {timeline
             .sort((a, b) => b.orgId - a.orgId)

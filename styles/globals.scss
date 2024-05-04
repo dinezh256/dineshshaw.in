@@ -154,7 +154,8 @@ body {
   animation: peakDownName 0.4s ease both;
   animation-delay: 0.2s;
 
-  .name-logo {
+  .name-logo-right,
+  .name-logo-left {
     display: none;
   }
 
@@ -176,7 +177,7 @@ body {
         width: 100%;
         height: 100%;
         transition: all 0.5s ease;
-        transform: scale(1.25);
+        transform: scale(1.2);
         transform-origin: 80px 30px;
       }
     }
@@ -355,7 +356,7 @@ body {
   }
 
   .available-to-contact {
-    margin-top: 64px;
+    margin-top: 56px;
 
     .contact-heading,
     .contact-cta {
@@ -376,12 +377,15 @@ body {
       align-items: center;
       margin: 15px 0;
 
-      .contact-cta {
+      .contact-cta,
+      .resume-button {
         background-color: rgb(39, 110, 224);
         color: white;
-        padding: 7px 14px;
-        border: rgba(20, 91, 205, 0.25) 1px solid;
+        padding: 8.25px 14px;
+        border: 1px solid rgba(20, 91, 205, 0.5);
         border-radius: 6px;
+        display: flex;
+        align-items: center;
         gap: 8px;
         cursor: pointer;
         transition: all 0.2s ease;
@@ -392,7 +396,7 @@ body {
         }
         &:hover {
           background-color: rgba(20, 91, 205, 1);
-          border: rgba(20, 91, 205, 1) 1px solid;
+          border: 1px solid rgb(0, 66, 173);
           color: white;
           transition: all 0.2s ease;
 
@@ -403,26 +407,28 @@ body {
       }
 
       .resume-button {
-        padding: 7px 14px;
         text-decoration: none;
         border: 1px solid rgba(20, 91, 205, 0.25);
-        border-radius: 6px;
-        background-color: rgba(20, 91, 205, 0.2);
-        color: rgb(22, 99, 222);
-        font-size: 15px;
-        font-weight: 500;
-        display: flex;
-        align-items: center;
+        background-color: rgba(20, 91, 205, 0.2) !important;
+        padding: 7px 14px;
         gap: 5px;
+
+        span {
+          color: rgb(22, 99, 222) !important;
+        }
 
         svg {
           stroke: rgb(22, 99, 222);
+        }
+
+        &:hover {
+          border: 1px solid rgba(20, 91, 205, 0.75);
         }
       }
     }
   }
 
-  .timeline-wrapper {
+  .timeline-section {
     margin: 40px 0 25px 0;
 
     .timeline-org {
@@ -541,7 +547,7 @@ body {
 //work
 .work-section {
   padding-left: 240px;
-  margin-top: -220px;
+  margin-top: -240px;
   padding-bottom: 60px;
 
   .work-section-inner {
@@ -717,7 +723,7 @@ body {
   padding-left: 240px;
   padding-bottom: 60px;
   position: relative;
-  margin-top: -220px;
+  margin-top: -240px;
   animation: fadeIn 0.25s ease both;
 
   h1 {
@@ -782,7 +788,7 @@ body {
     height: 28px;
     padding: 0 5px;
     overflow: hidden;
-    width: 0;
+    opacity: 0;
     animation: backBtnAnimation 6s ease both;
     transform: scale(1.1);
 
@@ -1014,15 +1020,20 @@ body {
       }
     }
 
-    .name-logo {
+    .name-logo-right,
+    .name-logo-left {
       display: block;
       position: absolute;
       right: -140px;
       top: -84px;
       z-index: 5;
       opacity: 0.15;
-      filter: grayscale(1) blur(2px);
+      filter: grayscale(1) blur(1px);
       width: 240px;
+    }
+
+    .name-logo-left {
+      left: -150px;
     }
   }
 
@@ -1037,27 +1048,36 @@ body {
     margin-top: 0;
 
     .about-section-inner {
-      margin: 40px 0 0px 0;
-
-      .available-to-contact {
-        margin: 80px 0 150px 0;
-        h3 {
-          justify-content: center;
-          margin-bottom: 30px;
-        }
-
-        .contact-cta-wrapper {
-          justify-content: center;
-        }
-      }
+      margin: 0px 0 40px 0;
 
       .about-main {
-        height: calc(100vh - 200px);
+        height: calc(100vh - 180px);
         margin-bottom: 0;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+
+        .available-to-contact {
+          margin: 120px 0 60px 0;
+
+          h3 {
+            justify-content: center;
+            margin-bottom: 30px;
+          }
+
+          .contact-cta-wrapper {
+            justify-content: center;
+
+            .resume-button,
+            .contact-cta {
+              span {
+                font-size: 16px;
+                font-weight: 500;
+              }
+            }
+          }
+        }
       }
 
       .about-me {
@@ -1068,7 +1088,7 @@ body {
       }
 
       h2 {
-        margin-top: 10px;
+        margin-top: 0px;
         font-size: 32px;
         text-align: center;
 
@@ -1076,19 +1096,33 @@ body {
           display: none;
         }
 
+        &:nth-child(3) {
+          font-size: 28px;
+          color: #555555;
+        }
+
         div {
           display: block;
           overflow: hidden;
           height: 80px;
           width: calc(100vw - 40px);
+
           span {
-            top: 30px;
+            top: 20px;
             text-align: center;
             left: 50%;
+            font-size: 32px;
             animation: changewordmobile 6s linear infinite;
+            font-style: normal;
           }
         }
       }
+    }
+    .skills-section,
+    .timeline-section,
+    .socials,
+    .emails {
+      margin-bottom: 60px;
     }
   }
 
@@ -1339,15 +1373,18 @@ body {
 @keyframes backBtnAnimation {
   5% {
     width: 0px;
+    opacity: 0.5;
   }
   15% {
     width: 64px;
+    opacity: 1;
   }
   90% {
     width: 64px;
   }
   100% {
     width: 20px;
+    opacity: 1;
   }
 }
 
@@ -1360,8 +1397,10 @@ body {
   }
   90% {
     width: 37px;
+    opacity: 1;
   }
   100% {
     width: 0px;
+    opacity: 0;
   }
 }

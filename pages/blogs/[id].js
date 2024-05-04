@@ -12,7 +12,7 @@ import {
   getDocBySlug,
   notFoundBlogMeta,
   getBlogUrl,
-} from "../../utils/constants";
+} from "../../utils";
 
 export default function Page({ markdownContent, meta = notFoundBlogMeta }) {
   const sharableData = {
