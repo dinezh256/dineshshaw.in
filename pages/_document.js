@@ -6,6 +6,7 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
+          <title>Dinesh Shaw</title>
           <meta charSet="utf-8" />
           <link rel="icon" href="/favicon.ico" />
           <link
@@ -41,8 +42,8 @@ class MyDocument extends Document {
           />
           <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
           <meta name="msapplication-TileColor" content="#2b5797" />
-          <meta name="theme-color" content="#fafafa" />
-          <meta name="description" content="Dinesh Shaw" />
+          <meta name="theme-color" content="#f8f8f8" />
+          <meta name="description" content="Experienced Frontend Developer with a keen eye for detail and a demonstrated history of working in the computer software industry. Skilled in JavaScript, React.js, React Native and Node.js" />
           <meta name="msapplication-TileColor" content="#145bcd"></meta>
           <link rel="manifest" href="/manifest.json" />
           <meta property="og:type" content="website" />
@@ -59,6 +60,8 @@ class MyDocument extends Document {
           <meta property="og:image:type" content="image/png" />
           <meta property="og:image:width" content="512" />
           <meta property="og:image:height" content="512" />
+          <meta property="og:site_name" content="Dinesh Shaw"></meta>
+          <meta property="og:locale" content="en-US"></meta>
         </Head>
         <body>
           <Main />

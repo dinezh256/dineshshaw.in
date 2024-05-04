@@ -154,6 +154,10 @@ body {
   animation: peakDownName 0.4s ease both;
   animation-delay: 0.2s;
 
+  .name-logo {
+    display: none;
+  }
+
   .name-card-inner {
     margin: auto;
     width: 180px;
@@ -166,10 +170,11 @@ body {
       .display-image {
         width: 100%;
         height: 100%;
+        filter: brightness(1.2);
         border-radius: 12px;
         transition: all 0.5s ease;
         border: 8px solid #ededed;
-        box-shadow: 0px 0px 12px rgba(120, 120, 120, 0.35);
+        box-shadow: 0px 0px 12px rgba(120, 120, 120, 0.45);
       }
     }
 
@@ -230,8 +235,8 @@ body {
       position: absolute;
       bottom: 0;
       left: 0;
-      padding: 0px 15px 0px 15px;
-      height: 100%;
+      height: 60px;
+      padding: 0px 15px 15px 15px;
       text-align: center;
       background: linear-gradient(
         to bottom,
@@ -239,8 +244,8 @@ body {
         rgb(152, 176, 208) 100%
       );
       width: calc(100% - 30px);
+
       .project-name {
-        padding-top: 190px;
         font-weight: 600;
         margin-bottom: 10px;
         text-shadow: 0 0 5px #555555;
@@ -271,26 +276,6 @@ body {
             transform: scale(1.05);
             transition: all 0.2s ease;
           }
-        }
-      }
-    }
-  }
-
-  @media screen and (max-width: 500px) {
-    width: 100%;
-    height: 325px;
-    margin-bottom: 25px;
-
-    .project-card-top {
-      .project-details {
-        .project-name {
-          padding-top: 230px;
-          padding-bottom: 4px;
-          font-size: 24px;
-        }
-
-        .project-buttons a {
-          font-size: 16px;
         }
       }
     }
@@ -497,7 +482,7 @@ body {
       span {
         animation: changeword 6s linear infinite;
         position: absolute;
-        top: -25px;
+        top: -24.5px;
         left: 7.5px;
         opacity: 0;
         width: max-content;
@@ -612,13 +597,13 @@ body {
 
     &.animate-contact {
       .socials {
-        .linkedin {
-          animation: animate-linkedin 0.2s ease both;
+        .github {
+          animation: animate-github 0.2s ease both;
           animation-delay: 0.75s;
         }
 
-        .github {
-          animation: animate-github 0.2s ease both;
+        .linkedin {
+          animation: animate-linkedin 0.2s ease both;
           animation-delay: 0.875s;
         }
 
@@ -693,7 +678,7 @@ body {
 
     .twitter {
       &:hover {
-        background-color: rgb(29, 161, 242);
+        background-color: rgb(0, 0, 0);
       }
     }
 
@@ -936,6 +921,10 @@ body {
     }
   }
 
+  h1 {
+    font-size: 18px !important;
+  }
+
   .navbar-backdrop {
     height: 80px;
     bottom: 0px;
@@ -966,6 +955,7 @@ body {
     border: 2px solid rgba(218, 218, 218, 0.8);
     box-shadow: 0px 0px 12px rgba(180, 180, 180, 0.15);
     animation-delay: 0s;
+    overflow: hidden;
 
     .name-card-inner {
       width: calc(100% - 30px);
@@ -979,8 +969,9 @@ body {
       border-radius: 8px;
 
       .name-card-image {
-        width: 60px;
-        height: 60px;
+        width: 88px;
+        height: 88px;
+
         .display-image {
           border: 3px solid #e2e2e2;
           width: calc(100% - 6px);
@@ -988,25 +979,37 @@ body {
         }
       }
 
-      span {
-        display: none;
-      }
+      .name-card-meta {
+        h1 {
+          font-size: 26px !important;
+          color: rgb(20, 91, 205);
+          margin: 0;
+          padding-bottom: 4px;
+        }
 
-      h1,
-      h2 {
-        margin: 0;
-      }
+        h2 {
+          font-size: 20px;
+          line-height: 28px;
+          color: hwb(201 7% 61%);
+          margin: 0;
+          padding-bottom: 2px;
+        }
 
-      h1 {
-        font-size: 22px;
-        color: rgb(20, 91, 205);
+        span {
+          font-size: 14px;
+        }
       }
+    }
 
-      h2 {
-        font-size: 16px;
-        line-height: 28px;
-        color: hwb(201 7% 61%);
-      }
+    .name-logo {
+      display: block;
+      position: absolute;
+      right: -35%;
+      top: -80%;
+      z-index: 5;
+      opacity: 0.15;
+      filter: grayscale(0.85);
+      width: 240px;
     }
   }
 
@@ -1043,7 +1046,7 @@ body {
 
         div {
           span {
-            top: -17.5px;
+            top: -18.5px;
             left: 5px;
           }
         }
@@ -1057,6 +1060,9 @@ body {
 
     .work-section-inner .project-section {
       margin-top: 40px;
+      li {
+        margin-bottom: 30px;
+      }
     }
 
     h1 {
@@ -1112,6 +1118,33 @@ body {
     p {
       font-size: 14px;
       margin-bottom: 5px;
+    }
+  }
+
+  .project-card {
+    width: 100%;
+    height: calc(100vw - 60px);
+    margin-bottom: 25px;
+
+    &:hover {
+      .card-image {
+        transform: scale(1);
+      }
+    }
+
+    .project-card-top {
+      .project-details {
+        padding-bottom: 30px;
+        .project-name {
+          padding-top: 0px;
+          padding-bottom: 4px;
+          font-size: 24px;
+        }
+
+        .project-buttons a {
+          font-size: 16px;
+        }
+      }
     }
   }
 }
@@ -1220,7 +1253,7 @@ body {
 
 @keyframes animate-twitter {
   50% {
-    background-color: rgb(29, 161, 242);
+    background-color: rgb(0, 0, 0);
     color: white;
   }
 }

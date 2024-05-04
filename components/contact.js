@@ -12,13 +12,6 @@ const Contact = ({ animate }) => {
           <div className="socials">
             <AnimateText text="SOCIALS" />
             <a
-              href="https://in.linkedin.com/in/shawdinesh"
-              target="_blank"
-              className="linkedin"
-            >
-              LinkedIn <ArrowTopRight />
-            </a>
-            <a
               href="https://github.com/dinezh256"
               target="_blank"
               className="github"
@@ -26,11 +19,18 @@ const Contact = ({ animate }) => {
               Github <ArrowTopRight />
             </a>
             <a
+              href="https://in.linkedin.com/in/shawdinesh"
+              target="_blank"
+              className="linkedin"
+            >
+              LinkedIn <ArrowTopRight />
+            </a>
+            <a
               href="https://twitter.com/Dinezh256"
               target="_blank"
               className="twitter"
             >
-              Twitter <ArrowTopRight />
+              𝕏 (Twitter) <ArrowTopRight />
             </a>
             <a
               href="https://www.instagram.com/dineshlearning"

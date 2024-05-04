@@ -24,7 +24,7 @@ const About = () => {
   return (
     <>
       <Head>
-        <title>Dinesh Shaw</title>
+        <title>Dinesh's Portfolio</title>
         <meta
           title="description"
           content="Experienced Frontend Developer with a keen eye for detail and a demonstrated history of working in the computer software industry. Skilled in JavaScript, React.js, React Native and Node.js"
