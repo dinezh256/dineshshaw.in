@@ -773,7 +773,6 @@ body {
     position: sticky;
     text-decoration: none;
     color: rgb(64, 114, 164);
-    font-weight: 500;
     top: 30px;
     z-index: 10;
     margin-bottom: 30px;
@@ -781,14 +780,15 @@ body {
     border: 1px solid rgb(217, 217, 217);
     border-radius: 20px;
     height: 28px;
-
     padding: 0 5px 0 5px;
     overflow: hidden;
-    animation: backBtnAnimation 5s ease both;
+    animation: backBtnAnimation 6s ease both;
+    transform: scale(1.1);
 
     span {
-      animation: backLabelAnimation 5s ease both;
+      animation: backLabelAnimation 6s ease both;
       overflow: hidden;
+      font-weight: 500;
     }
 
     svg {
@@ -1339,14 +1339,14 @@ body {
   5% {
     width: 0px;
   }
-  20% {
+  15% {
     width: 64px;
   }
-  85% {
+  90% {
     width: 64px;
   }
   100% {
-    width: 18px;
+    width: 20px;
   }
 }
 
@@ -1354,10 +1354,10 @@ body {
   5% {
     width: 0px;
   }
-  20% {
+  15% {
     width: 37px;
   }
-  85% {
+  90% {
     width: 37px;
   }
   100% {
