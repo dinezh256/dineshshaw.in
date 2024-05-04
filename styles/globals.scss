@@ -1,5 +1,5 @@
 * {
-  font-family: "Montserrat", "Helvetica Neue";
+  // font-family: "Montserrat", "Helvetica Neue";
   -webkit-tap-highlight-color: transparent;
   margin: 0;
 }
@@ -44,11 +44,10 @@ body {
   flex: 1;
   padding: 60px 20px 0 20px;
   animation: fadeIn 0.5s ease both;
-  animation-delay: 0.2s;
+  animation-delay: 0.35s;
 }
 
 // navbar
-
 .navbar-backdrop {
   height: 60px;
   width: 100vw;
@@ -314,7 +313,6 @@ body {
   position: relative;
   margin-top: -220px;
   animation: fadeIn 0.25s ease both;
-  animation-delay: 0.35s;
 
   .skills-section {
     margin-top: 40px;
@@ -558,7 +556,6 @@ body {
 }
 
 //work
-
 .work-section {
   padding-left: 240px;
   margin-top: -220px;
@@ -608,7 +605,6 @@ body {
 }
 
 //contact section
-
 .contact-section {
   margin: 50px 0;
   .contact-section-inner {
@@ -1023,6 +1019,7 @@ body {
   .about-section {
     padding: 20px 20px;
     margin-top: 0;
+
     .about-section-inner {
       margin: 40px 0 0px 0;
 
@@ -1119,6 +1116,7 @@ body {
   }
 }
 
+//share modal styles
 .rws-backdrop {
   justify-content: center !important;
 
@@ -1164,7 +1162,6 @@ body {
     transform: translateY(20px);
     opacity: 1;
   }
-
   100% {
     transform: translateY(0px);
     opacity: 1;
@@ -1180,7 +1177,6 @@ body {
     transform: translateY(10px);
     opacity: 1;
   }
-
   100% {
     transform: translateY(0px);
     opacity: 1;

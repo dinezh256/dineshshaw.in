@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/react";
+import { IBM_Plex_Sans as FontFamily } from "next/font/google";
 
 import Navbar from "../components/navbar";
 import NameCard from "../components/nameCard";
@@ -9,6 +10,11 @@ import Footer from "../components/footer";
 
 import { whiteListRoutes, navbarRoutes } from "../utils/constants";
 import "../styles/globals.scss";
+
+const font = FontFamily({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"]
+});
 
 const MyApp = ({ Component, pageProps }) => {
   const router = useRouter();
@@ -24,6 +30,13 @@ const MyApp = ({ Component, pageProps }) => {
         strategy="lazyOnload"
         src="https://www.googletagmanager.com/gtag/js?id=G-DZ5VTRTBNF"
       />
+      <style jsx global>
+        {`
+          html {
+              font-family: ${font.style.fontFamily};
+          }`
+        }
+      </style>
 
       <Script strategy="lazyOnload" id="g-tag">
         {`
