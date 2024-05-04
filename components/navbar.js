@@ -41,11 +41,7 @@ const Navbar = () => {
   return (
     <nav>
       <div className="navbar-backdrop">
-        <div className="navbar-backdrop-inner">
-          {Array(30).fill(0)
-            .map((_, idx) => <div key={idx} id={idx} className="background-blur" style={{ backdropFilter: `blur(${0.2 * (idx + 1)}px)` }} />)
-          }
-        </div>
+        <div className="navbar-backdrop-inner" />
       </div>
       <div className="navbar">
         <div className="slider" style={{ left: `${activeTab * 116}px` }} />
