@@ -20,7 +20,6 @@ const SkillPill = ({ id, imgSrc, name, url }) => (
       src={imgSrc}
       alt={name}
       draggable={false}
-      priority
     />
     <span>{name}</span>
   </Link>

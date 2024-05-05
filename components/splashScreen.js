@@ -4,7 +4,7 @@ import logo from "../assets/logo.svg";
 
 function SplashScreen(props) {
     return (
-        <Image className="animate-splash" src={logo} alt="logo" />
+        <Image className="animate-splash" src={logo} alt="logo" priority />
     );
 }
 
