@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import Script from "next/script";
-import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { IBM_Plex_Sans as FontFamily } from "next/font/google";
 
 import Navbar from "../components/navbar";
@@ -63,7 +63,7 @@ const MyApp = ({ Component, pageProps }) => {
         {isMounted && <Component {...pageProps} />}
       </main>
       {showNavbar && isMounted && <Footer />}
-      <Analytics />
+      <SpeedInsights />
     </>
   );
 };
