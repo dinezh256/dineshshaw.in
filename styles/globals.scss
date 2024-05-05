@@ -950,7 +950,7 @@ body {
 
   .animate-splash {
     display: block;
-    animation: zoomSplash 0.75s ease-in both;
+    animation: zoomSplash 0.5s ease both;
   }
 
   .navbar-backdrop {
@@ -1456,7 +1456,7 @@ body {
 
 @keyframes zoomSplash {
   from {
-    opacity: 1;
+    opacity: 0.75;
     transform: translate(-50%, -50%) scale(0.5);
   }
   to {
