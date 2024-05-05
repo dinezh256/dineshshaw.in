@@ -798,7 +798,6 @@ body {
     overflow: hidden;
     opacity: 0;
     animation: backBtnAnimation 6s ease both;
-    transform: scale(1.1);
 
     span {
       animation: backLabelAnimation 6s ease both;
@@ -974,7 +973,6 @@ body {
   .main-wrapper {
     padding: 0px;
     max-width: 100vw;
-    overflow-x: hidden;
   }
 
   .name-card {
