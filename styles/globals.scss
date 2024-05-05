@@ -45,15 +45,6 @@ body {
   padding: 60px 20px 0 20px;
 }
 
-.animate-splash {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  pointer-events: none;
-  z-index: 11;
-  display: none;
-}
-
 // navbar
 .navbar-backdrop {
   height: 60px;
@@ -951,11 +942,6 @@ body {
     font-size: 18px !important;
   }
 
-  .animate-splash {
-    display: block;
-    animation: zoomSplash 0.5s ease both;
-  }
-
   .navbar-backdrop {
     height: 80px;
     bottom: 0px;
@@ -995,19 +981,19 @@ body {
       height: auto;
       display: flex;
       align-items: center;
-      gap: 30px;
+      gap: 32px;
       text-align: left;
       border-radius: 8px;
 
       .name-card-image {
-        width: 80px;
-        height: 80px;
+        width: 78px;
+        height: 78px;
         overflow: hidden;
         border: 4px solid #e2e2e2;
 
         .display-image {
-          width: calc(100% - 6px);
-          height: calc(100% - 6px);
+          width: 70px;
+          height: 70px;
           transform: scale(1.5);
           transform-origin: 36px 10px;
         }
@@ -1015,7 +1001,7 @@ body {
 
       .name-card-meta {
         h1 {
-          font-size: 26px !important;
+          font-size: 28px !important;
           color: rgb(20, 91, 205);
           margin: 0;
           padding-bottom: 4px;
@@ -1025,14 +1011,16 @@ body {
         h2 {
           font-size: 20px;
           line-height: 28px;
-          color: hwb(201 7% 61%);
+          color: rgb(18, 71, 99);
           margin: 0;
           padding-bottom: 2px;
           white-space: nowrap;
+          display: none;
         }
 
         span {
-          font-size: 14px;
+          font-size: 16px;
+          white-space: nowrap;
         }
       }
     }
@@ -1059,6 +1047,7 @@ body {
     top: auto;
     bottom: 20px;
     animation: peakUp ease 0.35s both;
+    animation-delay: 0.8s;
   }
 
   .about-section {
@@ -1075,7 +1064,6 @@ body {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        animation: peakUpSection ease 0.5s both;
 
         h2 {
           margin-top: 0px;
@@ -1083,8 +1071,18 @@ body {
           text-align: center;
 
           &:nth-child(1) {
+            font-weight: 600;
+            background: linear-gradient(#eff1f7, #dadfec);
+            border-radius: 20px 20px 0px 20px;
+            font-size: 24px;
+            border: 1px solid rgba(233, 237, 246, 1);
+            padding: 8px 20px;
+            margin-bottom: 20px;
+            animation: peakDownItem 0.5s ease both;
+            animation-delay: 0.2s;
+
             span {
-              font-size: 26px;
+              font-size: 20px;
             }
           }
 
@@ -1095,30 +1093,35 @@ body {
           &:nth-child(3) {
             font-size: 28px;
             color: #555555;
+            animation: peakUpItem ease 0.25s both;
+            animation-delay: 0.35s;
           }
 
           div {
             display: block;
             overflow: hidden;
-            height: 80px;
-            width: calc(100vw - 40px);
+            height: 40px;
+            width: 334px;
+            margin-top: 20px;
+            animation: peakUpItem ease 0.25s both;
+            animation-delay: 0.5s;
 
             span {
-              top: 20px;
               text-align: center;
+              top: auto;
               left: 50%;
               font-size: 32px;
-              animation: changewordmobile 6s linear infinite;
+              animation: changewordmobile 9s linear infinite;
               font-style: normal;
 
               &:nth-child(1) {
-                animation-delay: 0s;
+                animation-delay: 1s;
               }
               &:nth-child(2) {
-                animation-delay: 2s;
+                animation-delay: 4s;
               }
               &:nth-child(3) {
-                animation-delay: 4s;
+                animation-delay: 7s;
               }
             }
           }
@@ -1126,6 +1129,8 @@ body {
 
         .available-to-contact {
           margin: 100px 0 40px 0;
+          animation: peakUpItem ease 0.25s both;
+          animation-delay: 0.65s;
           .contact-heading {
             justify-content: center;
             margin-bottom: 30px;
@@ -1325,6 +1330,21 @@ body {
   }
 }
 
+@keyframes peakUpItem {
+  0% {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  60% {
+    transform: translateY(-10px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
 @keyframes peakDownItem {
   0% {
     transform: translateY(-10px);
@@ -1373,7 +1393,7 @@ body {
     transform: translateX(-50%) translateY(10px);
     opacity: 0;
   }
-  3.33% {
+  2% {
     opacity: 1;
     transform: translateX(-50%) translateY(0);
   }
@@ -1381,7 +1401,7 @@ body {
     opacity: 1;
     transform: translateX(-50%) translateY(0);
   }
-  33.33% {
+  32% {
     opacity: 0;
     transform: translateX(-50%) translateY(-10px);
   }
@@ -1454,16 +1474,5 @@ body {
   100% {
     width: 0px;
     opacity: 0;
-  }
-}
-
-@keyframes zoomSplash {
-  from {
-    opacity: 0.75;
-    transform: translate(-50%, -50%) scale(0.5);
-  }
-  to {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(30);
   }
 }

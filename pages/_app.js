@@ -8,7 +8,6 @@ import { IBM_Plex_Sans as FontFamily } from "next/font/google";
 import Navbar from "../components/navbar";
 import NameCard from "../components/nameCard";
 import Footer from "../components/footer";
-import SplashScreen from "../components/splashScreen";
 
 import { whiteListRoutes, navbarRoutes } from "../utils";
 import "../styles/globals.scss";
@@ -22,7 +21,6 @@ const font = FontFamily({
 
 const MyApp = ({ Component, pageProps }) => {
   const [isMounted, setMounted] = useState(false);
-  const [showSplash, setShowSplash] = useState(true);
   const router = useRouter();
   const showComponent = whiteListRoutes.includes(router.pathname);
   const showNavbar =
@@ -31,7 +29,6 @@ const MyApp = ({ Component, pageProps }) => {
 
   useEffect(() => {
     setMounted(true);
-    setTimeout(() => setShowSplash(false), 1500)
   }, [])
 
   return (
@@ -62,7 +59,6 @@ const MyApp = ({ Component, pageProps }) => {
       </Head>
       {showNavbar && isMounted && <Navbar />}
       <main className="main-wrapper">
-        {isMounted && showSplash && <SplashScreen />}
         {showComponent && isMounted && <NameCard />}
         {isMounted && <Component {...pageProps} />}
       </main>
