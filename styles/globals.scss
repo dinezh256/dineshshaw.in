@@ -45,6 +45,15 @@ body {
   padding: 60px 20px 0 20px;
 }
 
+.animate-splash {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  pointer-events: none;
+  z-index: 11;
+  display: none;
+}
+
 // navbar
 .navbar-backdrop {
   height: 60px;
@@ -939,6 +948,11 @@ body {
     font-size: 18px !important;
   }
 
+  .animate-splash {
+    display: block;
+    animation: zoomSplash 1s ease both;
+  }
+
   .navbar-backdrop {
     height: 80px;
     bottom: 0px;
@@ -1437,5 +1451,16 @@ body {
   100% {
     width: 0px;
     opacity: 0;
+  }
+}
+
+@keyframes zoomSplash {
+  from {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+  to {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(30);
   }
 }

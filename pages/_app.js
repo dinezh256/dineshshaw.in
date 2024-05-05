@@ -8,6 +8,7 @@ import { IBM_Plex_Sans as FontFamily } from "next/font/google";
 import Navbar from "../components/navbar";
 import NameCard from "../components/nameCard";
 import Footer from "../components/footer";
+import SplashScreen from "../components/splashScreen";
 
 import { whiteListRoutes, navbarRoutes } from "../utils";
 import "../styles/globals.scss";
@@ -59,6 +60,7 @@ const MyApp = ({ Component, pageProps }) => {
       </Head>
       {showNavbar && isMounted && <Navbar />}
       <main className="main-wrapper">
+        {isMounted && <SplashScreen />}
         {showComponent && isMounted && <NameCard />}
         {isMounted && <Component {...pageProps} />}
       </main>
