@@ -149,7 +149,7 @@ body {
   position: sticky;
   top: 125px;
   z-index: 2;
-  animation: peakDownName 0.4s ease both;
+  animation: peakDownSection 0.4s ease both;
   animation-delay: 0.2s;
 
   .name-logo-right,
@@ -478,7 +478,7 @@ body {
     margin: 0;
   }
 
-  .about-section-inner {
+  .about-section-inner .about-main {
     h2 {
       padding-bottom: 20px;
       font-weight: 500;
@@ -1058,11 +1058,57 @@ body {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        animation: peakUpName ease 0.5s both;
+        animation: peakUpSection ease 0.5s both;
+
+        h2 {
+          margin-top: 0px;
+          font-size: 32px;
+          text-align: center;
+
+          &:nth-child(1) {
+            span {
+              font-size: 26px;
+            }
+          }
+
+          &:nth-child(2) {
+            display: none;
+          }
+
+          &:nth-child(3) {
+            font-size: 28px;
+            color: #555555;
+          }
+
+          div {
+            display: block;
+            overflow: hidden;
+            height: 80px;
+            width: calc(100vw - 40px);
+
+            span {
+              top: 20px;
+              text-align: center;
+              left: 50%;
+              font-size: 32px;
+              animation: changewordmobile 6s linear infinite;
+              font-style: normal;
+
+              &:nth-child(1) {
+                animation-delay: 0s;
+              }
+              &:nth-child(2) {
+                animation-delay: 2s;
+              }
+              &:nth-child(3) {
+                animation-delay: 4s;
+              }
+            }
+          }
+        }
 
         .available-to-contact {
-          margin: 140px 0 40px 0;
-
+          margin-top: 100px;
           .contact-heading {
             justify-content: center;
             margin-bottom: 30px;
@@ -1089,43 +1135,6 @@ body {
         margin-top: 0px;
         .about-desc {
           margin: 20px 0 0px 0;
-        }
-      }
-
-      h2 {
-        margin-top: 0px;
-        font-size: 32px;
-        text-align: center;
-
-        &:nth-child(1) {
-          span {
-            font-size: 26px;
-          }
-        }
-
-        &:nth-child(2) {
-          display: none;
-        }
-
-        &:nth-child(3) {
-          font-size: 28px;
-          color: #555555;
-        }
-
-        div {
-          display: block;
-          overflow: hidden;
-          height: 80px;
-          width: calc(100vw - 40px);
-
-          span {
-            top: 20px;
-            text-align: center;
-            left: 50%;
-            font-size: 32px;
-            animation: changewordmobile 6s linear infinite;
-            font-style: normal;
-          }
         }
       }
     }
@@ -1269,7 +1278,7 @@ body {
   }
 }
 
-@keyframes peakDownName {
+@keyframes peakDownSection {
   0% {
     transform: translateY(-20px);
     opacity: 0;
@@ -1284,7 +1293,7 @@ body {
   }
 }
 
-@keyframes peakUpName {
+@keyframes peakUpSection {
   0% {
     transform: translateY(20px);
     opacity: 0;

@@ -1,6 +1,6 @@
 import Head from "next/head";
 
-import ProjectCard from "../components/projectCardLayout";
+import ProjectCard from "../components/projectCard";
 import AnimateText from "../components/animateText";
 import { projects } from "../utils";
 
