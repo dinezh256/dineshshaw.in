@@ -35,6 +35,11 @@ export default function Page({ markdownContent, meta = notFoundBlogMeta }) {
         <ChevronLeft size={20} /> <span>Back</span>
       </Link>
       <div className="flex-between blogs-nav">
+        {meta.createdAt > 0 && (
+          <h6 className="flex-start">
+            <Calendar size={16} /> {format(meta.createdAt, "PPP")}
+          </h6>
+        )}
         <RWebShare data={sharableData}>
           <div
             title="Share this blog"
@@ -44,11 +49,6 @@ export default function Page({ markdownContent, meta = notFoundBlogMeta }) {
             <Share2 size={16} />
           </div>
         </RWebShare>
-        {meta.createdAt > 0 && (
-          <h6 className="flex-start">
-            <Calendar size={16} /> {format(meta.createdAt, "PPP")}
-          </h6>
-        )}
       </div>
 
       <div className="markdown">

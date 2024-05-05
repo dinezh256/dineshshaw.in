@@ -778,16 +778,17 @@ body {
     position: sticky;
     text-decoration: none;
     color: rgb(64, 114, 164);
-    top: 30px;
+    top: 28px;
     z-index: 10;
     margin-bottom: 30px;
-    background-color: rgb(247, 247, 247);
+    background-color: rgba(247, 247, 247);
     border: 1px solid rgb(217, 217, 217);
     border-radius: 20px;
     height: 28px;
     padding: 0 5px;
     overflow: hidden;
     opacity: 0;
+    transform: scale(1.1);
     animation: backBtnAnimation 6s ease both;
 
     span {
@@ -802,28 +803,40 @@ body {
   }
 
   .blogs-nav {
-    margin-top: -50px;
-    position: relative;
+    margin-top: -60px;
     float: right;
-    animation: peakDownSection 0.4s ease both;
+    z-index: 6;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    animation: peakDownItem 0.25s ease both;
+    animation-delay: 0.1s;
 
     .blogs-share {
-      margin-right: 20px;
       color: dimgray;
       cursor: pointer;
       transition: all 0.2s ease;
+      border: 1px solid rgb(217, 217, 217);
+      border-radius: 100%;
+      padding: 6px;
+      background-color: rgb(0, 0, 0);
+      color: white;
 
       &:hover {
-        color: rgb(64, 114, 164);
+        transform: scale(1.1);
         transition: all 0.2s ease;
       }
     }
 
     h6 {
-      gap: 5px;
+      gap: 6px;
       color: dimgray;
       font-size: 14px;
-      font-weight: 400;
+      font-weight: 500;
+      border: 1px solid rgb(217, 217, 217);
+      background-color: white;
+      border-radius: 20px;
+      padding: 6px 12px;
     }
   }
 
@@ -879,7 +892,8 @@ body {
   }
 
   .markdown {
-    animation: peakUpSection 0.4s ease both;
+    animation: peakUpItem 0.2s ease both;
+    animation-delay: 0.15s;
   }
 
   .markdown > div > div {
@@ -1058,7 +1072,7 @@ body {
       margin: 0px 0 40px 0;
 
       .about-main {
-        height: calc(100vh - 170px);
+        height: calc(100vh - 160px);
         margin-bottom: 0;
         display: flex;
         flex-direction: column;
@@ -1071,18 +1085,19 @@ body {
           text-align: center;
 
           &:nth-child(1) {
-            font-weight: 600;
-            background: linear-gradient(#eff1f7, #dadfec);
-            border-radius: 20px 20px 0px 20px;
-            font-size: 24px;
-            border: 1px solid rgba(233, 237, 246, 1);
-            padding: 8px 20px;
+            font-weight: 400;
+            background: linear-gradient(#eff1f7, #d9deed);
+            border-radius: 16px 16px 0px 16px;
+            color: #276ee0;
+            font-size: 22px;
+            border: 1px solid #d9deed;
+            padding: 8px 16px;
             margin-bottom: 20px;
             animation: peakDownItem 0.5s ease both;
             animation-delay: 0.2s;
 
             span {
-              font-size: 20px;
+              font-size: 18px;
             }
           }
 
@@ -1091,7 +1106,7 @@ body {
           }
 
           &:nth-child(3) {
-            font-size: 28px;
+            font-size: 26px;
             color: #555555;
             animation: peakUpItem ease 0.25s both;
             animation-delay: 0.35s;
@@ -1100,7 +1115,7 @@ body {
           div {
             display: block;
             overflow: hidden;
-            height: 40px;
+            height: 60px;
             width: 334px;
             margin-top: 20px;
             animation: peakUpItem ease 0.25s both;
@@ -1112,7 +1127,6 @@ body {
               left: 50%;
               font-size: 32px;
               animation: changewordmobile 9s linear infinite;
-              font-style: normal;
 
               &:nth-child(1) {
                 animation-delay: 0.25s;
@@ -1220,7 +1234,7 @@ body {
     }
 
     .blogs-nav {
-      margin-top: -20px;
+      margin-top: -32px;
       justify-content: flex-end;
       float: none;
     }
@@ -1445,7 +1459,6 @@ body {
 @keyframes backBtnAnimation {
   5% {
     width: 20px;
-    opacity: 0.5;
   }
   15% {
     width: 64px;
