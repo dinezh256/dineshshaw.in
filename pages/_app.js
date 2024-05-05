@@ -22,6 +22,7 @@ const font = FontFamily({
 
 const MyApp = ({ Component, pageProps }) => {
   const [isMounted, setMounted] = useState(false);
+  const [showSplash, setShowSplash] = useState(true);
   const router = useRouter();
   const showComponent = whiteListRoutes.includes(router.pathname);
   const showNavbar =
@@ -30,6 +31,7 @@ const MyApp = ({ Component, pageProps }) => {
 
   useEffect(() => {
     setMounted(true);
+    setTimeout(() => setShowSplash(false), 1500)
   }, [])
 
   return (
@@ -60,7 +62,7 @@ const MyApp = ({ Component, pageProps }) => {
       </Head>
       {showNavbar && isMounted && <Navbar />}
       <main className="main-wrapper">
-        {isMounted && <SplashScreen />}
+        {isMounted && showSplash && <SplashScreen />}
         {showComponent && isMounted && <NameCard />}
         {isMounted && <Component {...pageProps} />}
       </main>

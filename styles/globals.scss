@@ -782,7 +782,6 @@ body {
 
 .blog-page-wrapper {
   margin-top: 60px;
-  animation: peakDownItem 0.4s ease both;
 
   .back-to-blogs {
     position: sticky;
@@ -816,6 +815,7 @@ body {
     margin-top: -50px;
     position: relative;
     float: right;
+    animation: peakDownSection 0.4s ease both;
 
     .blogs-share {
       margin-right: 20px;
@@ -886,6 +886,10 @@ body {
     * {
       font-family: monospace !important;
     }
+  }
+
+  .markdown {
+    animation: peakUpSection 0.4s ease both;
   }
 
   .markdown > div > div {
