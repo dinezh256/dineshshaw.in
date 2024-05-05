@@ -57,9 +57,9 @@ const MyApp = ({ Component, pageProps }) => {
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      {showNavbar && <Navbar isMounted={isMounted} />}
+      {showNavbar && isMounted && <Navbar />}
       <main className="main-wrapper">
-        {showComponent && <NameCard />}
+        {showComponent && isMounted && <NameCard />}
         {isMounted && <Component {...pageProps} />}
       </main>
       {showNavbar && isMounted && <Footer />}
