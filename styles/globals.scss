@@ -973,7 +973,8 @@ body {
   }
   .main-wrapper {
     padding: 0px;
-    padding-top: 0px;
+    max-width: 100vw;
+    overflow-x: hidden;
   }
 
   .name-card {
@@ -1126,7 +1127,7 @@ body {
         }
 
         .available-to-contact {
-          margin-top: 100px;
+          margin: 100px 0 40px 0;
           .contact-heading {
             justify-content: center;
             margin-bottom: 30px;
