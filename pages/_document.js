@@ -43,8 +43,6 @@ class MyDocument extends Document {
           <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
           <meta name="msapplication-TileColor" content="#2b5797" />
           <meta name="theme-color" content="#f8f8f8" />
-          <meta name="description" content="Experienced Frontend Developer with a keen eye for detail and a demonstrated history of working in the computer software industry. Skilled in JavaScript, React.js, React Native and Node.js" />
-          <meta name="msapplication-TileColor" content="#145bcd"></meta>
           <link rel="manifest" href="/manifest.json" />
           <meta property="og:type" content="website" />
           <meta property="og:url" content="https://dineshshaw.in" />
