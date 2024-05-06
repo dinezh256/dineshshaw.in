@@ -6,7 +6,7 @@
 
 html {
   background-color: #f8f8f8;
-  overscroll-behavior: none;
+  overscroll-behavior-y: none;
 }
 
 body {
@@ -17,7 +17,7 @@ body {
   background-attachment: scroll;
   background-clip: border-box;
   background-size: 600px 600px;
-  overscroll-behavior: none;
+  overscroll-behavior-y: none;
 
   &::-webkit-scrollbar {
     width: 8px;
