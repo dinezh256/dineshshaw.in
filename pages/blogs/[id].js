@@ -34,7 +34,7 @@ export default function Page({ markdownContent, meta = notFoundBlogMeta }) {
       <Link href="/blogs" as="/blogs" className="flex-start back-to-blogs">
         <ChevronLeft size={20} /> <span>Back</span>
       </Link>
-      <div className="flex-between blogs-nav">
+      <div className="blogs-nav">
         {meta.createdAt > 0 && (
           <h6 className="flex-start">
             <Calendar size={16} /> {format(meta.createdAt, "PPP")}
