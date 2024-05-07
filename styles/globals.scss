@@ -299,7 +299,8 @@ body {
   padding-left: 240px;
   position: relative;
   margin-top: -240px;
-  animation: fadeIn 0.25s ease both;
+  animation: peakUpPage 0.25s ease both;
+  animation-delay: 0.25s;
 
   .skills-section {
     margin-top: 40px;
@@ -1066,6 +1067,8 @@ body {
   .about-section {
     padding: 20px 20px;
     margin-top: 0;
+    animation: none;
+    animation-delay: 0ms;
 
     .about-section-inner {
       margin: 0px 0 40px 0;
