@@ -27,7 +27,7 @@ const NameCard = () => {
         <div className="name-card-meta">
           <h1>Dinesh Shaw</h1>
           <h2>Software Engineer</h2>
-          <span>Jamshedpur, Jharkhand</span>
+          <span>Jamshedpur, Jharkhand 🇮🇳</span>
         </div>
       </div>
     </div>

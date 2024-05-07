@@ -1,5 +1,4 @@
 * {
-  // font-family: "Montserrat", "Helvetica Neue";
   -webkit-tap-highlight-color: transparent;
   margin: 0;
 }
@@ -992,7 +991,6 @@ body {
 
     .name-card-inner {
       width: calc(100% - 30px);
-      backdrop-filter: blur(8px);
       padding: 12.5px 15px;
       height: auto;
       display: flex;
@@ -1000,12 +998,14 @@ body {
       gap: 32px;
       text-align: left;
       border-radius: 8px;
+      z-index: 2;
+      position: relative;
 
       .name-card-image {
         width: 78px;
         height: 78px;
         overflow: hidden;
-        border: 4px solid #e2e2e2;
+        border: 4px solid #dedede;
 
         .display-image {
           width: 70px;
@@ -1047,7 +1047,7 @@ body {
       position: absolute;
       right: -150px;
       top: -90px;
-      z-index: 5;
+      z-index: 1;
       opacity: 0.1;
       filter: grayscale(1) blur(1px);
       width: 240px;
@@ -1074,7 +1074,7 @@ body {
       margin: 0px 0 40px 0;
 
       .about-main {
-        height: calc(100vh - 160px);
+        height: calc(100svh - 160px);
         margin-bottom: 0;
         display: flex;
         flex-direction: column;
@@ -1144,7 +1144,7 @@ body {
         }
 
         .available-to-contact {
-          margin: 100px 0 40px 0;
+          margin: 120px 0 60px 0;
           animation: peakUpItem ease 0.25s both;
           animation-delay: 0.65s;
           .contact-heading {
@@ -1320,6 +1320,7 @@ body {
   0% {
     transform: translateY(-20px);
     opacity: 0;
+    filter: blur(4px);
   }
   60% {
     transform: translateY(20px);
@@ -1328,21 +1329,7 @@ body {
   100% {
     transform: translateY(0px);
     opacity: 1;
-  }
-}
-
-@keyframes peakUpSection {
-  0% {
-    transform: translateY(20px);
-    opacity: 0;
-  }
-  60% {
-    transform: translateY(-20px);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(0px);
-    opacity: 1;
+    filter: blur(0px);
   }
 }
 
@@ -1350,6 +1337,7 @@ body {
   0% {
     transform: translateY(10px);
     opacity: 0;
+    filter: blur(4px);
   }
   60% {
     transform: translateY(-10px);
@@ -1358,6 +1346,7 @@ body {
   100% {
     transform: translateY(0px);
     opacity: 1;
+    filter: blur(0px);
   }
 }
 
@@ -1365,6 +1354,7 @@ body {
   0% {
     transform: translateY(-10px);
     opacity: 0;
+    filter: blur(4px);
   }
   40% {
     transform: translateY(10px);
@@ -1373,6 +1363,7 @@ body {
   100% {
     transform: translateY(0px);
     opacity: 1;
+    filter: blur(0px);
   }
 }
 
@@ -1396,11 +1387,13 @@ body {
   }
   30% {
     opacity: 1;
+    filter: blur(0px);
     transform: translateY(0);
   }
   33.33% {
     opacity: 0;
     transform: translateY(-10px);
+    filter: blur(4px);
   }
 }
 
@@ -1416,10 +1409,12 @@ body {
   30% {
     opacity: 1;
     transform: translateX(-50%) translateY(0);
+    filter: blur(0px);
   }
   32% {
     opacity: 0;
     transform: translateX(-50%) translateY(-10px);
+    filter: blur(4px);
   }
 }
 
