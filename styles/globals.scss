@@ -893,7 +893,7 @@ body {
   }
 
   .markdown {
-    animation: peakUpItem 0.2s ease both;
+    animation: peakUpPage 0.4s ease both;
     animation-delay: 0.15s;
   }
 
@@ -1340,6 +1340,23 @@ body {
     filter: blur(4px);
   }
   60% {
+    transform: translateY(-10px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+    filter: blur(0px);
+  }
+}
+
+@keyframes peakUpPage {
+  0% {
+    transform: translateY(10px);
+    opacity: 0;
+    filter: blur(2px);
+  }
+  50% {
     transform: translateY(-10px);
     opacity: 1;
   }
