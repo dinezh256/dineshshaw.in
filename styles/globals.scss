@@ -807,7 +807,7 @@ body {
     align-items: center;
     justify-content: flex-end;
     gap: 12px;
-    animation: growNav 0.75s ease both;
+    animation: growNav 0.5s ease both;
     overflow: hidden;
 
     .blogs-share {
@@ -1458,7 +1458,7 @@ body {
   5% {
     width: 20px;
   }
-  15% {
+  12.5% {
     width: 64px;
     opacity: 1;
   }
@@ -1478,7 +1478,7 @@ body {
   }
 
   100% {
-    width: 240px;
+    width: 180px;
     opacity: 1;
   }
 }
@@ -1487,7 +1487,7 @@ body {
   5% {
     width: 0px;
   }
-  15% {
+  12.5% {
     width: 37px;
   }
   90% {

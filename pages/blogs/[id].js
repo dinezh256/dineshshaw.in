@@ -37,7 +37,7 @@ export default function Page({ markdownContent, meta = notFoundBlogMeta }) {
       <div className="blogs-nav">
         {meta.createdAt > 0 && (
           <h6 className="flex-start">
-            <Calendar size={16} /> {format(meta.createdAt, "PPP")}
+            <Calendar size={16} /> {format(meta.createdAt, "PP")}
           </h6>
         )}
         <RWebShare data={sharableData}>

@@ -19,7 +19,7 @@ const renderBlogCard = (
       <h3>{name}</h3>
       <div className="flex-start blog-meta">
         <span className="flex-start">
-          <Calendar size={12} /> {format(createdAt, "PPP")}
+          <Calendar size={12} /> {format(createdAt, "PP")}
         </span>
         <span>•</span>
         <span className="flex-start">
