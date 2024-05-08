@@ -1069,6 +1069,7 @@ body {
 
       .about-main {
         height: calc(100svh - 160px);
+        min-height: 640px;
         margin-bottom: 0;
         display: flex;
         flex-direction: column;
