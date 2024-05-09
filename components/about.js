@@ -33,13 +33,13 @@ const About = () => {
       <div className="about-section">
         <div className="about-section-inner">
           <div className="about-main">
-            <h2>
+            <h1>
               Hey there <span>👋🏼</span>
-            </h2>
-            <h2>
+            </h1>
+            <h1>
               My name is <b>Dinesh Shaw</b>
-            </h2>
-            <h2>
+            </h1>
+            <h1>
               I'm a passionate
               <div>
                 <span>
@@ -54,7 +54,7 @@ const About = () => {
                   <b> Software Engineer</b>
                 </span>
               </div>
-            </h2>
+            </h1>
             <div className="available-to-contact">
               <h3 className="contact-heading">
                 <Circle size={12} fill="#00ac00" stroke="#00ac00" />

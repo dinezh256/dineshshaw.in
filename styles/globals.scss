@@ -8,6 +8,7 @@
 html {
   background-color: #f8f8f8;
   overscroll-behavior-y: none;
+  color-scheme: light;
 }
 
 body {
@@ -19,20 +20,6 @@ body {
   background-clip: border-box;
   background-size: 500px 500px;
   overscroll-behavior-y: none;
-
-  &::-webkit-scrollbar {
-    width: 8px;
-  }
-
-  &::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  &::-webkit-scrollbar-thumb,
-  &::-webkit-scrollbar-thumb:horizontal {
-    border-radius: 4px;
-    background: rgba(17, 27, 39, 0.5);
-  }
 
   #__next {
     display: flex;
@@ -482,7 +469,7 @@ body {
   }
 
   .about-section-inner .about-main {
-    h2 {
+    h1 {
       padding-bottom: 20px;
       font-weight: 500;
       font-size: 30px;
@@ -1074,7 +1061,7 @@ body {
         align-items: center;
         justify-content: center;
 
-        h2 {
+        h1 {
           margin-top: 0px;
           font-size: 32px;
           text-align: center;
@@ -1084,7 +1071,7 @@ body {
             background: linear-gradient(#eff1f7, #d9deed);
             border-radius: 16px 16px 0px 16px;
             color: #276ee0;
-            font-size: 22px;
+            font-size: 22px !important;
             border: 1px solid #d9deed;
             padding: 8px 16px;
             margin-bottom: 20px;
@@ -1101,7 +1088,7 @@ body {
           }
 
           &:nth-child(3) {
-            font-size: 26px;
+            font-size: 26px !important;
             color: #555555;
             animation: peakUpItem ease 0.25s both;
             animation-delay: 0.35s;
