@@ -1,8 +1,8 @@
 import { useRouter } from "next/router";
 import Head from "next/head";
-import Script from "next/script";
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { IBM_Plex_Sans as FontFamily } from "next/font/google";
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 import Navbar from "../components/navbar";
 import NameCard from "../components/nameCard";
@@ -27,11 +27,6 @@ const MyApp = ({ Component, pageProps }) => {
 
   return (
     <>
-      <Script
-        async
-        strategy="lazyOnload"
-        src="https://www.googletagmanager.com/gtag/js?id=G-DZ5VTRTBNF"
-      />
       <style jsx global>
         {`
           html {
@@ -39,15 +34,6 @@ const MyApp = ({ Component, pageProps }) => {
           }`
         }
       </style>
-
-      <Script strategy="lazyOnload" id="g-tag">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-DZ5VTRTBNF');
-        `}
-      </Script>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
@@ -57,6 +43,7 @@ const MyApp = ({ Component, pageProps }) => {
         <Component {...pageProps} />
       </main>
       {showNavbar && <Footer />}
+      <GoogleAnalytics gaId="G-DZ5VTRTBNF" />
       <SpeedInsights />
     </>
   );

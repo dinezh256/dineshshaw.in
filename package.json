@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@next/third-parties": "^14.2.3",
     "@vercel/analytics": "^0.1.11",
     "@vercel/speed-insights": "^1.0.10",
     "clsx": "^2.1.0",

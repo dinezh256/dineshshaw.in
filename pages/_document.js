@@ -6,7 +6,6 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <title>Dinesh Shaw</title>
           <meta charSet="utf-8" />
           <link rel="icon" href="/favicon.ico" />
           <link
