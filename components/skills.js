@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import Link from "next/link";
 import Image from "next/image";
 import { useInView } from "react-intersection-observer";
 
@@ -7,7 +6,7 @@ import AnimateText from "./animateText";
 import { skillsList } from "../utils";
 
 const SkillPill = ({ id, imgSrc, name, url }) => (
-  <Link
+  <a
     className="skill-pill"
     href={url}
     target="_blank"
@@ -23,7 +22,7 @@ const SkillPill = ({ id, imgSrc, name, url }) => (
       draggable={false}
     />
     <span>{name}</span>
-  </Link>
+  </a>
 );
 
 const Skills = () => {

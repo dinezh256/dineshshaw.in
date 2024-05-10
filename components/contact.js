@@ -5,10 +5,7 @@ const Contact = ({ animate }) => {
   return (
     <>
       <div className="contact-section">
-        <div
-          className={`contact-section-inner${animate ? " animate-contact" : ""
-            }`}
-        >
+        <div className={`contact-section-inner${animate ? " animate-contact" : ""}`}>
           <div className="socials">
             <AnimateText text="SOCIALS" />
             <a
