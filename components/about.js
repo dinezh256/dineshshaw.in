@@ -3,12 +3,12 @@ import Head from "next/head";
 import Link from "next/link";
 import { Circle, ChevronsDown, ChevronsUp } from "react-feather";
 
-import Contact from "./contact";
 import Skills from "./skills";
+import Contact from "./contact";
 import AnimateText from "./animateText";
 
-import { resumeLink, timeline } from "../utils";
 import CheckMarkIcon from "../assets/icons/checkMarkIcon";
+import { resumeLink, timeline } from "../utils";
 
 const About = () => {
   const [animateContact, setAnimateContact] = useState(false);
@@ -87,10 +87,13 @@ const About = () => {
                 Currently, I'm diving into App Development using <b>React Native</b> and <b>SwiftUI</b> to diversify my skills.
               </li>
               <li>
+                I graduated from <b>School of Enginnering, Tezpur University</b> in the year 2020. I pursued B.Tech in Electronics and Communication.
+              </li>
+              <li>
                 As a keen learner and attentive collaborator, I thrive on crafting efficient and scalable solutions.
               </li>
               <li>
-                Other than being a Software Engineer, I love to <b>Workout</b> 4 times a week. When time permits, I love to travel, read blogs, play &amp; watch Cricket.
+                Other than being a Software Engineer, I love to <b>workout</b> 4 times a week. When time permits, I love to <b>travel</b>, <b>read blogs</b>, play &amp; watch Cricket.
               </li>
             </ul>
           </div>
