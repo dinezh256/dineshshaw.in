@@ -40,7 +40,7 @@ body {
   top: 0;
   left: 0;
   z-index: 3;
-  height: 80px;
+  height: 120px;
   width: 100vw;
   position: fixed;
   user-select: none;
@@ -59,7 +59,7 @@ body {
   transform: translateX(-50%);
   height: 40px;
   width: 348px;
-  top: 20px;
+  top: 40px;
   animation: peakDown ease 0.35s both;
   z-index: 5;
   border-radius: 25px;
@@ -136,7 +136,7 @@ body {
   min-width: 180px;
   max-width: 180px;
   position: sticky;
-  top: 125px;
+  top: 150px;
   z-index: 2;
   animation: peakDownSection 0.4s ease both;
   animation-delay: 0.2s;
@@ -289,7 +289,7 @@ body {
 .about-section {
   padding-left: 240px;
   position: relative;
-  margin-top: -240px;
+  margin-top: -215px;
   animation: peakUpPage 0.25s ease both;
   animation-delay: 0.25s;
 
@@ -338,9 +338,9 @@ body {
         }
 
         span {
-          font-size: 12px;
-          font-weight: 500;
-          color: rgb(60, 60, 60);
+          font-size: 14px;
+          font-weight: 400;
+          color: rgb(45, 45, 45);
           user-select: none;
         }
       }
@@ -515,7 +515,7 @@ body {
   }
 
   .about-me {
-    margin-top: 100px;
+    margin-top: 150px;
 
     .about-desc {
       font-weight: 400;
@@ -543,7 +543,7 @@ body {
 //work
 .work-section {
   padding-left: 240px;
-  margin-top: -240px;
+  margin-top: -215px;
   padding-bottom: 60px;
 
   .work-section-inner {
@@ -633,7 +633,7 @@ body {
 
   a {
     text-decoration: none;
-    font-size: 18px;
+    font-size: 16px;
     color: rgb(48, 48, 48);
     font-weight: 500;
     width: fit-content;
@@ -720,7 +720,7 @@ body {
   padding-left: 240px;
   padding-bottom: 60px;
   position: relative;
-  margin-top: -240px;
+  margin-top: -215px;
 
   h1 {
     font-weight: 400;
@@ -1079,7 +1079,7 @@ body {
           text-align: center;
 
           &:nth-child(1) {
-            font-weight: 400;
+            font-weight: 500;
             background: linear-gradient(#eff1f7, #d9deed);
             border-radius: 16px 16px 0px 16px;
             color: #276ee0;
@@ -1091,7 +1091,7 @@ body {
             animation-delay: 0.2s;
 
             span {
-              font-size: 18px;
+              font-size: 20px;
             }
           }
 
