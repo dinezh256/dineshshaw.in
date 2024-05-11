@@ -20,6 +20,7 @@ const SkillPill = ({ id, imgSrc, name, url }) => (
       src={imgSrc}
       alt={name}
       draggable={false}
+      loading="lazy"
     />
     <span>{name}</span>
   </a>

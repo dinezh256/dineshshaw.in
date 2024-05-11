@@ -20,8 +20,10 @@ const NameCard = () => {
             alt="profile photo"
             draggable={false}
             priority
-            quality={75}
-            onLoadingComplete={() => setLoaded(true)}
+            loading="eager"
+            quality={85}
+            onLoad={() => setLoaded(true)}
+            placeholder="blur"
           />
         </div>
         <div className="name-card-meta">

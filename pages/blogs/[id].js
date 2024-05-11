@@ -24,7 +24,7 @@ export default function Page({ markdownContent, meta = notFoundBlogMeta }) {
   return (
     <div className="blog-page-wrapper">
       <Head>
-        <title>{meta.name} | Dinesh Shaw</title>
+        <title>{`${meta.name} | Dinesh Shaw`}</title>
         <meta title="description" content={meta.description} key="desc" />
         <meta name="keywords" content={meta.keywords}></meta>
         <meta property="og:title" content={meta.name + " | Dinesh Shaw"} />

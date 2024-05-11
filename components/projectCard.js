@@ -15,9 +15,11 @@ const ProjectCard = ({ src, type, name, codeUrl, websiteUrl, position }) => {
           className={clsx("card-image", loaded ? "no-blur" : "blur-image")}
           src={src}
           priority
+          loading="eager"
+          placeholder="blur"
           draggable={false}
           alt={`${name} thumbnail`}
-          onLoadingComplete={() => setLoaded(true)}
+          onLoad={() => setLoaded(true)}
         />
         <div className="project-details">
           <h4 className="project-name">{name}</h4>
