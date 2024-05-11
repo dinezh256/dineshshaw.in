@@ -1223,6 +1223,10 @@ body {
     max-width: calc(100vw - 40px);
     margin: auto;
 
+    .back-to-blogs {
+      top: 30px;
+    }
+
     .markdown {
       padding-top: 20px;
     }
