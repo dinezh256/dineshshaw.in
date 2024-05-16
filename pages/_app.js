@@ -8,6 +8,8 @@ import Navbar from "../components/navbar";
 import NameCard from "../components/nameCard";
 import Footer from "../components/footer";
 
+import { GlobalContextProvider } from "../contexts";
+
 import { whiteListRoutes, navbarRoutes } from "../utils";
 import "../styles/globals.scss";
 
@@ -37,12 +39,14 @@ const MyApp = ({ Component, pageProps }) => {
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      {showNavbar && <Navbar />}
-      <main className="main-wrapper">
-        {showComponent && <NameCard />}
-        <Component {...pageProps} />
-      </main>
-      {showNavbar && <Footer />}
+      <GlobalContextProvider>
+        {showNavbar && <Navbar />}
+        <main className="main-wrapper">
+          {showComponent && <NameCard />}
+          <Component {...pageProps} />
+        </main>
+        {showNavbar && <Footer />}
+      </GlobalContextProvider>
       <GoogleAnalytics gaId="G-DZ5VTRTBNF" />
       <SpeedInsights />
     </>

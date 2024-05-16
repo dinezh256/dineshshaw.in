@@ -820,16 +820,28 @@ body {
       color: white;
     }
 
-    h6 {
-      gap: 6px;
-      color: dimgray;
-      font-size: 14px;
-      font-weight: 500;
-      white-space: nowrap;
+    .blogs-meta {
+      display: flex;
       border: 1px solid rgb(217, 217, 217);
       background-color: rgb(251, 254, 254);
       border-radius: 20px;
+      gap: 8px;
       padding: 6px 12px;
+
+      .divider {
+        height: 14px;
+        margin-top: 2px;
+        width: 1px;
+        background-color: dimgray;
+      }
+
+      h6 {
+        gap: 6px;
+        color: dimgray;
+        font-size: 14px;
+        font-weight: 500;
+        white-space: nowrap;
+      }
     }
   }
 
@@ -1473,7 +1485,7 @@ body {
     opacity: 0;
   }
   100% {
-    width: 180px;
+    width: 250px;
     opacity: 1;
   }
 }
