@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const isDevelopment = process.env.NODE_ENV === 'development';
-const baseUrl = isDevelopment ? process.env.NEXT_PUBLIC_API_URL_LOCAL : process.env.NEXT_PUBLIC_API_URL;
+const baseUrl = 'https://api.dineshshaw.in/api'
 
 const getBlogViews = (id) =>
     axios.get(`${baseUrl}/views/${id}`)
