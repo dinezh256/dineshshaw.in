@@ -95,18 +95,11 @@ export default function Page({ markdownContent, meta = notFoundBlogMeta, id, ini
   );
 }
 
-export async function getStaticProps({ params }) {
+export async function getServerSideProps({ params }) {
   const { file, blogMeta } = getDocBySlug(params.id);
   const markdownContent = fs.readFileSync(file, "utf-8");
 
   const { success, data } = await getBlogViews(blogMeta.id)
 
   return { props: { markdownContent, meta: blogMeta, id: blogMeta.id, initialViews: success ? data.count : 0 } };
-}
-
-export async function getStaticPaths() {
-  return {
-    paths: blogsList.map((blog) => `/blogs/${blog.slug}`),
-    fallback: true,
-  };
 }
