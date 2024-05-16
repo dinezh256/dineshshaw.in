@@ -1,6 +1,6 @@
-import axios, { isCancel, AxiosError } from 'axios';
+import axios from 'axios';
 
-const isDevelopment = process.env.NODE_ENV === 'development';
+const isDevelopment = process.env.NODE_ENV !== 'development';
 const baseUrl = isDevelopment ? process.env.NEXT_PUBLIC_API_URL_LOCAL : process.env.NEXT_PUBLIC_API_URL;
 
 const getBlogViews = (id) =>
