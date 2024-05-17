@@ -15,7 +15,7 @@ import "../styles/globals.scss";
 
 const font = FontFamily({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: ["400", "500", "600", "700"],
   variable: '--font-plex',
   display: 'swap',
 });

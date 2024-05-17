@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from "react";
+import { clsx } from "clsx";
 import Head from "next/head";
 import Link from "next/link";
 import format from "date-fns/format";
@@ -19,11 +20,11 @@ import {
 import { getBlogViews, updateBlogViews } from "../../api";
 import { useLocalStorage } from "../../hooks";
 
-const TIME_DIFF = 60 * 60 * 1000; // 1 hour
+const TIME_DIFF = 6 * 60 * 60 * 1000; // 6 hours
 
 export default function Page({ markdownContent, meta = notFoundBlogMeta, id }) {
   const [viewsCount, setViewsCount] = useState(0)
-  const { setIsLoading } = useContext(GlobalContext);
+  const { isLoading, setIsLoading } = useContext(GlobalContext);
   const [lastViewedOnLS, setLastViewedOnLS] = useLocalStorage("lastViewedOn")
   const sharableData = {
     url: getBlogUrl(meta.slug),
@@ -31,8 +32,9 @@ export default function Page({ markdownContent, meta = notFoundBlogMeta, id }) {
     title: meta.name,
   };
 
+  console.log(isLoading)
+
   useEffect(() => {
-    setIsLoading(false);
     fetchViews();
     setTimeout(incrementViews, 1000);
   }, [])
@@ -40,6 +42,7 @@ export default function Page({ markdownContent, meta = notFoundBlogMeta, id }) {
   const fetchViews = async () => {
     const { success, data } = await getBlogViews(id)
     if (success) setViewsCount(data.count)
+    setIsLoading(false);
   }
 
   const incrementViews = async () => {
@@ -74,7 +77,8 @@ export default function Page({ markdownContent, meta = notFoundBlogMeta, id }) {
       <div className="blogs-nav">
         <div className="blogs-meta">
           <h6 className="flex-start">
-            <Eye size={16} /> {viewsCount}
+            <Eye size={16} className={clsx({ fadeInOut: isLoading })} />
+            {viewsCount}
           </h6>
           <div className="divider" />
           {meta.createdAt > 0 && (

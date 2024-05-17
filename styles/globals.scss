@@ -171,7 +171,7 @@ body {
 
     h1 {
       font-size: 24px;
-      font-weight: 700;
+      font-weight: 600;
       margin-top: 30px;
       margin-bottom: 10px;
     }
@@ -857,8 +857,8 @@ body {
 
   h2 {
     margin: 20px 0 40px 0;
-    text-align: center;
-    font-size: 32px;
+    font-size: 36px;
+    font-weight: 700;
   }
 
   h3 {
@@ -1295,6 +1295,10 @@ body {
   }
 }
 
+.fadeInOut {
+  animation: fadeInOut ease 1s both infinite;
+}
+
 @keyframes peakDown {
   from {
     transform: translateX(-50%) translateY(-100px);
@@ -1486,6 +1490,17 @@ body {
   }
   100% {
     width: 250px;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInOut {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  40%,
+  60% {
     opacity: 1;
   }
 }
