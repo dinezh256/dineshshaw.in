@@ -32,14 +32,13 @@ export default function Page({ markdownContent, meta = notFoundBlogMeta, id }) {
     title: meta.name,
   };
 
-  console.log(isLoading)
-
   useEffect(() => {
     fetchViews();
     setTimeout(incrementViews, 1000);
   }, [])
 
   const fetchViews = async () => {
+    setIsLoading(true);
     const { success, data } = await getBlogViews(id)
     if (success) setViewsCount(data.count)
     setIsLoading(false);
