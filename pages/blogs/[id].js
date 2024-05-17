@@ -21,8 +21,8 @@ import { useLocalStorage } from "../../hooks";
 
 const TIME_DIFF = 60 * 60 * 1000; // 1 hour
 
-export default function Page({ markdownContent, meta = notFoundBlogMeta, id, initialViews }) {
-  const [viewsCount, setViewsCount] = useState(initialViews)
+export default function Page({ markdownContent, meta = notFoundBlogMeta, id }) {
+  const [viewsCount, setViewsCount] = useState(0)
   const { setIsLoading } = useContext(GlobalContext);
   const [lastViewedOnLS, setLastViewedOnLS] = useLocalStorage("lastViewedOn")
   const sharableData = {
@@ -33,8 +33,14 @@ export default function Page({ markdownContent, meta = notFoundBlogMeta, id, ini
 
   useEffect(() => {
     setIsLoading(false);
+    fetchViews();
     setTimeout(incrementViews, 1000);
   }, [])
+
+  const fetchViews = async () => {
+    const { success, data } = await getBlogViews(id)
+    if (success) setViewsCount(data.count)
+  }
 
   const incrementViews = async () => {
     if (typeof window === 'undefined') return;
@@ -95,11 +101,17 @@ export default function Page({ markdownContent, meta = notFoundBlogMeta, id, ini
   );
 }
 
-export async function getServerSideProps({ params }) {
+export async function getStaticProps({ params }) {
   const { file, blogMeta } = getDocBySlug(params.id);
   const markdownContent = fs.readFileSync(file, "utf-8");
 
-  const { success, data } = await getBlogViews(blogMeta.id)
 
-  return { props: { markdownContent, meta: blogMeta, id: blogMeta.id, initialViews: success ? data.count : 0 } };
+  return { props: { markdownContent, meta: blogMeta, id: blogMeta.id } };
+}
+
+export async function getStaticPaths() {
+  return {
+    paths: blogsList.map((blog) => `/blogs/${blog.slug}`),
+    fallback: true,
+  };
 }
