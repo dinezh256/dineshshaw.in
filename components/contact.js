@@ -1,5 +1,37 @@
 import AnimateText from "./animateText";
 import ArrowTopRight from "../assets/icons/arrowTopRight";
+import { GitHub, Instagram, Linkedin } from "react-feather";
+
+const contacts = [
+  {
+    id: 'github',
+    class: 'github',
+    url: 'https://github.com/dinezh256',
+    icon: <GitHub size={14} strokeWidth={1.25} />,
+    name: 'Github',
+  },
+  {
+    id: 'linkedin',
+    class: 'linkedin',
+    url: 'https://in.linkedin.com/in/shawdinesh',
+    icon: <Linkedin size={14} strokeWidth={1.25} />,
+    name: 'Linkedin',
+  },
+  {
+    id: 'twitter',
+    class: 'twitter',
+    url: 'https://twitter.com/Dinezh256',
+    icon: '𝕏',
+    name: 'Twitter',
+  },
+  {
+    id: 'instagram',
+    class: 'instagram',
+    url: 'https://www.instagram.com/dineshlearning',
+    icon: <Instagram size={14} strokeWidth={1.25} />,
+    name: 'Instagram',
+  },
+]
 
 const Contact = ({ animate }) => {
   return (
@@ -8,34 +40,16 @@ const Contact = ({ animate }) => {
         <div className={`contact-section-inner${animate ? " animate-contact" : ""}`}>
           <div className="socials">
             <AnimateText text="SOCIALS" />
-            <a
-              href="https://github.com/dinezh256"
-              target="_blank"
-              className="github"
-            >
-              Github <ArrowTopRight />
-            </a>
-            <a
-              href="https://in.linkedin.com/in/shawdinesh"
-              target="_blank"
-              className="linkedin"
-            >
-              LinkedIn <ArrowTopRight />
-            </a>
-            <a
-              href="https://twitter.com/Dinezh256"
-              target="_blank"
-              className="twitter"
-            >
-              𝕏 (Twitter) <ArrowTopRight />
-            </a>
-            <a
-              href="https://www.instagram.com/dineshlearning"
-              target="_blank"
-              className="instagram"
-            >
-              Instagram <ArrowTopRight />
-            </a>
+            {contacts.map(contact =>
+              <a
+                id={contact.id}
+                href={contact.url}
+                target="_blank"
+                className={contact.class}
+              >
+                <span>{contact.icon}</span> {contact.name} <ArrowTopRight />
+              </a>)}
+
           </div>
           <div className="emails">
             <AnimateText text="EMAIL" />

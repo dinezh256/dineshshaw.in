@@ -31,7 +31,7 @@ const Work = () => {
               href="https://github.com/dinezh256?tab=repositories"
               target="_blank"
             >
-              <span>View Other Projects</span>
+              <span>View Others</span>
             </a>
           </div>
         </div>
