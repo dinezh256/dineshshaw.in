@@ -10,7 +10,7 @@ import { GlobalContext } from "../../contexts";
 
 import { blogsList, humanizeDuration } from "../../utils";
 
-const renderBlogCard = (
+export const renderBlogCard = (
   { id, slug, name, readDuration, createdAt },
   position
 ) => {

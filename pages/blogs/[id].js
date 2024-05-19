@@ -19,6 +19,7 @@ import {
 } from "../../utils";
 import { getBlogViews, updateBlogViews } from "../../api";
 import { useLocalStorage } from "../../hooks";
+import { renderBlogCard } from ".";
 
 const TIME_DIFF = 6 * 60 * 60 * 1000; // 6 hours
 
@@ -99,6 +100,18 @@ export default function Page({ markdownContent, meta = notFoundBlogMeta, id }) {
 
       <div className="markdown">
         <MarkdownRenderer content={markdownContent} />
+      </div>
+      <div className="blog-recommendations">
+        <h2>You might also like</h2>
+        <ul className="blog-list">
+          {blogsList
+            .filter(b => b.id !== id)
+            .slice(0, 2)
+            .sort((a, b) => b.createdAt - a.createdAt)
+            .map((blog, position) => (
+              <li key={blog.id}>{renderBlogCard(blog, position)}</li>
+            ))}
+        </ul>
       </div>
     </div>
   );
