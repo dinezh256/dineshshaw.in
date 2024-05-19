@@ -62,7 +62,7 @@ export default function Page({ markdownContent, meta = notFoundBlogMeta, id }) {
   }
 
   return (
-    <div className="blog-page-wrapper">
+    <div className="blog-page-wrapper" key={id}>
       <Head>
         <title>{`${meta.name} | Dinesh Shaw`}</title>
         <meta title="description" content={meta.description} key="desc" />
