@@ -3,11 +3,11 @@
   margin: 0;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
 }
 
 html {
   background-color: #f8f8f8;
-  overscroll-behavior-y: none;
   color-scheme: light;
 }
 
@@ -19,7 +19,6 @@ body {
   background-attachment: scroll;
   background-clip: border-box;
   background-size: 450px 450px;
-  overscroll-behavior-y: none;
 
   #__next {
     display: flex;
