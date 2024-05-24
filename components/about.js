@@ -37,10 +37,10 @@ const About = () => {
               Hey there <span>👋🏼</span>
             </h1>
             <h1>
-              My name is <b>Dinesh Shaw</b>
+              I'm <b>Dinesh Shaw</b>
             </h1>
             <h1>
-              I'm a passionate
+              A passionate
               <div>
                 <span>
                   <b> Web Developer</b>

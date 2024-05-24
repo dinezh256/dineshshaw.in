@@ -13,12 +13,25 @@ html {
 
 body {
   margin: 0px;
-  background-image: url(../assets/cement.webp);
-  background-position: 0 0;
-  background-repeat: repeat;
-  background-attachment: scroll;
-  background-clip: border-box;
-  background-size: 450px 450px;
+  background: linear-gradient(
+    to bottom,
+    hsla(36, 45%, 86%, 0.013) 0%,
+    hsla(36, 45%, 86%, 0.023) 9.7%,
+    hsla(36, 45%, 86%, 0.049) 18.1%,
+    hsla(36, 45%, 86%, 0.104) 25.5%,
+    hsla(36, 45%, 86%, 0.175) 31.9%,
+    hsla(36, 45%, 86%, 0.259) 37.7%,
+    hsla(36, 45%, 86%, 0.352) 43%,
+    hsla(36, 45%, 86%, 0.45) 47.9%,
+    hsla(36, 45%, 86%, 0.55) 52.8%,
+    hsla(36, 45%, 86%, 0.648) 57.7%,
+    hsla(36, 45%, 86%, 0.741) 63%,
+    hsla(36, 45%, 86%, 0.825) 68.7%,
+    hsla(36, 45%, 86%, 0.896) 75%,
+    hsla(36, 45%, 86%, 0.951) 82.2%,
+    hsla(36, 45%, 86%, 0.987) 90.5%,
+    hsl(36, 45%, 86%) 100%
+  );
 
   #__next {
     display: flex;
@@ -93,7 +106,7 @@ body {
   );
   background-size: 4px 4px;
   z-index: 1;
-  transition: left 0.25s ease-in-out;
+  transition: left 0.15s ease-out;
 }
 
 .btn {
@@ -118,7 +131,7 @@ body {
   &.active {
     color: white;
     font-weight: 500;
-    transition: all 0.2s ease-in-out;
+    transition: all 0.1s ease-out;
   }
 }
 
@@ -135,7 +148,7 @@ body {
   min-width: 180px;
   max-width: 180px;
   position: sticky;
-  top: 150px;
+  top: 180px;
   z-index: 2;
   animation: peakDownSection 0.4s ease both;
   animation-delay: 0.2s;
@@ -324,12 +337,12 @@ body {
 .about-section {
   padding-left: 240px;
   position: relative;
-  margin-top: -215px;
+  margin-top: -190px;
   animation: peakUpPage 0.25s ease both;
   animation-delay: 0.25s;
 
   .skills-section {
-    margin-top: 40px;
+    margin-top: 80px;
     padding: 10px 0px;
     overflow: hidden;
     width: 100%;
@@ -383,7 +396,7 @@ body {
   }
 
   .available-to-contact {
-    margin-top: 56px;
+    margin-top: 150px;
 
     .contact-heading,
     .contact-cta {
@@ -461,7 +474,7 @@ body {
   }
 
   .timeline-section {
-    margin: 40px 0 25px 0;
+    margin-top: 80px;
 
     .timeline-org {
       margin-top: 30px;
@@ -495,7 +508,7 @@ body {
 
           h4 {
             font-weight: 500;
-            font-size: 14px;
+            font-size: 16px;
             color: rgb(96, 96, 96);
           }
         }
@@ -511,10 +524,12 @@ body {
   }
 
   .about-section-inner .about-main {
+    height: calc(100vh - 260px);
+    min-height: 600px;
     h1 {
-      padding-bottom: 20px;
+      padding-bottom: 24px;
       font-weight: 500;
-      font-size: 30px;
+      font-size: 36px;
       color: rgb(60, 60, 60);
 
       div {
@@ -524,7 +539,7 @@ body {
         span {
           animation: changeword 6s linear infinite;
           position: absolute;
-          top: -31px;
+          top: -36.5px;
           left: 8px;
           opacity: 0;
           width: max-content;
@@ -555,7 +570,7 @@ body {
     .about-desc {
       font-weight: 400;
       margin: 28px 0 0 0;
-      font-size: 14px;
+      font-size: 16px;
       padding-inline-start: 8px;
       margin-block-start: 20px;
       margin-block-end: 0px;
@@ -578,7 +593,7 @@ body {
 //work
 .work-section {
   padding-left: 240px;
-  margin-top: -215px;
+  margin-top: -190px;
   padding-bottom: 60px;
 
   .work-section-inner {
@@ -625,7 +640,7 @@ body {
 
 //contact section
 .contact-section {
-  margin: 50px 0;
+  margin-top: 80px;
   .contact-section-inner {
     &.animate-contact {
       .socials {
@@ -733,12 +748,12 @@ body {
   }
 
   .emails {
-    margin-top: 50px;
+    margin-top: 80px;
     h2 {
       color: rgb(70, 70, 70);
       font-weight: 400;
       margin-bottom: 20px;
-      font-size: 14px;
+      font-size: 16px;
     }
 
     h1 {
@@ -764,7 +779,7 @@ body {
   padding-left: 240px;
   padding-bottom: 60px;
   position: relative;
-  margin-top: -215px;
+  margin-top: -190px;
 
   h1 {
     font-weight: 400;
@@ -1244,7 +1259,6 @@ body {
         margin-top: 0px;
         .about-desc {
           margin: 20px 0 0px 0;
-          font-size: 16px;
         }
       }
     }
@@ -1253,10 +1267,6 @@ body {
     .socials,
     .emails {
       margin-bottom: 60px;
-    }
-
-    .timeline-section .timeline-org .org-levels .org-level h4 {
-      font-size: 16px;
     }
   }
 
