@@ -58,8 +58,8 @@ body {
   user-select: none;
   pointer-events: none;
   backdrop-filter: blur(1px);
-  background: linear-gradient(to top, transparent, #f8f8f8);
-  mask-image: linear-gradient(to bottom, #f8f8f8 35%, transparent);
+  background: linear-gradient(to top, transparent, rgba(238, 233, 225));
+  mask-image: linear-gradient(to bottom, rgb(238, 233, 225) 35%, transparent);
 }
 
 .navbar {
@@ -750,7 +750,7 @@ body {
   .emails {
     margin-top: 80px;
     h2 {
-      color: rgb(70, 70, 70);
+      color: rgb(50, 50, 50);
       font-weight: 400;
       margin-bottom: 20px;
       font-size: 16px;
@@ -1047,8 +1047,8 @@ body {
     height: 60px;
     bottom: 0px;
     top: auto;
-    background: linear-gradient(to bottom, transparent, #f8f8f8);
-    mask-image: linear-gradient(to top, #f8f8f8 35%, transparent);
+    background: linear-gradient(to bottom, transparent, rgba(238, 233, 225));
+    mask-image: linear-gradient(to top, rgb(238, 233, 225) 35%, transparent);
   }
 
   .footer {
