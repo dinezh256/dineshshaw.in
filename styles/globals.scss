@@ -532,6 +532,14 @@ body {
       font-size: 36px;
       color: rgb(60, 60, 60);
 
+      .first-word {
+        display: none;
+      }
+
+      .second-word {
+        text-transform: capitalize;
+      }
+
       div {
         display: inline-block;
         position: relative;
@@ -1171,6 +1179,10 @@ body {
           margin-top: 0px;
           font-size: 32px;
           text-align: center;
+
+          .first-word {
+            display: inline;
+          }
 
           &:nth-child(1) {
             font-weight: 500;

@@ -40,7 +40,8 @@ const About = () => {
               I'm <b>Dinesh Shaw</b>
             </h1>
             <h1>
-              A passionate
+              <span className="first-word">I'm </span>
+              <span className="second-word">a </span> passionate
               <div>
                 <span>
                   <b> Web Developer</b>
