@@ -1,4 +1,4 @@
-const ArrowTopRight = ({ stroke = "#000000", size = 14 }) => {
+const ArrowTopRight = ({ stroke = "#000000", size = 14, ...props }) => {
   return (
     <svg
       width={size}
@@ -15,6 +15,7 @@ const ArrowTopRight = ({ stroke = "#000000", size = 14 }) => {
       strokeLinejoin="miter"
       fill="none"
       color="#000000"
+      {...props}
     >
       <path d="M19 13V5h-8" />
       <path strokeLinecap="round" d="M19 5l-1 1" />

@@ -21,17 +21,18 @@ const ProjectCard = ({ src, type, name, codeUrl, websiteUrl, position }) => {
           alt={`${name} thumbnail`}
           onLoad={() => setLoaded(true)}
         />
+        <div className="project-details-bg" />
         <div className="project-details">
           <h4 className="project-name">{name}</h4>
           <div className="project-buttons">
-            <a className="visit" href={websiteUrl} target="_blank">
-              <span>Visit Site</span>
-            </a>
             {codeUrl && (
-              <a href={codeUrl} target="_blank">
+              <a className="view-code" href={codeUrl} target="_blank">
                 <span>View Code</span>
               </a>
             )}
+            <a className="visit" href={websiteUrl} target="_blank">
+              <span>Visit Site</span>
+            </a>
           </div>
         </div>
       </div>

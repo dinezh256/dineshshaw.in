@@ -206,6 +206,22 @@ body {
         transform: scale(1.05);
         transition: all 0.2s ease;
       }
+
+      .project-card-top .project-details {
+        bottom: 0px;
+        transition: all 0.4s ease;
+
+        .project-name {
+          margin-bottom: 10px;
+          font-size: 18px;
+          transition: all 0.4s ease;
+        }
+
+        .project-buttons {
+          transform: scale(1);
+          transition: all 0.4s ease;
+        }
+      }
     }
   }
 
@@ -221,25 +237,36 @@ body {
       transition: all 0.5s ease;
     }
 
+    .project-details-bg {
+      position: absolute;
+      left: 0px;
+      bottom: 0px;
+      background: linear-gradient(
+        to bottom,
+        transparent 20%,
+        rgb(152, 176, 208) 100%
+      );
+      width: 100%;
+      height: 80px;
+    }
+
     .project-details {
       position: absolute;
-      bottom: 0;
-      left: 0;
+      left: 0px;
+      bottom: -40px;
       height: 60px;
       padding: 0px 15px 15px 15px;
       text-align: center;
-      background: linear-gradient(
-        to bottom,
-        transparent 50%,
-        rgb(152, 176, 208) 100%
-      );
+      transition: all 0.2s ease;
       width: calc(100% - 30px);
 
       .project-name {
         font-weight: 600;
-        margin-bottom: 10px;
+        font-size: 20px;
+        margin-bottom: 20px;
         text-shadow: 0 0 5px #555555;
         color: white;
+        transition: all 0.4s ease;
       }
 
       .project-buttons {
@@ -247,6 +274,8 @@ body {
         align-items: center;
         justify-content: center;
         gap: 10px;
+        transform: scale(0.9);
+        transition: all 0.4s ease;
         a {
           height: 26px;
           background: black;
@@ -268,6 +297,13 @@ body {
               transition: all 0.2s ease;
             }
           }
+        }
+
+        .view-code {
+          background: rgba(39, 110, 224, 0.85);
+          color: white;
+          backdrop-filter: blur(1px);
+          border: 1px solid rgba(39, 110, 224, 0.85);
         }
       }
     }
@@ -640,6 +676,9 @@ body {
     display: flex;
     align-items: center;
     gap: 5px;
+    padding: 0 4px;
+    margin-left: -4px;
+
     @media (hover: hover) {
       &:hover {
         color: white;
@@ -1092,7 +1131,7 @@ body {
     top: auto;
     bottom: 20px;
     animation: peakUp ease 0.35s both;
-    animation-delay: 0.8s;
+    animation-delay: 1.25s;
   }
 
   .about-section {
@@ -1127,8 +1166,8 @@ body {
             border: 1px solid #d9deed;
             padding: 8px 16px;
             margin-bottom: 20px;
-            animation: peakDownItem 0.5s ease both;
-            animation-delay: 0.2s;
+            animation: peakDownItem 0.3s ease both;
+            animation-delay: 0.25s;
 
             span {
               font-size: 20px;
@@ -1142,8 +1181,8 @@ body {
           &:nth-child(3) {
             font-size: 26px !important;
             color: #555555;
-            animation: peakUpItem ease 0.25s both;
-            animation-delay: 0.35s;
+            animation: peakUpItem ease 0.3s both;
+            animation-delay: 0.5s;
           }
 
           div {
@@ -1152,8 +1191,8 @@ body {
             height: 60px;
             width: 334px;
             margin-top: 20px;
-            animation: peakUpItem ease 0.25s both;
-            animation-delay: 0.5s;
+            animation: peakUpItem ease 0.3s both;
+            animation-delay: 0.8s;
 
             span {
               text-align: center;
@@ -1177,8 +1216,8 @@ body {
 
         .available-to-contact {
           margin: 80px 0 80px 0;
-          animation: peakUpItem ease 0.25s both;
-          animation-delay: 0.65s;
+          animation: peakUpItem ease 0.3s both;
+          animation-delay: 1s;
           .contact-heading {
             justify-content: center;
             margin-bottom: 30px;
@@ -1205,6 +1244,7 @@ body {
         margin-top: 0px;
         .about-desc {
           margin: 20px 0 0px 0;
+          font-size: 16px;
         }
       }
     }
@@ -1213,6 +1253,10 @@ body {
     .socials,
     .emails {
       margin-bottom: 60px;
+    }
+
+    .timeline-section .timeline-org .org-levels .org-level h4 {
+      font-size: 16px;
     }
   }
 
@@ -1235,7 +1279,7 @@ body {
   .contact-section {
     .emails {
       h2 {
-        font-size: 15px;
+        font-size: 16px;
         width: auto;
       }
       a {
@@ -1301,14 +1345,20 @@ body {
     .project-card-top {
       .project-details {
         padding-bottom: 30px;
+        bottom: 0px;
         .project-name {
           padding-top: 0px;
           padding-bottom: 4px;
           font-size: 24px;
+          margin-bottom: 10px;
         }
 
-        .project-buttons a {
-          font-size: 16px;
+        .project-buttons {
+          transform: scale(1);
+          a {
+            font-size: 16px;
+            padding: 2px 14px;
+          }
         }
       }
     }

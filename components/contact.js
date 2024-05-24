@@ -47,7 +47,7 @@ const Contact = ({ animate }) => {
                 target="_blank"
                 className={contact.class}
               >
-                <span>{contact.icon}</span> {contact.name} <ArrowTopRight />
+                <span>{contact.icon}</span> {contact.name} <ArrowTopRight style={{ marginTop: 2.5 }} />
               </a>)}
 
           </div>
