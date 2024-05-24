@@ -1184,6 +1184,10 @@ body {
             display: inline;
           }
 
+          .second-word {
+            text-transform: none;
+          }
+
           &:nth-child(1) {
             font-weight: 500;
             background: linear-gradient(#eff1f7, #d9deed);
