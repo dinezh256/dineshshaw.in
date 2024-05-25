@@ -145,8 +145,8 @@ body {
 
 // name card
 .name-card {
-  min-width: 180px;
-  max-width: 180px;
+  min-width: 196px;
+  max-width: 196px;
   position: sticky;
   top: 180px;
   z-index: 2;
@@ -159,16 +159,15 @@ body {
   }
 
   .name-card-inner {
-    margin: auto;
     width: 180px;
     text-align: center;
 
     .name-card-image {
-      width: 170px;
-      height: 170px;
-      border-radius: 12px;
-      border: 8px solid #ededed;
-      box-shadow: 0px 0px 12px rgba(120, 120, 120, 0.45);
+      width: 188px;
+      height: 300px;
+      border-radius: 100px 100px 0 0;
+      background-color: rgb(192, 146, 109);
+      box-shadow: 0px 0px 20px rgba(192, 146, 109, 0.85);
       overflow: hidden;
       filter: brightness(1.2);
 
@@ -176,29 +175,46 @@ body {
         width: 100%;
         height: 100%;
         transition: all 0.5s ease;
-        transform: scale(1.2);
-        transform-origin: 80px 30px;
+        object-fit: cover;
+        object-position: 0px 0px;
       }
     }
 
-    h1 {
-      font-size: 24px;
-      font-weight: 600;
-      margin-top: 30px;
-      margin-bottom: 10px;
-    }
+    .name-card-meta {
+      background-color: rgb(0, 53, 46);
+      padding: 2px 0px;
+      margin: auto;
+      width: 188px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      text-align: left;
+      box-shadow: 0px 0px 20px rgba(0, 53, 46, 0.75);
+      border-radius: 0 0 4px 4px;
 
-    h2 {
-      font-size: 16.5px;
-      font-weight: 500;
-      line-height: 30px;
-      color: rgb(84, 84, 84);
-    }
+      .name-logo-bottom {
+        filter: grayscale(1) brightness(40);
+        width: 50px;
+        height: 50px;
+      }
 
-    span {
-      font-size: 12.5px;
-      font-weight: 500;
-      color: rgb(84, 84, 84);
+      h1 {
+        display: none;
+      }
+
+      h2 {
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 14px;
+        color: rgb(255, 255, 255);
+      }
+
+      span {
+        font-size: 12px;
+        line-height: 12px;
+        font-weight: 500;
+        color: rgb(245, 245, 245);
+      }
     }
   }
 }
@@ -337,7 +353,7 @@ body {
 .about-section {
   padding-left: 240px;
   position: relative;
-  margin-top: -190px;
+  margin-top: -224px;
   animation: peakUpPage 0.25s ease both;
   animation-delay: 0.25s;
 
@@ -396,7 +412,7 @@ body {
   }
 
   .available-to-contact {
-    margin-top: 150px;
+    margin-top: 83px;
 
     .contact-heading,
     .contact-cta {
@@ -503,7 +519,7 @@ body {
           gap: 10px;
 
           svg {
-            margin-left: -9.5px;
+            margin-left: -10.5px;
           }
 
           h4 {
@@ -527,7 +543,7 @@ body {
     height: calc(100vh - 260px);
     min-height: 600px;
     h1 {
-      padding-bottom: 24px;
+      padding-bottom: 16px;
       font-weight: 500;
       font-size: 36px;
       color: rgb(60, 60, 60);
@@ -601,7 +617,7 @@ body {
 //work
 .work-section {
   padding-left: 240px;
-  margin-top: -190px;
+  margin-top: -224px;
   padding-bottom: 60px;
 
   .work-section-inner {
@@ -787,7 +803,7 @@ body {
   padding-left: 240px;
   padding-bottom: 60px;
   position: relative;
-  margin-top: -190px;
+  margin-top: -224px;
 
   h1 {
     font-weight: 400;
@@ -1097,23 +1113,34 @@ body {
         width: 78px;
         height: 78px;
         overflow: hidden;
-        border: 4px solid #dedede;
+        border-radius: 12px;
+        border: 4px solid rgb(251, 216, 185);
+        box-shadow: none;
 
         .display-image {
-          width: 70px;
-          height: 70px;
-          transform: scale(1.5);
-          transform-origin: 36px 10px;
+          width: 78px;
+          height: 78px;
+          object-position: 0 -10px;
         }
       }
 
       .name-card-meta {
+        background-color: transparent;
+        padding: 0px;
+        width: auto;
+        margin: 0;
+        box-shadow: none;
+        .name-logo-bottom {
+          display: none;
+        }
+
         h1 {
           font-size: 28px !important;
           color: rgb(20, 91, 205);
           margin: 0;
           padding-bottom: 4px;
           white-space: nowrap;
+          display: block;
         }
 
         h2 {
@@ -1129,6 +1156,7 @@ body {
         span {
           font-size: 16px;
           white-space: nowrap;
+          color: #555555;
         }
       }
     }
@@ -1210,7 +1238,7 @@ body {
           }
 
           &:nth-child(3) {
-            font-size: 26px !important;
+            font-size: 28px !important;
             color: #555555;
             animation: peakUpItem ease 0.3s both;
             animation-delay: 0.5s;

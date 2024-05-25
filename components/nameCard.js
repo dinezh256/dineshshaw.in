@@ -2,7 +2,7 @@ import { useState } from "react";
 import Image from "next/image";
 import clsx from "clsx";
 
-import DisplayImage from "../assets/DisplayPicture.jpeg";
+import DisplayImage from "../assets/DisplayPicture.webp";
 import logo from "../assets/logo.svg";
 
 const NameCard = () => {
@@ -27,9 +27,13 @@ const NameCard = () => {
           />
         </div>
         <div className="name-card-meta">
-          <h1>Dinesh Shaw</h1>
-          <h2>Software Engineer</h2>
-          <span>Jamshedpur, JH  |  🇮🇳</span>
+          <Image className="name-logo-bottom" src={logo} alt="logo" priority />
+
+          <div>
+            <h1>Dinesh Shaw</h1>
+            <h2>Software Engineer</h2>
+            <span>Jamshedpur, JH  |  🇮🇳</span>
+          </div>
         </div>
       </div>
     </div>

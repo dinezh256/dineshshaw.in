@@ -1,8 +1,10 @@
 import { useRouter } from "next/router";
+import clsx from "clsx";
 import Head from "next/head";
+import localFont from 'next/font/local';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { IBM_Plex_Sans as FontFamily } from "next/font/google";
-import { GoogleAnalytics } from '@next/third-parties/google'
+import { GoogleAnalytics } from '@next/third-parties/google';
 
 import Navbar from "../components/navbar";
 import NameCard from "../components/nameCard";
@@ -20,6 +22,12 @@ const font = FontFamily({
   display: 'swap',
 });
 
+const acorn = localFont({
+  src: '../assets/fonts/acorn.woff',
+  preload: true,
+  variable: '--font-acorn'
+})
+
 const MyApp = ({ Component, pageProps }) => {
   const router = useRouter();
   const showComponent = whiteListRoutes.includes(router.pathname);
@@ -31,7 +39,8 @@ const MyApp = ({ Component, pageProps }) => {
     <>
       <style jsx global>
         {`
-          html {
+          :root {
+              --font-plex: ${font.style.fontFamily};
               font-family: ${font.style.fontFamily};
           }`
         }
@@ -41,7 +50,7 @@ const MyApp = ({ Component, pageProps }) => {
       </Head>
       <GlobalContextProvider>
         {showNavbar && <Navbar />}
-        <main className="main-wrapper">
+        <main className={clsx("main-wrapper", acorn.variable)}>
           {showComponent && <NameCard />}
           <Component {...pageProps} />
         </main>
