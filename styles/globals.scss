@@ -485,6 +485,7 @@ body {
           font-size: 15px;
           color: rgb(var(--light-color));
         }
+
         @media (hover: hover) {
           &:hover {
             background-color: rgb(var(--primary-color));
@@ -646,7 +647,6 @@ body {
         b {
           font-weight: 500;
           color: rgb(var(--dark-color));
-          white-space: nowrap;
         }
       }
     }
