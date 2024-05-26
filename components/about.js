@@ -34,7 +34,7 @@ const About = () => {
         <div className="about-section-inner">
           <div className="about-main">
             <h1>
-              Hey there <span>👋🏼</span>
+              Hey there! <span className="hand-waive">👋🏼</span>
             </h1>
             <h1>
               I'm <b>Dinesh Shaw</b>
@@ -85,10 +85,10 @@ const About = () => {
                 With over <b>three years</b> of experience in Software Development, I bring expertise in Frontend Web Development using <b>JavaScript</b> and <b>ReactJS</b>.
               </li>
               <li>
-                Currently, I'm diving into App Development using <b>React Native</b> and <b>SwiftUI</b> to diversify my skills.
+                Currently, I'm diving into the world of App Development using <b>React Native</b> and <b>SwiftUI</b> to diversify my skills.
               </li>
               <li>
-                I graduated from <b>School of Enginnering, Tezpur University</b> in the year 2020. I pursued B.Tech in Electronics and Communication.
+                I graduated from <b>School of Enginnering, Tezpur University</b> in the year 2020, pursuing B.Tech in Electronics and Communication.
               </li>
               <li>
                 As a keen learner and attentive collaborator, I thrive on crafting efficient and scalable solutions.

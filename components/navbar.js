@@ -18,7 +18,6 @@ const Navbar = () => {
     if (id !== activeTab) {
       setVibrate(true);
     }
-
   };
 
   useEffect(() => {
@@ -29,16 +28,10 @@ const Navbar = () => {
   }, [vibrate]);
 
   useEffect(() => {
-    if (router.pathname) {
+    if (router.pathname || activeIdx !== activeTab) {
       setActiveTab(activeIdx);
     }
-  }, [router.pathname]);
-
-  useEffect(() => {
-    if (activeIdx !== activeTab) {
-      setActiveTab(activeIdx)
-    }
-  }, [activeIdx]);
+  }, [router.pathname, activeIdx]);
 
   return (
     <nav>
@@ -54,7 +47,7 @@ const Navbar = () => {
                 className={activeTab === id ? "btn active" : "btn"}
                 onClick={() => handleTabChange(id)}
               >
-                {icon({ size: 15, strokeWidth: 2.25 })}
+                {icon({ size: 15, strokeWidth: 2.75 })}
                 {name}
               </Link>
             </li>

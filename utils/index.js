@@ -30,6 +30,18 @@ export const resumeLink =
 
 export const timeline = [
   {
+    orgId: 0,
+    orgName: "C-DAC Centre, Kolkata",
+    yearwise: [
+      {
+        id: 0,
+        start: "May 2019",
+        end: "Jul 2019",
+        position: "Robotics Intern",
+      },
+    ],
+  },
+  {
     orgId: 1,
     orgName: "PuStack Technologies",
     yearwise: [

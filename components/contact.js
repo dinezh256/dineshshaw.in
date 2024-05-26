@@ -1,21 +1,32 @@
-import AnimateText from "./animateText";
-import ArrowTopRight from "../assets/icons/arrowTopRight";
+import clsx from "clsx";
 import { GitHub, Instagram, Linkedin } from "react-feather";
 
-const contacts = [
+import AnimateText from "./animateText";
+
+const socials = [
   {
     id: 'github',
     class: 'github',
     url: 'https://github.com/dinezh256',
-    icon: <GitHub size={14} strokeWidth={1.25} />,
-    name: 'Github',
+    icon: <GitHub size={24} strokeWidth={1.25} />,
+    name: 'GitHub',
+    username: 'dinezh256',
   },
   {
     id: 'linkedin',
     class: 'linkedin',
     url: 'https://in.linkedin.com/in/shawdinesh',
-    icon: <Linkedin size={14} strokeWidth={1.25} />,
-    name: 'Linkedin',
+    icon: <Linkedin size={24} strokeWidth={1.25} />,
+    name: 'LinkedIn',
+    username: 'shawdinesh'
+  },
+  {
+    id: 'instagram',
+    class: 'instagram',
+    url: 'https://www.instagram.com/dineshlearning',
+    icon: <Instagram size={24} strokeWidth={1.25} />,
+    name: 'Instagram',
+    username: 'dineshlearning',
   },
   {
     id: 'twitter',
@@ -23,14 +34,9 @@ const contacts = [
     url: 'https://twitter.com/Dinezh256',
     icon: '𝕏',
     name: 'Twitter',
+    username: 'dinezh256',
   },
-  {
-    id: 'instagram',
-    class: 'instagram',
-    url: 'https://www.instagram.com/dineshlearning',
-    icon: <Instagram size={14} strokeWidth={1.25} />,
-    name: 'Instagram',
-  },
+
 ]
 
 const Contact = ({ animate }) => {
@@ -40,15 +46,22 @@ const Contact = ({ animate }) => {
         <div className={`contact-section-inner${animate ? " animate-contact" : ""}`}>
           <div className="socials">
             <AnimateText text="SOCIALS" />
-            {contacts.map(contact =>
-              <a
-                id={contact.id}
-                href={contact.url}
-                target="_blank"
-                className={contact.class}
-              >
-                <span>{contact.icon}</span> {contact.name} <ArrowTopRight style={{ marginTop: 2.5 }} />
-              </a>)}
+            <div className="socials-list">
+              {socials.map(social =>
+                <a
+                  id={social.id}
+                  href={social.url}
+                  target="_blank"
+                  className={clsx("social-widget", social.id)}
+                >
+                  <div className="social-icon">{social.icon}</div>
+                  <div className="social-meta">
+                    <h6>{social.name}</h6>
+                    <span>@{social.username}</span>
+                  </div>
+                </a>
+              )}
+            </div>
 
           </div>
           <div className="emails">
