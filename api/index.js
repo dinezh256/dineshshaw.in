@@ -2,8 +2,6 @@ import axios, { } from 'axios';
 
 const baseUrl = 'https://api.dineshshaw.in/api';
 
-const controller = new AbortController();
-
 const getBlogViews = (id, signal) =>
     axios.get(`${baseUrl}/views/${id}`, { signal })
         .then(({ data }) => ({ success: true, data }))
