@@ -196,11 +196,13 @@ body {
   .name-card-inner {
     width: 240px;
     text-align: center;
+    border: 2px solid rgb(var(--grey-color2));
+    border-radius: 80px 80px 6px 6px;
 
     .name-card-image {
       width: 240px;
       height: 340px;
-      border-radius: 120px 120px 0 0;
+      border-radius: 78px 78px 0 0;
       background-color: rgb(var(--brown-color));
       box-shadow: 0px 0px 32px rgb(var(--brown-color));
       overflow: hidden;
