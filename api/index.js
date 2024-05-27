@@ -1,12 +1,11 @@
-import axios from 'axios';
+import axios, { } from 'axios';
 
-const isDevelopment = process.env.NODE_ENV === 'development';
 const baseUrl = 'https://api.dineshshaw.in/api';
 
-console.log(process.env.NODE_ENV, process.env.NEXT_PUBLIC_API_URL);
+const controller = new AbortController();
 
-const getBlogViews = (id) =>
-    axios.get(`${baseUrl}/views/${id}`)
+const getBlogViews = (id, signal) =>
+    axios.get(`${baseUrl}/views/${id}`, { signal })
         .then(({ data }) => ({ success: true, data }))
         .catch((error) => {
             console.log("Error getting Views", error);
@@ -14,8 +13,8 @@ const getBlogViews = (id) =>
         });
 
 
-const updateBlogViews = (id) =>
-    axios.post(`${baseUrl}/views/${id}`)
+const updateBlogViews = (id, signal) =>
+    axios.post(`${baseUrl}/views/${id}`, {}, { signal })
         .then(({ data }) => ({ success: true, data }))
         .catch((error) => {
             console.log("Error updating Views", error);

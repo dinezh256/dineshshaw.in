@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { clsx } from "clsx";
 import Head from "next/head";
 import Link from "next/link";
@@ -27,6 +27,9 @@ export default function Page({ markdownContent, meta = notFoundBlogMeta, id }) {
   const [viewsCount, setViewsCount] = useState(0)
   const { isLoading, setIsLoading } = useContext(GlobalContext);
   const [lastViewedOnLS, setLastViewedOnLS] = useLocalStorage("lastViewedOn")
+
+  const abortControllerRef = useRef(new AbortController());
+
   const sharableData = {
     url: getBlogUrl(meta.slug),
     text: meta.name,
@@ -36,11 +39,16 @@ export default function Page({ markdownContent, meta = notFoundBlogMeta, id }) {
   useEffect(() => {
     fetchViews();
     setTimeout(incrementViews, 1000);
+
+    const controller = abortControllerRef.current;
+    return () => {
+      controller.abort();
+    };
   }, [id])
 
   const fetchViews = async () => {
     setIsLoading(true);
-    const { success, data } = await getBlogViews(id)
+    const { success, data } = await getBlogViews(id, abortControllerRef.current.signal)
     if (success) setViewsCount(data.count)
     setIsLoading(false);
   }
@@ -53,7 +61,7 @@ export default function Page({ markdownContent, meta = notFoundBlogMeta, id }) {
 
     if (lastViewedOn && (now - lastViewedOn < TIME_DIFF)) return;
 
-    const { success, data } = await updateBlogViews(id);
+    const { success, data } = await updateBlogViews(id, abortControllerRef.current.signal);
     if (success) {
       setViewsCount(data?.count);
 
