@@ -78,6 +78,7 @@ body {
     font-family: var(--font-acorn);
     text-align: center;
     padding-bottom: 10px;
+    animation: fadeIn 0.5s ease-out both;
   }
 }
 
@@ -393,7 +394,6 @@ body {
 
   .skills-section {
     margin-top: 80px;
-    padding: 10px 0px;
     overflow: hidden;
     width: 100%;
     position: relative;
@@ -638,10 +638,13 @@ body {
       margin-block-start: 24px;
       margin-block-end: 0px;
       list-style-type: "⁍";
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
 
       li {
-        padding: 0px 0 24px 12px;
         line-height: 22px;
+        padding-left: 12px;
         color: rgb(var(--grey-color4));
 
         b {
@@ -1763,6 +1766,15 @@ body {
   }
   100% {
     width: 250px;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
     opacity: 1;
   }
 }

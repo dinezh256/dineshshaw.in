@@ -1,6 +1,4 @@
-import { useEffect, useState } from "react";
 import Image from "next/image";
-import { useInView } from "react-intersection-observer";
 
 import AnimateText from "./animateText";
 import { skillsList } from "../utils";
@@ -27,17 +25,10 @@ const SkillPill = ({ id, imgSrc, name, url }) => (
 );
 
 const Skills = () => {
-  const { ref, inView } = useInView({ threshold: 1 });
-  const [hasAnimated, setHasAnimated] = useState(false);
-  useEffect(() => {
-    if (inView && !hasAnimated) setHasAnimated(true);
-  }, [inView])
-
   return (
     <div className="skills-section">
-      <AnimateText text="SKILLS" />
-      <div className="skills-list" key={hasAnimated}>{skillsList.map(SkillPill)}</div>
-      <div ref={ref} />
+      <AnimateText text="SKILLS" animate={false} />
+      <div className="skills-list">{skillsList.map(SkillPill)}</div>
     </div>
   )
 };

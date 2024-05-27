@@ -79,7 +79,7 @@ const About = () => {
             </div>
           </div>
           <div className="about-me">
-            <AnimateText text="ABOUT ME" />
+            <AnimateText text="ABOUT ME" animate={false} />
             <ul className="about-desc">
               <li>
                 With over <b>three years</b> of experience in Software Development, I bring expertise in Frontend Web Development using <b>JavaScript</b> and <b>ReactJS</b>.
@@ -101,7 +101,7 @@ const About = () => {
         </div>
         <Skills />
         <div className="timeline-section">
-          <AnimateText text="EXPERIENCE" />
+          <AnimateText text="EXPERIENCE" animate={false} />
           {timeline
             .sort((a, b) => b.orgId - a.orgId)
             .map(({ orgId, orgName, yearwise }) => (

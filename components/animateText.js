@@ -13,7 +13,7 @@ const generateRandomChar = (text, index, timeElapsed, animationTime) => {
         : characters[randomChar];
 };
 
-const AnimateText = ({ text, as = 'h1' }) => {
+const AnimateText = ({ text, as = 'h1', animate = true }) => {
     const [isAnimating, setAnimating] = useState(true);
     const [randomisedText, setRandomisedText] = useState(text);
     const animationTime = text.length * 100 > 1000 ? 1000 : text.length * 100;
@@ -21,7 +21,7 @@ const AnimateText = ({ text, as = 'h1' }) => {
     const { ref, inView } = useInView({ threshold: 1 });
 
     useEffect(() => {
-        if (isAnimating && inView) {
+        if (animate && isAnimating && inView) {
             let interval;
 
             setTimeout(() => {

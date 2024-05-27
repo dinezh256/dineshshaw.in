@@ -45,7 +45,7 @@ const Contact = ({ animate }) => {
       <div className="contact-section">
         <div className={`contact-section-inner${animate ? " animate-contact" : ""}`}>
           <div className="socials">
-            <AnimateText text="SOCIALS" />
+            <AnimateText text="SOCIALS" animate={false} />
             <div className="socials-list">
               {socials.map(social =>
                 <a
@@ -65,7 +65,7 @@ const Contact = ({ animate }) => {
 
           </div>
           <div className="emails">
-            <AnimateText text="EMAIL" />
+            <AnimateText text="EMAIL" animate={false} />
             <h2>
               Interested in talking? Let's do it, feel free to drop me a message
               on your trusty typewriter and we can connect at a suitable time.
