@@ -17,7 +17,7 @@ const NameCard = () => {
           <Image
             src={DisplayImage}
             className={clsx("display-image", loaded ? "no-blur" : "blur-image")}
-            alt="profile photo"
+            alt="Dinesh's photo"
             draggable={false}
             priority
             loading="eager"
@@ -25,6 +25,7 @@ const NameCard = () => {
             onLoad={() => setLoaded(true)}
             placeholder="blur"
           />
+          <div className="image-overlay" />
         </div>
         <div className="name-card-meta">
           <Image className="name-logo-bottom" src={logo} alt="logo" priority />

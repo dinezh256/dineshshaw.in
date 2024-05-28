@@ -4,6 +4,7 @@
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   scroll-behavior: smooth;
+  box-sizing: border-box;
 
   --primary-color: 20, 91, 205;
   --primary-color-light: 112, 156, 214;
@@ -108,8 +109,8 @@ body {
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
-  height: 40px;
-  width: 348px;
+  height: 43px;
+  width: 351px;
   top: 40px;
   animation: peakDown ease 0.35s both;
   z-index: 5;
@@ -185,8 +186,8 @@ body {
   position: sticky;
   top: 180px;
   z-index: 2;
-  animation: peakDownSection 0.4s ease both;
-  animation-delay: 0.2s;
+  animation: peakDownSection 0.5s ease-out both;
+  animation-delay: 0s;
 
   .name-logo-right,
   .name-logo-left {
@@ -200,12 +201,13 @@ body {
     border-radius: 80px 80px 6px 6px;
 
     .name-card-image {
-      width: 240px;
-      height: 340px;
+      width: 236px;
+      height: 336px;
       border-radius: 78px 78px 0 0;
       background-color: rgb(var(--brown-color));
       box-shadow: 0px 0px 32px rgb(var(--brown-color));
       overflow: hidden;
+      position: relative;
 
       .display-image {
         width: 100%;
@@ -215,14 +217,25 @@ body {
         object-position: 0px 0px;
         filter: brightness(1.1);
       }
+
+      .image-overlay {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 40px;
+        background: linear-gradient(
+          to bottom,
+          transparent,
+          rgb(var(--secondary-color))
+        );
+      }
     }
 
     .name-card-meta {
       background: rgb(var(--secondary-color));
       padding: 2px 10px;
       margin: auto;
-      box-sizing: border-box;
-      width: 240px;
+      width: 236px;
       position: relative;
       display: flex;
       align-items: center;
@@ -276,7 +289,7 @@ body {
       }
 
       .project-card-top .project-details {
-        bottom: 0px;
+        bottom: 10px;
         transition: all 0.4s ease;
 
         .project-name {
@@ -321,17 +334,17 @@ body {
     .project-details {
       position: absolute;
       left: 0px;
-      bottom: -40px;
+      bottom: -20px;
       height: 60px;
       padding: 0px 15px 15px 15px;
       text-align: center;
       transition: all 0.2s ease;
-      width: calc(100% - 30px);
+      width: 100%;
 
       .project-name {
         font-weight: 600;
         font-size: 20px;
-        margin-bottom: 20px;
+        margin-bottom: 40px;
         text-shadow: 0 0 5px rgb(var(--grey-color));
         color: rgb(var(--light-color));
         transition: all 0.4s ease;
@@ -393,7 +406,7 @@ body {
   padding-left: 310px;
   position: relative;
   margin-top: -272px;
-  animation: peakUpPage 0.25s ease both;
+  animation: fadeIn 0.5s ease both;
   animation-delay: 0.25s;
 
   .skills-section {
@@ -771,7 +784,6 @@ body {
 
       .social-widget {
         width: calc(50% - 10px);
-        box-sizing: border-box;
         padding: 24px;
         text-decoration: none;
         color: rgb(var(--grey-color3));
@@ -993,7 +1005,7 @@ body {
     background-color: rgb(var(--light-color));
     border: 1px solid rgb(var(--grey-color2));
     border-radius: 20px;
-    height: 28px;
+    height: 30px;
     padding: 0 5px;
     overflow: hidden;
     opacity: 0;
@@ -1199,9 +1211,9 @@ body {
 
   .name-card {
     top: 0px;
-    margin: 18px;
-    min-width: calc(100vw - 38px);
-    max-width: calc(100vw - 38px);
+    margin: 20px auto;
+    min-width: calc(100vw - 36px);
+    max-width: calc(100vw - 36px);
     border-radius: 8px;
     position: relative;
     background-color: rgba(var(--grey-color2), 0.65);
@@ -1211,7 +1223,7 @@ body {
     overflow: hidden;
 
     .name-card-inner {
-      width: calc(100% - 30px);
+      width: 100%;
       padding: 12.5px 15px;
       height: auto;
       display: flex;
@@ -1234,6 +1246,10 @@ body {
           width: 78px;
           height: 78px;
           object-position: 0 -12px;
+        }
+
+        .image-overlay {
+          display: none;
         }
       }
 
@@ -1748,17 +1764,17 @@ body {
 
 @keyframes backBtnAnimation {
   5% {
-    width: 20px;
+    width: 30px;
   }
   12.5% {
-    width: 64px;
+    width: 72px;
     opacity: 1;
   }
   90% {
-    width: 64px;
+    width: 72px;
   }
   100% {
-    width: 20px;
+    width: 30px;
     opacity: 1;
   }
 }
