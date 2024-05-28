@@ -602,13 +602,12 @@ body {
       }
 
       div {
-        display: inline-block;
+        display: inline;
         position: relative;
 
         span {
           animation: changeword 6s linear infinite;
           position: absolute;
-          top: -38.5px;
           left: 8px;
           opacity: 0;
           width: max-content;
