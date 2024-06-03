@@ -4,12 +4,10 @@ import { useRouter } from "next/router";
 
 import { navMenuItems } from "../utils";
 
-
 const Navbar = () => {
   const router = useRouter();
   const isBlogPage = router?.pathname?.includes("/blogs/");
   const activeIdx = isBlogPage ? 2 : navMenuItems.find((item) => router?.pathname === item.url)?.id;
-
 
   const [vibrate, setVibrate] = useState(false);
   const [activeTab, setActiveTab] = useState(activeIdx);

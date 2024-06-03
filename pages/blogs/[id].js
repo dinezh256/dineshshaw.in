@@ -129,7 +129,6 @@ export async function getStaticProps({ params }) {
   const { file, blogMeta } = getDocBySlug(params.id);
   const markdownContent = fs.readFileSync(file, "utf-8");
 
-
   return { props: { markdownContent, meta: blogMeta, id: blogMeta.id } };
 }
 

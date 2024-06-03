@@ -36,7 +36,6 @@ const socials = [
     name: 'Twitter',
     username: 'dinezh256',
   },
-
 ]
 
 const Contact = ({ animate }) => {

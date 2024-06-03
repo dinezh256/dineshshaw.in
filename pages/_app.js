@@ -40,7 +40,6 @@ const MyApp = ({ Component, pageProps }) => {
       <style jsx global>
         {`
           :root {
-              --font-plex: ${font.style.fontFamily};
               font-family: ${font.style.fontFamily};
           }`
         }
