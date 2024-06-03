@@ -21,7 +21,7 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    if (vibrate) {
+    if (vibrate && navigator.vibrate) {
       navigator.vibrate(10);
       setVibrate(false);
     }

@@ -50,6 +50,7 @@ const Contact = ({ animate }) => {
               {socials.map(social =>
                 <a
                   id={social.id}
+                  key={social.id}
                   href={social.url}
                   target="_blank"
                   className={clsx("social-widget", social.id)}
