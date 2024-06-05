@@ -1,6 +1,7 @@
 import path from "path";
 import formatDuration from "date-fns/formatDuration";
 import intervalToDuration from "date-fns/intervalToDuration";
+import { GitHub, Instagram, Linkedin } from "react-feather";
 
 import PustackImage from "../assets/Pustack.webp";
 import CovidStatsImage from "../assets/CovidStats.webp";
@@ -278,3 +279,38 @@ export const skillsList = [
 export const getBlogUrl = (slug) => {
   return `https://dineshshaw.in/blogs/${slug}`;
 };
+
+export const socials = [
+  {
+    id: 'github',
+    class: 'github',
+    url: 'https://github.com/dinezh256',
+    icon: <GitHub size={24} strokeWidth={1.25} />,
+    name: 'GitHub',
+    username: 'dinezh256',
+  },
+  {
+    id: 'linkedin',
+    class: 'linkedin',
+    url: 'https://in.linkedin.com/in/shawdinesh',
+    icon: <Linkedin size={24} strokeWidth={1.25} />,
+    name: 'LinkedIn',
+    username: 'shawdinesh'
+  },
+  {
+    id: 'instagram',
+    class: 'instagram',
+    url: 'https://www.instagram.com/dineshlearning',
+    icon: <Instagram size={24} strokeWidth={1.25} />,
+    name: 'Instagram',
+    username: 'dineshlearning',
+  },
+  {
+    id: 'twitter',
+    class: 'twitter',
+    url: 'https://twitter.com/Dinezh256',
+    icon: '𝕏',
+    name: 'Twitter',
+    username: 'dinezh256',
+  },
+]

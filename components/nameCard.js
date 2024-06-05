@@ -29,7 +29,6 @@ const NameCard = () => {
         </div>
         <div className="name-card-meta">
           <Image className="name-logo-bottom" src={logo} alt="logo" priority />
-
           <div>
             <h1>Dinesh Shaw</h1>
             <h2>Software Engineer</h2>

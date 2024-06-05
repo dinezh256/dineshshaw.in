@@ -1,42 +1,7 @@
 import clsx from "clsx";
-import { GitHub, Instagram, Linkedin } from "react-feather";
 
 import AnimateText from "./animateText";
-
-const socials = [
-  {
-    id: 'github',
-    class: 'github',
-    url: 'https://github.com/dinezh256',
-    icon: <GitHub size={24} strokeWidth={1.25} />,
-    name: 'GitHub',
-    username: 'dinezh256',
-  },
-  {
-    id: 'linkedin',
-    class: 'linkedin',
-    url: 'https://in.linkedin.com/in/shawdinesh',
-    icon: <Linkedin size={24} strokeWidth={1.25} />,
-    name: 'LinkedIn',
-    username: 'shawdinesh'
-  },
-  {
-    id: 'instagram',
-    class: 'instagram',
-    url: 'https://www.instagram.com/dineshlearning',
-    icon: <Instagram size={24} strokeWidth={1.25} />,
-    name: 'Instagram',
-    username: 'dineshlearning',
-  },
-  {
-    id: 'twitter',
-    class: 'twitter',
-    url: 'https://twitter.com/Dinezh256',
-    icon: '𝕏',
-    name: 'Twitter',
-    username: 'dinezh256',
-  },
-]
+import { socials } from "../utils";
 
 const Contact = ({ animate }) => {
   return (

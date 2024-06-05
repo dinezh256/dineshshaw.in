@@ -39,7 +39,7 @@ export const renderBlogCard = (
 };
 
 const Blogs = () => (
-  <div className="blog-section">
+  <div className="blogs-section">
     <Head>
       <title>Blogs | Dinesh Shaw</title>
       <meta
