@@ -588,6 +588,15 @@ body {
     }
   }
 
+  .skills-section,
+  .timeline-section,
+  .contact-section,
+  .emails {
+    animation: fadeInBlur ease both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 30%;
+  }
+
   h1 {
     font-weight: 400;
     color: rgb(var(--grey-color3));
@@ -650,6 +659,9 @@ body {
 
   .about-me {
     margin-top: 150px;
+    animation: fadeInBlur ease both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 60%;
 
     .about-desc {
       font-weight: 400;
@@ -1150,6 +1162,9 @@ body {
   margin: 100px auto 24px auto;
   padding-top: 10px;
   border-top: 1px dashed rgba(var(--grey-color5), 0.75);
+  animation: fadeInBlur ease;
+  animation-timeline: view();
+  animation-range: entry 30% cover 0%;
 
   .footer-section {
     width: 100%;
@@ -1639,6 +1654,9 @@ body {
   .project-card {
     width: 100%;
     height: calc(100vw - 60px);
+    animation: fadeInBlur ease both;
+    animation-timeline: scroll();
+    animation-range: entry 40% cover 70%;
 
     .project-card-top {
       .project-details {
@@ -1884,6 +1902,19 @@ body {
   }
   100% {
     opacity: 1;
+  }
+}
+
+@keyframes fadeInBlur {
+  0% {
+    opacity: 0;
+    transform: scale(0.75);
+    filter: blur(2px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0px);
   }
 }
 
