@@ -1150,7 +1150,7 @@ body {
   margin: auto;
   margin: 100px auto 24px auto;
   padding-top: 10px;
-  border-top: 1px solid rgba(var(--grey-color5), 0.5);
+  border-top: 1px dashed rgba(var(--grey-color5), 0.75);
 
   .footer-section {
     width: 100%;
@@ -1178,21 +1178,21 @@ body {
     .footer-links {
       display: flex;
       padding-top: 16px;
-      gap: 80px;
+      gap: 60px;
 
       .footer-links-group {
         ul {
           margin-block: 0;
           padding-inline: 0;
-          padding-top: 6px;
           list-style: none;
 
           li {
             padding: 2px 0;
             a {
               text-decoration: none;
-              color: rgba(var(--grey-color), 0.75);
-              font-size: 18px;
+              color: rgba(var(--grey-color), 0.9);
+              font-weight: 500;
+              font-size: 16px;
             }
           }
         }
@@ -1523,8 +1523,7 @@ body {
     }
     .skills-section,
     .timeline-section,
-    .socials,
-    .emails {
+    .socials {
       margin-bottom: 60px;
     }
 
