@@ -1655,8 +1655,8 @@ body {
     width: 100%;
     height: calc(100vw - 60px);
     animation: fadeInBlur ease both;
-    animation-timeline: scroll();
-    animation-range: entry 40% cover 70%;
+    animation-timeline: view();
+    animation-range: entry 30% cover 70%;
 
     .project-card-top {
       .project-details {
