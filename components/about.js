@@ -82,13 +82,13 @@ const About = () => {
             <AnimateText text="ABOUT ME" animate={false} />
             <ul className="about-desc">
               <li>
-                With over <b>three years</b> of experience in Software Development, I bring expertise in Frontend Web Development using <b>JavaScript</b> and <b>ReactJS</b>.
+                With over <b>four years</b> of experience in Software Development, I bring expertise in Frontend Web Development using <b>JavaScript</b> and <b>ReactJS</b>.
               </li>
               <li>
                 Currently, I'm diving into the world of App Development using <b>React Native</b> and <b>SwiftUI</b> to diversify my skills.
               </li>
               <li>
-                I graduated from <b>School of Enginnering, Tezpur University</b> in the year 2020, pursuing B.Tech in Electronics and Communication.
+                I have graduated from <b>School of Enginnering, Tezpur University</b> in the year 2020, pursuing B.Tech in Electronics and Communication.
               </li>
               <li>
                 As a keen learner and attentive collaborator, I thrive on crafting efficient and scalable solutions.
