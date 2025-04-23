@@ -73,8 +73,14 @@ export const timeline = [
       {
         id: 1,
         start: "Jan 2023",
-        end: "Present",
+        end: "Dec 2024",
         position: "SWE III",
+      },
+      {
+        id: 2,
+        start: "Jan 2025",
+        end: "Present",
+        position: "SSE I",
       },
     ],
   },
