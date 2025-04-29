@@ -306,10 +306,10 @@ export const socials = [
   {
     id: 'instagram',
     class: 'instagram',
-    url: 'https://www.instagram.com/dineshlearning',
+    url: 'https://www.instagram.com/explorinesh',
     icon: <Instagram size={24} strokeWidth={1.25} />,
     name: 'Instagram',
-    username: 'dineshlearning',
+    username: 'explorinesh',
   },
   {
     id: 'twitter',
