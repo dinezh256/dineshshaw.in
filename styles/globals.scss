@@ -1403,10 +1403,9 @@ body {
   }
 
   .navbar {
-    top: auto;
-    bottom: 20px;
-    animation: peakUp ease 0.35s both;
-    animation-delay: 1.25s;
+    top: calc(100vh - env(safe-area-inset-bottom) - 72px);
+    animation: peakUp ease 0.3s both;
+    animation-delay: 1s;
   }
 
   .about-section {
@@ -1456,8 +1455,8 @@ body {
             border: 1px solid rgb(var(--grey-color2));
             padding: 8px 16px;
             margin-bottom: 20px;
-            animation: peakDownItem 0.3s ease both;
-            animation-delay: 0.25s;
+            animation: peakDownItem 0.2s ease both;
+            animation-delay: 0.2s;
 
             span {
               font-size: 20px;
@@ -1471,8 +1470,8 @@ body {
           &:nth-child(3) {
             font-size: 28px !important;
             color: rgb(var(--grey-color));
-            animation: peakUpItem ease 0.3s both;
-            animation-delay: 0.5s;
+            animation: peakUpItem ease 0.2s both;
+            animation-delay: 0.45s;
             font-family: var(--font-acorn);
           }
 
@@ -1482,8 +1481,8 @@ body {
             height: 60px;
             width: 334px;
             margin-top: 20px;
-            animation: peakUpItem ease 0.3s both;
-            animation-delay: 0.8s;
+            animation: peakUpItem ease 0.2s both;
+            animation-delay: 0.7s;
 
             span {
               text-align: center;
@@ -1507,8 +1506,8 @@ body {
 
         .available-to-contact {
           margin: 80px 0 80px 0;
-          animation: peakUpItem ease 0.3s both;
-          animation-delay: 1s;
+          animation: peakUpItem ease 0.2s both;
+          animation-delay: 0.9s;
           .contact-heading {
             justify-content: center;
             margin-bottom: 30px;
