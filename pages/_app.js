@@ -45,7 +45,8 @@ const MyApp = ({ Component, pageProps }) => {
         }
       </style>
       <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1 viewport-fit=cover" />
+        <meta name="theme-color" content="transparent" />
       </Head>
       <GlobalContextProvider>
         {showNavbar && <Navbar />}

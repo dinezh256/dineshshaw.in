@@ -58,6 +58,7 @@ body {
     hsla(var(--background-hsl), 0.987) 90.5%,
     hsla(var(--background-hsl), 1) 100%
   );
+  padding-bottom: env(safe-area-inset-bottom);
 
   #__next {
     display: flex;
@@ -1404,7 +1405,7 @@ body {
 
   .navbar {
     top: auto;
-    bottom: calc(env(safe-area-inset-bottom) + 20px);
+    bottom: 20px;
     animation: peakUp ease 0.3s both;
     animation-delay: 1s;
   }
