@@ -35,6 +35,10 @@
 html {
   background-color: rgb(var(--background-color));
   color-scheme: light;
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
 }
 
 body {
@@ -58,7 +62,10 @@ body {
     hsla(var(--background-hsl), 0.987) 90.5%,
     hsla(var(--background-hsl), 1) 100%
   );
+  padding-top: env(safe-area-inset-top);
   padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
 
   #__next {
     display: flex;
