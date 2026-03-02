@@ -82,7 +82,7 @@ const About = () => {
             <AnimateText text="ABOUT ME" animate={false} />
             <ul className="about-desc">
               <li>
-                With over <b>four years</b> of experience in Software Development, I bring expertise in Frontend Web Development using <b>JavaScript</b> and <b>ReactJS</b>.
+                With over <b>five years</b> of experience in Software Development, I bring expertise in Frontend Web Development using <b>JavaScript</b> and <b>ReactJS</b>.
               </li>
               <li>
                 Currently, I'm diving into the world of App Development using <b>React Native</b> and <b>SwiftUI</b> to diversify my skills.
