@@ -43,12 +43,14 @@ const MyApp = ({ Component, pageProps }) => {
         <link rel="canonical" href="https://dineshshaw.in" />
       </Head>
       <GlobalContextProvider>
-        {showNavbar && <Navbar />}
-        <main className={clsx("main-wrapper", font.variable, acorn.variable)}>
-          {showComponent && <NameCard />}
-          <Component {...pageProps} />
-        </main>
-        {showNavbar && <Footer />}
+        <div className={font.className} style={{ display: "contents" }}>
+          {showNavbar && <Navbar />}
+          <main className={clsx("main-wrapper", acorn.variable)}>
+            {showComponent && <NameCard />}
+            <Component {...pageProps} />
+          </main>
+          {showNavbar && <Footer />}
+        </div>
       </GlobalContextProvider>
       <GoogleAnalytics gaId="G-DZ5VTRTBNF" />
       <SpeedInsights />
