@@ -32,7 +32,7 @@ const NameCard = () => {
           <div>
             <h1>Dinesh Shaw</h1>
             <h2>Software Engineer</h2>
-            <span>Jamshedpur, JH  |  🇮🇳</span>
+            <span>📍 BLR &nbsp; 🏠 &nbsp; JSR &nbsp; 🇮🇳</span>
           </div>
         </div>
       </div>

@@ -11,7 +11,7 @@ const Work = () => {
         <title>Work | Dinesh Shaw</title>
         <meta
           name="description"
-          content="Showcasing my works as a web developer"
+          content="Some of the projects I've worked on."
           key="desc"
         />
         <link rel="canonical" href="https://dineshshaw.in/work" />

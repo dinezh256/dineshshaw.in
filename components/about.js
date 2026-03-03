@@ -27,7 +27,7 @@ const About = () => {
         <title>Dinesh&apos;s Portfolio</title>
         <meta
           name="description"
-          content="Experienced Frontend Developer with a keen eye for detail and a demonstrated history of working in the computer software industry. Skilled in JavaScript, React.js, React Native and Node.js"
+          content="Frontend Engineer with 5+ years of experience building web and mobile products. Mostly React.js, React Native, and Node.js."
           key="desc"
         />
       </Head>
@@ -45,11 +45,11 @@ const About = () => {
               <span className="second-word">a </span> passionate
               <div>
                 <span>
-                  <b> Web Developer</b>
+                  <b> Frontend Engineer</b>
                   <b>,</b>
                 </span>
                 <span>
-                  <b> App Developer</b>
+                  <b> React Developer</b>
                   <b>,</b>
                 </span>
                 <span>
@@ -84,28 +84,29 @@ const About = () => {
             <AnimateText text="ABOUT ME" animate={false} />
             <ul className="about-desc">
               <li>
-                With over <b>five years</b> of experience in Software
-                Development, I bring expertise in Frontend Web Development using{" "}
-                <b>JavaScript</b> and <b>ReactJS</b>.
+                I&apos;ve spent the last 5+ years working mostly in{" "}
+                <b>JavaScript</b> and <b>React.js</b>, building web and mobile
+                interfaces across startups and product companies.
               </li>
               <li>
-                Currently, I&apos;m diving into the world of App Development
-                using <b>React Native</b> and <b>SwiftUI</b> to diversify my
-                skills.
+                At <b>Auzmor</b>, I work on the LMS platform as a Senior
+                Software Engineer, across the web app and the{" "}
+                <b>React Native</b> mobile app.
               </li>
               <li>
-                I have graduated from{" "}
-                <b>School of Enginnering, Tezpur University</b> in the year
-                2020, pursuing B.Tech in Electronics and Communication.
+                I studied Electronics and Communication at{" "}
+                <b>Tezpur University</b>, graduating in 2020. Turned out
+                writing code was more fun than building circuits.
               </li>
               <li>
-                As a keen learner and attentive collaborator, I thrive on
-                crafting efficient and scalable solutions.
+                I like knowing how things work under the hood. Performance,
+                accessibility, and clean APIs are things I think about more
+                than I probably should.
               </li>
               <li>
-                Other than being a Software Engineer, I love to <b>workout</b> 4
-                times a week. When time permits, I love to <b>travel</b>,{" "}
-                <b>read blogs</b>, play &amp; watch Cricket.
+                Outside work, I go to the gym 4 times a week, follow{" "}
+                <b>cricket</b> way too closely, and try to <b>travel</b>{" "}
+                whenever I get the chance.
               </li>
             </ul>
           </div>

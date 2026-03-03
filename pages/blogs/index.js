@@ -40,7 +40,7 @@ const Blogs = () => (
       <title>Blogs | Dinesh Shaw</title>
       <meta
         name="description"
-        content="Sharing how I've overcame challenges in Software Engineering in the form of blogs"
+        content="Writing about frontend engineering, React, and things I've figured out the hard way."
         key="desc"
       />
       <link rel="canonical" href="https://dineshshaw.in/blogs" />

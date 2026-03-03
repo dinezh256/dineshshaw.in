@@ -33,8 +33,9 @@ const Contact = ({ animate }) => {
           <div className="emails">
             <AnimateText text="EMAIL" animate={false} />
             <h2>
-              Interested in talking? Let&apos;s do it, feel free to drop me a message
-              on your trusty typewriter and we can connect at a suitable time.
+              If you have something in mind, whether it&apos;s a project, a
+              role, or just a question, send me an email. I&apos;ll get back
+              to you.
             </h2>
             <a href="mailto:heydineshshaw@gmail.com" target="_blank" rel="noopener noreferrer">
               heydineshshaw@gmail.com 📬
