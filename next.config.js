@@ -53,4 +53,8 @@ module.exports = {
   sassOptions: {
     includePaths: [path.join(__dirname, "styles")],
   },
+  images: {
+    qualities: [75, 85, 90],
+  },
+  transpilePackages: ["remark-gfm", "remark-definition-list", "react-syntax-highlighter", "refractor"],
 };

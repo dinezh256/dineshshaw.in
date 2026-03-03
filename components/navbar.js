@@ -1,29 +1,23 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useWebHaptics } from "web-haptics/react";
 
 import { navMenuItems } from "../utils";
 
 const Navbar = () => {
   const router = useRouter();
+  const { trigger } = useWebHaptics();
   const isBlogPage = router?.pathname?.includes("/blogs/");
   const activeIdx = isBlogPage ? 2 : navMenuItems.find((item) => router?.pathname === item.url)?.id;
 
-  const [vibrate, setVibrate] = useState(false);
   const [activeTab, setActiveTab] = useState(activeIdx);
 
   const handleTabChange = (id) => {
     if (id !== activeTab) {
-      setVibrate(true);
+      trigger("nudge");
     }
   };
-
-  useEffect(() => {
-    if (vibrate && navigator.vibrate) {
-      navigator.vibrate(10);
-      setVibrate(false);
-    }
-  }, [vibrate]);
 
   useEffect(() => {
     if (router.pathname || activeIdx !== activeTab) {

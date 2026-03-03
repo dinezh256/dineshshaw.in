@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { clsx } from "clsx";
 import Head from "next/head";
 import Link from "next/link";
@@ -17,7 +17,7 @@ import {
   notFoundBlogMeta,
   getBlogUrl,
 } from "../../utils";
-import { BlogCard } from ".";
+import BlogCard from "../../components/BlogCard";
 import { getBlogViews, updateBlogViews } from "../../api";
 import { useLocalStorage } from "../../hooks";
 
@@ -27,7 +27,6 @@ export default function Page({ markdownContent, meta = notFoundBlogMeta, id }) {
   const [viewsCount, setViewsCount] = useState(0);
   const [isFetchingViews, setIsFetchingViews] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
-  const { setIsLoading } = useContext(GlobalContext);
   const [lastViewedOnLS, setLastViewedOnLS] = useLocalStorage("lastViewedOn")
 
   const abortControllerRef = useRef(new AbortController());
@@ -61,6 +60,7 @@ export default function Page({ markdownContent, meta = notFoundBlogMeta, id }) {
   };
 
   useEffect(() => {
+    abortControllerRef.current = new AbortController();
     fetchViews();
     const incrementTimer = setTimeout(incrementViews, 1000);
 
@@ -75,7 +75,8 @@ export default function Page({ markdownContent, meta = notFoundBlogMeta, id }) {
   useEffect(() => {
     const onScroll = () => {
       const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
-      const progress = scrollTop / (scrollHeight - clientHeight);
+      const scrollable = scrollHeight - clientHeight;
+      const progress = scrollable > 0 ? scrollTop / scrollable : 0;
       setScrollProgress(Math.min(progress, 1));
     };
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -83,7 +84,7 @@ export default function Page({ markdownContent, meta = notFoundBlogMeta, id }) {
   }, []);
 
   return (
-    <div className="blog-page-wrapper" key={id}>
+    <div className="blog-page-wrapper">
       <div
         className="reading-progress-bar"
         style={{ transform: `scaleX(${scrollProgress})` }}

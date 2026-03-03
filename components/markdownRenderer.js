@@ -5,22 +5,24 @@ import remarkDefinitionList from "remark-definition-list";
 import CodeBlock from "./codeblock";
 
 const MarkdownRenderer = ({ content }) => {
-  const renderCodeBlock = (props) => {
-    const { className, children, inline } = props;
-    if (inline) {
-      return <span className="highlighted-code">{children}</span>;
-    }
+  const renderInlineCode = ({ children }) => (
+    <span className="highlighted-code">{children}</span>
+  );
+
+  const renderPre = ({ children }) => {
+    const code = children?.props;
+    const language = (code?.className || "").replace("language-", "");
     return (
       <CodeBlock
-        language={className && className.replace("language-", "")}
-        value={children}
+        language={language || "text"}
+        value={String(code?.children || "").replace(/\n$/, "")}
       />
     );
   };
 
   return (
     <ReactMarkdown
-      components={{ code: renderCodeBlock }}
+      components={{ code: renderInlineCode, pre: renderPre }}
       remarkPlugins={[remarkGfm, remarkDefinitionList]}
     >
       {content}

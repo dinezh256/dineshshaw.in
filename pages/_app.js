@@ -3,6 +3,7 @@ import clsx from "clsx";
 import Head from "next/head";
 import localFont from 'next/font/local';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Analytics } from '@vercel/analytics/react';
 import { IBM_Plex_Sans as FontFamily } from "next/font/google";
 import { GoogleAnalytics } from '@next/third-parties/google';
 
@@ -54,6 +55,7 @@ const MyApp = ({ Component, pageProps }) => {
       </GlobalContextProvider>
       <GoogleAnalytics gaId="G-DZ5VTRTBNF" />
       <SpeedInsights />
+      <Analytics />
     </>
   );
 };
