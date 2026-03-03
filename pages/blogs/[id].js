@@ -18,7 +18,7 @@ import {
   getBlogUrl,
 } from "../../utils";
 import BlogCard from "../../components/BlogCard";
-import { getBlogViews, updateBlogViews } from "../../api";
+import { getBlogViews, updateBlogViews, isViewsCached } from "../../api";
 import { useLocalStorage } from "../../hooks";
 
 const TIME_DIFF = 6 * 60 * 60 * 1000; // 6 hours
@@ -38,10 +38,11 @@ export default function Page({ markdownContent, meta = notFoundBlogMeta, id }) {
   };
 
   const fetchViews = async () => {
-    setIsFetchingViews(true);
+    const cached = isViewsCached(id);
+    if (!cached) setIsFetchingViews(true);
     const { success, data } = await getBlogViews(id, abortControllerRef.current.signal);
     if (success) setViewsCount(data.count);
-    setIsFetchingViews(false);
+    if (!cached) setIsFetchingViews(false);
   };
 
   const incrementViews = async () => {
