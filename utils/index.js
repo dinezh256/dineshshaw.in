@@ -1,6 +1,5 @@
 import path from "path";
-import formatDuration from "date-fns/formatDuration";
-import intervalToDuration from "date-fns/intervalToDuration";
+import { formatDuration, intervalToDuration } from "date-fns";
 import { GitHub, Instagram, Linkedin } from "react-feather";
 
 import PustackImage from "../assets/Pustack.webp";

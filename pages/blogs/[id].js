@@ -2,7 +2,7 @@ import { useContext, useEffect, useRef, useState } from "react";
 import { clsx } from "clsx";
 import Head from "next/head";
 import Link from "next/link";
-import format from "date-fns/format";
+import { format } from "date-fns";
 import { Calendar, Eye, Share2 } from "react-feather";
 import { ChevronLeft } from "react-feather";
 import { RWebShare } from "react-web-share";

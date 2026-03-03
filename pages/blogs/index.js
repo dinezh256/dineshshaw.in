@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import Link from "next/link";
 import Head from "next/head";
-import format from "date-fns/format";
+import { format } from "date-fns";
 import { Calendar, Clock } from "react-feather";
 
 import AnimateText from "../../components/animateText";
