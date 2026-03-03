@@ -14,8 +14,8 @@ const ProjectCard = ({ src, type, name, codeUrl, websiteUrl, position }) => {
         <Image
           className={clsx("card-image", loaded ? "no-blur" : "blur-image")}
           src={src}
-          priority
-          loading="eager"
+          priority={position < 2}
+          loading={position < 2 ? "eager" : "lazy"}
           placeholder="blur"
           draggable={false}
           alt={`${name} thumbnail`}

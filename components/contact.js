@@ -17,6 +17,7 @@ const Contact = ({ animate }) => {
                   key={social.id}
                   href={social.url}
                   target="_blank"
+                  rel="noopener noreferrer"
                   className={clsx("social-widget", social.id)}
                 >
                   <div className="social-icon">{social.icon}</div>
@@ -32,10 +33,10 @@ const Contact = ({ animate }) => {
           <div className="emails">
             <AnimateText text="EMAIL" animate={false} />
             <h2>
-              Interested in talking? Let's do it, feel free to drop me a message
+              Interested in talking? Let&apos;s do it, feel free to drop me a message
               on your trusty typewriter and we can connect at a suitable time.
             </h2>
-            <a href="mailto:heydineshshaw@gmail.com" target="_blank">
+            <a href="mailto:heydineshshaw@gmail.com" target="_blank" rel="noopener noreferrer">
               heydineshshaw@gmail.com 📬
             </a>
           </div>

@@ -10,10 +10,11 @@ const Work = () => {
       <Head>
         <title>Work | Dinesh Shaw</title>
         <meta
-          title="description"
+          name="description"
           content="Showcasing my works as a web developer"
           key="desc"
         />
+        <link rel="canonical" href="https://dineshshaw.in/work" />
       </Head>
       <div className="work-section">
         <div className="work-section-inner">
@@ -31,7 +32,7 @@ const Work = () => {
               href="https://github.com/dinezh256?tab=repositories"
               target="_blank"
             >
-              <span>View Others</span>
+              <span>View More</span>
             </a>
           </div>
         </div>

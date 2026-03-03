@@ -21,28 +21,35 @@ const AnimateText = ({ text, as = 'h1', animate = true }) => {
     const { ref, inView } = useInView({ threshold: 1 });
 
     useEffect(() => {
-        if (animate && isAnimating && inView) {
-            let interval;
+        if (!animate || !isAnimating || !inView) return;
 
-            setTimeout(() => {
-                let timeElapsed = 0;
+        let interval;
 
-                interval = setInterval(() => {
-                    timeElapsed += 100;
-                    setRandomisedText(
-                        text
-                            .split("")
-                            .map((_, idx) => generateRandomChar(text, idx, timeElapsed, animationTime))
-                            .join("")
-                    );
-                }, 100);
-            }, 50);
+        const startTimer = setTimeout(() => {
+            let timeElapsed = 0;
 
-            setTimeout(() => {
-                clearInterval(interval);
-                setAnimating(false);
-            }, animationTime + 50);
-        }
+            interval = setInterval(() => {
+                timeElapsed += 100;
+                setRandomisedText(
+                    text
+                        .split("")
+                        .map((_, idx) => generateRandomChar(text, idx, timeElapsed, animationTime))
+                        .join("")
+                );
+            }, 100);
+        }, 50);
+
+        const endTimer = setTimeout(() => {
+            clearInterval(interval);
+            setAnimating(false);
+        }, animationTime + 50);
+
+        return () => {
+            clearTimeout(startTimer);
+            clearTimeout(endTimer);
+            clearInterval(interval);
+        };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [text, inView]);
 
     const Wrapper = as;

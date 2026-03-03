@@ -2,7 +2,7 @@ import Image from "next/image";
 
 import logo from "../assets/logo.svg";
 import Link from "next/link";
-import { resumeLink, socials } from "../utils";
+import { resumeLink, socials, navMenuItems } from "../utils";
 
 const Footer = () => (
   <footer className="footer">
@@ -14,30 +14,21 @@ const Footer = () => (
       <div className="footer-links">
         <div className="footer-links-group">
           <ul>
-            <li>
-              <Link href="/">
-                About
-              </Link>
-            </li>
-            <li>
-              <Link href="/work">
-                Work
-              </Link>
-            </li>
-            <li>
-              <Link href="/blogs">
-                Blogs
-              </Link>
-            </li>
+            {navMenuItems.map(({ id, name, url }) => (
+              <li key={id}>
+                <Link href={url}>{name}</Link>
+              </li>
+            ))}
           </ul>
         </div>
         <div className="footer-links-group">
           <ul>
-            {socials.filter(social => social.id !== 'instagram').map((social) => (
+            {socials.filter(social => social.showInFooter !== false).map((social) => (
               <li key={social.id}>
                 <Link id={social.id}
                   href={social.url}
-                  target="_blank">
+                  target="_blank"
+                  rel="noopener noreferrer">
                   {social.name}
                 </Link>
               </li>
@@ -47,12 +38,12 @@ const Footer = () => (
         <div className="footer-links-group">
           <ul>
             <li>
-              <Link href={resumeLink} target="_blank">
+              <Link href={resumeLink} target="_blank" rel="noopener noreferrer">
                 Résumé
               </Link>
             </li>
             <li>
-              <Link href="https://github.com/dinezh256/dineshshaw.in" target="_blank">
+              <Link href="https://github.com/dinezh256/dineshshaw.in" target="_blank" rel="noopener noreferrer">
                 Source
               </Link>
             </li>

@@ -37,20 +37,14 @@ const MyApp = ({ Component, pageProps }) => {
 
   return (
     <>
-      <style jsx global>
-        {`
-          :root {
-              font-family: ${font.style.fontFamily};
-          }`
-        }
-      </style>
       <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1 viewport-fit=cover" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
         <meta name="theme-color" content="transparent" />
+        <link rel="canonical" href="https://dineshshaw.in" />
       </Head>
       <GlobalContextProvider>
         {showNavbar && <Navbar />}
-        <main className={clsx("main-wrapper", acorn.variable)}>
+        <main className={clsx("main-wrapper", font.variable, acorn.variable)}>
           {showComponent && <NameCard />}
           <Component {...pageProps} />
         </main>

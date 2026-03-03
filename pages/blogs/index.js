@@ -10,16 +10,12 @@ import { GlobalContext } from "../../contexts";
 
 import { blogsList, humanizeDuration } from "../../utils";
 
-export const renderBlogCard = (
-  { id, slug, name, readDuration, createdAt },
-  position
-) => {
+export const BlogCard = ({ id, slug, name, readDuration, createdAt, position }) => {
   const { setIsLoading } = useContext(GlobalContext);
   return (
-    <Link href={`/blogs/${slug}`} as={`/blogs/${slug}`} key={id} onClick={() => setIsLoading(true)}>
+    <Link href={`/blogs/${slug}`} as={`/blogs/${slug}`} onClick={() => setIsLoading(true)}>
       <div
         className="blog-card"
-        key={id}
         style={{ animationDelay: `${0.1 * (position + 1)}s` }}
       >
         <h3>{name}</h3>
@@ -35,7 +31,7 @@ export const renderBlogCard = (
         </div>
       </div>
     </Link>
-  )
+  );
 };
 
 const Blogs = () => (
@@ -43,18 +39,17 @@ const Blogs = () => (
     <Head>
       <title>Blogs | Dinesh Shaw</title>
       <meta
-        title="description"
+        name="description"
         content="Sharing how I've overcame challenges in Software Engineering in the form of blogs"
         key="desc"
       />
+      <link rel="canonical" href="https://dineshshaw.in/blogs" />
     </Head>
     <AnimateText text="BLOGS" />
     <ul className="blog-list">
-      {blogsList
-        .sort((a, b) => b.createdAt - a.createdAt)
-        .map((blog, position) => (
-          <li key={blog.id}>{renderBlogCard(blog, position)}</li>
-        ))}
+      {blogsList.map((blog, position) => (
+        <li key={blog.id}><BlogCard {...blog} position={position} /></li>
+      ))}
     </ul>
   </div>
 );

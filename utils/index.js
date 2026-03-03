@@ -31,44 +31,14 @@ export const resumeLink =
 
 export const timeline = [
   {
-    orgId: 0,
-    orgName: "C-DAC Centre, Kolkata",
-    yearwise: [
-      {
-        id: 0,
-        start: "May 2019",
-        end: "Jul 2019",
-        position: "Robotics Intern",
-      },
-    ],
-  },
-  {
-    orgId: 1,
-    orgName: "PuStack Technologies",
-    yearwise: [
-      {
-        id: 0,
-        start: "Feb 2021",
-        end: "Aug 2021",
-        position: "SDE I",
-      },
-      {
-        id: 1,
-        start: "Sep 2021",
-        end: "Dec 2021",
-        position: "SDE II",
-      },
-    ],
-  },
-  {
     orgId: 2,
     orgName: "Auzmor Inc.",
     yearwise: [
       {
-        id: 0,
-        start: "Jan 2022",
-        end: "Dec 2022",
-        position: "SWE I",
+        id: 2,
+        start: "Jan 2025",
+        end: "Present",
+        position: "SSE I",
       },
       {
         id: 1,
@@ -77,10 +47,40 @@ export const timeline = [
         position: "SWE III",
       },
       {
-        id: 2,
-        start: "Jan 2025",
-        end: "Present",
-        position: "SSE I",
+        id: 0,
+        start: "Jan 2022",
+        end: "Dec 2022",
+        position: "SWE I",
+      },
+    ],
+  },
+  {
+    orgId: 1,
+    orgName: "PuStack Technologies",
+    yearwise: [
+      {
+        id: 1,
+        start: "Sep 2021",
+        end: "Dec 2021",
+        position: "SDE II",
+      },
+      {
+        id: 0,
+        start: "Feb 2021",
+        end: "Aug 2021",
+        position: "SDE I",
+      },
+    ],
+  },
+  {
+    orgId: 0,
+    orgName: "C-DAC Centre, Kolkata",
+    yearwise: [
+      {
+        id: 0,
+        start: "May 2019",
+        end: "Jul 2019",
+        position: "Robotics Intern",
       },
     ],
   },
@@ -150,15 +150,16 @@ const docsDirectory = path.join(process.cwd(), "markdown");
 
 export const blogsList = [
   {
-    id: 0,
-    slug: "securely-transmit-data-in-unexpected-situations-using-react",
-    fileName: "secure-transmission",
-    createdAt: 1686933164331,
-    readDuration: 120,
-    name: "Securely Transmit Data in Unexpected Situations using React and Window events",
+    id: 2,
+    slug: "shifting-focus-from-an-element-to-popup-in-react",
+    fileName: "shift-focus-to-popup",
+    createdAt: 1711269071522,
+    readDuration: 210,
+    name: "Enhancing Accessibility: Shifting Focus from an Element to Popup in React",
     description:
-      "Sending data to the Server when the User navigates away, closes/reloads the tab.",
-    keywords: "Server,React,React.js,Browser,unload,beforeunload,window,events",
+      "Learn how to improve the accessibility of your React application by ensuring that focus shifts seamlessly from triggering elements to popups. Explore a step-by-step guide utilizing React hooks and Semantic UI components to create a more inclusive user experience for keyboard and screen reader users.",
+    keywords:
+      "react accessibility, keyboard navigation, assistive technologies, semantic ui popup, focus management, accessibility in web development, inclusive user experience, react hooks, web accessibility best practices",
   },
   {
     id: 1,
@@ -172,16 +173,15 @@ export const blogsList = [
     keywords: "lazy loading,React,React.js,code splitting,user experience",
   },
   {
-    id: 2,
-    slug: "shifting-focus-from-an-element-to-popup-in-react",
-    fileName: "shift-focus-to-popup",
-    createdAt: 1711269071522,
-    readDuration: 210,
-    name: "Enhancing Accessibility: Shifting Focus from an Element to Popup in React",
+    id: 0,
+    slug: "securely-transmit-data-in-unexpected-situations-using-react",
+    fileName: "secure-transmission",
+    createdAt: 1686933164331,
+    readDuration: 120,
+    name: "Securely Transmit Data in Unexpected Situations using React and Window events",
     description:
-      "Learn how to improve the accessibility of your React application by ensuring that focus shifts seamlessly from triggering elements to popups. Explore a step-by-step guide utilizing React hooks and Semantic UI components to create a more inclusive user experience for keyboard and screen reader users.",
-    keywords:
-      "react accessibility, keyboard navigation, assistive technologies, semantic ui popup, focus management, accessibility in web development, inclusive user experience, react hooks, web accessibility best practices",
+      "Sending data to the Server when the User navigates away, closes/reloads the tab.",
+    keywords: "Server,React,React.js,Browser,unload,beforeunload,window,events",
   },
 ];
 
@@ -306,10 +306,11 @@ export const socials = [
   {
     id: 'instagram',
     class: 'instagram',
-    url: 'https://www.instagram.com/explorinesh',
+    url: 'https://www.instagram.com/dineshlearning',
     icon: <Instagram size={24} strokeWidth={1.25} />,
     name: 'Instagram',
-    username: 'explorinesh',
+    username: 'dineshlearning',
+    showInFooter: false,
   },
   {
     id: 'twitter',

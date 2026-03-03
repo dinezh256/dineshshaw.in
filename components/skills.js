@@ -28,9 +28,13 @@ const Skills = () => {
   return (
     <div className="skills-section">
       <AnimateText text="SKILLS" animate={false} />
-      <div className="skills-list">{skillsList.map(SkillPill)}</div>
+      <div className="skills-list">
+        {skillsList.map((skill) => (
+          <SkillPill key={skill.id} {...skill} />
+        ))}
+      </div>
     </div>
-  )
+  );
 };
 
 export default Skills;

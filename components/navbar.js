@@ -29,6 +29,7 @@ const Navbar = () => {
     if (router.pathname || activeIdx !== activeTab) {
       setActiveTab(activeIdx);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router.pathname, activeIdx]);
 
   return (

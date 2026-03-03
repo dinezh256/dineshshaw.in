@@ -14,18 +14,19 @@ const About = () => {
   const [animateContact, setAnimateContact] = useState(false);
 
   const onClickContact = () => {
-    window.scrollTo({ top: window.outerHeight * 2.25, behavior: "smooth" });
-
-    if (!animateContact) setTimeout(() => setAnimateContact(false), 1500);
+    document
+      .querySelector(".contact-section")
+      ?.scrollIntoView({ behavior: "smooth" });
     setAnimateContact(true);
+    setTimeout(() => setAnimateContact(false), 1500);
   };
 
   return (
     <>
       <Head>
-        <title>Dinesh's Portfolio</title>
+        <title>Dinesh&apos;s Portfolio</title>
         <meta
-          title="description"
+          name="description"
           content="Experienced Frontend Developer with a keen eye for detail and a demonstrated history of working in the computer software industry. Skilled in JavaScript, React.js, React Native and Node.js"
           key="desc"
         />
@@ -37,10 +38,10 @@ const About = () => {
               Hey there! <span className="hand-waive">👋🏼</span>
             </h1>
             <h1>
-              I'm <b>Dinesh Shaw</b>
+              I&apos;m <b>Dinesh Shaw</b>
             </h1>
             <h1>
-              <span className="first-word">I'm </span>
+              <span className="first-word">I&apos;m </span>
               <span className="second-word">a </span> passionate
               <div>
                 <span>
@@ -67,6 +68,7 @@ const About = () => {
                   href={resumeLink}
                   as={resumeLink}
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <ChevronsUp size={18} strokeWidth={2.5} />
                   <span>Résumé</span>
@@ -82,19 +84,28 @@ const About = () => {
             <AnimateText text="ABOUT ME" animate={false} />
             <ul className="about-desc">
               <li>
-                With over <b>five years</b> of experience in Software Development, I bring expertise in Frontend Web Development using <b>JavaScript</b> and <b>ReactJS</b>.
+                With over <b>five years</b> of experience in Software
+                Development, I bring expertise in Frontend Web Development using{" "}
+                <b>JavaScript</b> and <b>ReactJS</b>.
               </li>
               <li>
-                Currently, I'm diving into the world of App Development using <b>React Native</b> and <b>SwiftUI</b> to diversify my skills.
+                Currently, I&apos;m diving into the world of App Development
+                using <b>React Native</b> and <b>SwiftUI</b> to diversify my
+                skills.
               </li>
               <li>
-                I have graduated from <b>School of Enginnering, Tezpur University</b> in the year 2020, pursuing B.Tech in Electronics and Communication.
+                I have graduated from{" "}
+                <b>School of Enginnering, Tezpur University</b> in the year
+                2020, pursuing B.Tech in Electronics and Communication.
               </li>
               <li>
-                As a keen learner and attentive collaborator, I thrive on crafting efficient and scalable solutions.
+                As a keen learner and attentive collaborator, I thrive on
+                crafting efficient and scalable solutions.
               </li>
               <li>
-                Other than being a Software Engineer, I love to <b>workout</b> 4 times a week. When time permits, I love to <b>travel</b>, <b>read blogs</b>, play &amp; watch Cricket.
+                Other than being a Software Engineer, I love to <b>workout</b> 4
+                times a week. When time permits, I love to <b>travel</b>,{" "}
+                <b>read blogs</b>, play &amp; watch Cricket.
               </li>
             </ul>
           </div>
@@ -102,27 +113,23 @@ const About = () => {
         <Skills />
         <div className="timeline-section">
           <AnimateText text="EXPERIENCE" animate={false} />
-          {timeline
-            .sort((a, b) => b.orgId - a.orgId)
-            .map(({ orgId, orgName, yearwise }) => (
-              <div className="timeline-org" key={orgId}>
-                <h3>{orgName}</h3>
-                <div
-                  className={
-                    yearwise.length < 2 ? "org-levels" : `org-levels border`
-                  }
-                >
-                  {yearwise
-                    .sort((a, b) => b.id - a.id)
-                    .map(({ id, start, end, position }) => (
-                      <div className="org-level" key={id}>
-                        <CheckMarkIcon /> <h4>{`${start} - ${end}`}</h4>
-                        <h4>—&nbsp;&nbsp;{position}</h4>
-                      </div>
-                    ))}
-                </div>
+          {timeline.map(({ orgId, orgName, yearwise }) => (
+            <div className="timeline-org" key={orgId}>
+              <h3>{orgName}</h3>
+              <div
+                className={
+                  yearwise.length < 2 ? "org-levels" : `org-levels border`
+                }
+              >
+                {yearwise.map(({ id, start, end, position }) => (
+                  <div className="org-level" key={id}>
+                    <CheckMarkIcon /> <h4>{`${start} - ${end}`}</h4>
+                    <h4>—&nbsp;&nbsp;{position}</h4>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
+          ))}
         </div>
         <Contact animate={animateContact} />
       </div>
