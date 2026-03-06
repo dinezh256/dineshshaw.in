@@ -711,6 +711,12 @@ body {
       list-style: none;
       padding-inline: 0;
       gap: 30px;
+
+      li {
+        flex-shrink: 1;
+        flex-grow: 1;
+        flex-basis: 260px;
+      }
     }
 
     .view-more-wrapper {

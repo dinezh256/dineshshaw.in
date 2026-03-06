@@ -89,7 +89,6 @@ export const projects = [
   {
     id: 0,
     src: PustackImage,
-    objectFit: "contain",
     name: "PuStack",
     codeUrl: "",
     websiteUrl: "https://pustack.com",
@@ -98,7 +97,6 @@ export const projects = [
   {
     id: 1,
     src: CovidStatsImage,
-    objectFit: "contain",
     name: "Covid India Stats",
     codeUrl: "https://github.com/dinezh256/CovidIndiaStats",
     websiteUrl: "https://covidindiastat.netlify.app",
@@ -107,7 +105,6 @@ export const projects = [
   {
     id: 2,
     src: RoyalMintImage,
-    objectFit: "cover",
     name: "The Royal Mint",
     codeUrl: "https://github.com/dinezh256/royalmint",
     websiteUrl: "https://royalmint.vercel.app",
@@ -116,7 +113,6 @@ export const projects = [
   {
     id: 3,
     src: DubariImage,
-    objectFit: "cover",
     name: "Dubari",
     codeUrl: "https://github.com/dinezh256/dubari",
     websiteUrl: "https://dubari.netlify.app/",
