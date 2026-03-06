@@ -2,7 +2,7 @@ import { useState } from "react";
 import Image from "next/image";
 import clsx from "clsx";
 
-const ProjectCard = ({ src, type, name, codeUrl, websiteUrl, position }) => {
+const ProjectCard = ({ src, type, name, codeUrl, websiteUrl, position, objectFit }) => {
   const [loaded, setLoaded] = useState(false);
 
   return (
@@ -14,7 +14,9 @@ const ProjectCard = ({ src, type, name, codeUrl, websiteUrl, position }) => {
         <Image
           className={clsx("card-image", loaded ? "no-blur" : "blur-image")}
           src={src}
-          fill
+          width={260}
+          height={260}
+          style={{ width: "100%", height: "100%", objectFit, objectPosition: "top" }}
           priority={position < 2}
           loading={position < 2 ? "eager" : "lazy"}
           placeholder="blur"
