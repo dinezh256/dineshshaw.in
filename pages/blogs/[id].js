@@ -26,7 +26,6 @@ const TIME_DIFF = 6 * 60 * 60 * 1000; // 6 hours
 export default function Page({ markdownContent, meta = notFoundBlogMeta, id }) {
   const [viewsCount, setViewsCount] = useState(0);
   const [isFetchingViews, setIsFetchingViews] = useState(false);
-  const [scrollProgress, setScrollProgress] = useState(0);
   const [lastViewedOnLS, setLastViewedOnLS] = useLocalStorage("lastViewedOn")
 
   const abortControllerRef = useRef(new AbortController());
@@ -73,24 +72,9 @@ export default function Page({ markdownContent, meta = notFoundBlogMeta, id }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
-  useEffect(() => {
-    const onScroll = () => {
-      const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
-      const scrollable = scrollHeight - clientHeight;
-      const progress = scrollable > 0 ? scrollTop / scrollable : 0;
-      setScrollProgress(Math.min(progress, 1));
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   return (
     <div className="blog-page-wrapper">
-      <div
-        className="reading-progress-bar"
-        style={{ transform: `scaleX(${scrollProgress})` }}
-        aria-hidden
-      />
       <Head>
         <title>{`${meta.name} | Dinesh Shaw`}</title>
         <meta name="description" content={meta.description} key="desc" />

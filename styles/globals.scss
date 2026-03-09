@@ -1024,20 +1024,6 @@ body {
 .blog-page-wrapper {
   margin-top: 60px;
 
-  .reading-progress-bar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: rgb(var(--primary-color));
-    transform-origin: left;
-    z-index: 100;
-    border-radius: 0 2px 2px 0;
-    transition: transform 0.1s linear;
-    pointer-events: none;
-  }
-
   .back-to-blogs {
     position: sticky;
     text-decoration: none;
