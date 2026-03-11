@@ -1356,6 +1356,12 @@ body {
     );
   }
 
+  @supports (-webkit-touch-callout: none) {
+    .navbar-backdrop {
+      display: none;
+    }
+  }
+
   .footer {
     padding: 40px 20px 80px 20px;
 
