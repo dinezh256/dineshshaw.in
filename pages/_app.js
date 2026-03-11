@@ -40,7 +40,7 @@ const MyApp = ({ Component, pageProps }) => {
     <>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-        <meta name="theme-color" content="transparent" />
+        <meta name="theme-color" content="#f8f8f8" />
         <link rel="canonical" href="https://dineshshaw.in" />
       </Head>
       <GlobalContextProvider>

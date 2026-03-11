@@ -34,13 +34,14 @@
 }
 
 html {
-  background-color: rgb(var(--background-color));
+  background-color: transparent;
   color-scheme: light;
   scroll-behavior: smooth;
 }
 
 body {
   margin: 0px;
+  min-height: 100dvh;
   background: linear-gradient(
     to bottom,
     hsla(var(--background-hsl), 0.003) 0%,
@@ -69,6 +70,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    min-height: 100dvh;
   }
 }
 
@@ -290,22 +292,38 @@ body {
 @mixin project-card-active-state($animate: true) {
   .card-image {
     transform: scale(1.05);
-    transition: if($animate, all 0.2s ease, none);
+    @if $animate {
+      transition: all 0.2s ease;
+    } @else {
+      transition: none;
+    }
   }
 
   .project-card-top .project-details {
     bottom: 10px;
-    transition: if($animate, all 0.4s ease, none);
+    @if $animate {
+      transition: all 0.4s ease;
+    } @else {
+      transition: none;
+    }
 
     .project-name {
       margin-bottom: 10px;
       font-size: 18px;
-      transition: if($animate, all 0.4s ease, none);
+      @if $animate {
+        transition: all 0.4s ease;
+      } @else {
+        transition: none;
+      }
     }
 
     .project-buttons {
       transform: scale(1);
-      transition: if($animate, all 0.4s ease, none);
+      @if $animate {
+        transition: all 0.4s ease;
+      } @else {
+        transition: none;
+      }
     }
   }
 }
