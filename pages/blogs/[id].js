@@ -9,7 +9,6 @@ import { RWebShare } from "react-web-share";
 import fs from "fs";
 
 import MarkdownRenderer from "../../components/markdownRenderer";
-import { GlobalContext } from "../../contexts";
 
 import {
   blogsList,
