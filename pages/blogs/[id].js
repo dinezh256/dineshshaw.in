@@ -9,6 +9,7 @@ import { RWebShare } from "react-web-share";
 import fs from "fs";
 
 import MarkdownRenderer from "../../components/markdownRenderer";
+import { prepareWithSegments, measureNaturalWidth } from "@chenglou/pretext";
 
 import {
   blogsList,
@@ -24,6 +25,7 @@ const TIME_DIFF = 6 * 60 * 60 * 1000; // 6 hours
 
 export default function Page({ markdownContent, meta = notFoundBlogMeta, id }) {
   const [viewsCount, setViewsCount] = useState(0);
+  const [viewerTextWidth, setViewerTextWidth] = useState(0);
   const [isFetchingViews, setIsFetchingViews] = useState(false);
   const [lastViewedOnLS, setLastViewedOnLS] = useLocalStorage("lastViewedOn")
 
@@ -71,6 +73,23 @@ export default function Page({ markdownContent, meta = notFoundBlogMeta, id }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
+  useEffect(() => {
+    function updateWidth() {
+      if (typeof window !== "undefined") {
+        try {
+          const prepared = prepareWithSegments(
+            viewsCount.toString(),
+            '500 14px "IBM Plex Sans", sans-serif'
+          );
+          setViewerTextWidth(measureNaturalWidth(prepared));
+        } catch (err) {
+          console.error("Failed to measure text width with pretext:", err);
+        }
+      }
+    }
+    updateWidth();
+  }, [viewsCount]);
+
 
   return (
     <div className="blog-page-wrapper">
@@ -93,7 +112,14 @@ export default function Page({ markdownContent, meta = notFoundBlogMeta, id }) {
         <div className="blogs-meta">
           <h6 className="flex-start">
             <Eye size={16} className={clsx({ fadeInOut: isFetchingViews })} />
-            {viewsCount}
+            <span
+              className="views-count-span"
+              style={{
+                width: viewerTextWidth > 0 ? `${viewerTextWidth}px` : "auto"
+              }}
+            >
+              {viewsCount}
+            </span>
           </h6>
           <div className="divider" />
           {meta.createdAt > 0 && (
