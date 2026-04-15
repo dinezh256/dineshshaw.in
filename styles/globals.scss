@@ -1242,7 +1242,8 @@ body {
     animation: peakUpPage 0.4s ease both;
     animation-delay: 0.4s;
 
-    ul {
+    ul,
+    ol {
       padding-left: 40px;
       margin: 0 0 16px 0;
 
