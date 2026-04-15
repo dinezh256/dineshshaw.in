@@ -154,7 +154,7 @@ export const blogsList = [
     fileName: "shift-focus-to-popup",
     createdAt: 1711269071522,
     readDuration: 210,
-    name: "Enhancing Accessibility: Shifting Focus from an Element to Popup in React",
+    name: "Keyboard Users Exist. Here's How I Stopped Ignoring Them in Popups.",
     description:
       "Learn how to improve the accessibility of your React application by ensuring that focus shifts seamlessly from triggering elements to popups. Explore a step-by-step guide utilizing React hooks and Semantic UI components to create a more inclusive user experience for keyboard and screen reader users.",
     keywords:
@@ -166,7 +166,7 @@ export const blogsList = [
     fileName: "react-lazy-loading-challenges",
     createdAt: 1687086811265,
     readDuration: 150,
-    name: "Understanding the Challenges of Lazy Loading and Code Splitting in React",
+    name: "Lazy Loading in React Isn't Magic: Here's What Nobody Warns You About",
     description:
       "Explore the challenges of lazy loading and code splitting in React, and discover strategies to overcome them for optimized performance and user experience.",
     keywords: "lazy loading,React,React.js,code splitting,user experience",
@@ -177,7 +177,7 @@ export const blogsList = [
     fileName: "secure-transmission",
     createdAt: 1686933164331,
     readDuration: 120,
-    name: "Securely Transmit Data in Unexpected Situations using React and Window events",
+    name: "Don't Let the Tab Close Before Your Data Gets Out",
     description:
       "Sending data to the Server when the User navigates away, closes/reloads the tab.",
     keywords: "Server,React,React.js,Browser,unload,beforeunload,window,events",

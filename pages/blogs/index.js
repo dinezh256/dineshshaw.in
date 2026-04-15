@@ -1,7 +1,7 @@
 import Head from "next/head";
 
 import AnimateText from "../../components/animateText";
-import BlogCard from "../../components/blogCard";
+import BlogCard from "../../components/blogListCard";
 
 import { blogsList } from "../../utils";
 

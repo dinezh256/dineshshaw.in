@@ -17,7 +17,7 @@ import {
   notFoundBlogMeta,
   getBlogUrl,
 } from "../../utils";
-import BlogCard from "../../components/blogCard";
+import BlogCard from "../../components/blogListCard";
 import { getBlogViews, updateBlogViews, isViewsCached } from "../../api";
 import { useLocalStorage } from "../../hooks";
 

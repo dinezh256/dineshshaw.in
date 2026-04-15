@@ -1,74 +1,21 @@
-## Enhancing Accessibility: Shifting Focus from an Element to Popup in React
+## Keyboard Users Exist. Here's How I Stopped Ignoring Them in Popups.
 
-### Introduction:
+Accessibility tends to get treated as an afterthought, or worse, a checkbox. I was guilty of this too. Until someone ran a screen reader through a feature I'd built and nothing made sense. Popups opened, focus stayed on the button that triggered them, and the screen reader just... kept reading whatever was behind the popup.
 
-In the realm of web development, ensuring accessibility is not just a courtesy but a responsibility. As developers, it's crucial to make our web applications usable for everyone, regardless of their abilities. One common accessibility challenge arises when dealing with popups or modal dialogs. How can we ensure that when a popup opens, the focus shifts appropriately for users relying on keyboard navigation or assistive technologies? In this blog post, we'll explore how to tackle this challenge specifically in a React application, leveraging Semantic UI for the popup component.
+The fix isn't complicated, but it's easy to miss if you're not thinking about it.
 
-#### **Understanding the Challenge**
+### What's the actual problem?
 
-Imagine a scenario where we have a button triggering a popup in our React application. When a user clicks this button, not only should the popup open, but the focus should also shift to the content inside the popup. This is crucial for users navigating the application using only the keyboard or assistive technologies like screen readers.
+When a user clicks a button and a popup opens, their keyboard focus stays on the button. For mouse users, that's fine. They can see the popup and click into it. But for keyboard-only users or screen reader users, the popup might as well not exist. They press Tab and end up navigating through whatever's *behind* the popup instead of inside it.
 
-#### **Setting Up the Environment**
+The fix: when the popup opens, move focus *into* it programmatically.
 
-For the sake of this blog, let's assume we have a React application set up and we're using Semantic UI for styling, including its popup component.
+### The setup
 
-#### **Solution: Shifting Focus to the Popup**
+I was using Semantic UI's `Popup` component, but the approach works with any popup library. The key pieces are:
 
-To achieve the desired behavior, we'll employ a combination of React hooks and DOM manipulation.
-
-**1. Ref for Popup**: First, we need to create a state for the popup to open and a ref for the popup element so that we can programmatically manipulate it. In our React component file:
-
-```jsx
-import React, { useState, useRef } from "react";
-import { Button, Popup } from "semantic-ui-react";
-
-const MyComponent = () => {
-  const [openPopup, setOpenPopup] = useState(false);
-  const popupRef = useRef(null);
-
-  const handleOpenPopup = () => {
-    setOpenPopup(true);
-  };
-
-  return (
-    <div
-      style={{
-        width: "100vw",
-        height: "100vh",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
-      <Popup
-        trigger={<Button onClick={handleOpenPopup}>Open Popup</Button>}
-        content={
-          <Popup.Content style={{ marginTop: 10 }} tabIndex="0" ref={popupRef}>
-            <div
-              style={{
-                backgroundColor: "black",
-                color: "white",
-                padding: 5,
-                borderRadius: 5,
-              }}
-            >
-              Popup Content
-            </div>
-          </Popup.Content>
-        }
-        on="click"
-        position="bottom center"
-        open={openPopup}
-        onClose={() => setOpenPopup(false)}
-      />
-    </div>
-  );
-};
-
-export default MyComponent;
-```
-
-**2. Focus Shifting**: Now, we'll ensure that when the popup opens, the focus shifts to it. We'll use `useEffect` to monitor changes in the popup's visibility and focus accordingly.
+1. A `ref` on the popup content so we can call `.focus()` on it
+2. A `useEffect` that watches when the popup opens and fires the focus
 
 ```jsx
 import React, { useState, useEffect, useRef } from "react";
@@ -78,66 +25,55 @@ const MyComponent = () => {
   const [openPopup, setOpenPopup] = useState(false);
   const popupRef = useRef(null);
 
-  const handleOpenPopup = () => {
-    setOpenPopup(true);
-  };
-
   useEffect(() => {
-    const handlePopupVisibility = () => {
-      if (openPopup && popupRef.current) {
-        popupRef.current.focus();
-      }
-    };
-
-    if (openPopup) {
-      document.addEventListener("click", handlePopupVisibility);
-    } else {
-      document.removeEventListener("click", handlePopupVisibility);
+    if (openPopup && popupRef.current) {
+      // Small timeout needed: the popup needs one tick to render into the DOM
+      setTimeout(() => popupRef.current?.focus(), 0);
     }
-
-    return () => {
-      document.removeEventListener("click", handlePopupVisibility);
-    };
   }, [openPopup]);
 
   return (
-    <div
-      style={{
-        width: "100vw",
-        height: "100vh",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
-      <Popup
-        trigger={<Button onClick={handleOpenPopup}>Open Popup</Button>}
-        content={
-          <Popup.Content style={{ marginTop: 10 }} tabIndex="0" ref={popupRef}>
-            <div
-              style={{
-                backgroundColor: "black",
-                color: "white",
-                padding: 5,
-                borderRadius: 5,
-              }}
-            >
-              Popup Content
-            </div>
-          </Popup.Content>
-        }
-        on="click"
-        position="bottom center"
-        open={openPopup}
-        onClose={() => setOpenPopup(false)}
-      />
-    </div>
+    <Popup
+      trigger={<Button onClick={() => setOpenPopup(true)}>Open</Button>}
+      content={
+        <Popup.Content tabIndex="0" ref={popupRef}>
+          Popup Content
+        </Popup.Content>
+      }
+      on="click"
+      open={openPopup}
+      onClose={() => setOpenPopup(false)}
+    />
   );
 };
-
-export default MyComponent;
 ```
 
-#### **Conclusion**
+Two things worth calling out:
 
-In this blog post, we've addressed the accessibility challenge of shifting focus from an element to a popup in a React application. By using React hooks, we ensure that users navigating our application with keyboards or assistive technologies have a seamless experience when interacting with popups. Remember, accessibility isn't just a feature; it's a fundamental aspect of building inclusive web applications. Let's continue to prioritize it in our development workflows.
+**`tabIndex="0"`** on the popup content is required. By default, `div`s and most non-interactive elements can't receive focus. Setting `tabIndex="0"` makes it focusable without putting it in the tab order.
+
+**The `setTimeout`** is a bit of a hack, but a necessary one. When the popup opens, it hasn't necessarily rendered into the DOM yet by the time the `useEffect` runs. One tick of delay gives React time to commit the update.
+
+### What about closing the popup?
+
+Equally important: when the popup closes, focus should return to the element that triggered it. Otherwise the user's focus disappears into the void.
+
+```jsx
+const triggerRef = useRef(null);
+
+const handleClose = () => {
+  setOpenPopup(false);
+  triggerRef.current?.focus();
+};
+
+// On the trigger button:
+<Button ref={triggerRef} onClick={() => setOpenPopup(true)}>Open</Button>
+```
+
+This is the full loop: focus moves in when the popup opens, and returns to the trigger when it closes. Without the return, keyboard users are left stranded after dismissing the popup.
+
+### Is this just good practice or actually required?
+
+Technically, for WCAG 2.1 compliance (specifically [Success Criterion 2.4.3](https://www.w3.org/WAI/WCAG21/Understanding/focus-order.html)), focus management in modal dialogs and popups is expected. If your product serves any enterprise or government clients, or if you care about not excluding a chunk of your users, this matters.
+
+And honestly, it's not much code. There's no good reason to skip it.
