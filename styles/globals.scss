@@ -1087,8 +1087,6 @@ body {
     margin: 0 !important;
   }
   .blog-list {
-    display: flex;
-    gap: 20px;
     margin-bottom: 40px;
 
     h3 {
@@ -1226,17 +1224,6 @@ body {
     font-size: 15px;
   }
 
-  ul {
-    padding-left: 40px;
-    margin: 0 0 16px 0;
-
-    li {
-      margin-bottom: 10px;
-      line-height: 24px;
-      color: rgb(var(--grey-color3));
-      font-size: 15px;
-    }
-  }
 
   pre {
     border-radius: 6px;
@@ -1254,6 +1241,18 @@ body {
   .markdown {
     animation: peakUpPage 0.4s ease both;
     animation-delay: 0.4s;
+
+    ul {
+      padding-left: 40px;
+      margin: 0 0 16px 0;
+
+      li {
+        margin-bottom: 10px;
+        line-height: 24px;
+        color: rgb(var(--grey-color3));
+        font-size: 15px;
+      }
+    }
   }
 
   .markdown > div > div {
