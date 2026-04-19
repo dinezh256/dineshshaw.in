@@ -39,6 +39,7 @@ const Navbar = () => {
                 as={url}
                 className={activeTab === id ? "btn active" : "btn"}
                 onClick={() => handleTabChange(id)}
+                aria-current={activeTab === id ? "page" : undefined}
               >
                 {icon({ size: 15, strokeWidth: 2.75 })}
                 {name}

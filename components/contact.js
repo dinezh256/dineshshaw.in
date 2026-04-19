@@ -6,7 +6,7 @@ import { socials } from "../utils";
 const Contact = ({ animate }) => {
   return (
     <>
-      <div className="contact-section">
+      <div className="contact-section" id="contact-section" tabIndex={-1}>
         <div className={`contact-section-inner${animate ? " animate-contact" : ""}`}>
           <div className="socials">
             <AnimateText text="SOCIALS" animate={false} />
@@ -20,7 +20,7 @@ const Contact = ({ animate }) => {
                   rel="noopener noreferrer"
                   className={clsx("social-widget", social.id)}
                 >
-                  <div className="social-icon">{social.icon}</div>
+                  <div className="social-icon" aria-hidden="true">{social.icon}</div>
                   <div className="social-meta">
                     <h6>{social.name}</h6>
                     <span>@{social.username}</span>

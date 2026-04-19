@@ -54,7 +54,12 @@ const AnimateText = ({ text, as = 'h1', animate = true }) => {
 
     const Wrapper = as;
 
-    return <Wrapper className="section-header" ref={ref}>{isAnimating ? randomisedText : text}</Wrapper>;
+    return (
+        <Wrapper className="section-header" ref={ref}>
+            <span className="sr-only">{text}</span>
+            <span aria-hidden="true">{isAnimating ? randomisedText : text}</span>
+        </Wrapper>
+    );
 };
 
 export default AnimateText;

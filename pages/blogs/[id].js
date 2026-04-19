@@ -1,5 +1,6 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useContext } from "react";
 import { clsx } from "clsx";
+import { GlobalContext } from "../../contexts";
 import Head from "next/head";
 import Link from "next/link";
 import { format } from "date-fns";
@@ -9,6 +10,7 @@ import { RWebShare } from "react-web-share";
 import fs from "fs";
 
 import MarkdownRenderer from "../../components/markdownRenderer";
+import MinimalFooter from "../../components/minimal/minimalFooter";
 import { prepareWithSegments, measureNaturalWidth } from "@chenglou/pretext";
 
 import {
@@ -90,6 +92,54 @@ export default function Page({ markdownContent, meta = notFoundBlogMeta, id }) {
     updateWidth();
   }, [viewsCount]);
 
+  const { isMinimal } = useContext(GlobalContext);
+  
+  // Clean the title from the markdown to prevent duplicate rendering since we show it in the header
+  const cleanMarkdown = markdownContent.replace(/^#+\s+.*(\r?\n)+/, '');
+
+  if (isMinimal) {
+    return (
+      <div className="minimal-page">
+        <Head>
+          <title>{`${meta.name} | Dinesh Shaw`}</title>
+          <meta name="description" content={meta.description} key="desc" />
+          <meta name="keywords" content={meta.keywords}></meta>
+          <meta property="og:title" content={meta.name + " | Dinesh Shaw"} />
+          <meta property="og:type" content="blog" />
+          <meta property="og:url" content={sharableData.url} />
+          <meta property="og:description" content={meta.description} />
+          <meta property="og:image" content="https://dineshshaw.in/logo512.png" />
+          <meta property="og:image:type" content="image/png" />
+          <link rel="canonical" href={sharableData.url} />
+        </Head>
+        
+        <nav className="mn-nav" aria-label="Minimal Navigation">
+          <Link href="/">About</Link>
+          <Link href="/work">Work</Link>
+          <Link href="/blogs" className="active" aria-current="page">Blogs</Link>
+        </nav>
+
+        <header className="mn-header" style={{ marginBottom: "16px" }}>
+          <div className="mn-name" style={{ fontSize: "28px" }}>{meta.name}</div>
+          <div className="mn-blog-meta" style={{ marginTop: "12px", display: "flex", gap: "8px", fontSize: "14px" }}>
+            <span>{meta.createdAt > 0 ? format(meta.createdAt, "MMM d, yyyy") : ""}</span>
+            <span className="mn-meta-sep">·</span>
+            <span style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+              <Eye size={14} className={clsx({ fadeInOut: isFetchingViews })} aria-hidden="true" /> {viewsCount} views
+            </span>
+          </div>
+        </header>
+
+        <div className="mn-divider" style={{ marginBottom: "32px" }} />
+
+        <div className="mn-markdown" style={{ marginTop: 0 }}>
+          <MarkdownRenderer content={cleanMarkdown} />
+        </div>
+
+        <MinimalFooter />
+      </div>
+    );
+  }
 
   return (
     <div className="blog-page-wrapper">
@@ -124,20 +174,19 @@ export default function Page({ markdownContent, meta = notFoundBlogMeta, id }) {
           <div className="divider" />
           {meta.createdAt > 0 && (
             <h6 className="flex-start">
-              <Calendar size={16} /> {format(meta.createdAt, "PP")}
+              <Calendar size={16} aria-hidden="true" /> {format(meta.createdAt, "PP")}
             </h6>
           )}
         </div>
         <RWebShare data={sharableData}>
-          <div
+          <button
+            type="button"
             title="Share this blog"
             aria-label="Share this blog"
             className="blogs-share flex-start"
-            tabIndex={0}
-            role="button"
           >
-            <Share2 size={16} />
-          </div>
+            <Share2 size={16} aria-hidden="true" />
+          </button>
         </RWebShare>
       </div>
 

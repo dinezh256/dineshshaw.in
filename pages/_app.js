@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import { useContext, useEffect } from "react";
 import clsx from "clsx";
 import Head from "next/head";
 import localFont from 'next/font/local';
@@ -10,8 +11,9 @@ import { GoogleAnalytics } from '@next/third-parties/google';
 import Navbar from "../components/navbar";
 import NameCard from "../components/nameCard";
 import Footer from "../components/footer";
+import MinimalToggle from "../components/minimal/minimalToggle";
 
-import { GlobalContextProvider } from "../contexts";
+import { GlobalContextProvider, GlobalContext } from "../contexts";
 
 import { whiteListRoutes, navbarRoutes } from "../utils";
 import "../styles/globals.scss";
@@ -29,12 +31,29 @@ const acorn = localFont({
   variable: '--font-acorn'
 })
 
-const MyApp = ({ Component, pageProps }) => {
+const AppInner = ({ Component, pageProps }) => {
   const router = useRouter();
+  const { isMinimal, viewMode, viewModePreference } = useContext(GlobalContext);
   const showComponent = whiteListRoutes.includes(router.pathname);
   const showNavbar =
     navbarRoutes.includes(router.pathname) ||
     router.pathname.includes("/blogs/");
+
+  // Apply viewMode class to body
+  useEffect(() => {
+    if (viewModePreference === null) return; // Wait for hydration/storage read
+
+    const body = document.body;
+    body.classList.remove("minimal-light", "minimal-dark", "minimal-system");
+
+    if (viewModePreference === "minimal-system") {
+      body.classList.add("minimal-system");
+      return;
+    }
+
+    if (viewMode === "minimal-light") body.classList.add("minimal-light");
+    if (viewMode === "minimal-dark") body.classList.add("minimal-dark");
+  }, [viewMode, viewModePreference]);
 
   return (
     <>
@@ -43,20 +62,40 @@ const MyApp = ({ Component, pageProps }) => {
         <meta name="theme-color" content="#f8f8f8" />
         <link rel="canonical" href="https://dineshshaw.in" />
       </Head>
-      <GlobalContextProvider>
-        <div className={font.className} style={{ display: "contents" }}>
-          {showNavbar && <Navbar />}
-          <main className={clsx("main-wrapper", acorn.variable)}>
-            {showComponent && <NameCard />}
-            <Component {...pageProps} />
-          </main>
-          {showNavbar && <Footer />}
-        </div>
-      </GlobalContextProvider>
+      <div className={font.className} style={{ display: "contents" }}>
+        {!isMinimal && showNavbar && (
+          <div className="mn-rich-only">
+            <Navbar />
+          </div>
+        )}
+        <main className={clsx("main-wrapper", acorn.variable, isMinimal && "main-wrapper--minimal")}>
+          {!isMinimal && showComponent && (
+            <div className="mn-rich-only">
+              <NameCard />
+            </div>
+          )}
+          <Component {...pageProps} />
+        </main>
+        {!isMinimal && showNavbar && (
+          <div className="mn-rich-only">
+            <Footer />
+          </div>
+        )}
+        
+        {showNavbar && <MinimalToggle />}
+      </div>
+    </>
+  );
+};
+
+const MyApp = ({ Component, pageProps }) => {
+  return (
+    <GlobalContextProvider>
+      <AppInner Component={Component} pageProps={pageProps} />
       <GoogleAnalytics gaId="G-DZ5VTRTBNF" />
       <SpeedInsights />
       <Analytics />
-    </>
+    </GlobalContextProvider>
   );
 };
 

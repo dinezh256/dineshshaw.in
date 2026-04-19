@@ -14,9 +14,11 @@ const About = () => {
   const [animateContact, setAnimateContact] = useState(false);
 
   const onClickContact = () => {
-    document
-      .querySelector(".contact-section")
-      ?.scrollIntoView({ behavior: "smooth" });
+    const contactSection = document.querySelector(".contact-section");
+    if (contactSection instanceof HTMLElement) {
+      contactSection.focus({ preventScroll: true });
+      contactSection.scrollIntoView({ behavior: "smooth" });
+    }
     setAnimateContact(true);
     setTimeout(() => setAnimateContact(false), 1500);
   };
@@ -34,16 +36,17 @@ const About = () => {
       <div className="about-section">
         <div className="about-section-inner">
           <div className="about-main">
-            <h1>
+            <p className="hero-line">
               Hey there! <span className="hand-waive">👋🏼</span>
-            </h1>
-            <h1>
+            </p>
+            <p className="hero-line">
               I&apos;m <b>Dinesh Shaw</b>
-            </h1>
+            </p>
             <h1>
               <span className="first-word">I&apos;m </span>
-              <span className="second-word">a </span> passionate
-              <div>
+              <span className="second-word">a </span>
+              <span>passionate</span>
+              <span className="hero-rotator" aria-hidden="true">
                 <span>
                   <b> Frontend Engineer</b>
                   <b>,</b>
@@ -55,11 +58,11 @@ const About = () => {
                 <span>
                   <b> Software Engineer</b>
                 </span>
-              </div>
+              </span>
             </h1>
             <div className="available-to-contact">
               <h3 className="contact-heading">
-                <Circle size={12} fill="#00ac00" stroke="#00ac00" />
+                <Circle size={12} fill="#00ac00" stroke="#00ac00" aria-hidden="true" />
                 <span>Available for new opportunities</span>
               </h3>
               <div className="contact-cta-wrapper">
@@ -70,11 +73,11 @@ const About = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <ChevronsUp size={18} strokeWidth={2.5} />
+                  <ChevronsUp size={18} strokeWidth={2.5} aria-hidden="true" />
                   <span>Résumé</span>
                 </Link>
-                <button className="contact-cta" onClick={onClickContact}>
-                  <ChevronsDown size={18} strokeWidth={2.5} />
+                <button type="button" className="contact-cta" onClick={onClickContact}>
+                  <ChevronsDown size={18} strokeWidth={2.5} aria-hidden="true" />
                   <span>Contact Me</span>
                 </button>
               </div>

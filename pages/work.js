@@ -1,10 +1,16 @@
+import { useContext } from "react";
 import Head from "next/head";
-
 import ProjectCard from "../components/projectCard";
 import AnimateText from "../components/animateText";
+import MinimalWork from "../components/minimal/minimalWork";
+import { GlobalContext } from "../contexts";
 import { projects } from "../utils";
 
 const Work = () => {
+  const { isMinimal } = useContext(GlobalContext);
+
+  if (isMinimal) return <MinimalWork />;
+
   return (
     <>
       <Head>

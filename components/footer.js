@@ -1,5 +1,4 @@
 import Image from "next/image";
-
 import logo from "../assets/logo.svg";
 import Link from "next/link";
 import { resumeLink, socials, navMenuItems } from "../utils";

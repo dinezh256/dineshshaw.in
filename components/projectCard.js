@@ -26,11 +26,11 @@ const ProjectCard = ({ src, type, name, codeUrl, websiteUrl, position }) => {
           <h4 className="project-name">{name}</h4>
           <div className="project-buttons">
             {codeUrl && (
-              <a className="view-code" href={codeUrl} target="_blank">
+              <a className="view-code" href={codeUrl} target="_blank" rel="noopener noreferrer">
                 <span>View Code</span>
               </a>
             )}
-            <a className="visit" href={websiteUrl} target="_blank">
+            <a className="visit" href={websiteUrl} target="_blank" rel="noopener noreferrer">
               <span>Visit Site</span>
             </a>
           </div>
