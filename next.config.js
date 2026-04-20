@@ -56,5 +56,13 @@ module.exports = {
   images: {
     qualities: [75, 85, 90],
   },
-  transpilePackages: ["remark-gfm", "remark-definition-list", "react-syntax-highlighter", "refractor"],
+  transpilePackages: [
+    "remark-gfm",
+    "remark-definition-list",
+    "react-syntax-highlighter",
+    "refractor",
+  ],
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 };

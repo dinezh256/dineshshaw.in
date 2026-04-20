@@ -2,10 +2,7 @@
   "id": "1.0.1",
   "name": "Dinesh's Portfolio",
   "short_name": "Dinesh",
-  "categories": [
-    "portfolio",
-    "resume"
-  ],
+  "categories": ["portfolio", "resume"],
   "description": "Experienced Frontend Developer with a keen eye for detail and a demonstrated history of working in the computer software industry. Skilled in JavaScript, React.js, React Native and Node.js",
   "icons": [
     {

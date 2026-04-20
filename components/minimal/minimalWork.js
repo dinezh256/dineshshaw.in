@@ -1,4 +1,3 @@
-import Head from "next/head";
 import Link from "next/link";
 import { ExternalLink, GitHub } from "react-feather";
 import MinimalFooter from "./minimalFooter";
@@ -6,15 +5,12 @@ import { projects } from "../../utils";
 
 const MinimalWork = () => (
   <>
-    <Head>
-      <title>Work | Dinesh Shaw</title>
-      <meta name="description" content="Some of the projects I've worked on." key="desc" />
-      <link rel="canonical" href="https://dineshshaw.in/work" />
-    </Head>
     <div className="minimal-page">
       <nav className="mn-nav">
         <Link href="/">About</Link>
-        <Link href="/work" className="active" aria-current="page">Work</Link>
+        <Link href="/work" className="active" aria-current="page">
+          Work
+        </Link>
         <Link href="/blogs">Blogs</Link>
       </nav>
 

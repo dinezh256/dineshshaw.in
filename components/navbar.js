@@ -9,7 +9,9 @@ const Navbar = () => {
   const router = useRouter();
   const { trigger } = useWebHaptics();
   const isBlogPage = router?.pathname?.includes("/blogs/");
-  const activeIdx = isBlogPage ? 2 : navMenuItems.find((item) => router?.pathname === item.url)?.id;
+  const activeIdx = isBlogPage
+    ? 2
+    : navMenuItems.find((item) => router?.pathname === item.url)?.id;
 
   const [activeTab, setActiveTab] = useState(activeIdx);
 
@@ -23,7 +25,7 @@ const Navbar = () => {
     if (router.pathname || activeIdx !== activeTab) {
       setActiveTab(activeIdx);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router.pathname, activeIdx]);
 
   return (

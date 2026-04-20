@@ -217,7 +217,7 @@ export const skillsList = [
     id: 0,
     imgSrc: Javascript,
     name: "JavaScript",
-    url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript'
+    url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
   },
   {
     id: 1,
@@ -287,36 +287,36 @@ export const getBlogUrl = (slug) => {
 
 export const socials = [
   {
-    id: 'github',
-    class: 'github',
-    url: 'https://github.com/dinezh256',
+    id: "github",
+    class: "github",
+    url: "https://github.com/dinezh256",
     icon: <GitHub size={24} strokeWidth={1.25} />,
-    name: 'GitHub',
-    username: 'dinezh256',
+    name: "GitHub",
+    username: "dinezh256",
   },
   {
-    id: 'linkedin',
-    class: 'linkedin',
-    url: 'https://in.linkedin.com/in/shawdinesh',
+    id: "linkedin",
+    class: "linkedin",
+    url: "https://in.linkedin.com/in/shawdinesh",
     icon: <Linkedin size={24} strokeWidth={1.25} />,
-    name: 'LinkedIn',
-    username: 'shawdinesh'
+    name: "LinkedIn",
+    username: "shawdinesh",
   },
   {
-    id: 'instagram',
-    class: 'instagram',
-    url: 'https://www.instagram.com/dineshlearning',
+    id: "instagram",
+    class: "instagram",
+    url: "https://www.instagram.com/dineshlearning",
     icon: <Instagram size={24} strokeWidth={1.25} />,
-    name: 'Instagram',
-    username: 'dineshlearning',
+    name: "Instagram",
+    username: "dineshlearning",
     showInFooter: false,
   },
   {
-    id: 'twitter',
-    class: 'twitter',
-    url: 'https://twitter.com/Dinezh256',
-    icon: '𝕏',
-    name: 'Twitter',
-    username: 'dinezh256',
+    id: "twitter",
+    class: "twitter",
+    url: "https://twitter.com/Dinezh256",
+    icon: "𝕏",
+    name: "Twitter",
+    username: "dinezh256",
   },
-]
+];

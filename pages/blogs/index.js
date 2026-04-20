@@ -7,12 +7,10 @@ import { GlobalContext } from "../../contexts";
 import { blogsList } from "../../utils";
 
 const Blogs = () => {
-  const { isMinimal } = useContext(GlobalContext);
-
-  if (isMinimal) return <MinimalBlogs />;
+  const { isMinimal, viewModePreference } = useContext(GlobalContext);
 
   return (
-    <div className="blogs-section">
+    <>
       <Head>
         <title>Blogs | Dinesh Shaw</title>
         <meta
@@ -22,13 +20,27 @@ const Blogs = () => {
         />
         <link rel="canonical" href="https://dineshshaw.in/blogs" />
       </Head>
-      <AnimateText text="BLOGS" />
-      <ul className="blog-list">
-        {blogsList.map((blog, position) => (
-          <li key={blog.id}><BlogCard {...blog} position={position} /></li>
-        ))}
-      </ul>
-    </div>
+
+      {(isMinimal || viewModePreference === null) && (
+        <div className="mn-minimal-only">
+          <MinimalBlogs />
+        </div>
+      )}
+      {(!isMinimal || viewModePreference === null) && (
+        <div className="mn-rich-only">
+          <div className="blogs-section">
+            <AnimateText text="BLOGS" />
+            <ul className="blog-list">
+              {blogsList.map((blog, position) => (
+                <li key={blog.id}>
+                  <BlogCard {...blog} position={position} />
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 

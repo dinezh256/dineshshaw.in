@@ -2,11 +2,11 @@ import { useRouter } from "next/router";
 import { useContext, useEffect } from "react";
 import clsx from "clsx";
 import Head from "next/head";
-import localFont from 'next/font/local';
-import { SpeedInsights } from '@vercel/speed-insights/next';
-import { Analytics } from '@vercel/analytics/react';
+import localFont from "next/font/local";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/react";
 import { IBM_Plex_Sans as FontFamily } from "next/font/google";
-import { GoogleAnalytics } from '@next/third-parties/google';
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 import Navbar from "../components/navbar";
 import NameCard from "../components/nameCard";
@@ -21,15 +21,15 @@ import "../styles/globals.scss";
 const font = FontFamily({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
-  variable: '--font-plex',
-  display: 'swap',
+  variable: "--font-plex",
+  display: "swap",
 });
 
 const acorn = localFont({
-  src: '../assets/fonts/acorn.woff',
+  src: "../assets/fonts/acorn.woff",
   preload: true,
-  variable: '--font-acorn'
-})
+  variable: "--font-acorn",
+});
 
 const AppInner = ({ Component, pageProps }) => {
   const router = useRouter();
@@ -58,7 +58,10 @@ const AppInner = ({ Component, pageProps }) => {
   return (
     <>
       <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, viewport-fit=cover"
+        />
         <meta name="theme-color" content="#f8f8f8" />
         <link rel="canonical" href="https://dineshshaw.in" />
       </Head>
@@ -68,7 +71,13 @@ const AppInner = ({ Component, pageProps }) => {
             <Navbar />
           </div>
         )}
-        <main className={clsx("main-wrapper", acorn.variable, isMinimal && "main-wrapper--minimal")}>
+        <main
+          className={clsx(
+            "main-wrapper",
+            acorn.variable,
+            isMinimal && "main-wrapper--minimal",
+          )}
+        >
           {!isMinimal && showComponent && (
             <div className="mn-rich-only">
               <NameCard />
@@ -81,7 +90,7 @@ const AppInner = ({ Component, pageProps }) => {
             <Footer />
           </div>
         )}
-        
+
         {showNavbar && <MinimalToggle />}
       </div>
     </>

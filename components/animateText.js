@@ -2,64 +2,66 @@ import { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 
 const characters =
-    "A-B*CD_EF-GH_JK*LM-NOP_QRS*TU-VWX_YZa*bcd_ef-gh_jkm_nopq_rstu_vw-xyz_023_456*789_";
+  "A-B*CD_EF-GH_JK*LM-NOP_QRS*TU-VWX_YZa*bcd_ef-gh_jkm_nopq_rstu_vw-xyz_023_456*789_";
 
 const generateRandomChar = (text, index, timeElapsed, animationTime) => {
-    if (text[index] === " ") return " ";
-    const randomChar = Math.floor(Math.random() * characters.length);
+  if (text[index] === " ") return " ";
+  const randomChar = Math.floor(Math.random() * characters.length);
 
-    return Number(timeElapsed) >= Math.floor(Math.random() * animationTime)
-        ? text[index]
-        : characters[randomChar];
+  return Number(timeElapsed) >= Math.floor(Math.random() * animationTime)
+    ? text[index]
+    : characters[randomChar];
 };
 
-const AnimateText = ({ text, as = 'h1', animate = true }) => {
-    const [isAnimating, setAnimating] = useState(true);
-    const [randomisedText, setRandomisedText] = useState(text);
-    const animationTime = text.length * 100 > 1000 ? 1000 : text.length * 100;
+const AnimateText = ({ text, as = "h1", animate = true }) => {
+  const [isAnimating, setAnimating] = useState(true);
+  const [randomisedText, setRandomisedText] = useState(text);
+  const animationTime = text.length * 100 > 1000 ? 1000 : text.length * 100;
 
-    const { ref, inView } = useInView({ threshold: 1 });
+  const { ref, inView } = useInView({ threshold: 1 });
 
-    useEffect(() => {
-        if (!animate || !isAnimating || !inView) return;
+  useEffect(() => {
+    if (!animate || !isAnimating || !inView) return;
 
-        let interval;
+    let interval;
 
-        const startTimer = setTimeout(() => {
-            let timeElapsed = 0;
+    const startTimer = setTimeout(() => {
+      let timeElapsed = 0;
 
-            interval = setInterval(() => {
-                timeElapsed += 100;
-                setRandomisedText(
-                    text
-                        .split("")
-                        .map((_, idx) => generateRandomChar(text, idx, timeElapsed, animationTime))
-                        .join("")
-                );
-            }, 100);
-        }, 50);
+      interval = setInterval(() => {
+        timeElapsed += 100;
+        setRandomisedText(
+          text
+            .split("")
+            .map((_, idx) =>
+              generateRandomChar(text, idx, timeElapsed, animationTime),
+            )
+            .join(""),
+        );
+      }, 100);
+    }, 50);
 
-        const endTimer = setTimeout(() => {
-            clearInterval(interval);
-            setAnimating(false);
-        }, animationTime + 50);
+    const endTimer = setTimeout(() => {
+      clearInterval(interval);
+      setAnimating(false);
+    }, animationTime + 50);
 
-        return () => {
-            clearTimeout(startTimer);
-            clearTimeout(endTimer);
-            clearInterval(interval);
-        };
+    return () => {
+      clearTimeout(startTimer);
+      clearTimeout(endTimer);
+      clearInterval(interval);
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [text, inView]);
+  }, [text, inView]);
 
-    const Wrapper = as;
+  const Wrapper = as;
 
-    return (
-        <Wrapper className="section-header" ref={ref}>
-            <span className="sr-only">{text}</span>
-            <span aria-hidden="true">{isAnimating ? randomisedText : text}</span>
-        </Wrapper>
-    );
+  return (
+    <Wrapper className="section-header" ref={ref}>
+      <span className="sr-only">{text}</span>
+      <span aria-hidden="true">{isAnimating ? randomisedText : text}</span>
+    </Wrapper>
+  );
 };
 
 export default AnimateText;

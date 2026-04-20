@@ -17,8 +17,11 @@ const MinimalToggle = () => {
   };
 
   return (
-    <div className={`minimal-toggle minimal-toggle--${viewMode}`} role="group" aria-label="View mode">
-
+    <div
+      className={`minimal-toggle minimal-toggle--${viewMode}`}
+      role="group"
+      aria-label="View mode"
+    >
       {/* Light + Dark — slide in when minimal */}
       <div className={`mt-expand${isMinimal ? " mt-expand--open" : ""}`}>
         <button
@@ -49,13 +52,13 @@ const MinimalToggle = () => {
         aria-pressed={!isMinimal}
         title={isMinimal ? "Rich" : "Minimal"}
       >
-        {isMinimal
-          ? <Star size={12} strokeWidth={2} />
-          : <Sun size={12} strokeWidth={2} />
-        }
+        {isMinimal ? (
+          <Star size={12} strokeWidth={2} />
+        ) : (
+          <Sun size={12} strokeWidth={2} />
+        )}
         <span>{isMinimal ? "Rich" : "Minimal"}</span>
       </button>
-
     </div>
   );
 };

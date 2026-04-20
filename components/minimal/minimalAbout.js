@@ -1,4 +1,3 @@
-import Head from "next/head";
 import Link from "next/link";
 import { useContext } from "react";
 import { ChevronsDown, ChevronsUp, Home, MapPin } from "react-feather";
@@ -19,18 +18,12 @@ const MinimalAbout = () => {
 
   return (
     <>
-      <Head>
-        <title>Dinesh Shaw</title>
-        <meta
-          name="description"
-          content="Frontend Engineer with 5+ years of experience building web and mobile products."
-          key="desc"
-        />
-      </Head>
       <div className={`minimal-page minimal-page--${viewMode}`}>
         {/* Nav */}
         <nav className="mn-nav">
-          <Link href="/" className="active" aria-current="page">About</Link>
+          <Link href="/" className="active" aria-current="page">
+            About
+          </Link>
           <Link href="/work">Work</Link>
           <Link href="/blogs">Blogs</Link>
         </nav>
@@ -108,8 +101,9 @@ const MinimalAbout = () => {
           <ul className="mn-list">
             <li>
               I&apos;ve spent the last 5+ years working mostly in{" "}
-              <strong>JavaScript</strong> and <strong>React.js</strong>, building
-              web and mobile interfaces across startups and product companies.
+              <strong>JavaScript</strong> and <strong>React.js</strong>,
+              building web and mobile interfaces across startups and product
+              companies.
             </li>
             <li>
               At <strong>Auzmor</strong>, I work on the LMS platform as a Senior
@@ -123,8 +117,8 @@ const MinimalAbout = () => {
             </li>
             <li>
               I like knowing how things work under the hood. Performance,
-              accessibility, and clean APIs are things I think about more
-              than I probably should.
+              accessibility, and clean APIs are things I think about more than I
+              probably should.
             </li>
             <li>
               Outside work, I go to the gym 4 times a week, follow{" "}
@@ -146,7 +140,9 @@ const MinimalAbout = () => {
                 <div className="mn-org-roles">
                   {yearwise.map(({ id, start, end, position }) => (
                     <div className="mn-role-row" key={id}>
-                      <span className="mn-role-period">{start} – {end}</span>
+                      <span className="mn-role-period">
+                        {start} – {end}
+                      </span>
                       <span className="mn-role-sep">·</span>
                       <span className="mn-role-title">{position}</span>
                     </div>
@@ -173,7 +169,9 @@ const MinimalAbout = () => {
                 >
                   {s.name}
                 </a>
-                {i < skillsList.length - 1 && <span className="mn-comma">, </span>}
+                {i < skillsList.length - 1 && (
+                  <span className="mn-comma">, </span>
+                )}
               </span>
             ))}
           </p>
@@ -198,10 +196,7 @@ const MinimalAbout = () => {
                 <span className="mn-arrow">↗</span>
               </a>
             ))}
-            <a
-              href="mailto:heydineshshaw@gmail.com"
-              className="mn-social-link"
-            >
+            <a href="mailto:heydineshshaw@gmail.com" className="mn-social-link">
               <span className="mn-social-name">Email</span>
               <span className="mn-social-handle">heydineshshaw@gmail.com</span>
               <span className="mn-arrow">↗</span>

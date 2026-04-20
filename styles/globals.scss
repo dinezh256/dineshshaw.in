@@ -2352,6 +2352,11 @@ body[class*="minimal-"] {
   }
 }
 
+// Inverse cloaking: hide minimal content if body is NOT minimal
+body:not([class*="minimal-"]) .mn-minimal-only {
+  display: none !important;
+}
+
 // ─────────────────────────────────────────────
 // MINIMAL PAGE — NOTION-STYLE BASE
 // ─────────────────────────────────────────────
@@ -3038,6 +3043,29 @@ body[class*="minimal-"] {
       background: var(--mn-nav-active-bg);
       color: var(--mn-text-primary);
     }
+  }
+}
+
+.mn-share-btn {
+  background: transparent;
+  border: none;
+  padding: 2px;
+  cursor: pointer;
+  color: var(--mn-text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.15s ease, transform 0.15s ease;
+
+  @media (hover: hover) {
+    &:hover {
+      color: var(--mn-text-primary);
+      transform: translateY(-1px);
+    }
+  }
+
+  &:active {
+    transform: translateY(0);
   }
 }
 

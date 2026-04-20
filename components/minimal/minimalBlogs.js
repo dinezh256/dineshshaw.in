@@ -1,4 +1,3 @@
-import Head from "next/head";
 import Link from "next/link";
 import { formatDuration, intervalToDuration } from "date-fns";
 import MinimalFooter from "./minimalFooter";
@@ -14,20 +13,13 @@ const formatReadTime = (secs) => {
 
 const MinimalBlogs = () => (
   <>
-    <Head>
-      <title>Blogs | Dinesh Shaw</title>
-      <meta
-        name="description"
-        content="Writing about frontend engineering, React, and things I've figured out the hard way."
-        key="desc"
-      />
-      <link rel="canonical" href="https://dineshshaw.in/blogs" />
-    </Head>
     <div className="minimal-page">
       <nav className="mn-nav">
         <Link href="/">About</Link>
         <Link href="/work">Work</Link>
-        <Link href="/blogs" className="active" aria-current="page">Blogs</Link>
+        <Link href="/blogs" className="active" aria-current="page">
+          Blogs
+        </Link>
       </nav>
 
       <header className="mn-header">
@@ -63,11 +55,7 @@ const MinimalBlogs = () => (
         <h2 className="mn-section-title">Posts</h2>
         <div className="mn-blog-list">
           {blogsList.map(({ id, slug, name, createdAt, readDuration }) => (
-            <Link
-              key={id}
-              href={`/blogs/${slug}`}
-              className="mn-blog-row"
-            >
+            <Link key={id} href={`/blogs/${slug}`} className="mn-blog-row">
               <div className="mn-blog-title">{name}</div>
               <div className="mn-blog-meta">
                 <span>{formatDate(createdAt)}</span>

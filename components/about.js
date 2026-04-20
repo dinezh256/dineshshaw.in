@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Head from "next/head";
 import Link from "next/link";
 import { Circle, ChevronsDown, ChevronsUp } from "react-feather";
 
@@ -25,14 +24,6 @@ const About = () => {
 
   return (
     <>
-      <Head>
-        <title>Dinesh&apos;s Portfolio</title>
-        <meta
-          name="description"
-          content="Frontend Engineer with 5+ years of experience building web and mobile products. Mostly React.js, React Native, and Node.js."
-          key="desc"
-        />
-      </Head>
       <div className="about-section">
         <div className="about-section-inner">
           <div className="about-main">
@@ -62,7 +53,12 @@ const About = () => {
             </h1>
             <div className="available-to-contact">
               <h3 className="contact-heading">
-                <Circle size={12} fill="#00ac00" stroke="#00ac00" aria-hidden="true" />
+                <Circle
+                  size={12}
+                  fill="#00ac00"
+                  stroke="#00ac00"
+                  aria-hidden="true"
+                />
                 <span>Available for new opportunities</span>
               </h3>
               <div className="contact-cta-wrapper">
@@ -76,8 +72,16 @@ const About = () => {
                   <ChevronsUp size={18} strokeWidth={2.5} aria-hidden="true" />
                   <span>Résumé</span>
                 </Link>
-                <button type="button" className="contact-cta" onClick={onClickContact}>
-                  <ChevronsDown size={18} strokeWidth={2.5} aria-hidden="true" />
+                <button
+                  type="button"
+                  className="contact-cta"
+                  onClick={onClickContact}
+                >
+                  <ChevronsDown
+                    size={18}
+                    strokeWidth={2.5}
+                    aria-hidden="true"
+                  />
                   <span>Contact Me</span>
                 </button>
               </div>
@@ -98,13 +102,13 @@ const About = () => {
               </li>
               <li>
                 I studied Electronics and Communication at{" "}
-                <b>Tezpur University</b>, graduating in 2020. Turned out
-                writing code was more fun than building circuits.
+                <b>Tezpur University</b>, graduating in 2020. Turned out writing
+                code was more fun than building circuits.
               </li>
               <li>
                 I like knowing how things work under the hood. Performance,
-                accessibility, and clean APIs are things I think about more
-                than I probably should.
+                accessibility, and clean APIs are things I think about more than
+                I probably should.
               </li>
               <li>
                 Outside work, I go to the gym 4 times a week, follow{" "}

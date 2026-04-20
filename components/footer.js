@@ -22,16 +22,20 @@ const Footer = () => (
         </div>
         <div className="footer-links-group">
           <ul>
-            {socials.filter(social => social.showInFooter !== false).map((social) => (
-              <li key={social.id}>
-                <Link id={social.id}
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer">
-                  {social.name}
-                </Link>
-              </li>
-            ))}
+            {socials
+              .filter((social) => social.showInFooter !== false)
+              .map((social) => (
+                <li key={social.id}>
+                  <Link
+                    id={social.id}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {social.name}
+                  </Link>
+                </li>
+              ))}
           </ul>
         </div>
         <div className="footer-links-group">
@@ -42,7 +46,11 @@ const Footer = () => (
               </Link>
             </li>
             <li>
-              <Link href="https://github.com/dinezh256/dineshshaw.in" target="_blank" rel="noopener noreferrer">
+              <Link
+                href="https://github.com/dinezh256/dineshshaw.in"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Source
               </Link>
             </li>
