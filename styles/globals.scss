@@ -1282,14 +1282,6 @@ body {
         font-size: 14px;
         font-weight: 500;
         white-space: nowrap;
-
-        .views-count-span {
-          display: inline-block;
-          min-width: 8px;
-          transition: width 0.3s ease-out;
-          overflow: hidden;
-          white-space: nowrap;
-        }
       }
     }
   }
@@ -2857,10 +2849,17 @@ body:not([class*="minimal-"]) .mn-minimal-only {
 // ─────────────────────────────────────────────
 
 @media screen and (max-width: 500px) {
+  body:not([class*="minimal-"]) .minimal-toggle {
+    margin-bottom: 200px;
+  }
+  
+  body[class*="minimal-"] .minimal-toggle {
+    margin-bottom: 32px;
+  }
+
   .minimal-toggle {
     top: 12px;
     right: 12px;
-    margin-bottom: 200px;
   }
 
   .minimal-page {
@@ -3141,5 +3140,13 @@ body:not([class*="minimal-"]) .mn-minimal-only {
       outline-offset: 2px;
     }
   }
+}
+
+.views-count-span {
+  display: inline-block;
+  min-width: 8px;
+  transition: width 0.3s ease-out;
+  overflow: hidden;
+  white-space: nowrap;
 }
 

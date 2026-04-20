@@ -159,10 +159,10 @@ export default function Page({ markdownContent, meta = notFoundBlogMeta, id }) {
                   aria-hidden="true"
                 />
                 <span
+                  className="views-count-span"
                   style={{
                     width:
                       viewerTextWidth > 0 ? `${viewerTextWidth}px` : "auto",
-                    textAlign: "center",
                   }}
                 >
                   {viewsCount}
