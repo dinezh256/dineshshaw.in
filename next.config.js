@@ -62,7 +62,12 @@ module.exports = {
     "react-syntax-highlighter",
     "refractor",
   ],
-  eslint: {
-    ignoreDuringBuilds: true,
+  async headers() {
+    return [
+      {
+        source: "/(.*)",
+        headers: securityHeaders,
+      },
+    ];
   },
 };
