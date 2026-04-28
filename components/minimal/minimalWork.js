@@ -1,61 +1,37 @@
-import Link from "next/link";
 import { ExternalLink, GitHub } from "react-feather";
 import MinimalFooter from "./minimalFooter";
 import { projects } from "../../utils";
+import { MnSeparator, MnSectionTitle, MnPageHeader, MnHoverRow, MnInlineLink } from "../ui/minimal";
 
 const MinimalWork = () => (
   <>
     <div className="minimal-page">
-      <nav className="mn-nav">
-        <Link href="/">About</Link>
-        <Link href="/work" className="active" aria-current="page">
-          Work
-        </Link>
-        <Link href="/blogs">Blogs</Link>
-      </nav>
+      <MnPageHeader
+        kicker="Work"
+        title="Selected products, experiments, and shipped interfaces."
+        subtitle="A mix of product work and personal builds across the web, with a frontend-first lens on usability, polish, and speed."
+        rotatorPrefix="Across"
+        rotatorWords={["SaaS products", "side projects", "shipped interfaces"]}
+      />
 
-      <header className="mn-header">
-        <div className="mn-kicker">Work</div>
-        <div className="mn-hero-lines">
-          <h1 className="mn-hero-line">
-            Selected products, experiments, and shipped interfaces.
-          </h1>
-          <p className="mn-hero-subline">
-            A mix of product work and personal builds across the web, with a
-            frontend-first lens on usability, polish, and speed.
-          </p>
-          <p className="mn-hero-line mn-hero-line--animated">
-            Across
-            <span className="mn-hero-rotator">
-              <span>
-                <strong> SaaS products</strong>
-              </span>
-              <span>
-                <strong> side projects</strong>
-              </span>
-              <span>
-                <strong> shipped interfaces</strong>
-              </span>
-            </span>
-          </p>
-        </div>
-      </header>
+      <MnSeparator />
 
-      <div className="mn-divider" />
-
+      {/* Projects */}
       <section className="mn-section">
-        <h2 className="mn-section-title">Projects</h2>
-        <div className="mn-projects">
+        <MnSectionTitle>Projects</MnSectionTitle>
+        <div className="flex flex-col gap-1">
           {projects.map(({ id, name, codeUrl, websiteUrl }) => (
-            <div className="mn-project-row" key={id}>
-              <span className="mn-project-name">{name}</span>
-              <div className="mn-project-links">
+            <MnHoverRow key={id} className="flex items-center justify-between gap-4">
+              <span className="text-[14.5px] font-medium flex-1 text-mn-text-primary transition-colors duration-150 group-hover:text-mn-accent-text">
+                {name}
+              </span>
+              <div className="flex items-center gap-2.5 shrink-0">
                 {codeUrl && (
                   <a
                     href={codeUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mn-project-link"
+                    className="flex items-center gap-1 text-[12.5px] font-medium no-underline opacity-50 transition-[opacity,color] duration-[120ms] text-mn-text-primary hover:opacity-100 hover:text-mn-accent-text"
                     title="View code"
                     aria-label={`${name} source code`}
                   >
@@ -67,7 +43,7 @@ const MinimalWork = () => (
                   href={websiteUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mn-project-link"
+                  className="flex items-center gap-1 text-[12.5px] font-medium no-underline opacity-50 transition-[opacity,color] duration-[120ms] text-mn-text-primary hover:opacity-100 hover:text-mn-accent-text"
                   title="Visit site"
                   aria-label={`${name} live site`}
                 >
@@ -75,22 +51,19 @@ const MinimalWork = () => (
                   <span>Visit</span>
                 </a>
               </div>
-            </div>
+            </MnHoverRow>
           ))}
         </div>
       </section>
 
-      <div className="mn-divider" />
+      <MnSeparator />
 
-      <a
+      <MnInlineLink
         href="https://github.com/dinezh256?tab=repositories"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="mn-inline-link"
-        style={{ fontSize: "13.5px" }}
+        className="text-[13.5px]"
       >
         View all repositories on GitHub ↗
-      </a>
+      </MnInlineLink>
 
       <MinimalFooter />
     </div>

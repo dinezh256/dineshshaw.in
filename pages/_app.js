@@ -12,11 +12,14 @@ import Navbar from "../components/navbar";
 import NameCard from "../components/nameCard";
 import Footer from "../components/footer";
 import MinimalToggle from "../components/minimal/minimalToggle";
+import MinimalNav from "../components/minimal/minimalNav";
 
 import { GlobalContextProvider, GlobalContext } from "../contexts";
 
 import { whiteListRoutes, navbarRoutes } from "../utils";
+import "../styles/tailwind.css";
 import "../styles/globals.scss";
+
 
 const font = FontFamily({
   subsets: ["latin"],
@@ -81,6 +84,11 @@ const AppInner = ({ Component, pageProps }) => {
           {!isMinimal && showComponent && (
             <div className="mn-rich-only">
               <NameCard />
+            </div>
+          )}
+          {(isMinimal || viewModePreference === null) && (
+            <div className="mn-minimal-only pt-12 pb-0 px-6 max-[500px]:pt-8 max-[500px]:px-5">
+              <MinimalNav />
             </div>
           )}
           <Component {...pageProps} />

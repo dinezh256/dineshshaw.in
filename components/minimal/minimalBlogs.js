@@ -2,6 +2,7 @@ import Link from "next/link";
 import { formatDuration, intervalToDuration } from "date-fns";
 import MinimalFooter from "./minimalFooter";
 import { blogsList } from "../../utils";
+import { MnSeparator, MnSectionTitle, MnPageHeader, MnHoverRow } from "../ui/minimal";
 
 const formatDate = (ts) =>
   new Date(ts).toLocaleDateString("en-US", { month: "short", year: "numeric" });
@@ -14,55 +15,36 @@ const formatReadTime = (secs) => {
 const MinimalBlogs = () => (
   <>
     <div className="minimal-page">
-      <nav className="mn-nav">
-        <Link href="/">About</Link>
-        <Link href="/work">Work</Link>
-        <Link href="/blogs" className="active" aria-current="page">
-          Blogs
-        </Link>
-      </nav>
+      <MnPageHeader
+        kicker="Blogs"
+        title="Notes on frontend engineering and building for the web."
+        subtitle="Writing about React, accessibility, performance, and the smaller implementation details that shape good product experiences."
+        rotatorPrefix="Usually on"
+        rotatorWords={["React", "accessibility", "performance"]}
+      />
 
-      <header className="mn-header">
-        <div className="mn-kicker">Blogs</div>
-        <div className="mn-hero-lines">
-          <h1 className="mn-hero-line">
-            Notes on frontend engineering and building for the web.
-          </h1>
-          <p className="mn-hero-subline">
-            Writing about React, accessibility, performance, and the smaller
-            implementation details that shape good product experiences.
-          </p>
-          <p className="mn-hero-line mn-hero-line--animated">
-            Usually on
-            <span className="mn-hero-rotator">
-              <span>
-                <strong> React</strong>
-              </span>
-              <span>
-                <strong> accessibility</strong>
-              </span>
-              <span>
-                <strong> performance</strong>
-              </span>
-            </span>
-          </p>
-        </div>
-      </header>
+      <MnSeparator />
 
-      <div className="mn-divider" />
-
+      {/* Posts */}
       <section className="mn-section">
-        <h2 className="mn-section-title">Posts</h2>
-        <div className="mn-blog-list">
+        <MnSectionTitle>Posts</MnSectionTitle>
+        <div className="flex flex-col gap-1">
           {blogsList.map(({ id, slug, name, createdAt, readDuration }) => (
-            <Link key={id} href={`/blogs/${slug}`} className="mn-blog-row">
-              <div className="mn-blog-title">{name}</div>
-              <div className="mn-blog-meta">
+            <MnHoverRow
+              key={id}
+              as={Link}
+              href={`/blogs/${slug}`}
+              className="block no-underline py-[11px]"
+            >
+              <div className="text-[15px] font-medium leading-[1.45] mb-[5px] text-mn-text-primary transition-colors duration-150 group-hover:text-mn-accent-text">
+                {name}
+              </div>
+              <div className="flex items-center gap-1.5 text-[12px] text-mn-text-secondary">
                 <span>{formatDate(createdAt)}</span>
-                <span className="mn-meta-sep">·</span>
+                <span className="opacity-50">·</span>
                 <span>{formatReadTime(readDuration)}</span>
               </div>
-            </Link>
+            </MnHoverRow>
           ))}
         </div>
       </section>

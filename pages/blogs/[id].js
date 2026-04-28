@@ -123,56 +123,39 @@ export default function Page({ markdownContent, meta = notFoundBlogMeta, id }) {
 
       {(isMinimal || viewModePreference === null) && (
         <div className="mn-minimal-only minimal-page">
-          <nav className="mn-nav" aria-label="Minimal Navigation">
-            <Link href="/">About</Link>
-            <Link href="/work">Work</Link>
-            <Link href="/blogs" className="active" aria-current="page">
-              Blogs
-            </Link>
-          </nav>
 
-          <header className="mn-header" style={{ marginBottom: "16px" }}>
-            <div className="mn-name" style={{ fontSize: "28px" }}>
+          <header className="mb-4">
+            {/* Blog title */}
+            <div className="text-[28px] font-bold tracking-[-0.035em] leading-[1.08] mb-[10px] text-mn-text-primary">
               {meta.name}
             </div>
-            <div
-              className="mn-blog-meta"
-              style={{
-                marginTop: "12px",
-                display: "flex",
-                gap: "8px",
-                fontSize: "14px",
-              }}
-            >
+
+            {/* Meta row */}
+            <div className="flex items-center gap-2 text-[14px] text-mn-text-secondary mt-3">
               <span>
-                {meta.createdAt > 0
-                  ? format(meta.createdAt, "MMM d, yyyy")
-                  : ""}
+                {meta.createdAt > 0 ? format(meta.createdAt, "MMM d, yyyy") : ""}
               </span>
-              <span className="mn-meta-sep">·</span>
-              <span
-                style={{ display: "flex", alignItems: "center", gap: "6px" }}
-              >
+              <span className="opacity-50">·</span>
+              <span className="flex items-center gap-1.5">
                 <Eye
                   size={14}
                   className={clsx({ fadeInOut: isFetchingViews })}
                   aria-hidden="true"
                 />
                 <span
-                  className="views-count-span"
+                  className="inline-block min-w-[8px] transition-[width] duration-300 ease-out overflow-hidden whitespace-nowrap"
                   style={{
-                    width:
-                      viewerTextWidth > 0 ? `${viewerTextWidth}px` : "auto",
+                    width: viewerTextWidth > 0 ? `${viewerTextWidth}px` : "auto",
                   }}
                 >
                   {viewsCount}
                 </span>{" "}
                 views
               </span>
-              <span className="mn-meta-sep">·</span>
+              <span className="opacity-50">·</span>
               <RWebShare data={sharableData}>
                 <button
-                  className="mn-share-btn"
+                  className="bg-transparent border-none p-[2px] cursor-pointer text-mn-text-secondary flex items-center justify-center transition-[color,transform] duration-150 hover:text-mn-text-primary hover:-translate-y-px active:translate-y-0"
                   type="button"
                   aria-label="Share this blog"
                   title="Share"
@@ -183,15 +166,18 @@ export default function Page({ markdownContent, meta = notFoundBlogMeta, id }) {
             </div>
           </header>
 
-          <div className="mn-divider" style={{ marginBottom: "32px" }} />
+          {/* Divider */}
+          <div className="h-px border-none mt-10 mb-8 bg-mn-divider" />
 
-          <div className="mn-markdown" style={{ marginTop: 0 }}>
+          {/* Markdown */}
+          <div className="mn-markdown mt-0">
             <MarkdownRenderer content={cleanMarkdown} />
           </div>
 
           <MinimalFooter />
         </div>
       )}
+
 
       {(!isMinimal || viewModePreference === null) && (
         <div className="mn-rich-only blog-page-wrapper">
