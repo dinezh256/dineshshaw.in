@@ -152,6 +152,33 @@ body.minimal-system {
   }
 }
 
+
+// Connect handle: left-to-right shine sweep on row hover
+@keyframes mn-handle-shine {
+  from { background-position: 100% 50%; }
+  to   { background-position: 0% 50%; }
+}
+
+.mn-handle-text {
+  background: linear-gradient(
+    90deg,
+    var(--mn-text-secondary) 0%,
+    var(--mn-text-secondary) 30%,
+    var(--mn-accent)         50%,
+    var(--mn-text-secondary) 70%,
+    var(--mn-text-secondary) 100%
+  );
+  background-size: 300% 100%;
+  background-position: 100% 50%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.group:hover .mn-handle-text {
+  animation: mn-handle-shine 0.55s ease forwards;
+}
+
 * {
   -webkit-tap-highlight-color: transparent;
   margin: 0;

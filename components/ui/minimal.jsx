@@ -10,31 +10,38 @@ import { Badge } from "./badge";
  * Renders as <a> for href links, <Button> for onClick actions.
  */
 export function MnButton({ className, variant, onClick, href, children, target, rel, ...props }) {
-  const mnOverrides =
-    "bg-mn-text-primary text-mn-bg border-mn-text-primary hover:opacity-85 hover:-translate-y-px text-[13px] px-3 py-[7px] h-auto gap-1.5 rounded-lg leading-none transition-[opacity,transform] duration-150";
-  const resumeExtra = variant === "resume" ? "[&_svg]:rotate-45" : "";
+  const base =
+    "text-[13px] px-3 py-[7px] h-auto gap-1.5 rounded-lg leading-none transition-[opacity,background-color,border-color,transform] duration-150 hover:-translate-y-px";
+
+  const variants = {
+    // Primary: solid dark fill
+    default:
+      "bg-mn-text-primary text-mn-bg border-mn-text-primary hover:opacity-85",
+    // Secondary: accent-outlined (résumé)
+    secondary:
+      "bg-transparent text-mn-accent-text border-mn-accent-border hover:bg-mn-accent-subtle hover:border-mn-accent",
+    // resume = secondary + diagonal icon
+    resume:
+      "bg-transparent text-mn-accent-text border-mn-accent-border hover:bg-mn-accent-subtle hover:border-mn-accent [&_svg]:rotate-45",
+  };
+
+  const cls = cn(
+    buttonVariants({ variant: "outline" }),
+    base,
+    variants[variant] ?? variants.default,
+    className,
+  );
 
   if (href) {
     return (
-      <a
-        href={href}
-        target={target}
-        rel={rel}
-        className={cn(buttonVariants({ variant: "outline" }), mnOverrides, resumeExtra, className)}
-        {...props}
-      >
+      <a href={href} target={target} rel={rel} className={cls} {...props}>
         {children}
       </a>
     );
   }
 
   return (
-    <Button
-      variant="outline"
-      onClick={onClick}
-      className={cn(mnOverrides, resumeExtra, className)}
-      {...props}
-    >
+    <Button variant="outline" onClick={onClick} className={cls} {...props}>
       {children}
     </Button>
   );

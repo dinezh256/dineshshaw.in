@@ -205,7 +205,7 @@ const MinimalAbout = () => {
                 className="flex items-center gap-3 no-underline text-[14px] py-[9px] hover:bg-mn-toggle-seg-hover group"
               >
                 <span className="font-medium min-w-[72px] text-mn-text-primary">{name}</span>
-                <span className="text-[13px] opacity-45 flex-1">{handle}</span>
+                <span className="text-[13px] flex-1 opacity-45 group-hover:opacity-100 transition-opacity duration-150 mn-handle-text">{handle}</span>
                 <span className="text-[12px] opacity-25 ml-auto transition-[transform,opacity,color] duration-[120ms] group-hover:translate-x-[1px] group-hover:-translate-y-[1px] group-hover:opacity-100 group-hover:text-mn-accent">↗</span>
               </MnHoverRow>
             ))}
