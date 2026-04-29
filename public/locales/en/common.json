@@ -1,0 +1,98 @@
+{
+  "about": {
+    "title": "Frontend engineer building thoughtful interfaces.",
+    "subtitle1": "5+ years across web and mobile products. Currently shipping at ",
+    "subtitle2": ".",
+    "rotatorPrefix": "Mostly in",
+    "rotatorWords": [
+      "JavaScript",
+      "React.js",
+      "React Native"
+    ],
+    "availability": "Available for new opportunities",
+    "resume": "Résumé",
+    "contact": "Contact me",
+    "sectionTitleAbout": "About",
+    "bullets": [
+      "I've spent the last 5+ years working mostly in <1>JavaScript</1> and <2>React.js</2>, building web and mobile interfaces across startups and product companies.",
+      "At <1>Auzmor</1>, I work on the LMS platform as a Senior Software Engineer, across the web app and the <2>React Native</2> mobile app.",
+      "I studied Electronics and Communication at <1>Tezpur University</1>, graduating in 2020. Turned out writing code was more fun than building circuits.",
+      "I like knowing how things work under the hood. Performance, accessibility, and clean APIs are things I think about more than I probably should.",
+      "Outside work, I go to the gym 4 times a week, follow <1>cricket</1> way too closely, and try to <2>travel</2> whenever I get the chance."
+    ],
+    "sectionTitleExperience": "Experience",
+    "now": "Now",
+    "sectionTitleSkills": "Skills",
+    "sectionTitleConnect": "Connect"
+  },
+  "work": {
+    "title": "Selected products, experiments, and shipped interfaces.",
+    "code": "Code",
+    "visit": "Visit",
+    "kicker": "Work",
+    "subtitle": "A mix of product work and personal builds across the web, with a frontend-first lens on usability, polish, and speed.",
+    "rotatorPrefix": "Across",
+    "rotatorWords": [
+      "SaaS products",
+      "side projects",
+      "shipped interfaces"
+    ],
+    "sectionTitle": "Projects",
+    "viewCode": "View code",
+    "visitSite": "Visit site",
+    "viewAllRepos": "View all repositories on GitHub ↗"
+  },
+  "blogs": {
+    "title": "Notes on frontend engineering and building for the web.",
+    "kicker": "Blogs",
+    "subtitle": "Writing about React, accessibility, performance, and the smaller implementation details that shape good product experiences.",
+    "rotatorPrefix": "Usually on",
+    "rotatorWords": [
+      "React",
+      "accessibility",
+      "performance"
+    ],
+    "sectionTitle": "Posts",
+    "minRead": "min read",
+    "sRead": "s read",
+    "0": {
+      "name": "Don't Let the Tab Close Before Your Data Gets Out",
+      "description": "Sending data to the Server when the User navigates away, closes/reloads the tab."
+    },
+    "1": {
+      "name": "Lazy Loading in React Isn't Magic: Here's What Nobody Warns You About",
+      "description": "Explore the challenges of lazy loading and code splitting in React, and discover strategies to overcome them for optimized performance and user experience."
+    },
+    "2": {
+      "name": "Keyboard Users Exist. Here's How I Stopped Ignoring Them in Popups.",
+      "description": "Learn how to improve the accessibility of your React application by ensuring that focus shifts seamlessly from triggering elements to popups. Explore a step-by-step guide utilizing React hooks and Semantic UI components to create a more inclusive user experience for keyboard and screen reader users."
+    }
+  },
+  "footer": {
+    "getInTouch": "Get in touch",
+    "contactText": "Whether you have a question or just want to say hi, my inbox is always open. I'll try my best to get back to you!",
+    "nav": "Navigation",
+    "social": "Social",
+    "extra": "Extra",
+    "sourceCode": "Source code",
+    "resume": "Résumé",
+    "backToTop": "Back to top"
+  },
+  "nav": {
+    "home": "Home",
+    "work": "Work",
+    "blogs": "Blogs",
+    "about": "About"
+  },
+  "companies": {
+    "2": "Auzmor Inc.",
+    "1": "PuStack Technologies",
+    "0": "C-DAC Centre, Kolkata"
+  },
+  "socials": {
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "instagram": "Instagram",
+    "twitter": "Twitter"
+  }
+}

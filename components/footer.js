@@ -1,10 +1,14 @@
+import { useTranslation } from "next-i18next/pages";
 import Image from "next/image";
 import logo from "../assets/logo.svg";
 import Link from "next/link";
 import { resumeLink, socials, navMenuItems } from "../utils";
 
-const Footer = () => (
-  <footer className="footer">
+const Footer = () => {
+  const { t } = useTranslation('common');
+  
+  return (
+    <footer className="footer">
     <div className="footer-section">
       <div className="footer-about">
         <Image src={logo} width={80} height={80} alt="logo" />
@@ -15,7 +19,7 @@ const Footer = () => (
           <ul>
             {navMenuItems.map(({ id, name, url }) => (
               <li key={id}>
-                <Link href={url}>{name}</Link>
+                <Link href={url}>{t(`nav.${name.toLowerCase()}`)}</Link>
               </li>
             ))}
           </ul>
@@ -32,7 +36,7 @@ const Footer = () => (
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    {social.name}
+                    {t(`socials.${social.id}`, { defaultValue: social.name })}
                   </Link>
                 </li>
               ))}
@@ -42,7 +46,7 @@ const Footer = () => (
           <ul>
             <li>
               <Link href={resumeLink} target="_blank" rel="noopener noreferrer">
-                Résumé
+                {t('footer.resume')}
               </Link>
             </li>
             <li>
@@ -51,7 +55,7 @@ const Footer = () => (
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Source
+                {t('footer.sourceCode')}
               </Link>
             </li>
           </ul>
@@ -59,6 +63,7 @@ const Footer = () => (
       </div>
     </div>
   </footer>
-);
+  );
+};
 
 export default Footer;

@@ -1,6 +1,8 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { useTranslation } from "next-i18next/pages";
 import { navMenuItems, resumeLink, socials } from "../../utils";
-import { cn } from "../../lib/utils";
+import { MnDropdown } from "../ui/minimal";
 
 const footerSocials = socials.filter((social) => social.showInFooter !== false);
 
@@ -19,22 +21,28 @@ const FooterColumn = ({ title, children }) => (
 );
 
 const MinimalFooter = () => {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+  const router = useRouter();
+  const { t } = useTranslation('common');
+
+  const handleLanguageChange = (e) => {
+    const locale = e.target.value;
+    const { pathname, asPath, query } = router;
+    if (locale === router.locale) return;
+    router.push({ pathname, query }, asPath, { locale });
   };
 
   return (
     <footer className="flex flex-col gap-12 text-[13px] text-mn-text-primary mt-[140px] pt-16 border-t border-mn-divider">
       <div className="flex justify-between flex-wrap gap-10">
-        <FooterColumn title="Navigation">
+        <FooterColumn title={t('footer.nav')}>
           {navMenuItems.map(({ id, name, url }) => (
             <Link key={id} href={url} className={footerLinkCls}>
-              {name}
+              {t(`nav.${name.toLowerCase()}`)}
             </Link>
           ))}
         </FooterColumn>
 
-        <FooterColumn title="Social">
+        <FooterColumn title={t('footer.social')}>
           {footerSocials.map((social) => (
             <a
               key={social.id}
@@ -43,14 +51,14 @@ const MinimalFooter = () => {
               rel="noopener noreferrer"
               className={footerLinkCls}
             >
-              {social.name}
+              {t(`socials.${social.id}`, { defaultValue: social.name })}
             </a>
           ))}
         </FooterColumn>
 
-        <FooterColumn title="Extra">
+        <FooterColumn title={t('footer.extra')}>
           <a href={resumeLink} target="_blank" rel="noopener noreferrer" className={footerLinkCls}>
-            Résumé
+            {t('footer.resume')}
           </a>
           <a
             href="https://github.com/dinezh256/dineshshaw.in"
@@ -58,27 +66,25 @@ const MinimalFooter = () => {
             rel="noopener noreferrer"
             className={footerLinkCls}
           >
-            Source
+            {t('footer.sourceCode')}
           </a>
         </FooterColumn>
-
-        {/* Back to top — right-aligned, responsive */}
-        <div className="flex flex-col gap-3.5 ml-auto items-end max-[500px]:ml-0 max-[500px]:items-start max-[500px]:w-full max-[500px]:border-t max-[500px]:border-mn-divider max-[500px]:pt-6">
-          <button
-            type="button"
-            onClick={scrollToTop}
-            className="bg-transparent border-none p-0 text-[12.5px] font-medium font-[inherit] text-mn-text-primary opacity-50 cursor-pointer flex items-center gap-1.5 transition-[opacity,transform] duration-150 hover:opacity-100 group"
-          >
-            Back to top{" "}
-            <span className="text-[14px] transition-[transform,color] duration-200 group-hover:-translate-y-[3px] group-hover:text-mn-accent">
-              ↑
-            </span>
-          </button>
-        </div>
       </div>
 
-      <div className="text-[12px] opacity-40">
-        © {new Date().getFullYear()} Dinesh Shaw
+      <div className="flex justify-between items-center border-t border-mn-divider pt-6 mt-2 flex-wrap gap-4">
+        <MnDropdown
+          value={router.locale}
+          onChange={handleLanguageChange}
+          options={[
+            { value: "en", label: "English" },
+            { value: "hi", label: "हिंदी" },
+            { value: "bn", label: "বাংলা" },
+          ]}
+        />
+
+        <div className="text-[12px] opacity-40">
+          © {new Date().getFullYear()} Dinesh Shaw
+        </div>
       </div>
     </footer>
   );

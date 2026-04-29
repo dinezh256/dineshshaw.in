@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useTranslation } from "next-i18next/pages";
 import { useRef, useEffect, useState } from "react";
 import { cn } from "../../lib/utils";
 
@@ -11,6 +12,7 @@ const navLinks = [
 
 const MinimalNav = () => {
   const { pathname } = useRouter();
+  const { t } = useTranslation('common');
   const navRef = useRef(null);
   const linkRefs = useRef([]);
   const [pill, setPill] = useState({ x: 0, width: 0, opacity: 0 });
@@ -30,7 +32,7 @@ const MinimalNav = () => {
     const navRect = nav.getBoundingClientRect();
     const elRect = el.getBoundingClientRect();
     setPill({ x: elRect.left - navRect.left, width: elRect.width, opacity: 1 });
-  }, [activeIdx]);
+  }, [activeIdx, pathname, t]);
 
   return (
     <nav
@@ -58,15 +60,13 @@ const MinimalNav = () => {
             key={href}
             href={href}
             ref={(el) => { linkRefs.current[i] = el; }}
-            aria-current={active ? "page" : undefined}
             className={cn(
-              "relative z-10 no-underline px-2.5 py-1.5 rounded-[7px] transition-[opacity,color] duration-150",
-              active
-                ? "opacity-100 text-mn-accent-text font-semibold"
-                : "opacity-65 text-mn-text-primary hover:opacity-100"
+              "relative z-10 px-3.5 py-[5.5px] no-underline transition-[color,background-color] duration-150 rounded-[7px] text-mn-text-primary",
+              active ? "text-mn-accent-text" : "text-mn-text-secondary opacity-75 hover:opacity-100 hover:bg-mn-hover-bg"
             )}
+            aria-current={active ? "page" : undefined}
           >
-            {label}
+            {t(`nav.${label.toLowerCase()}`)}
           </Link>
         );
       })}

@@ -196,18 +196,20 @@ export const notFoundBlogMeta = {
 export const getBlogMeta = (slug) =>
   blogsList.find((blog) => blog.slug === slug);
 
-export const getDocBySlug = (slug) => {
+export const getDocBySlug = (slug, locale = 'en') => {
   const blogMeta = getBlogMeta(slug);
 
   if (blogMeta) {
     return {
-      file: path.join(docsDirectory, `${blogMeta.fileName}.md`),
+      file: path.join(docsDirectory, `${blogMeta.fileName}.${locale}.md`),
+      fallbackFile: path.join(docsDirectory, `${blogMeta.fileName}.md`),
       blogMeta,
     };
   }
 
   return {
     file: path.join(docsDirectory, "not-found.md"),
+    fallbackFile: path.join(docsDirectory, "not-found.md"),
     blogMeta: notFoundBlogMeta,
   };
 };

@@ -1,4 +1,6 @@
 import { useRouter } from "next/router";
+import { appWithTranslation } from "next-i18next/pages";
+import nextI18NextConfig from "../next-i18next.config.js";
 import { useContext, useEffect } from "react";
 import clsx from "clsx";
 import Head from "next/head";
@@ -86,7 +88,7 @@ const AppInner = ({ Component, pageProps }) => {
               <NameCard />
             </div>
           )}
-          {(isMinimal || viewModePreference === null) && (
+          {(isMinimal || viewModePreference === null) && showNavbar && (
             <div className="mn-minimal-only pt-12 pb-0 px-6 max-[500px]:pt-8 max-[500px]:px-5">
               <MinimalNav />
             </div>
@@ -116,4 +118,4 @@ const MyApp = ({ Component, pageProps }) => {
   );
 };
 
-export default MyApp;
+export default appWithTranslation(MyApp, nextI18NextConfig);

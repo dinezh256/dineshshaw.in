@@ -1,33 +1,40 @@
 import Link from "next/link";
+import { useTranslation } from "next-i18next/pages";
 import { formatDuration, intervalToDuration } from "date-fns";
 import MinimalFooter from "./minimalFooter";
 import { blogsList } from "../../utils";
 import { MnSeparator, MnSectionTitle, MnPageHeader, MnHoverRow } from "../ui/minimal";
 
-const formatDate = (ts) =>
-  new Date(ts).toLocaleDateString("en-US", { month: "short", year: "numeric" });
+import { useRouter } from "next/router";
 
-const formatReadTime = (secs) => {
+const formatDate = (ts, locale) =>
+  new Date(ts).toLocaleDateString(locale || "en", { month: "short", year: "numeric" });
+
+const formatReadTime = (secs, t) => {
   const d = intervalToDuration({ start: 0, end: secs * 1000 });
-  return d.minutes ? `${d.minutes} min read` : `${secs}s read`;
+  return d.minutes ? `${d.minutes} ${t('blogs.minRead')}` : `${secs} ${t('blogs.sRead')}`;
 };
 
-const MinimalBlogs = () => (
-  <>
-    <div className="minimal-page">
-      <MnPageHeader
-        kicker="Blogs"
-        title="Notes on frontend engineering and building for the web."
-        subtitle="Writing about React, accessibility, performance, and the smaller implementation details that shape good product experiences."
-        rotatorPrefix="Usually on"
-        rotatorWords={["React", "accessibility", "performance"]}
-      />
+const MinimalBlogs = () => {
+  const { t } = useTranslation('common');
+  const { locale } = useRouter();
 
-      <MnSeparator />
+  return (
+    <>
+      <div className="minimal-page">
+        <MnPageHeader
+          kicker={t('blogs.kicker')}
+          title={t('blogs.title')}
+          subtitle={t('blogs.subtitle')}
+          rotatorPrefix={t('blogs.rotatorPrefix')}
+          rotatorWords={t('blogs.rotatorWords', { returnObjects: true })}
+        />
 
-      {/* Posts */}
-      <section className="mn-section">
-        <MnSectionTitle>Posts</MnSectionTitle>
+        <MnSeparator />
+
+        {/* Posts */}
+        <section className="mn-section">
+          <MnSectionTitle>{t('blogs.sectionTitle')}</MnSectionTitle>
         <div className="flex flex-col gap-1">
           {blogsList.map(({ id, slug, name, createdAt, readDuration }) => (
             <MnHoverRow
@@ -37,21 +44,22 @@ const MinimalBlogs = () => (
               className="block no-underline py-[11px]"
             >
               <div className="text-[15px] font-medium leading-[1.45] mb-[5px] text-mn-text-primary transition-colors duration-150 group-hover:text-mn-accent-text">
-                {name}
+                {t(`blogs.${id}.name`, { defaultValue: name })}
               </div>
               <div className="flex items-center gap-1.5 text-[12px] text-mn-text-secondary">
-                <span>{formatDate(createdAt)}</span>
+                <span>{formatDate(createdAt, locale)}</span>
                 <span className="opacity-50">·</span>
-                <span>{formatReadTime(readDuration)}</span>
+                <span>{formatReadTime(readDuration, t)}</span>
               </div>
             </MnHoverRow>
           ))}
         </div>
       </section>
 
-      <MinimalFooter />
-    </div>
-  </>
-);
+        <MinimalFooter />
+      </div>
+    </>
+  );
+};
 
 export default MinimalBlogs;

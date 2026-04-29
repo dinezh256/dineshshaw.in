@@ -2,11 +2,13 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useWebHaptics } from "web-haptics/react";
+import { useTranslation } from "next-i18next/pages";
 
 import { navMenuItems } from "../utils";
 
 const Navbar = () => {
   const router = useRouter();
+  const { t } = useTranslation('common');
   const { trigger } = useWebHaptics();
   const isBlogPage = router?.pathname?.includes("/blogs/");
   const activeIdx = isBlogPage
@@ -44,7 +46,7 @@ const Navbar = () => {
                 aria-current={activeTab === id ? "page" : undefined}
               >
                 {icon({ size: 15, strokeWidth: 2.75 })}
-                {name}
+                {t(`nav.${name.toLowerCase()}`)}
               </Link>
             </li>
           ))}

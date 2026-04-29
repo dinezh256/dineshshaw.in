@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Circle, ChevronsDown, ChevronsUp } from "react-feather";
+import { useTranslation, Trans } from "next-i18next/pages";
+import { useRouter } from "next/router";
 
 import Skills from "./skills";
 import Contact from "./contact";
@@ -9,8 +11,19 @@ import AnimateText from "./animateText";
 import CheckMarkIcon from "../assets/icons/checkMarkIcon";
 import { resumeLink, timeline } from "../utils";
 
+const formatTimelineDate = (dateStr, locale, t) => {
+  if (dateStr === "Present") return t("about.now");
+  const d = new Date(dateStr);
+  if (!isNaN(d.getTime())) {
+    return d.toLocaleDateString(locale || "en", { month: "short", year: "numeric" });
+  }
+  return dateStr;
+};
+
 const About = () => {
   const [animateContact, setAnimateContact] = useState(false);
+  const { t, i18n } = useTranslation('common');
+  const { locale } = useRouter();
 
   const onClickContact = () => {
     const contactSection = document.querySelector(".contact-section");
@@ -59,7 +72,7 @@ const About = () => {
                   stroke="#00ac00"
                   aria-hidden="true"
                 />
-                <span>Available for new opportunities</span>
+                <span>{t('about.availability')}</span>
               </h3>
               <div className="contact-cta-wrapper">
                 <Link
@@ -70,7 +83,7 @@ const About = () => {
                   rel="noopener noreferrer"
                 >
                   <ChevronsUp size={18} strokeWidth={2.5} aria-hidden="true" />
-                  <span>Résumé</span>
+                  <span>{t('about.resume')}</span>
                 </Link>
                 <button
                   type="button"
@@ -82,48 +95,58 @@ const About = () => {
                     strokeWidth={2.5}
                     aria-hidden="true"
                   />
-                  <span>Contact Me</span>
+                  <span>{t('about.contact')}</span>
                 </button>
               </div>
             </div>
           </div>
           <div className="about-me">
-            <AnimateText text="ABOUT ME" animate={false} />
+            <AnimateText text={t('about.sectionTitleAbout').toUpperCase()} animate={false} />
             <ul className="about-desc">
               <li>
-                I&apos;ve spent the last 5+ years working mostly in{" "}
-                <b>JavaScript</b> and <b>React.js</b>, building web and mobile
-                interfaces across startups and product companies.
+                <Trans
+                  i18nKey="about.bullets.0"
+                  t={t}
+                  i18n={i18n}
+                  components={{ 1: <b />, 2: <b /> }}
+                />
               </li>
               <li>
-                At <b>Auzmor</b>, I work on the LMS platform as a Senior
-                Software Engineer, across the web app and the{" "}
-                <b>React Native</b> mobile app.
+                <Trans
+                  i18nKey="about.bullets.1"
+                  t={t}
+                  i18n={i18n}
+                  components={{ 1: <b />, 2: <b /> }}
+                />
               </li>
               <li>
-                I studied Electronics and Communication at{" "}
-                <b>Tezpur University</b>, graduating in 2020. Turned out writing
-                code was more fun than building circuits.
+                <Trans
+                  i18nKey="about.bullets.2"
+                  t={t}
+                  i18n={i18n}
+                  components={{ 1: <b /> }}
+                />
               </li>
               <li>
-                I like knowing how things work under the hood. Performance,
-                accessibility, and clean APIs are things I think about more than
-                I probably should.
+                {t('about.bullets.3')}
               </li>
               <li>
-                Outside work, I go to the gym 4 times a week, follow{" "}
-                <b>cricket</b> way too closely, and try to <b>travel</b>{" "}
-                whenever I get the chance.
+                <Trans
+                  i18nKey="about.bullets.4"
+                  t={t}
+                  i18n={i18n}
+                  components={{ 1: <b />, 2: <b /> }}
+                />
               </li>
             </ul>
           </div>
         </div>
         <Skills />
         <div className="timeline-section">
-          <AnimateText text="EXPERIENCE" animate={false} />
+          <AnimateText text={t('about.sectionTitleExperience').toUpperCase()} animate={false} />
           {timeline.map(({ orgId, orgName, yearwise }) => (
             <div className="timeline-org" key={orgId}>
-              <h3>{orgName}</h3>
+              <h3>{t(`companies.${orgId}`, { defaultValue: orgName })}</h3>
               <div
                 className={
                   yearwise.length < 2 ? "org-levels" : `org-levels border`
@@ -131,7 +154,7 @@ const About = () => {
               >
                 {yearwise.map(({ id, start, end, position }) => (
                   <div className="org-level" key={id}>
-                    <CheckMarkIcon /> <h4>{`${start} - ${end}`}</h4>
+                    <CheckMarkIcon /> <h4>{`${formatTimelineDate(start, locale, t)} - ${formatTimelineDate(end, locale, t)}`}</h4>
                     <h4>—&nbsp;&nbsp;{position}</h4>
                   </div>
                 ))}

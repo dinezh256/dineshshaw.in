@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useTranslation } from "next-i18next/pages";
 import { ChevronsDown, ChevronsUp, Home, MapPin } from "react-feather";
 import MinimalFooter from "./minimalFooter";
 import { resumeLink, timeline, skillsList, socials } from "../../utils";
@@ -11,7 +12,21 @@ import {
   MnHoverRow,
 } from "../ui/minimal";
 
+import { useRouter } from "next/router";
+
+const formatTimelineDate = (dateStr, locale, t) => {
+  if (dateStr === "Present") return t("about.now");
+  const d = new Date(dateStr);
+  if (!isNaN(d.getTime())) {
+    return d.toLocaleDateString(locale || "en", { month: "short", year: "numeric" });
+  }
+  return dateStr;
+};
+
 const MinimalAbout = () => {
+  const { t } = useTranslation('common');
+  const { locale } = useRouter();
+
   const onClickContact = () => {
     const contactSection = document.querySelector(".mn-connect-section");
     if (contactSection instanceof HTMLElement) {
@@ -25,15 +40,15 @@ const MinimalAbout = () => {
       <div className="minimal-page">
         <MnPageHeader
           kicker="Dinesh Shaw"
-          title="Frontend engineer building thoughtful interfaces."
+          title={t('about.title')}
           subtitle={
             <>
-              5+ years across web and mobile products. Currently shipping at{" "}
-              <strong>Auzmor</strong>.
+              {t('about.subtitle1')}
+              <strong>Auzmor</strong>{t('about.subtitle2')}
             </>
           }
-          rotatorPrefix="Mostly in"
-          rotatorWords={["JavaScript", "React.js", "React Native"]}
+          rotatorPrefix={t('about.rotatorPrefix')}
+          rotatorWords={t('about.rotatorWords', { returnObjects: true })}
         >
           {/* Meta */}
           <div className="flex items-center gap-[14px] flex-wrap mb-5 text-[13px] font-medium text-mn-text-secondary">
@@ -52,17 +67,17 @@ const MinimalAbout = () => {
           </div>
 
           {/* Availability */}
-          <MnAvailabilityBadge>Available for new opportunities</MnAvailabilityBadge>
+          <MnAvailabilityBadge>{t('about.availability')}</MnAvailabilityBadge>
 
           {/* CTAs */}
           <div className="flex gap-2.5 flex-wrap">
             <MnButton href={resumeLink} target="_blank" rel="noopener noreferrer" variant="resume">
               <ChevronsUp size={18} strokeWidth={2.5} aria-hidden="true" />
-              <span>Résumé</span>
+              <span>{t('about.resume')}</span>
             </MnButton>
             <MnButton onClick={onClickContact}>
               <ChevronsDown size={18} strokeWidth={2.5} aria-hidden="true" />
-              <span>Contact me</span>
+              <span>{t('about.contact')}</span>
             </MnButton>
           </div>
         </MnPageHeader>
@@ -71,23 +86,26 @@ const MinimalAbout = () => {
 
         {/* About */}
         <section className="mn-section">
-          <MnSectionTitle>About</MnSectionTitle>
+          <MnSectionTitle>{t('about.sectionTitleAbout')}</MnSectionTitle>
           <ul className="list-none p-0 m-0 flex flex-col gap-[11px]">
-            {[
-              <>I&apos;ve spent the last 5+ years working mostly in{" "}<strong>JavaScript</strong> and <strong>React.js</strong>, building web and mobile interfaces across startups and product companies.</>,
-              <>At <strong>Auzmor</strong>, I work on the LMS platform as a Senior Software Engineer, across the web app and the{" "}<strong>React Native</strong> mobile app.</>,
-              <>I studied Electronics and Communication at{" "}<strong>Tezpur University</strong>, graduating in 2020. Turned out writing code was more fun than building circuits.</>,
-              <>I like knowing how things work under the hood. Performance, accessibility, and clean APIs are things I think about more than I probably should.</>,
-              <>Outside work, I go to the gym 4 times a week, follow{" "}<strong>cricket</strong> way too closely, and try to{" "}<strong>travel</strong> whenever I get the chance.</>,
-            ].map((item, i) => (
-              // biome-ignore lint/suspicious/noArrayIndexKey: static list
-              <li
-                key={i}
-                className="text-[15px] leading-[1.78] pl-5 relative text-mn-text-secondary before:content-['•'] before:absolute before:left-0 before:font-medium before:text-mn-accent-text before:opacity-60 [&_strong]:font-semibold [&_strong]:text-mn-text-primary"
-              >
-                {item}
-              </li>
-            ))}
+            {t('about.bullets', { returnObjects: true }).map((item, i) => {
+              // Simple replacement for <1>...</1> and <2>...</2> tags from translation
+              const parts = item.split(/(<\d>.*?<\/\d>)/g);
+              return (
+                <li
+                  key={i}
+                  className="text-[15px] leading-[1.78] pl-5 relative text-mn-text-secondary before:content-['•'] before:absolute before:left-0 before:font-medium before:text-mn-accent-text before:opacity-60 [&_strong]:font-semibold [&_strong]:text-mn-text-primary"
+                >
+                  {parts.map((part, index) => {
+                    const match = part.match(/<(\d)>(.*?)<\/\1>/);
+                    if (match) {
+                      return <strong key={index}>{match[2]}</strong>;
+                    }
+                    return <span key={index}>{part}</span>;
+                  })}
+                </li>
+              );
+            })}
           </ul>
         </section>
 
@@ -95,7 +113,7 @@ const MinimalAbout = () => {
 
         {/* Experience */}
         <section className="mn-section">
-          <MnSectionTitle>Experience</MnSectionTitle>
+          <MnSectionTitle>{t('about.sectionTitleExperience')}</MnSectionTitle>
           <div className="flex flex-col gap-7">
             {timeline.map(({ orgId, orgName, yearwise }) => {
               const isCurrent = yearwise.some((y) => y.end === "Present");
@@ -104,12 +122,12 @@ const MinimalAbout = () => {
                   {/* Org header */}
                   <div className="flex items-center gap-2 mb-3">
                     <span className="text-[14.5px] font-semibold text-mn-text-primary">
-                      {orgName}
+                      {t(`companies.${orgId}`, { defaultValue: orgName })}
                     </span>
                     {isCurrent && (
                       <span className="inline-flex items-center gap-[5px] text-[10.5px] font-semibold tracking-wide uppercase px-2 py-[3px] rounded-full bg-[#22c55e]/15 text-[#22c55e]">
                         <span className="w-[5px] h-[5px] rounded-full bg-[#22c55e]" />
-                        Now
+                        {t('about.now')}
                       </span>
                     )}
                   </div>
@@ -133,7 +151,7 @@ const MinimalAbout = () => {
                           {position}
                         </span>
                         <span className="text-[12px] text-mn-text-secondary opacity-55 whitespace-nowrap tabular-nums">
-                          {start} – {end}
+                          {formatTimelineDate(start, locale, t)} – {formatTimelineDate(end, locale, t)}
                         </span>
                       </div>
                     ))}
@@ -148,7 +166,7 @@ const MinimalAbout = () => {
 
         {/* Skills */}
         <section className="mn-section">
-          <MnSectionTitle>Skills</MnSectionTitle>
+          <MnSectionTitle>{t('about.sectionTitleSkills')}</MnSectionTitle>
           <div className="flex flex-wrap gap-2">
             {skillsList.map((s) => (
               <a
@@ -176,7 +194,7 @@ const MinimalAbout = () => {
 
         {/* Connect */}
         <section className="mn-section mn-connect-section" tabIndex={-1}>
-          <MnSectionTitle>Connect</MnSectionTitle>
+          <MnSectionTitle>{t('about.sectionTitleConnect')}</MnSectionTitle>
           <div className="flex flex-col gap-1">
             {[
               ...socials.map((social) => ({
@@ -184,7 +202,7 @@ const MinimalAbout = () => {
                 href: social.url,
                 target: "_blank",
                 rel: "noopener noreferrer",
-                name: social.name,
+                name: t(`socials.${social.id}`, { defaultValue: social.name }),
                 handle: `@${social.username}`,
               })),
               {

@@ -4,7 +4,7 @@ import Document, { Html, Head, Main, NextScript } from "next/document";
 class MyDocument extends Document {
   render() {
     return (
-      <Html lang="en" data-scroll-behavior="smooth">
+      <Html lang={this.props.__NEXT_DATA__.locale || 'en'} data-scroll-behavior="smooth">
         <Head>
           <meta charSet="utf-8" />
           <link rel="icon" href="/favicon.ico" />
@@ -31,11 +31,6 @@ class MyDocument extends Document {
           <meta name="theme-color" content="#f8f8f8" />
           <meta property="og:type" content="website" />
           <meta property="og:url" content="https://dineshshaw.in" />
-          <meta property="og:title" content="Dinesh Shaw" />
-          <meta
-            property="og:description"
-            content="Frontend Engineer with 5+ years of experience building web and mobile products. Mostly React.js, React Native, and Node.js."
-          />
           <meta
             property="og:image"
             content="https://dineshshaw.in/logo512.png"
@@ -44,24 +39,23 @@ class MyDocument extends Document {
           <meta property="og:image:width" content="512" />
           <meta property="og:image:height" content="512" />
           <meta property="og:site_name" content="Dinesh Shaw" />
-          <meta property="og:locale" content="en-US" />
           <meta name="darkreader-lock" />
         </Head>
         <body>
           <script
             dangerouslySetInnerHTML={{
               __html: `
-(function() {
-  try {
-    var mode = localStorage.getItem('portfolio-view-mode');
-    window.__INITIAL_MODE__ = mode || 'rich';
-    window.__INITIAL_IS_MINIMAL__ = mode && mode.startsWith('minimal');
-    if (window.__INITIAL_IS_MINIMAL__) {
-      document.body.classList.add(mode);
-    }
-  } catch (e) {}
-})();
-`,
+                (function() {
+                  try {
+                    var mode = localStorage.getItem('portfolio-view-mode');
+                    window.__INITIAL_MODE__ = mode || 'rich';
+                    window.__INITIAL_IS_MINIMAL__ = mode && mode.startsWith('minimal');
+                    if (window.__INITIAL_IS_MINIMAL__) {
+                      document.body.classList.add(mode);
+                    }
+                  } catch (e) {}
+                })();
+                `,
             }}
           />
           <Main />

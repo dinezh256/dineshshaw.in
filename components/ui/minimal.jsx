@@ -1,4 +1,6 @@
 import { cn } from "../../lib/utils";
+import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem } from "./dropdown-menu";
+import { ChevronDown } from "react-feather";
 import { Button, buttonVariants } from "./button";
 import { Separator } from "./separator";
 import { Badge } from "./badge";
@@ -212,5 +214,41 @@ export function MnInlineLink({ href, children, className, ...props }) {
     >
       {children}
     </a>
+  );
+}
+
+// ─── Dropdown ─────────────────────────────────────────────────────────────────
+
+/**
+ * MnDropdown — A minimal themed reusable dropdown wrapping Shadcn DropdownMenu.
+ */
+export function MnDropdown({ value, options = [], onChange, className }) {
+  const selectedLabel = options.find((opt) => opt.value === value)?.label || value;
+
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger
+        className={cn(
+          "flex items-center justify-between gap-3 bg-transparent border border-mn-divider rounded-md px-2 py-1.5 text-[12px] cursor-pointer outline-none hover:border-mn-accent focus:border-mn-accent focus-visible:outline-none focus-visible:ring-0 text-mn-text-primary transition-colors duration-150 min-w-[80px]",
+          className
+        )}
+      >
+        <span>{selectedLabel}</span>
+        <ChevronDown size={13} className="text-mn-text-secondary" strokeWidth={2} />
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align="end" className="bg-mn-bg border-mn-divider min-w-[80px]">
+        {options.map((opt) => (
+          <DropdownMenuItem
+            key={opt.value}
+            onClick={() => {
+              if (onChange) onChange({ target: { value: opt.value } });
+            }}
+            className="cursor-pointer text-[12px] text-mn-text-primary focus:bg-mn-accent-subtle focus:text-mn-accent-text"
+          >
+            {opt.label}
+          </DropdownMenuItem>
+        ))}
+      </DropdownMenuContent>
+    </DropdownMenu>
   );
 }
