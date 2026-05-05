@@ -71,7 +71,7 @@ const AppInner = ({ Component, pageProps }) => {
         <link rel="canonical" href="https://dineshshaw.in" />
       </Head>
       <div className={font.className} style={{ display: "contents" }}>
-        {!isMinimal && showNavbar && (
+        {!isMinimal && viewModePreference !== null && showNavbar && (
           <div className="mn-rich-only">
             <Navbar />
           </div>
@@ -83,7 +83,7 @@ const AppInner = ({ Component, pageProps }) => {
             isMinimal && "main-wrapper--minimal",
           )}
         >
-          {!isMinimal && showComponent && (
+          {!isMinimal && viewModePreference !== null && showComponent && (
             <div className="mn-rich-only">
               <NameCard />
             </div>
@@ -95,7 +95,7 @@ const AppInner = ({ Component, pageProps }) => {
           )}
           <Component {...pageProps} />
         </main>
-        {!isMinimal && showNavbar && (
+        {!isMinimal && viewModePreference !== null && showNavbar && (
           <div className="mn-rich-only">
             <Footer />
           </div>
