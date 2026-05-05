@@ -186,7 +186,7 @@ export default function Page({ markdownContent, meta = notFoundBlogMeta, id }) {
       )}
 
 
-      {(!isMinimal || viewModePreference === null) && (
+      {(!isMinimal && viewModePreference !== null) && (
         <div className="mn-rich-only blog-page-wrapper">
           <Link href="/blogs" as="/blogs" className="flex-start back-to-blogs">
             <ChevronLeft size={20} /> <span>Back</span>
