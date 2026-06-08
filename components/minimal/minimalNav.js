@@ -1,8 +1,10 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next/pages";
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, useContext } from "react";
+import { Sun, Moon } from "react-feather";
 import { cn } from "../../lib/utils";
+import { GlobalContext } from "../../contexts";
 
 const navLinks = [
   { href: "/", label: "About" },
@@ -13,9 +15,16 @@ const navLinks = [
 const MinimalNav = () => {
   const { pathname } = useRouter();
   const { t } = useTranslation('common');
+  const { viewMode, setViewMode } = useContext(GlobalContext);
   const navRef = useRef(null);
   const linkRefs = useRef([]);
   const [pill, setPill] = useState({ x: 0, width: 0, opacity: 0 });
+
+  const isDark = viewMode === "minimal-dark";
+
+  const handleThemeToggle = () => {
+    setViewMode(isDark ? "minimal-light" : "minimal-dark");
+  };
 
   const getActive = (href) => {
     if (href === "/blogs") return pathname === "/blogs" || pathname.startsWith("/blogs/");
@@ -35,42 +44,79 @@ const MinimalNav = () => {
   }, [activeIdx, pathname, t]);
 
   return (
-    <nav
-      ref={navRef}
-      className="relative flex items-center gap-1.5 w-fit mb-[34px] p-1 rounded-[10px] text-[13px] font-medium bg-mn-nav-bg"
-      aria-label="Minimal navigation"
-    >
-      {/* Sliding pill — absolutely positioned, slides via transform */}
-      <span
-        aria-hidden="true"
-        className="absolute top-1 bottom-1 rounded-[7px] bg-mn-accent-subtle pointer-events-none"
-        style={{
-          left: 0,
-          width: pill.width,
-          opacity: pill.opacity,
-          transform: `translateX(${pill.x}px)`,
-          transition: "transform 0.22s cubic-bezier(0.16,1,0.3,1), width 0.22s cubic-bezier(0.16,1,0.3,1), opacity 0.15s ease",
-        }}
-      />
-
-      {navLinks.map(({ href, label }, i) => {
-        const active = getActive(href);
-        return (
-          <Link
-            key={href}
-            href={href}
-            ref={(el) => { linkRefs.current[i] = el; }}
-            className={cn(
-              "relative z-10 px-3.5 py-[5.5px] no-underline transition-[color,background-color] duration-150 rounded-[7px] text-mn-text-primary",
-              active ? "text-mn-accent-text" : "text-mn-text-secondary opacity-75 hover:opacity-100 hover:bg-mn-hover-bg"
-            )}
-            aria-current={active ? "page" : undefined}
+    <div className="w-full px-6 pt-4 transition-colors duration-300 max-[500px]:px-5 max-[500px]:pt-3">
+      <div className="max-w-[680px] mx-auto">
+        <div className="mn-liquid-nav relative flex items-center justify-between gap-3 overflow-hidden rounded-[22px] px-[10px] py-[9px]">
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 rounded-[22px] mn-liquid-nav-blur-layer"
+          />
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 rounded-[22px] mn-liquid-nav-frost-layer"
+          />
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-[1px] rounded-[21px] mn-liquid-nav-highlight-layer"
+          />
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 rounded-[22px] mn-liquid-nav-border-layer"
+          />
+          <nav
+            ref={navRef}
+            className="mn-liquid-nav-rail relative z-10 flex min-w-0 items-center gap-1 rounded-[16px] p-[4px] text-[13px] font-medium"
+            aria-label="Minimal navigation"
           >
-            {t(`nav.${label.toLowerCase()}`)}
-          </Link>
-        );
-      })}
-    </nav>
+            {/* Sliding pill — absolutely positioned, slides via transform */}
+            <span
+              aria-hidden="true"
+              className="pointer-events-none absolute bottom-1 top-1 rounded-[12px] border border-[var(--mn-accent-border)] bg-[linear-gradient(180deg,var(--mn-nav-active-top),var(--mn-nav-active-bg))] shadow-[0_10px_24px_var(--mn-navbar-pill-shadow),inset_0_1px_0_var(--mn-navbar-pill-highlight)]"
+              style={{
+                left: 0,
+                width: pill.width,
+                opacity: pill.opacity,
+                transform: `translateX(${pill.x}px)`,
+                transition: "transform 0.22s cubic-bezier(0.16,1,0.3,1), width 0.22s cubic-bezier(0.16,1,0.3,1), opacity 0.15s ease",
+              }}
+            />
+
+            {navLinks.map(({ href, label }, i) => {
+              const active = getActive(href);
+              return (
+                <Link
+                  key={href}
+                  href={href}
+                  ref={(el) => { linkRefs.current[i] = el; }}
+                  className={cn(
+                    "relative z-10 rounded-[12px] px-3 py-[6px] no-underline transition-[color,background-color,opacity,transform] duration-150 [text-shadow:0_1px_1px_rgba(0,0,0,0.18)]",
+                    active ? "text-mn-accent-text" : "text-mn-navbar-link opacity-90 hover:opacity-100 hover:bg-mn-hover-bg"
+                  )}
+                  aria-current={active ? "page" : undefined}
+                >
+                  {t(`nav.${label.toLowerCase()}`)}
+                </Link>
+              );
+            })}
+          </nav>
+
+          <div className="relative z-10 flex shrink-0 items-center gap-2">
+            {/* Theme toggle */}
+            <button
+              type="button"
+              onClick={handleThemeToggle}
+              title={isDark ? "Switch to light" : "Switch to dark"}
+              aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+              className="flex h-[34px] w-[34px] items-center justify-center rounded-[14px] border border-[var(--mn-navbar-button-border)] bg-[linear-gradient(180deg,var(--mn-navbar-button-top),var(--mn-navbar-button-bottom))] text-mn-text-secondary opacity-80 shadow-[inset_0_1px_0_var(--mn-navbar-button-highlight),0_6px_18px_var(--mn-navbar-button-shadow)] transition-[background-color,opacity,transform,color] duration-150 hover:opacity-100 hover:text-mn-text-primary active:scale-[0.94]"
+            >
+              {isDark
+                ? <Sun size={15} strokeWidth={2} />
+                : <Moon size={15} strokeWidth={2} />}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 

@@ -89,11 +89,13 @@ const AppInner = ({ Component, pageProps }) => {
             </div>
           )}
           {(isMinimal || viewModePreference === null) && showNavbar && (
-            <div className="mn-minimal-only pt-12 pb-0 px-6 max-[500px]:pt-8 max-[500px]:px-5">
+            <div className="mn-minimal-only sticky top-0 z-50 w-full">
               <MinimalNav />
             </div>
           )}
-          <Component {...pageProps} />
+          <div className={clsx(isMinimal && "pt-20 max-[500px]:pt-[72px]")}>
+            <Component {...pageProps} />
+          </div>
         </main>
         {!isMinimal && viewModePreference !== null && showNavbar && (
           <div className="mn-rich-only">
