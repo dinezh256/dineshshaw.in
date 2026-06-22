@@ -307,10 +307,10 @@ export const socials = [
   {
     id: "instagram",
     class: "instagram",
-    url: "https://www.instagram.com/dineshlearning",
+    url: "https://www.instagram.com/dinexplores",
     icon: <Instagram size={24} strokeWidth={1.25} />,
     name: "Instagram",
-    username: "dineshlearning",
+    username: "dinexplores",
     showInFooter: false,
   },
   {
