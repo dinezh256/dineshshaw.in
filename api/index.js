@@ -45,4 +45,4 @@ const isViewsCached = (id) => {
   return !!(cached && Date.now() - cached.fetchedAt < VIEWS_CACHE_TTL);
 };
 
-export { getBlogViews, updateBlogViews, isViewsCached };
+export { getBlogViews, isViewsCached, updateBlogViews };

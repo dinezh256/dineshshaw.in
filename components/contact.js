@@ -1,7 +1,6 @@
 import clsx from "clsx";
-
-import AnimateText from "./animateText";
 import { socials } from "../utils";
+import AnimateText from "./animateText";
 
 const Contact = ({ animate }) => {
   return (

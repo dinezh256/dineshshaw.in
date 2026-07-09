@@ -1,7 +1,6 @@
 import Image from "next/image";
-
-import AnimateText from "./animateText";
 import { skillsList } from "../utils";
+import AnimateText from "./animateText";
 
 const SkillPill = ({ id, imgSrc, name, url }) => (
   <a

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { PrismAsync as SyntaxHighlighter } from "react-syntax-highlighter";
 import {
   vs,

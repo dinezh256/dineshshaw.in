@@ -22,7 +22,7 @@ const FooterColumn = ({ title, children }) => (
 
 const MinimalFooter = () => {
   const router = useRouter();
-  const { t } = useTranslation('common');
+  const { t } = useTranslation("common");
 
   const handleLanguageChange = (e) => {
     const locale = e.target.value;
@@ -34,7 +34,7 @@ const MinimalFooter = () => {
   return (
     <footer className="flex flex-col gap-12 text-[13px] text-mn-text-primary mt-[140px] pt-16 border-t border-mn-divider">
       <div className="flex justify-between flex-wrap gap-10">
-        <FooterColumn title={t('footer.nav')}>
+        <FooterColumn title={t("footer.nav")}>
           {navMenuItems.map(({ id, name, url }) => (
             <Link key={id} href={url} className={footerLinkCls}>
               {t(`nav.${name.toLowerCase()}`)}
@@ -42,7 +42,7 @@ const MinimalFooter = () => {
           ))}
         </FooterColumn>
 
-        <FooterColumn title={t('footer.social')}>
+        <FooterColumn title={t("footer.social")}>
           {footerSocials.map((social) => (
             <a
               key={social.id}
@@ -56,9 +56,14 @@ const MinimalFooter = () => {
           ))}
         </FooterColumn>
 
-        <FooterColumn title={t('footer.extra')}>
-          <a href={resumeLink} target="_blank" rel="noopener noreferrer" className={footerLinkCls}>
-            {t('footer.resume')}
+        <FooterColumn title={t("footer.extra")}>
+          <a
+            href={resumeLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={footerLinkCls}
+          >
+            {t("footer.resume")}
           </a>
           <a
             href="https://github.com/dinezh256/dineshshaw.in"
@@ -66,7 +71,7 @@ const MinimalFooter = () => {
             rel="noopener noreferrer"
             className={footerLinkCls}
           >
-            {t('footer.sourceCode')}
+            {t("footer.sourceCode")}
           </a>
         </FooterColumn>
       </div>

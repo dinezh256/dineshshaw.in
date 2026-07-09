@@ -1,27 +1,24 @@
+import { GoogleAnalytics } from "@next/third-parties/google";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import clsx from "clsx";
+import { IBM_Plex_Sans as FontFamily } from "next/font/google";
+import localFont from "next/font/local";
+import Head from "next/head";
 import { useRouter } from "next/router";
 import { appWithTranslation } from "next-i18next/pages";
-import nextI18NextConfig from "../next-i18next.config.js";
 import { useContext, useEffect } from "react";
-import clsx from "clsx";
-import Head from "next/head";
-import localFont from "next/font/local";
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Analytics } from "@vercel/analytics/react";
-import { IBM_Plex_Sans as FontFamily } from "next/font/google";
-import { GoogleAnalytics } from "@next/third-parties/google";
-
-import Navbar from "../components/navbar";
-import NameCard from "../components/nameCard";
 import Footer from "../components/footer";
-import MinimalToggle from "../components/minimal/minimalToggle";
 import MinimalNav from "../components/minimal/minimalNav";
+import MinimalToggle from "../components/minimal/minimalToggle";
+import NameCard from "../components/nameCard";
+import Navbar from "../components/navbar";
+import { GlobalContext, GlobalContextProvider } from "../contexts";
+import nextI18NextConfig from "../next-i18next.config.js";
 
-import { GlobalContextProvider, GlobalContext } from "../contexts";
-
-import { whiteListRoutes, navbarRoutes } from "../utils";
+import { navbarRoutes, whiteListRoutes } from "../utils";
 import "../styles/tailwind.css";
 import "../styles/globals.scss";
-
 
 const font = FontFamily({
   subsets: ["latin"],

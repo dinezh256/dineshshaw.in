@@ -1,24 +1,28 @@
-import path from "path";
 import { formatDuration, intervalToDuration } from "date-fns";
-import { GitHub, Instagram, Linkedin } from "react-feather";
-
-import PustackImage from "../assets/Pustack.webp";
+import path from "path";
+import {
+  Command,
+  GitHub,
+  Instagram,
+  Linkedin,
+  PenTool,
+  User,
+} from "react-feather";
 import CovidStatsImage from "../assets/CovidStats.webp";
-import RoyalMintImage from "../assets/RoyalMint.webp";
 import DubariImage from "../assets/Dubari.webp";
-
-import Javascript from "../assets/svg/javascript.svg";
-import React from "../assets/svg/react.svg";
-import NextJs from "../assets/svg/nextjs.svg";
-import HTML from "../assets/svg/html.svg";
-import SCSS from "../assets/svg/scss.svg";
-import StyledComponents from "../assets/svg/styled-components.svg";
-import SemanticUI from "../assets/svg/semantic.svg";
-import Firebase from "../assets/svg/firebase.svg";
+import PustackImage from "../assets/Pustack.webp";
+import RoyalMintImage from "../assets/RoyalMint.webp";
 import Express from "../assets/svg/express.svg";
-import Node from "../assets/svg/node.svg";
+import Firebase from "../assets/svg/firebase.svg";
 import Git from "../assets/svg/git.svg";
-import { PenTool, Command, User } from "react-feather";
+import HTML from "../assets/svg/html.svg";
+import Javascript from "../assets/svg/javascript.svg";
+import NextJs from "../assets/svg/nextjs.svg";
+import Node from "../assets/svg/node.svg";
+import React from "../assets/svg/react.svg";
+import SCSS from "../assets/svg/scss.svg";
+import SemanticUI from "../assets/svg/semantic.svg";
+import StyledComponents from "../assets/svg/styled-components.svg";
 
 export const humanizeDuration = (time) => {
   const durations = intervalToDuration({ start: 0, end: time * 1000 });
@@ -196,7 +200,7 @@ export const notFoundBlogMeta = {
 export const getBlogMeta = (slug) =>
   blogsList.find((blog) => blog.slug === slug);
 
-export const getDocBySlug = (slug, locale = 'en') => {
+export const getDocBySlug = (slug, locale = "en") => {
   const blogMeta = getBlogMeta(slug);
 
   if (blogMeta) {

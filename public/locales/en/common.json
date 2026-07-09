@@ -4,11 +4,7 @@
     "subtitle1": "5+ years across web and mobile products. Currently shipping at ",
     "subtitle2": ".",
     "rotatorPrefix": "Mostly in",
-    "rotatorWords": [
-      "JavaScript",
-      "React.js",
-      "React Native"
-    ],
+    "rotatorWords": ["JavaScript", "React.js", "React Native"],
     "availability": "Available for new opportunities",
     "resume": "Résumé",
     "contact": "Contact me",
@@ -32,11 +28,7 @@
     "kicker": "Work",
     "subtitle": "A mix of product work and personal builds across the web, with a frontend-first lens on usability, polish, and speed.",
     "rotatorPrefix": "Across",
-    "rotatorWords": [
-      "SaaS products",
-      "side projects",
-      "shipped interfaces"
-    ],
+    "rotatorWords": ["SaaS products", "side projects", "shipped interfaces"],
     "sectionTitle": "Projects",
     "viewCode": "View code",
     "visitSite": "Visit site",
@@ -47,11 +39,7 @@
     "kicker": "Blogs",
     "subtitle": "Writing about React, accessibility, performance, and the smaller implementation details that shape good product experiences.",
     "rotatorPrefix": "Usually on",
-    "rotatorWords": [
-      "React",
-      "accessibility",
-      "performance"
-    ],
+    "rotatorWords": ["React", "accessibility", "performance"],
     "sectionTitle": "Posts",
     "minRead": "min read",
     "sRead": "s read",

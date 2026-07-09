@@ -1,6 +1,6 @@
 import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
 import remarkDefinitionList from "remark-definition-list";
+import remarkGfm from "remark-gfm";
 
 import CodeBlock from "./codeblock";
 

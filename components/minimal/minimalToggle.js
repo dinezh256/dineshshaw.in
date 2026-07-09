@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Sun, Moon, Star } from "react-feather";
+import { Moon, Star, Sun } from "react-feather";
 import { GlobalContext } from "../../contexts";
 import { cn } from "../../lib/utils";
 
@@ -35,7 +35,7 @@ const MinimalToggle = () => {
           "flex items-center gap-0.5 overflow-hidden transition-[max-width,opacity] ease-spring-out",
           isMinimal
             ? "max-w-[200px] opacity-100 duration-[350ms]"
-            : "max-w-0 opacity-0 duration-[250ms]"
+            : "max-w-0 opacity-0 duration-[250ms]",
         )}
       >
         <button

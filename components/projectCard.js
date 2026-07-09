@@ -1,6 +1,6 @@
-import { useState } from "react";
-import Image from "next/image";
 import clsx from "clsx";
+import Image from "next/image";
+import { useState } from "react";
 
 const ProjectCard = ({ src, type, name, codeUrl, websiteUrl, position }) => {
   const [loaded, setLoaded] = useState(false);

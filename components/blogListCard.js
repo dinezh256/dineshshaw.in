@@ -1,15 +1,15 @@
-import Link from "next/link";
-import { useContext } from "react";
-import { useTranslation } from "next-i18next/pages";
-import { Calendar, Clock } from "react-feather";
 import { format } from "date-fns";
+import Link from "next/link";
+import { useTranslation } from "next-i18next/pages";
+import { useContext } from "react";
+import { Calendar, Clock } from "react-feather";
 
 import { GlobalContext } from "../contexts";
 import { humanizeDuration } from "../utils";
 
 const BlogCard = ({ id, slug, name, readDuration, createdAt, position }) => {
   const { setIsLoading } = useContext(GlobalContext);
-  const { t } = useTranslation('common');
+  const { t } = useTranslation("common");
   const blogName = t(`blogs.${id}.name`, { defaultValue: name });
 
   return (

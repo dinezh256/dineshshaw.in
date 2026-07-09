@@ -1,4 +1,4 @@
-import { useState, useEffect, createContext } from "react";
+import { createContext, useEffect, useState } from "react";
 
 export const GlobalContext = createContext();
 
@@ -20,7 +20,8 @@ export const GlobalContextProvider = ({ children }) => {
 
   // Hydrate from localStorage after mount to avoid SSR mismatch
   useEffect(() => {
-    const saved = localStorage.getItem("portfolio-view-mode") || "minimal-system";
+    const saved =
+      localStorage.getItem("portfolio-view-mode") || "minimal-system";
     if (VIEW_MODES.includes(saved)) {
       setViewModePreference(saved);
     } else {

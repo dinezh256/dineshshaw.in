@@ -1,12 +1,11 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next/pages";
-import { useRef, useEffect, useState, useContext } from "react";
-import { Sun, Moon } from "react-feather";
-import { cn } from "../../lib/utils";
-import { GlobalContext } from "../../contexts";
-import Image from "next/image";
+import { useContext, useEffect, useRef, useState } from "react";
+import { Moon, Sun } from "react-feather";
 import logo from "../../assets/logo.svg";
+import { GlobalContext } from "../../contexts";
+import { cn } from "../../lib/utils";
 
 const navLinks = [
   { href: "/", label: "About" },
@@ -16,7 +15,7 @@ const navLinks = [
 
 const MinimalNav = () => {
   const { pathname } = useRouter();
-  const { t } = useTranslation('common');
+  const { t } = useTranslation("common");
   const { viewMode, setViewMode } = useContext(GlobalContext);
   const navRef = useRef(null);
   const linkRefs = useRef([]);
@@ -29,7 +28,8 @@ const MinimalNav = () => {
   };
 
   const getActive = (href) => {
-    if (href === "/blogs") return pathname === "/blogs" || pathname.startsWith("/blogs/");
+    if (href === "/blogs")
+      return pathname === "/blogs" || pathname.startsWith("/blogs/");
     return pathname === href;
   };
 
@@ -93,19 +93,19 @@ const MinimalNav = () => {
             aria-hidden="true"
             className="pointer-events-none absolute inset-0 rounded-[24px] mn-liquid-nav-border-layer"
           />
-          
+
           <div className="relative z-10 flex flex-1 items-center justify-start ml-1">
             <Link
               href="/"
               className="flex w-[34px] h-[34px] items-center justify-center transition-transform duration-150 active:scale-[0.94] group"
               aria-label="Home"
             >
-              <div 
+              <div
                 className={cn(
                   "w-[34px] h-[34px] opacity-85 group-hover:opacity-100 transition-opacity duration-150",
-                  isDark 
-                    ? "bg-[linear-gradient(180deg,rgba(255,255,255,0.8),rgba(255,255,255,0.4))] shadow-[0_2px_10px_rgba(0,0,0,0.5)]" 
-                    : "bg-[linear-gradient(180deg,rgba(0,0,0,0.5),rgba(0,0,0,0.2))] shadow-[0_2px_10px_rgba(255,255,255,0.75)]"
+                  isDark
+                    ? "bg-[linear-gradient(180deg,rgba(255,255,255,0.8),rgba(255,255,255,0.4))] shadow-[0_2px_10px_rgba(0,0,0,0.5)]"
+                    : "bg-[linear-gradient(180deg,rgba(0,0,0,0.5),rgba(0,0,0,0.2))] shadow-[0_2px_10px_rgba(255,255,255,0.75)]",
                 )}
                 style={{
                   WebkitMaskImage: `url(${logo.src})`,
@@ -135,7 +135,8 @@ const MinimalNav = () => {
                 width: pill.width,
                 opacity: pill.opacity,
                 transform: `translateX(${pill.x}px)`,
-                transition: "transform 0.22s cubic-bezier(0.16,1,0.3,1), width 0.22s cubic-bezier(0.16,1,0.3,1), opacity 0.15s ease",
+                transition:
+                  "transform 0.22s cubic-bezier(0.16,1,0.3,1), width 0.22s cubic-bezier(0.16,1,0.3,1), opacity 0.15s ease",
               }}
             />
 
@@ -145,10 +146,14 @@ const MinimalNav = () => {
                 <Link
                   key={href}
                   href={href}
-                  ref={(el) => { linkRefs.current[i] = el; }}
+                  ref={(el) => {
+                    linkRefs.current[i] = el;
+                  }}
                   className={cn(
                     "relative z-10 flex items-center justify-center rounded-[12px] px-3 h-[26px] no-underline transition-[color,background-color,opacity,transform] duration-150 [text-shadow:0_1px_1px_rgba(0,0,0,0.18)]",
-                    active ? "text-mn-accent-text" : "text-mn-navbar-link opacity-90 hover:opacity-100 hover:bg-mn-hover-bg"
+                    active
+                      ? "text-mn-accent-text"
+                      : "text-mn-navbar-link opacity-90 hover:opacity-100 hover:bg-mn-hover-bg",
                   )}
                   aria-current={active ? "page" : undefined}
                 >
@@ -164,12 +169,16 @@ const MinimalNav = () => {
               type="button"
               onClick={handleThemeToggle}
               title={isDark ? "Switch to light" : "Switch to dark"}
-              aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+              aria-label={
+                isDark ? "Switch to light mode" : "Switch to dark mode"
+              }
               className="flex h-[34px] w-[34px] items-center justify-center rounded-[16px] bg-[linear-gradient(180deg,var(--mn-navbar-button-top),var(--mn-navbar-button-bottom))] text-mn-text-secondary opacity-90 shadow-[inset_0_1px_0_var(--mn-navbar-button-highlight),0_6px_18px_var(--mn-navbar-button-shadow)] transition-[background-color,opacity,transform,color] duration-150 hover:opacity-100 hover:text-mn-text-primary active:scale-[0.94] border border-[var(--mn-navbar-button-border)]"
             >
-              {isDark
-                ? <Sun size={15} strokeWidth={2} />
-                : <Moon size={15} strokeWidth={2} />}
+              {isDark ? (
+                <Sun size={15} strokeWidth={2} />
+              ) : (
+                <Moon size={15} strokeWidth={2} />
+              )}
             </button>
           </div>
         </div>

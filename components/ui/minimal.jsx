@@ -1,9 +1,14 @@
-import { cn } from "../../lib/utils";
-import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem } from "./dropdown-menu";
 import { ChevronDown } from "react-feather";
-import { Button, buttonVariants } from "./button";
-import { Separator } from "./separator";
+import { cn } from "../../lib/utils";
 import { Badge } from "./badge";
+import { Button, buttonVariants } from "./button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "./dropdown-menu";
+import { Separator } from "./separator";
 
 // ─── Button ───────────────────────────────────────────────────────────────────
 
@@ -11,7 +16,16 @@ import { Badge } from "./badge";
  * MnButton — shadcn Button/buttonVariants with mn-* token overrides.
  * Renders as <a> for href links, <Button> for onClick actions.
  */
-export function MnButton({ className, variant, onClick, href, children, target, rel, ...props }) {
+export function MnButton({
+  className,
+  variant,
+  onClick,
+  href,
+  children,
+  target,
+  rel,
+  ...props
+}) {
   const base =
     "text-[13px] px-3 py-[7px] h-auto gap-1.5 rounded-lg leading-none transition-[opacity,background-color,border-color,transform] duration-150 hover:-translate-y-px";
 
@@ -57,7 +71,10 @@ export function MnButton({ className, variant, onClick, href, children, target, 
 export function MnSeparator({ className, style }) {
   return (
     <Separator
-      className={cn("my-10 bg-mn-divider border-none h-px shrink-0 w-full", className)}
+      className={cn(
+        "my-10 bg-mn-divider border-none h-px shrink-0 w-full",
+        className,
+      )}
       style={style}
     />
   );
@@ -73,7 +90,7 @@ export function MnAvailabilityBadge({ children, className }) {
     <Badge
       className={cn(
         "flex items-center gap-[7px] w-fit text-[13px] font-medium mt-8 mb-[26px] px-[10px] py-1 rounded-full text-mn-text-secondary bg-mn-btn-bg border border-mn-border-dim h-auto",
-        className
+        className,
       )}
     >
       <span className="w-[7px] h-[7px] rounded-full bg-[#22c55e] shrink-0" />
@@ -92,7 +109,7 @@ export function MnSectionTitle({ children, className }) {
     <h2
       className={cn(
         "flex items-center gap-[10px] text-[11px] font-semibold tracking-[0.14em] uppercase mb-[18px] text-mn-accent-text after:content-[''] after:flex-1 after:h-px after:bg-current after:opacity-25",
-        className
+        className,
       )}
     >
       {children}
@@ -185,7 +202,7 @@ export function MnHoverRow({ as: Tag = "div", className, children, ...props }) {
     <Tag
       className={cn(
         "group py-[10px] px-[10px] rounded-lg -mx-[10px] transition-[background,transform] duration-[120ms] text-mn-text-primary hover:bg-mn-hover-bg hover:-translate-y-px",
-        className
+        className,
       )}
       {...props}
     >
@@ -208,7 +225,7 @@ export function MnInlineLink({ href, children, className, ...props }) {
       rel="noopener noreferrer"
       className={cn(
         "no-underline border-b border-mn-accent-border text-mn-text-primary opacity-80 transition-[opacity,border-color] duration-150 hover:opacity-100 hover:border-mn-accent",
-        className
+        className,
       )}
       {...props}
     >
@@ -223,20 +240,28 @@ export function MnInlineLink({ href, children, className, ...props }) {
  * MnDropdown — A minimal themed reusable dropdown wrapping Shadcn DropdownMenu.
  */
 export function MnDropdown({ value, options = [], onChange, className }) {
-  const selectedLabel = options.find((opt) => opt.value === value)?.label || value;
+  const selectedLabel =
+    options.find((opt) => opt.value === value)?.label || value;
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger
         className={cn(
           "flex items-center justify-between gap-3 bg-transparent border border-mn-divider rounded-md px-2 py-1.5 text-[12px] cursor-pointer outline-none hover:border-mn-accent focus:border-mn-accent focus-visible:outline-none focus-visible:ring-0 text-mn-text-primary transition-colors duration-150 min-w-[80px]",
-          className
+          className,
         )}
       >
         <span>{selectedLabel}</span>
-        <ChevronDown size={13} className="text-mn-text-secondary" strokeWidth={2} />
+        <ChevronDown
+          size={13}
+          className="text-mn-text-secondary"
+          strokeWidth={2}
+        />
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="bg-mn-bg border-mn-divider min-w-[80px]">
+      <DropdownMenuContent
+        align="end"
+        className="bg-mn-bg border-mn-divider min-w-[80px]"
+      >
         {options.map((opt) => (
           <DropdownMenuItem
             key={opt.value}

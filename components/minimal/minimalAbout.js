@@ -1,30 +1,32 @@
 import Image from "next/image";
+import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next/pages";
 import { ChevronsDown, ChevronsUp, Home, MapPin } from "react-feather";
-import MinimalFooter from "./minimalFooter";
-import { resumeLink, timeline, skillsList, socials } from "../../utils";
+import { resumeLink, skillsList, socials, timeline } from "../../utils";
 import {
-  MnButton,
-  MnSeparator,
   MnAvailabilityBadge,
-  MnSectionTitle,
-  MnPageHeader,
+  MnButton,
   MnHoverRow,
+  MnPageHeader,
+  MnSectionTitle,
+  MnSeparator,
 } from "../ui/minimal";
-
-import { useRouter } from "next/router";
+import MinimalFooter from "./minimalFooter";
 
 const formatTimelineDate = (dateStr, locale, t) => {
   if (dateStr === "Present") return t("about.now");
   const d = new Date(dateStr);
   if (!isNaN(d.getTime())) {
-    return d.toLocaleDateString(locale || "en", { month: "short", year: "numeric" });
+    return d.toLocaleDateString(locale || "en", {
+      month: "short",
+      year: "numeric",
+    });
   }
   return dateStr;
 };
 
 const MinimalAbout = () => {
-  const { t } = useTranslation('common');
+  const { t } = useTranslation("common");
   const { locale } = useRouter();
 
   const onClickContact = () => {
@@ -40,15 +42,16 @@ const MinimalAbout = () => {
       <div className="minimal-page">
         <MnPageHeader
           kicker="Dinesh Shaw"
-          title={t('about.title')}
+          title={t("about.title")}
           subtitle={
             <>
-              {t('about.subtitle1')}
-              <strong>Auzmor</strong>{t('about.subtitle2')}
+              {t("about.subtitle1")}
+              <strong>Auzmor</strong>
+              {t("about.subtitle2")}
             </>
           }
-          rotatorPrefix={t('about.rotatorPrefix')}
-          rotatorWords={t('about.rotatorWords', { returnObjects: true })}
+          rotatorPrefix={t("about.rotatorPrefix")}
+          rotatorWords={t("about.rotatorWords", { returnObjects: true })}
         >
           {/* Meta */}
           <div className="flex items-center gap-[14px] flex-wrap mb-5 text-[13px] font-medium text-mn-text-secondary">
@@ -61,23 +64,33 @@ const MinimalAbout = () => {
               <span>JSR</span>
             </span>
             <span className="inline-flex items-center gap-1.5 leading-none">
-              <span aria-hidden="true" className="inline-flex items-center leading-none translate-y-[-0.5px]">🇮🇳</span>
+              <span
+                aria-hidden="true"
+                className="inline-flex items-center leading-none translate-y-[-0.5px]"
+              >
+                🇮🇳
+              </span>
               <span>India</span>
             </span>
           </div>
 
           {/* Availability */}
-          <MnAvailabilityBadge>{t('about.availability')}</MnAvailabilityBadge>
+          <MnAvailabilityBadge>{t("about.availability")}</MnAvailabilityBadge>
 
           {/* CTAs */}
           <div className="flex gap-2.5 flex-wrap">
-            <MnButton href={resumeLink} target="_blank" rel="noopener noreferrer" variant="resume">
+            <MnButton
+              href={resumeLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              variant="resume"
+            >
               <ChevronsUp size={18} strokeWidth={2.5} aria-hidden="true" />
-              <span>{t('about.resume')}</span>
+              <span>{t("about.resume")}</span>
             </MnButton>
             <MnButton onClick={onClickContact}>
               <ChevronsDown size={18} strokeWidth={2.5} aria-hidden="true" />
-              <span>{t('about.contact')}</span>
+              <span>{t("about.contact")}</span>
             </MnButton>
           </div>
         </MnPageHeader>
@@ -86,9 +99,9 @@ const MinimalAbout = () => {
 
         {/* About */}
         <section className="mn-section">
-          <MnSectionTitle>{t('about.sectionTitleAbout')}</MnSectionTitle>
+          <MnSectionTitle>{t("about.sectionTitleAbout")}</MnSectionTitle>
           <ul className="list-none p-0 m-0 flex flex-col gap-[11px]">
-            {t('about.bullets', { returnObjects: true }).map((item, i) => {
+            {t("about.bullets", { returnObjects: true }).map((item, i) => {
               // Simple replacement for <1>...</1> and <2>...</2> tags from translation
               const parts = item.split(/(<\d>.*?<\/\d>)/g);
               return (
@@ -113,7 +126,7 @@ const MinimalAbout = () => {
 
         {/* Experience */}
         <section className="mn-section">
-          <MnSectionTitle>{t('about.sectionTitleExperience')}</MnSectionTitle>
+          <MnSectionTitle>{t("about.sectionTitleExperience")}</MnSectionTitle>
           <div className="flex flex-col gap-7">
             {timeline.map(({ orgId, orgName, yearwise }) => {
               const isCurrent = yearwise.some((y) => y.end === "Present");
@@ -127,7 +140,7 @@ const MinimalAbout = () => {
                     {isCurrent && (
                       <span className="inline-flex items-center gap-[5px] text-[10.5px] font-semibold tracking-wide uppercase px-2 py-[3px] rounded-full bg-[#22c55e]/15 text-[#22c55e]">
                         <span className="w-[5px] h-[5px] rounded-full bg-[#22c55e]" />
-                        {t('about.now')}
+                        {t("about.now")}
                       </span>
                     )}
                   </div>
@@ -151,7 +164,8 @@ const MinimalAbout = () => {
                           {position}
                         </span>
                         <span className="text-[12px] text-mn-text-secondary opacity-55 whitespace-nowrap tabular-nums">
-                          {formatTimelineDate(start, locale, t)} – {formatTimelineDate(end, locale, t)}
+                          {formatTimelineDate(start, locale, t)} –{" "}
+                          {formatTimelineDate(end, locale, t)}
                         </span>
                       </div>
                     ))}
@@ -166,7 +180,7 @@ const MinimalAbout = () => {
 
         {/* Skills */}
         <section className="mn-section">
-          <MnSectionTitle>{t('about.sectionTitleSkills')}</MnSectionTitle>
+          <MnSectionTitle>{t("about.sectionTitleSkills")}</MnSectionTitle>
           <div className="flex flex-wrap gap-2">
             {skillsList.map((s) => (
               <a
@@ -194,7 +208,7 @@ const MinimalAbout = () => {
 
         {/* Connect */}
         <section className="mn-section mn-connect-section" tabIndex={-1}>
-          <MnSectionTitle>{t('about.sectionTitleConnect')}</MnSectionTitle>
+          <MnSectionTitle>{t("about.sectionTitleConnect")}</MnSectionTitle>
           <div className="flex flex-col gap-1">
             {[
               ...socials.map((social) => ({
@@ -222,9 +236,15 @@ const MinimalAbout = () => {
                 rel={rel}
                 className="flex items-center gap-3 no-underline text-[14px] py-[9px] hover:bg-mn-toggle-seg-hover group"
               >
-                <span className="font-medium min-w-[72px] text-mn-text-primary">{name}</span>
-                <span className="text-[13px] flex-1 opacity-45 group-hover:opacity-100 transition-opacity duration-150 mn-handle-text">{handle}</span>
-                <span className="text-[12px] opacity-25 ml-auto transition-[transform,opacity,color] duration-[120ms] group-hover:translate-x-[1px] group-hover:-translate-y-[1px] group-hover:opacity-100 group-hover:text-mn-accent">↗</span>
+                <span className="font-medium min-w-[72px] text-mn-text-primary">
+                  {name}
+                </span>
+                <span className="text-[13px] flex-1 opacity-45 group-hover:opacity-100 transition-opacity duration-150 mn-handle-text">
+                  {handle}
+                </span>
+                <span className="text-[12px] opacity-25 ml-auto transition-[transform,opacity,color] duration-[120ms] group-hover:translate-x-[1px] group-hover:-translate-y-[1px] group-hover:opacity-100 group-hover:text-mn-accent">
+                  ↗
+                </span>
               </MnHoverRow>
             ))}
           </div>

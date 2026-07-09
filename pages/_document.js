@@ -1,10 +1,13 @@
 /* eslint-disable @next/next/inline-script-id */
-import Document, { Html, Head, Main, NextScript } from "next/document";
+import Document, { Head, Html, Main, NextScript } from "next/document";
 
 class MyDocument extends Document {
   render() {
     return (
-      <Html lang={this.props.__NEXT_DATA__.locale || 'en'} data-scroll-behavior="smooth">
+      <Html
+        lang={this.props.__NEXT_DATA__.locale || "en"}
+        data-scroll-behavior="smooth"
+      >
         <Head>
           <meta charSet="utf-8" />
           <link rel="icon" href="/favicon.ico" />

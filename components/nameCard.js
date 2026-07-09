@@ -1,6 +1,6 @@
-import { useState } from "react";
-import Image from "next/image";
 import clsx from "clsx";
+import Image from "next/image";
+import { useState } from "react";
 
 import DisplayImage from "../assets/DisplayPicture.webp";
 import logo from "../assets/logo.svg";
