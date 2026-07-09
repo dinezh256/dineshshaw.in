@@ -37,12 +37,40 @@ const MinimalNav = () => {
 
   // Measure active link relative to nav and slide pill to it
   useEffect(() => {
-    const el = linkRefs.current[activeIdx];
     const nav = navRef.current;
-    if (!el || !nav) return;
-    const navRect = nav.getBoundingClientRect();
-    const elRect = el.getBoundingClientRect();
-    setPill({ x: elRect.left - navRect.left, width: elRect.width, opacity: 1 });
+    if (!nav) return;
+
+    const measure = () => {
+      const el = linkRefs.current[activeIdx];
+      if (!el) return;
+      const navRect = nav.getBoundingClientRect();
+      const elRect = el.getBoundingClientRect();
+      // Only update when link has positive width (i.e. is visible / has rendered)
+      if (elRect.width > 0) {
+        setPill({
+          x: elRect.left - navRect.left,
+          width: elRect.width,
+          opacity: 1,
+        });
+      }
+    };
+
+    // Run initial measurement
+    measure();
+
+    // Use ResizeObserver to measure whenever the nav or its child links change size/visibility
+    const resizeObserver = new ResizeObserver(() => {
+      measure();
+    });
+
+    resizeObserver.observe(nav);
+    linkRefs.current.forEach((el) => {
+      if (el) resizeObserver.observe(el);
+    });
+
+    return () => {
+      resizeObserver.disconnect();
+    };
   }, [activeIdx, pathname, t]);
 
   return (
