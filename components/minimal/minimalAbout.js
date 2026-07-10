@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next/pages";
@@ -28,6 +29,40 @@ const formatTimelineDate = (dateStr, locale, t) => {
 const MinimalAbout = () => {
   const { t } = useTranslation("common");
   const { locale } = useRouter();
+  const timelineRef = useRef(null);
+
+  useEffect(() => {
+    const container = timelineRef.current;
+    if (!container) return;
+
+    const handleScroll = () => {
+      const rect = container.getBoundingClientRect();
+      const triggerY = window.innerHeight * 0.65;
+      
+      const totalHeight = rect.height;
+      const activeHeight = Math.max(0, Math.min(totalHeight, triggerY - rect.top));
+      container.style.setProperty("--timeline-active-height", `${activeHeight}px`);
+
+      const dots = container.querySelectorAll("[data-timeline-dot]");
+      dots.forEach((dot) => {
+        const dotRect = dot.getBoundingClientRect();
+        if (dotRect.top < triggerY) {
+          dot.classList.add("is-active");
+        } else {
+          dot.classList.remove("is-active");
+        }
+      });
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll);
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
+  }, []);
 
   const onClickContact = () => {
     const contactSection = document.querySelector(".mn-connect-section");
@@ -94,8 +129,7 @@ const MinimalAbout = () => {
             </MnButton>
           </div>
         </MnPageHeader>
-
-        <MnSeparator />
+        <MnSeparator className="bg-transparent" />
 
         {/* About */}
         <section className="mn-section">
@@ -121,19 +155,34 @@ const MinimalAbout = () => {
             })}
           </ul>
         </section>
-
-        <MnSeparator />
+        <MnSeparator className="bg-transparent" />
 
         {/* Experience */}
         <section className="mn-section">
           <MnSectionTitle>{t("about.sectionTitleExperience")}</MnSectionTitle>
-          <div className="flex flex-col gap-7">
+          <div ref={timelineRef} className="flex flex-col relative pl-6 ml-[7px] gap-8 mt-2">
+            {/* Base timeline line */}
+            <div className="absolute left-0 top-[10px] bottom-[15px] w-px bg-mn-divider" />
+            {/* Active timeline line */}
+            <div
+              className="absolute left-0 top-[10px] w-px bg-[#22c55e] origin-top transition-[height] duration-75 ease-out shadow-[0_0_8px_rgba(34,197,94,0.7)]"
+              style={{ height: "var(--timeline-active-height, 0px)" }}
+            />
+
             {timeline.map(({ orgId, orgName, yearwise }) => {
               const isCurrent = yearwise.some((y) => y.end === "Present");
               return (
-                <div key={orgId}>
+                <div key={orgId} className="relative flex flex-col gap-2.5">
+                  {/* Company Stepper dot */}
+                  <span
+                    data-timeline-dot="company"
+                    className={`absolute -left-[30px] top-[5px] w-[12px] h-[12px] rounded-full border-2 bg-mn-bg transition-all duration-300 ${
+                      isCurrent ? "border-[#22c55e]" : "border-mn-border-dim"
+                    }`}
+                  />
+                  
                   {/* Org header */}
-                  <div className="flex items-center gap-2 mb-3">
+                  <div className="flex items-center gap-2">
                     <span className="text-[14.5px] font-semibold text-mn-text-primary">
                       {t(`companies.${orgId}`, { defaultValue: orgName })}
                     </span>
@@ -145,20 +194,17 @@ const MinimalAbout = () => {
                     )}
                   </div>
 
-                  {/* Roles — connected by a left border timeline */}
-                  <div className="flex flex-col border-l-2 border-mn-divider pl-4 ml-[3px] gap-0">
+                  {/* Roles */}
+                  <div className="flex flex-col gap-0.5 pl-1">
                     {yearwise.map(({ id, start, end, position }) => (
                       <div
                         key={id}
-                        className="relative flex items-center justify-between gap-4 py-[9px]"
+                        className="relative flex items-center justify-between gap-4 py-[6px]"
                       >
                         {/* Dot on the timeline line */}
                         <span
-                          className={`absolute -left-[21px] w-[8px] h-[8px] rounded-full border-2 transition-colors ${
-                            end === "Present"
-                              ? "bg-[#22c55e] border-[#22c55e]"
-                              : "bg-mn-bg border-mn-divider"
-                          }`}
+                          data-timeline-dot="role"
+                          className="absolute -left-[31px] w-[6px] h-[6px] rounded-full border border-mn-border-dim bg-mn-bg transition-all duration-300"
                         />
                         <span className="text-[13.5px] font-medium text-mn-text-primary">
                           {position}
@@ -175,8 +221,7 @@ const MinimalAbout = () => {
             })}
           </div>
         </section>
-
-        <MnSeparator />
+        <MnSeparator className="bg-transparent" />
 
         {/* Skills */}
         <section className="mn-section">
@@ -203,8 +248,7 @@ const MinimalAbout = () => {
             ))}
           </div>
         </section>
-
-        <MnSeparator />
+        <MnSeparator className="bg-transparent" />
 
         {/* Connect */}
         <section className="mn-section mn-connect-section" tabIndex={-1}>
