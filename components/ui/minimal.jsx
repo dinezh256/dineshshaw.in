@@ -185,8 +185,46 @@ export function MnSectionTitle({ children, className }) {
  * @param {string[]} words  — words to cycle
  */
 export function MnWordRotator({ prefix, words }) {
+  if (!words || words.length === 0) return null;
+
+  const N = words.length;
+  const duration = N * 2;
+  const animName = `changeword-dynamic-${N}`;
+
+  // Calculate percentage steps for exactly 0.2s transition and 1.8s hold per word
+  const stepIn = ((0.2 / duration) * 100).toFixed(2);
+  const stepHold = ((1.8 / duration) * 100).toFixed(2);
+  const stepOut = ((2.0 / duration) * 100).toFixed(2);
+
+  const keyframesStyle = `
+    @keyframes ${animName} {
+      0% {
+        transform: translateY(10px) translateZ(0);
+        opacity: 0;
+      }
+      ${stepIn}% {
+        opacity: 1;
+        transform: translateY(0) translateZ(0);
+      }
+      ${stepHold}% {
+        opacity: 1;
+        filter: blur(0px);
+        transform: translateY(0) translateZ(0);
+      }
+      ${stepOut}% {
+        opacity: 0;
+        transform: translateY(-10px) translateZ(0);
+        filter: blur(3px);
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+  `;
+
   return (
     <p className="relative mt-[14px] text-[14px] font-medium leading-[1.65] min-h-[24px] text-mn-text-secondary">
+      <style dangerouslySetInnerHTML={{ __html: keyframesStyle }} />
       {prefix}
       <span className="inline relative">
         {words.map((word, i) => (
@@ -194,7 +232,7 @@ export function MnWordRotator({ prefix, words }) {
             key={word}
             className="absolute left-[6px] opacity-0 w-max font-semibold text-mn-text-primary"
             style={{
-              animation: "changeword 6s linear infinite",
+              animation: `${animName} ${duration}s linear infinite`,
               animationDelay: `${i * 2}s`,
             }}
           >

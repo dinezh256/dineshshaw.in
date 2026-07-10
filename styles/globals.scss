@@ -2220,6 +2220,30 @@ body {
   }
 }
 
+@keyframes mn-changeword-4 {
+  0% {
+    transform: translateY(10px) translateZ(0);
+    opacity: 0;
+  }
+  2.5% {
+    opacity: 1;
+    transform: translateY(0) translateZ(0);
+  }
+  22.5% {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateY(0) translateZ(0);
+  }
+  25% {
+    opacity: 0;
+    transform: translateY(-10px) translateZ(0);
+    filter: blur(3px);
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 @keyframes mn-changeword {
   0% {
     transform: translateY(10px);
