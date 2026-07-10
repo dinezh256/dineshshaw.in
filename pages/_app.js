@@ -8,11 +8,8 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { appWithTranslation } from "next-i18next/pages";
 import { useContext, useEffect } from "react";
-import Footer from "../components/footer";
 import MinimalNav from "../components/minimal/minimalNav";
 import MinimalToggle from "../components/minimal/minimalToggle";
-import NameCard from "../components/nameCard";
-import Navbar from "../components/navbar";
 import { GlobalContext, GlobalContextProvider } from "../contexts";
 import nextI18NextConfig from "../next-i18next.config.js";
 
@@ -68,37 +65,22 @@ const AppInner = ({ Component, pageProps }) => {
         <link rel="canonical" href="https://dineshshaw.in" />
       </Head>
       <div className={font.className} style={{ display: "contents" }}>
-        {!isMinimal && viewModePreference !== null && showNavbar && (
-          <div className="mn-rich-only">
-            <Navbar />
-          </div>
-        )}
         <main
           className={clsx(
             "main-wrapper",
             acorn.variable,
-            isMinimal && "main-wrapper--minimal",
+            "main-wrapper--minimal",
           )}
         >
-          {!isMinimal && viewModePreference !== null && showComponent && (
-            <div className="mn-rich-only">
-              <NameCard />
-            </div>
-          )}
-          {(isMinimal || viewModePreference === null) && showNavbar && (
+          {showNavbar && (
             <div className="mn-minimal-only sticky top-0 z-50 w-full">
               <MinimalNav />
             </div>
           )}
-          <div className={clsx(isMinimal && "pt-20 max-[500px]:pt-[72px]")}>
+          <div className="pt-20 max-[500px]:pt-[72px]">
             <Component {...pageProps} />
           </div>
         </main>
-        {!isMinimal && viewModePreference !== null && showNavbar && (
-          <div className="mn-rich-only">
-            <Footer />
-          </div>
-        )}
 
         {showNavbar && <MinimalToggle />}
       </div>

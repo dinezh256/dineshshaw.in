@@ -2,16 +2,10 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next/pages";
 import { serverSideTranslations } from "next-i18next/pages/serverSideTranslations";
-import { useContext } from "react";
-import AnimateText from "../../components/animateText";
-import BlogCard from "../../components/blogListCard";
 import MinimalBlogs from "../../components/minimal/minimalBlogs";
-import { GlobalContext } from "../../contexts";
 import nextI18NextConfig from "../../next-i18next.config.js";
-import { blogsList } from "../../utils";
 
 const Blogs = () => {
-  const { isMinimal, viewModePreference } = useContext(GlobalContext);
   const { t } = useTranslation("common");
   const { locale } = useRouter();
 
@@ -42,25 +36,7 @@ const Blogs = () => {
         <link rel="canonical" href="https://dineshshaw.in/blogs" />
       </Head>
 
-      {(isMinimal || viewModePreference === null) && (
-        <div className="mn-minimal-only">
-          <MinimalBlogs />
-        </div>
-      )}
-      {(!isMinimal || viewModePreference === null) && (
-        <div className="mn-rich-only">
-          <div className="blogs-section">
-            <AnimateText text="BLOGS" />
-            <ul className="blog-list">
-              {blogsList.map((blog, position) => (
-                <li key={blog.id}>
-                  <BlogCard {...blog} position={position} />
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      )}
+      <MinimalBlogs />
     </>
   );
 };

@@ -2,7 +2,7 @@ import { createContext, useEffect, useState } from "react";
 
 export const GlobalContext = createContext();
 
-const VIEW_MODES = ["rich", "minimal-system", "minimal-light", "minimal-dark"];
+const VIEW_MODES = ["minimal-system", "minimal-light", "minimal-dark"];
 const readSystemMinimalMode = () => {
   if (typeof window === "undefined") {
     return "minimal-light";
@@ -65,7 +65,6 @@ export const GlobalContextProvider = ({ children }) => {
       const key = e.key.toLowerCase();
       let newMode = null;
 
-      if (key === "r") newMode = "rich";
       if (key === "m") newMode = "minimal-system";
       if (key === "l") newMode = "minimal-light";
       if (key === "d") newMode = "minimal-dark";
@@ -99,9 +98,9 @@ export const GlobalContextProvider = ({ children }) => {
   const viewMode =
     (viewModePreference === "minimal-system"
       ? systemMinimalMode
-      : viewModePreference) || "rich";
+      : viewModePreference) || "minimal-system";
 
-  const isMinimal = viewMode !== "rich" && viewModePreference !== null;
+  const isMinimal = true;
 
   return (
     <GlobalContext.Provider

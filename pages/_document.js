@@ -51,11 +51,12 @@ class MyDocument extends Document {
                 (function() {
                   try {
                     var mode = localStorage.getItem('portfolio-view-mode') || 'minimal-system';
-                    window.__INITIAL_MODE__ = mode;
-                    window.__INITIAL_IS_MINIMAL__ = mode.startsWith('minimal');
-                    if (window.__INITIAL_IS_MINIMAL__) {
-                      document.body.classList.add(mode);
+                    if (mode === 'rich') {
+                      mode = 'minimal-system';
                     }
+                    window.__INITIAL_MODE__ = mode;
+                    window.__INITIAL_IS_MINIMAL__ = true;
+                    document.body.classList.add(mode);
                   } catch (e) {}
                 })();
                 `,
