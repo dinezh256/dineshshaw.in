@@ -39,7 +39,7 @@ const MinimalBlogs = () => {
           rotatorWords={t("blogs.rotatorWords", { returnObjects: true })}
         />
 
-        <MnSeparator />
+        <MnSeparator className="bg-transparent" />
 
         {/* Posts */}
         <section className="mn-section">

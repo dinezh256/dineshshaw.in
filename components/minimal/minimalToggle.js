@@ -1,20 +1,10 @@
 import { useContext } from "react";
-import { Moon, Star, Sun } from "react-feather";
+import { Moon, Monitor, Sun } from "react-feather";
 import { GlobalContext } from "../../contexts";
 import { cn } from "../../lib/utils";
 
 const MinimalToggle = () => {
-  const { viewMode, setViewMode, enterMinimalMode } = useContext(GlobalContext);
-  const isMinimal = viewMode !== "rich";
-
-  const handleModeChange = () => {
-    if (isMinimal) {
-      setViewMode("rich");
-    } else {
-      enterMinimalMode();
-    }
-    window.scrollTo({ top: 0, behavior: "instant" });
-  };
+  const { viewModePreference, setViewMode } = useContext(GlobalContext);
 
   // Base segment style
   const seg =
@@ -25,54 +15,36 @@ const MinimalToggle = () => {
 
   return (
     <div
-      className={`minimal-toggle--${viewMode} w-fit mx-auto my-[60px] mb-10 flex items-center gap-0.5 p-[3px] rounded-lg border border-mn-toggle-border bg-mn-toggle-bg select-none transition-all duration-[180ms]`}
+      className="w-fit mx-auto my-[60px] mb-10 flex items-center gap-0.5 p-[3px] rounded-lg border border-mn-toggle-border bg-mn-toggle-bg select-none transition-all duration-[180ms]"
       role="group"
-      aria-label="View mode"
+      aria-label="Theme preference"
     >
-      {/* Light + Dark — slide in when minimal */}
-      <div
-        className={cn(
-          "flex items-center gap-0.5 overflow-hidden transition-[max-width,opacity] ease-spring-out",
-          isMinimal
-            ? "max-w-[200px] opacity-100 duration-[350ms]"
-            : "max-w-0 opacity-0 duration-[250ms]",
-        )}
-      >
-        <button
-          className={cn(seg, viewMode === "minimal-light" && segActive)}
-          onClick={() => setViewMode("minimal-light")}
-          aria-pressed={viewMode === "minimal-light"}
-          title="Light"
-        >
-          <Sun size={12} strokeWidth={2} />
-          <span>Light</span>
-        </button>
-        <button
-          className={cn(seg, viewMode === "minimal-dark" && segActive)}
-          onClick={() => setViewMode("minimal-dark")}
-          aria-pressed={viewMode === "minimal-dark"}
-          title="Dark"
-        >
-          <Moon size={12} strokeWidth={2} />
-          <span>Dark</span>
-        </button>
-        {/* Separator */}
-        <div className="w-px h-[14px] bg-mn-divider mx-1" />
-      </div>
-
-      {/* Rich / Minimal — always visible */}
       <button
-        className={cn(seg, !isMinimal && segActive)}
-        onClick={handleModeChange}
-        aria-pressed={!isMinimal}
-        title={isMinimal ? "Rich" : "Minimal"}
+        className={cn(seg, viewModePreference === "minimal-light" && segActive)}
+        onClick={() => setViewMode("minimal-light")}
+        aria-pressed={viewModePreference === "minimal-light"}
+        title="Light"
       >
-        {isMinimal ? (
-          <Star size={12} strokeWidth={2} />
-        ) : (
-          <Sun size={12} strokeWidth={2} />
-        )}
-        <span>{isMinimal ? "Rich" : "Minimal"}</span>
+        <Sun size={12} strokeWidth={2} />
+        <span>Light</span>
+      </button>
+      <button
+        className={cn(seg, viewModePreference === "minimal-dark" && segActive)}
+        onClick={() => setViewMode("minimal-dark")}
+        aria-pressed={viewModePreference === "minimal-dark"}
+        title="Dark"
+      >
+        <Moon size={12} strokeWidth={2} />
+        <span>Dark</span>
+      </button>
+      <button
+        className={cn(seg, viewModePreference === "minimal-system" && segActive)}
+        onClick={() => setViewMode("minimal-system")}
+        aria-pressed={viewModePreference === "minimal-system"}
+        title="System"
+      >
+        <Monitor size={12} strokeWidth={2} />
+        <span>System</span>
       </button>
     </div>
   );

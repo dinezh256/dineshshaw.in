@@ -24,12 +24,12 @@ const MinimalWork = () => {
           rotatorWords={t("work.rotatorWords", { returnObjects: true })}
         />
 
-        <MnSeparator />
+        <MnSeparator className="bg-transparent" />
 
         {/* Projects */}
         <section className="mn-section">
           <MnSectionTitle>{t("work.sectionTitle")}</MnSectionTitle>
-          <div className="flex flex-col gap-1">
+          <div className="flex flex-col gap-1 mb-4">
             {projects.map(({ id, name, codeUrl, websiteUrl }) => (
               <MnHoverRow
                 key={id}
@@ -68,8 +68,6 @@ const MinimalWork = () => {
             ))}
           </div>
         </section>
-
-        <MnSeparator />
 
         <MnInlineLink
           href="https://github.com/dinezh256?tab=repositories"
