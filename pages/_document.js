@@ -57,6 +57,13 @@ class MyDocument extends Document {
                     window.__INITIAL_MODE__ = mode;
                     window.__INITIAL_IS_MINIMAL__ = true;
                     document.body.classList.add(mode);
+                    document.documentElement.classList.add(mode);
+                    if (mode === 'minimal-system') {
+                      var isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                      var sysClass = isDark ? 'minimal-dark' : 'minimal-light';
+                      document.body.classList.add(sysClass);
+                      document.documentElement.classList.add(sysClass);
+                    }
                   } catch (e) {}
                 })();
                 `,

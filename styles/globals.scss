@@ -54,7 +54,7 @@ body.minimal-light {
   --mn-nav-rail-border: rgba(255, 255, 255, 0.92);
   --mn-navbar-link: rgba(42, 42, 42, 0.92);
   --mn-hover-bg: rgba(0, 0, 0, 0.045);
-  --mn-navbar-glass: rgba(245, 245, 240, 0.64);
+  --mn-navbar-glass: rgba(225, 225, 220, 0.78);
   --mn-navbar-border: rgba(154, 144, 120, 0.12);
   --mn-navbar-border-strong: rgba(255, 255, 255, 0.72);
   --mn-navbar-highlight: rgba(255, 255, 255, 0.34);
@@ -151,7 +151,7 @@ body.minimal-system {
     --mn-nav-rail-border: rgba(255, 255, 255, 0.92);
     --mn-navbar-link: rgba(42, 42, 42, 0.92);
     --mn-hover-bg: rgba(0, 0, 0, 0.045);
-    --mn-navbar-glass: rgba(245, 245, 240, 0.64);
+    --mn-navbar-glass: rgba(225, 225, 220, 0.78);
     --mn-navbar-border: rgba(154, 144, 120, 0.12);
     --mn-navbar-border-strong: rgba(255, 255, 255, 0.72);
     --mn-navbar-highlight: rgba(255, 255, 255, 0.34);
@@ -273,8 +273,18 @@ body.minimal-system {
 
 html {
   background-color: transparent;
-  color-scheme: light;
+  color-scheme: light dark;
   scroll-behavior: smooth;
+}
+
+html.minimal-light {
+  color-scheme: light;
+  background-color: var(--mn-bg) !important;
+}
+
+html.minimal-dark {
+  color-scheme: dark;
+  background-color: var(--mn-bg) !important;
 }
 
 body {
@@ -2637,4 +2647,49 @@ body.minimal-light .mn-bulging-separator {
   border-color: #22c55e !important;
   transform: scale(1.25);
   box-shadow: 0 0 8px rgba(34, 197, 94, 0.5);
+}
+
+// Custom View Transition premium cross-fade
+::view-transition-group(root) {
+  animation: none;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  mix-blend-mode: normal;
+  display: block;
+}
+
+::view-transition-old(root) {
+  animation: fade-out 0.4s cubic-bezier(0.4, 0, 0.2, 1) both;
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  animation: fade-in 0.4s cubic-bezier(0.4, 0, 0.2, 1) both;
+  z-index: 9999;
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+// Disable transitions on all elements during theme view transitions to avoid style flashes
+.theme-transition-active,
+.theme-transition-active * {
+  transition: none !important;
 }

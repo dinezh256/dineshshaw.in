@@ -6,6 +6,14 @@ import { cn } from "../../lib/utils";
 const MinimalToggle = () => {
   const { viewModePreference, setViewMode } = useContext(GlobalContext);
 
+  const handleToggleClick = (mode, e) => {
+    if (typeof document !== "undefined") {
+      document.documentElement.style.setProperty("--x", `${e.clientX}px`);
+      document.documentElement.style.setProperty("--y", `${e.clientY}px`);
+    }
+    setViewMode(mode);
+  };
+
   // Base segment style
   const seg =
     "flex items-center gap-1.5 px-[10px] py-1.5 rounded-[6px] border-none bg-transparent text-mn-text-secondary text-[13px] font-medium cursor-pointer transition-[background,color,transform] duration-[120ms] ease-out whitespace-nowrap [&_span]:text-[13px] [&_span]:font-medium [&_svg]:opacity-70 [&_svg]:shrink-0 [&_svg]:transition-opacity [&_svg]:duration-[120ms] active:scale-[0.97] hover:not-disabled:bg-mn-toggle-seg-hover hover:not-disabled:text-mn-text-primary hover:[&_svg]:opacity-100";
@@ -21,7 +29,7 @@ const MinimalToggle = () => {
     >
       <button
         className={cn(seg, viewModePreference === "minimal-light" && segActive)}
-        onClick={() => setViewMode("minimal-light")}
+        onClick={(e) => handleToggleClick("minimal-light", e)}
         aria-pressed={viewModePreference === "minimal-light"}
         title="Light"
       >
@@ -30,7 +38,7 @@ const MinimalToggle = () => {
       </button>
       <button
         className={cn(seg, viewModePreference === "minimal-dark" && segActive)}
-        onClick={() => setViewMode("minimal-dark")}
+        onClick={(e) => handleToggleClick("minimal-dark", e)}
         aria-pressed={viewModePreference === "minimal-dark"}
         title="Dark"
       >
@@ -39,7 +47,7 @@ const MinimalToggle = () => {
       </button>
       <button
         className={cn(seg, viewModePreference === "minimal-system" && segActive)}
-        onClick={() => setViewMode("minimal-system")}
+        onClick={(e) => handleToggleClick("minimal-system", e)}
         aria-pressed={viewModePreference === "minimal-system"}
         title="System"
       >

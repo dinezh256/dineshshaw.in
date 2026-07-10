@@ -38,20 +38,50 @@ const AppInner = ({ Component, pageProps }) => {
     navbarRoutes.includes(router.pathname) ||
     router.pathname.includes("/blogs/");
 
-  // Apply viewMode class to body
+  // Apply viewMode class to html and body
   useEffect(() => {
     if (viewModePreference === null) return; // Wait for hydration/storage read
 
     const body = document.body;
-    body.classList.remove("minimal-light", "minimal-dark", "minimal-system");
+    const html = document.documentElement;
 
-    if (viewModePreference === "minimal-system") {
-      body.classList.add("minimal-system");
+    const expectedPreference = viewModePreference;
+    let expectedMode = viewMode;
+    if (expectedPreference === "minimal-system") {
+      expectedMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "minimal-dark"
+        : "minimal-light";
+    }
+
+    const bodyHasPref = body.classList.contains(expectedPreference);
+    const bodyHasMode = body.classList.contains(expectedMode);
+    const htmlHasPref = html.classList.contains(expectedPreference);
+    const htmlHasMode = html.classList.contains(expectedMode);
+
+    // If classes are already perfectly synchronized, bypass to prevent styling flash
+    if (bodyHasPref && bodyHasMode && htmlHasPref && htmlHasMode) {
       return;
     }
 
-    if (viewMode === "minimal-light") body.classList.add("minimal-light");
-    if (viewMode === "minimal-dark") body.classList.add("minimal-dark");
+    body.classList.remove("minimal-light", "minimal-dark", "minimal-system");
+    html.classList.remove("minimal-light", "minimal-dark", "minimal-system");
+
+    if (expectedPreference === "minimal-system") {
+      body.classList.add("minimal-system");
+      html.classList.add("minimal-system");
+      body.classList.add(expectedMode);
+      html.classList.add(expectedMode);
+      return;
+    }
+
+    if (expectedMode === "minimal-light") {
+      body.classList.add("minimal-light");
+      html.classList.add("minimal-light");
+    }
+    if (expectedMode === "minimal-dark") {
+      body.classList.add("minimal-dark");
+      html.classList.add("minimal-dark");
+    }
   }, [viewMode, viewModePreference]);
 
   return (

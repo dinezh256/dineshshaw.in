@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState } from "react";
+import { flushSync } from "react-dom";
 
 export const GlobalContext = createContext();
 
@@ -36,9 +37,27 @@ export const GlobalContextProvider = ({ children }) => {
 
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
     const syncSystemMinimalMode = () => {
-      setSystemMinimalMode(
-        mediaQuery.matches ? "minimal-dark" : "minimal-light",
-      );
+      const targetMode = mediaQuery.matches ? "minimal-dark" : "minimal-light";
+      const saved = localStorage.getItem("portfolio-view-mode") || "minimal-system";
+      if (document.startViewTransition) {
+        document.documentElement.classList.add("theme-transition-active");
+        const transition = document.startViewTransition(() => {
+          flushSync(() => {
+            setSystemMinimalMode(targetMode);
+            if (saved === "minimal-system") {
+              updateBodyClass("minimal-system");
+            }
+          });
+        });
+        transition.finished.finally(() => {
+          document.documentElement.classList.remove("theme-transition-active");
+        });
+      } else {
+        setSystemMinimalMode(targetMode);
+        if (saved === "minimal-system") {
+          updateBodyClass("minimal-system");
+        }
+      }
     };
 
     syncSystemMinimalMode();
@@ -79,9 +98,45 @@ export const GlobalContextProvider = ({ children }) => {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
+  const updateBodyClass = (mode) => {
+    if (typeof document === "undefined") return;
+    const body = document.body;
+    const html = document.documentElement;
+    body.classList.remove("minimal-light", "minimal-dark", "minimal-system");
+    html.classList.remove("minimal-light", "minimal-dark", "minimal-system");
+
+    if (mode === "minimal-system") {
+      body.classList.add("minimal-system");
+      html.classList.add("minimal-system");
+      const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "minimal-dark"
+        : "minimal-light";
+      body.classList.add(systemTheme);
+      html.classList.add(systemTheme);
+    } else {
+      body.classList.add(mode);
+      html.classList.add(mode);
+    }
+  };
+
   const setViewMode = (mode) => {
-    setViewModePreference(mode);
-    localStorage.setItem("portfolio-view-mode", mode);
+    if (typeof document !== "undefined" && document.startViewTransition) {
+      document.documentElement.classList.add("theme-transition-active");
+      const transition = document.startViewTransition(() => {
+        flushSync(() => {
+          setViewModePreference(mode);
+          localStorage.setItem("portfolio-view-mode", mode);
+          updateBodyClass(mode);
+        });
+      });
+      transition.finished.finally(() => {
+        document.documentElement.classList.remove("theme-transition-active");
+      });
+    } else {
+      setViewModePreference(mode);
+      localStorage.setItem("portfolio-view-mode", mode);
+      updateBodyClass(mode);
+    }
   };
 
   const enterMinimalMode = () => {

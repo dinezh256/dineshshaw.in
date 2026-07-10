@@ -162,11 +162,11 @@ const MinimalAbout = () => {
           <MnSectionTitle>{t("about.sectionTitleExperience")}</MnSectionTitle>
           <div ref={timelineRef} className="flex flex-col relative pl-6 ml-[7px] gap-8 mt-2">
             {/* Base timeline line */}
-            <div className="absolute left-0 top-[10px] bottom-[15px] w-px bg-mn-divider" />
+            <div className="absolute top-[10px] bottom-[15px] w-px bg-mn-divider" style={{ left: "-0.5px" }} />
             {/* Active timeline line */}
             <div
-              className="absolute left-0 top-[10px] w-px bg-[#22c55e] origin-top transition-[height] duration-75 ease-out shadow-[0_0_8px_rgba(34,197,94,0.7)]"
-              style={{ height: "var(--timeline-active-height, 0px)" }}
+              className="absolute top-[10px] w-px bg-[#22c55e] origin-top transition-[height] duration-75 ease-out shadow-[0_0_8px_rgba(34,197,94,0.7)]"
+              style={{ left: "-0.5px", height: "var(--timeline-active-height, 0px)" }}
             />
 
             {timeline.map(({ orgId, orgName, yearwise }) => {
