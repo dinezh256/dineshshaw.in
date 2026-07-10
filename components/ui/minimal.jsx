@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import { ChevronDown } from "react-feather";
 import { cn } from "../../lib/utils";
 import { Badge } from "./badge";
@@ -77,6 +78,63 @@ export function MnSeparator({ className, style }) {
       )}
       style={style}
     />
+  );
+}
+
+/**
+ * MnFooterSeparator — Full screen width separator with central glow.
+ * Tracks the mouse's horizontal coordinate to move the central light bulge.
+ */
+export function MnFooterSeparator() {
+  const containerRef = useRef(null);
+  const [glowX, setGlowX] = useState(50);
+  const [isHovered, setIsHovered] = useState(false);
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      const container = containerRef.current;
+      if (!container) return;
+
+      const rect = container.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const percentage = Math.max(0, Math.min(100, (x / rect.width) * 100));
+      setGlowX(percentage);
+    };
+
+    const handleMouseEnter = () => setIsHovered(true);
+    const handleMouseLeave = () => {
+      setIsHovered(false);
+    };
+
+    const container = containerRef.current;
+    if (container) {
+      container.addEventListener("mousemove", handleMouseMove);
+      container.addEventListener("mouseenter", handleMouseEnter);
+      container.addEventListener("mouseleave", handleMouseLeave);
+    }
+
+    return () => {
+      if (container) {
+        container.removeEventListener("mousemove", handleMouseMove);
+        container.removeEventListener("mouseenter", handleMouseEnter);
+        container.removeEventListener("mouseleave", handleMouseLeave);
+      }
+    };
+  }, []);
+
+  const glowStyle = {
+    left: `${isHovered ? glowX : 50}%`,
+    transition: isHovered ? "none" : "left 0.6s cubic-bezier(0.16, 1, 0.3, 1)",
+  };
+
+  return (
+    <div ref={containerRef} className="mn-bulging-separator pointer-events-auto">
+      <div className="line" />
+      <div className="glow-wrapper" style={glowStyle}>
+        <div className="glow-outer" />
+        <div className="glow-inner" />
+      </div>
+    </div>
   );
 }
 

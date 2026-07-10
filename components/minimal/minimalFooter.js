@@ -2,7 +2,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next/pages";
 import { navMenuItems, resumeLink, socials } from "../../utils";
-import { MnDropdown } from "../ui/minimal";
+import { MnDropdown, MnFooterSeparator } from "../ui/minimal";
 
 const footerSocials = socials.filter((social) => social.showInFooter !== false);
 
@@ -32,7 +32,9 @@ const MinimalFooter = () => {
   };
 
   return (
-    <footer className="flex flex-col gap-12 text-[13px] text-mn-text-primary mt-[140px] pt-16 border-t border-mn-divider">
+    <>
+      <MnFooterSeparator />
+      <footer className="flex flex-col gap-12 text-[13px] text-mn-text-primary mt-6">
       <div className="flex justify-between flex-wrap gap-10">
         <FooterColumn title={t("footer.nav")}>
           {navMenuItems.map(({ id, name, url }) => (
@@ -92,6 +94,7 @@ const MinimalFooter = () => {
         </div>
       </div>
     </footer>
+    </>
   );
 };
 

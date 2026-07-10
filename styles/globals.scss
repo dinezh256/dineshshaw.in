@@ -2555,3 +2555,86 @@ body:not([class*="minimal-"]) .mn-minimal-only {
   overflow: hidden;
   white-space: nowrap;
 }
+
+// Bulging glow separator above the footer (Minimal mode)
+.mn-bulging-separator {
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+  user-select: none;
+  margin-top: 76px;
+  margin-bottom: 8px;
+  overflow: hidden;
+
+  .line {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--mn-divider) 20%, var(--mn-divider) 80%, transparent);
+    opacity: 0.8;
+  }
+
+  .glow-wrapper {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 350px;
+    height: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+  }
+
+  .glow-outer {
+    position: absolute;
+    width: 350px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(94, 162, 255, 0.45) 50%, transparent);
+    filter: blur(1.5px);
+  }
+
+  .glow-inner {
+    position: absolute;
+    width: 150px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.9) 50%, transparent);
+  }
+}
+
+body.minimal-light .mn-bulging-separator {
+  .glow-outer {
+    background: linear-gradient(90deg, transparent, rgba(0, 102, 255, 0.16) 50%, transparent);
+    filter: blur(2px);
+  }
+  .glow-inner {
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.95) 50%, transparent);
+  }
+}
+
+// Scroll-driven timeline styles
+[data-timeline-dot] {
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-timeline-dot="company"].is-active {
+  border-color: #22c55e !important;
+  transform: scale(1.15);
+  box-shadow: 0 0 10px rgba(34, 197, 94, 0.4);
+}
+
+[data-timeline-dot="role"].is-active {
+  background-color: #22c55e !important;
+  border-color: #22c55e !important;
+  transform: scale(1.25);
+  box-shadow: 0 0 8px rgba(34, 197, 94, 0.5);
+}
