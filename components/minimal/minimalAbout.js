@@ -35,13 +35,15 @@ const MinimalAbout = () => {
     const container = timelineRef.current;
     if (!container) return;
 
-    const handleScroll = () => {
+    const updateTimeline = () => {
       const rect = container.getBoundingClientRect();
       const triggerY = window.innerHeight * 0.65;
       
       const totalHeight = rect.height;
       const activeHeight = Math.max(0, Math.min(totalHeight, triggerY - rect.top));
-      container.style.setProperty("--timeline-active-height", `${activeHeight}px`);
+      const ratio = totalHeight > 0 ? activeHeight / totalHeight : 0;
+      
+      container.style.setProperty("--timeline-active-ratio", ratio);
 
       const dots = container.querySelectorAll("[data-timeline-dot]");
       dots.forEach((dot) => {
@@ -54,9 +56,20 @@ const MinimalAbout = () => {
       });
     };
 
+    let ticked = false;
+    const handleScroll = () => {
+      if (!ticked) {
+        window.requestAnimationFrame(() => {
+          updateTimeline();
+          ticked = false;
+        });
+        ticked = true;
+      }
+    };
+
     window.addEventListener("scroll", handleScroll, { passive: true });
     window.addEventListener("resize", handleScroll);
-    handleScroll();
+    updateTimeline();
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -165,8 +178,8 @@ const MinimalAbout = () => {
             <div className="absolute top-[10px] bottom-[15px] w-px bg-mn-divider" style={{ left: "-0.5px" }} />
             {/* Active timeline line */}
             <div
-              className="absolute top-[10px] w-px bg-[#22c55e] origin-top transition-[height] duration-75 ease-out shadow-[0_0_8px_rgba(34,197,94,0.7)]"
-              style={{ left: "-0.5px", height: "var(--timeline-active-height, 0px)" }}
+              className="absolute top-[10px] bottom-[15px] w-px bg-[#22c55e] origin-top transition-transform duration-75 ease-out shadow-[0_0_8px_rgba(34,197,94,0.7)]"
+              style={{ left: "-0.5px", transform: "scaleY(var(--timeline-active-ratio, 0))" }}
             />
 
             {timeline.map(({ orgId, orgName, yearwise }) => {
