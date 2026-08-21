@@ -1,6 +1,7 @@
 import { formatDuration, intervalToDuration } from "date-fns";
 import path from "path";
 import {
+  Activity,
   Command,
   GitHub,
   Instagram,
@@ -143,11 +144,17 @@ export const navMenuItems = [
     url: "/blogs",
     icon: (props) => <PenTool {...props} />,
   },
+  {
+    id: 3,
+    name: "Health",
+    url: "/health",
+    icon: (props) => <Activity {...props} />,
+  },
 ];
 
-export const whiteListRoutes = ["/", "/work", "/contact", "/blogs"];
+export const whiteListRoutes = ["/", "/work", "/contact", "/blogs", "/health"];
 
-export const navbarRoutes = ["/", "/work", "/contact", "/blogs"];
+export const navbarRoutes = ["/", "/work", "/contact", "/blogs", "/health"];
 
 const docsDirectory = path.join(process.cwd(), "markdown");
 

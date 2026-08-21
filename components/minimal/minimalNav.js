@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next/pages";
 import { useContext, useEffect, useRef, useState } from "react";
 import { Moon, Sun } from "react-feather";
+import { Heart } from "lucide-react";
 import logo from "../../assets/logo.svg";
 import { GlobalContext } from "../../contexts";
 import { cn } from "../../lib/utils";
@@ -11,6 +12,7 @@ const navLinks = [
   { href: "/", label: "About" },
   { href: "/work", label: "Work" },
   { href: "/blogs", label: "Blogs" },
+  { href: "/health", label: "Health" },
 ];
 
 const MinimalNav = () => {
@@ -142,6 +144,7 @@ const MinimalNav = () => {
 
             {navLinks.map(({ href, label }, i) => {
               const active = getActive(href);
+              const isHealth = href === "/health";
               return (
                 <Link
                   key={href}
@@ -154,10 +157,22 @@ const MinimalNav = () => {
                     active
                       ? "text-mn-accent-text"
                       : "text-mn-navbar-link opacity-90 hover:opacity-100 hover:bg-mn-hover-bg",
+                    isHealth && "px-2.5",
                   )}
                   aria-current={active ? "page" : undefined}
+                  aria-label={isHealth ? t("nav.health") : undefined}
+                  title={isHealth ? t("nav.health") : undefined}
                 >
-                  {t(`nav.${label.toLowerCase()}`)}
+                  {isHealth ? (
+                    <Heart
+                      size={15}
+                      strokeWidth={2}
+                      fill="currentColor"
+                      aria-hidden="true"
+                    />
+                  ) : (
+                    t(`nav.${label.toLowerCase()}`)
+                  )}
                 </Link>
               );
             })}
