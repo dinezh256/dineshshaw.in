@@ -11,12 +11,11 @@ export const healthProfile = {
     { label: "Focus", value: "Strength, nutrition, consistency" },
   ],
   metrics: [
-    { label: "Weight", value: "72", unit: "kg", note: "Current" },
-    { label: "Body fat", value: "22", unit: "%", note: "Tracked estimate" },
-    { label: "Lean mass", value: "56.2", unit: "kg", note: "Tracked estimate" },
-    { label: "Training", value: "6", unit: "days/week", note: "Current rhythm" },
-    { label: "Protein", value: "130+", unit: "g/day", note: "Most days" },
-    { label: "Sleep", value: "7", unit: "hrs", note: "Average target" },
+    { label: "Weight", value: "72.0", unit: "kg", note: "Current baseline" },
+    { label: "Body fat", value: "22", unit: "%", note: "Current baseline" },
+    { label: "Lean body mass", value: "56.2", unit: "kg", note: "Current estimate" },
+    { label: "Target weight", value: "68", unit: "kg", note: "Long-term direction" },
+    { label: "Target body fat", value: "~15", unit: "%", note: "Long-term direction" },
   ],
   journey: [
     {
@@ -141,13 +140,26 @@ export const healthProfile = {
     ],
   },
   progress: {
-    goal: {
-      label: "Weight direction",
-      current: 72,
-      target: 68,
-      unit: "kg",
-      note: "Direction, not medical precision.",
-    },
+    goals: [
+      {
+        label: "Weight",
+        current: 72,
+        target: 68,
+        currentLabel: "72.0 kg",
+        targetLabel: "68.0 kg",
+        unit: "kg",
+      },
+      {
+        label: "Body fat",
+        current: 22,
+        target: 15,
+        currentLabel: "22%",
+        targetLabel: "~15%",
+        unit: "%",
+      },
+    ],
+    goalNote:
+      "The aim is fat loss while preserving or building lean mass, not simply reaching a lighter number.",
     series: [
       { date: "Jun 01", weight: 76.2, bodyFat: 25.1, leanMass: 57.1 },
       { date: "Jun 15", weight: 75.4, bodyFat: 24.5, leanMass: 57.0 },
@@ -185,19 +197,52 @@ export const healthProfile = {
   ],
   journal: [
     {
+      date: "Sep 2026",
+      title: "Building consistency",
+      body: [
+        "The focus has shifted from simply losing weight to building a leaner, stronger body while keeping the process sustainable.",
+        "My current routine revolves around morning training, usually between 7:30 and 9:30 AM, with a structured diet built around protein, simple carbohydrates, vegetables, and meals that are easy to repeat.",
+        "The longer-term goal is approximately 68 kg while preserving or gaining muscle and becoming noticeably leaner.",
+      ],
+      highlight: "Current: 72 kg · 22% body fat · 56.2 kg lean body mass",
+    },
+    {
       date: "Aug 2026",
-      title: "Morning training became the anchor",
-      body: "Changed my morning routine and started training consistently between 7:30 and 9:30 AM.",
+      title: "Taking the process seriously",
+      body: [
+        "I started approaching my health more systematically.",
+        "Instead of looking at individual meals or workouts in isolation, I began thinking about the bigger picture: body composition, nutrition, training, recovery, and consistency.",
+      ],
+      highlight: "68 kg while building more muscle and moving toward roughly 15% body fat.",
     },
     {
-      date: "Jul 2026",
-      title: "Protein and recovery got more attention",
-      body: "Started paying closer attention to protein, body composition, and whether the routine was recoverable.",
+      date: "Aug 2026",
+      title: "Finding a repeatable diet",
+      body: [
+        "My nutrition settled into a routine that I could realistically repeat.",
+        "Black coffee and a banana before training. Whey and creatine, eggs, and oats or muesli after training. Chicken or paneer, rice and vegetables for lunch. Fruit or bread with tea in the evening. Chicken or paneer salad with a small amount of bread or roti for dinner.",
+      ],
+      highlight: "The diet doesn't need to be exciting. It needs to be repeatable.",
     },
     {
-      date: "Jun 2026",
-      title: "The experiment became explicit",
-      body: "Started treating fitness more systematically instead of hoping motivation would handle it.",
+      date: "Aug 2026",
+      title: "Learning to think in body composition",
+      body: [
+        "One of the biggest changes in how I think about the journey has been understanding that weight alone isn't the goal.",
+        "At 72 kg and 22% body fat, I currently have approximately 56.2 kg of lean body mass.",
+        "The question isn't simply how quickly I can get to 68 kg. It's how much of that change can come from losing fat while maintaining or gaining muscle.",
+        "The target is a physique that looks leaner and more defined, not simply a lighter version of myself.",
+      ],
+    },
+    {
+      date: "Aug 2026",
+      title: "Small decisions add up",
+      body: [
+        "A lot of the journey has been about learning that individual choices don't need to be perfect.",
+        "Questions about food choices, protein sources, carbohydrates and even whether small treats can fit into the day are really part of a bigger question: can I make choices that support the goal without making the process miserable?",
+        "I'm learning to build a routine that has room for normal life.",
+      ],
+      highlight: "Consistency over perfection.",
     },
   ],
 };

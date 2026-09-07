@@ -151,7 +151,7 @@ const GoalAxis = ({ goal }) => {
             {goal.label}
           </div>
           <div className="mt-1 text-[15px] font-medium text-mn-text-primary">
-            {goal.current} {goal.unit} to {goal.target} {goal.unit}
+            {goal.currentLabel} to {goal.targetLabel}
           </div>
         </div>
         <Target size={17} strokeWidth={2} className="mt-0.5 text-mn-accent" />
@@ -179,9 +179,6 @@ const GoalAxis = ({ goal }) => {
           Target
         </div>
       </div>
-      <p className="mt-5 text-[12.5px] leading-relaxed text-mn-text-dim">
-        {goal.note}
-      </p>
     </div>
   );
 };
@@ -219,11 +216,11 @@ const MinimalHealth = () => {
       <MnSeparator className="bg-transparent" />
 
       <Section title="Current State">
-        <div className="grid grid-cols-2 border-y border-mn-divider md:grid-cols-3">
+        <div className="grid grid-cols-2 border-y border-mn-divider lg:grid-cols-5">
           {healthProfile.metrics.map((metric) => (
             <div
               key={metric.label}
-              className="border-b border-r border-mn-divider p-4 even:border-r-0 md:[&:nth-child(2n)]:border-r md:[&:nth-child(3n)]:border-r-0 md:[&:nth-last-child(-n+3)]:border-b-0"
+              className="border-b border-r border-mn-divider p-4 even:border-r-0 last:border-b-0 lg:border-b-0 lg:border-r lg:even:border-r lg:last:border-r-0"
             >
               <div className="text-[11px] font-semibold uppercase tracking-[0.12em] text-mn-text-dim">
                 {metric.label}
@@ -419,9 +416,14 @@ const MinimalHealth = () => {
           data={healthProfile.progress.series}
           metric={selectedMetric}
         />
-        <div className="mt-5">
-          <GoalAxis goal={healthProfile.progress.goal} />
+        <div className="mt-5 grid gap-3 md:grid-cols-2">
+          {healthProfile.progress.goals.map((goal) => (
+            <GoalAxis key={goal.label} goal={goal} />
+          ))}
         </div>
+        <p className="mt-4 text-[12.5px] leading-relaxed text-mn-text-dim">
+          {healthProfile.progress.goalNote}
+        </p>
       </Section>
 
       <MnSeparator className="bg-transparent" />
@@ -457,9 +459,19 @@ const MinimalHealth = () => {
                 <h3 className="text-[15px] font-semibold text-mn-text-primary">
                   {entry.title}
                 </h3>
-                <p className="mt-2 text-[13.5px] leading-relaxed text-mn-text-secondary">
-                  {entry.body}
-                </p>
+                {entry.body.map((paragraph) => (
+                  <p
+                    key={paragraph}
+                    className="mt-2 text-[13.5px] leading-relaxed text-mn-text-secondary first:mt-2"
+                  >
+                    {paragraph}
+                  </p>
+                ))}
+                {entry.highlight && (
+                  <p className="mt-3 border-l-2 border-mn-accent pl-3 text-[13.5px] font-medium leading-relaxed text-mn-text-primary">
+                    {entry.highlight}
+                  </p>
+                )}
               </div>
             </article>
           ))}
