@@ -5,6 +5,10 @@ export const healthProfile = {
     "A personal log of training, nutrition, body composition, and the habits I am building along the way.",
   rotatorPrefix: "Tracking",
   rotatorWords: ["training", "nutrition", "consistency"],
+  instagramChannel: {
+    handle: "dns.builds",
+    url: "https://www.instagram.com/dns.builds/",
+  },
   heroMeta: [
     { label: "Current phase", value: "Cut / Recomposition" },
     { label: "Training", value: "Morning, 7:30-9:30 AM" },

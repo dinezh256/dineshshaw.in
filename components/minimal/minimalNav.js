@@ -6,7 +6,6 @@ import { Moon, Sun } from "react-feather";
 import { Heart } from "lucide-react";
 import logo from "../../assets/logo.svg";
 import { GlobalContext } from "../../contexts";
-import { cn } from "../../lib/utils";
 
 const navLinks = [
   { href: "/", label: "About" },
@@ -20,8 +19,12 @@ const MinimalNav = () => {
   const { t } = useTranslation("common");
   const { viewMode, setViewMode } = useContext(GlobalContext);
   const navRef = useRef(null);
-  const linkRefs = useRef([]);
-  const [pill, setPill] = useState({ x: 0, width: 0, opacity: 0 });
+  const linkRefs = useRef({});
+  const [underline, setUnderline] = useState({
+    opacity: 0,
+    width: 0,
+    x: 0,
+  });
 
   const isDark = viewMode === "minimal-dark";
 
@@ -35,81 +38,62 @@ const MinimalNav = () => {
     return pathname === href;
   };
 
-  const activeIdx = navLinks.findIndex(({ href }) => getActive(href));
-
-  // Measure active link relative to nav and slide pill to it
   useEffect(() => {
     const nav = navRef.current;
-    if (!nav) return;
+    const activeLink = nav ? linkRefs.current[navLinks.find(({ href }) => getActive(href))?.href] : null;
+
+    if (!nav || !activeLink) return;
 
     const measure = () => {
-      const el = linkRefs.current[activeIdx];
-      if (!el) return;
       const navRect = nav.getBoundingClientRect();
-      const elRect = el.getBoundingClientRect();
-      // Only update when link has positive width (i.e. is visible / has rendered)
-      if (elRect.width > 0) {
-        setPill({
-          x: elRect.left - navRect.left,
-          width: elRect.width,
+      const linkRect = activeLink.getBoundingClientRect();
+
+      if (linkRect.width > 0) {
+        setUnderline({
           opacity: 1,
+          width: linkRect.width,
+          x: linkRect.left - navRect.left - 1,
         });
       }
     };
 
-    // Run initial measurement
     measure();
+    const observer = new ResizeObserver(measure);
+    observer.observe(nav);
+    observer.observe(activeLink);
 
-    // Use ResizeObserver to measure whenever the nav or its child links change size/visibility
-    const resizeObserver = new ResizeObserver(() => {
-      measure();
-    });
-
-    resizeObserver.observe(nav);
-    linkRefs.current.forEach((el) => {
-      if (el) resizeObserver.observe(el);
-    });
-
-    return () => {
-      resizeObserver.disconnect();
-    };
-  }, [activeIdx, pathname, t]);
+    return () => observer.disconnect();
+  }, [pathname, t]);
 
   return (
-    <div className="w-full px-6 pt-4 transition-colors duration-300 max-[500px]:px-5 max-[500px]:pt-3">
+    <div className="w-full px-6 pt-3 transition-colors duration-300 max-[500px]:px-5">
       <div className="max-w-[680px] mx-auto">
-        <div className="mn-liquid-nav relative flex items-center justify-between overflow-hidden rounded-[24px] p-[8px]">
+        <div
+          ref={navRef}
+          className="relative flex min-h-14 items-center gap-4 overflow-hidden rounded-[10px] border border-mn-divider bg-mn-btn-bg px-3 backdrop-blur-md shadow-[0_14px_32px_rgba(0,0,0,0.12)]"
+        >
           <span
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0 rounded-[24px] mn-liquid-nav-blur-layer"
+            className="pointer-events-none absolute bottom-[14px] z-10 h-px bg-mn-accent"
+            style={{
+              left: 0,
+              opacity: underline.opacity,
+              transform: `translateX(${underline.x}px)`,
+              transition:
+                "transform 0.28s cubic-bezier(0.16,1,0.3,1), width 0.28s cubic-bezier(0.16,1,0.3,1), opacity 0.15s ease",
+              width: underline.width,
+            }}
           />
-          <span
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-0 rounded-[24px] mn-liquid-nav-frost-layer"
-          />
-          <span
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-[1px] rounded-[23px] mn-liquid-nav-highlight-layer"
-          />
-          <span
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-0 rounded-[24px] mn-liquid-nav-border-layer"
-          />
-
-          <div className="relative z-10 flex flex-1 items-center justify-start ml-1">
+          <div className="flex items-center justify-start">
             <Link
               href="/"
-              className="flex w-[34px] h-[34px] items-center justify-center transition-transform duration-150 active:scale-[0.94] group"
+              className="flex h-8 w-8 items-center justify-center transition-transform duration-150 active:scale-[0.94]"
               aria-label="Home"
             >
               <div
-                className={cn(
-                  "w-[34px] h-[34px] opacity-85 group-hover:opacity-100 transition-opacity duration-150",
-                  isDark
-                    ? "bg-[linear-gradient(180deg,rgba(255,255,255,0.8),rgba(255,255,255,0.4))] shadow-[0_2px_10px_rgba(0,0,0,0.5)]"
-                    : "bg-[linear-gradient(180deg,rgba(0,0,0,0.5),rgba(0,0,0,0.2))] shadow-[0_2px_10px_rgba(255,255,255,0.75)]",
-                )}
+                className="h-6 w-6 transition-opacity duration-150 hover:opacity-75"
                 style={{
+                  background: "var(--mn-text-primary)",
                   WebkitMaskImage: `url(${logo.src})`,
                   WebkitMaskSize: "contain",
                   WebkitMaskRepeat: "no-repeat",
@@ -124,77 +108,73 @@ const MinimalNav = () => {
           </div>
 
           <nav
-            ref={navRef}
-            className="mn-liquid-nav-rail relative z-10 flex min-w-0 shrink-0 items-center gap-1 rounded-[16px] p-[4px] h-[34px] text-[13px] font-medium"
+            className="flex min-w-0 items-center gap-1 text-[13px] font-medium"
             aria-label="Minimal navigation"
           >
-            {/* Sliding pill — absolutely positioned, slides via transform */}
-            <span
-              aria-hidden="true"
-              className="pointer-events-none absolute bottom-1 top-1 rounded-[12px] border border-[var(--mn-accent-border)] bg-[linear-gradient(180deg,var(--mn-nav-active-top),var(--mn-nav-active-bg))] shadow-[0_10px_24px_var(--mn-navbar-pill-shadow),inset_0_1px_0_var(--mn-navbar-pill-highlight)]"
-              style={{
-                left: 0,
-                width: pill.width,
-                opacity: pill.opacity,
-                transform: `translateX(${pill.x}px)`,
-                transition:
-                  "transform 0.22s cubic-bezier(0.16,1,0.3,1), width 0.22s cubic-bezier(0.16,1,0.3,1), opacity 0.15s ease",
-              }}
-            />
-
-            {navLinks.map(({ href, label }, i) => {
+            {navLinks.filter(({ href }) => href !== "/health").map(({ href, label }) => {
               const active = getActive(href);
-              const isHealth = href === "/health";
               return (
                 <Link
                   key={href}
                   href={href}
-                  ref={(el) => {
-                    linkRefs.current[i] = el;
-                  }}
-                  className={cn(
-                    "relative z-10 flex items-center justify-center rounded-[12px] px-3 h-[26px] no-underline transition-[color,background-color,opacity,transform] duration-150 [text-shadow:0_1px_1px_rgba(0,0,0,0.18)]",
+                  className={`relative z-20 flex h-8 items-center justify-center px-3 no-underline transition-colors duration-150 ${
                     active
-                      ? "text-mn-accent-text"
-                      : "text-mn-navbar-link opacity-90 hover:opacity-100 hover:bg-mn-hover-bg",
-                    isHealth && "px-2.5",
-                  )}
+                      ? "text-mn-text-primary"
+                      : "text-mn-text-secondary hover:text-mn-text-primary"
+                  }`}
                   aria-current={active ? "page" : undefined}
-                  aria-label={isHealth ? t("nav.health") : undefined}
-                  title={isHealth ? t("nav.health") : undefined}
                 >
-                  {isHealth ? (
-                    <Heart
-                      size={15}
-                      strokeWidth={2}
-                      fill="currentColor"
-                      aria-hidden="true"
-                    />
-                  ) : (
-                    t(`nav.${label.toLowerCase()}`)
-                  )}
+                  <span
+                    ref={(element) => {
+                      linkRefs.current[href] = element;
+                    }}
+                  >
+                    {t(`nav.${label.toLowerCase()}`)}
+                  </span>
                 </Link>
               );
             })}
           </nav>
 
-          <div className="relative z-10 flex flex-1 items-center justify-end gap-2">
-            {/* Theme toggle */}
-            <button
-              type="button"
-              onClick={handleThemeToggle}
-              title={isDark ? "Switch to light" : "Switch to dark"}
-              aria-label={
-                isDark ? "Switch to light mode" : "Switch to dark mode"
-              }
-              className="flex h-[34px] w-[34px] items-center justify-center rounded-[16px] bg-[linear-gradient(180deg,var(--mn-navbar-button-top),var(--mn-navbar-button-bottom))] text-mn-text-secondary opacity-90 shadow-[inset_0_1px_0_var(--mn-navbar-button-highlight),0_6px_18px_var(--mn-navbar-button-shadow)] transition-[background-color,opacity,transform,color] duration-150 hover:opacity-100 hover:text-mn-text-primary active:scale-[0.94] border border-[var(--mn-navbar-button-border)]"
+          <div className="ml-auto flex items-center">
+            <Link
+              href="/health"
+              className={`relative z-20 flex h-8 w-8 items-center justify-center transition-colors duration-150 ${
+                getActive("/health")
+                  ? "text-[#ef4444]"
+                  : "text-mn-text-secondary hover:text-mn-text-primary"
+              }`}
+              aria-current={getActive("/health") ? "page" : undefined}
+              aria-label={t("nav.health")}
+              title={t("nav.health")}
             >
-              {isDark ? (
-                <Sun size={15} strokeWidth={2} />
-              ) : (
-                <Moon size={15} strokeWidth={2} />
-              )}
-            </button>
+              <span
+                ref={(element) => {
+                  linkRefs.current["/health"] = element;
+                }}
+                className="flex"
+              >
+                <Heart size={16} strokeWidth={2} fill="currentColor" aria-hidden="true" />
+              </span>
+            </Link>
+
+            <div className="ml-3 border-l border-mn-divider pl-3">
+              <button
+                type="button"
+                onClick={handleThemeToggle}
+                title={isDark ? "Switch to light" : "Switch to dark"}
+                aria-label={
+                  isDark ? "Switch to light mode" : "Switch to dark mode"
+                }
+                className="flex h-8 w-8 items-center justify-center rounded-[6px] text-mn-text-secondary transition-colors duration-150 hover:bg-mn-hover-bg hover:text-mn-text-primary active:scale-[0.94]"
+              >
+                {isDark ? (
+                  <Sun size={15} strokeWidth={2} />
+                ) : (
+                  <Moon size={15} strokeWidth={2} />
+                )}
+              </button>
+            </div>
           </div>
         </div>
       </div>

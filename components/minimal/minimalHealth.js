@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { Activity, Coffee, Target } from "react-feather";
+import { Activity, Coffee, Instagram, Target } from "react-feather";
 import { healthProfile } from "../../data/health";
 import {
   MnPageHeader,
@@ -211,6 +211,24 @@ const MinimalHealth = () => {
             </div>
           ))}
         </div>
+        <a
+          href={healthProfile.instagramChannel.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group mt-5 inline-flex items-center gap-3 rounded-[8px] border border-mn-divider bg-mn-btn-bg p-2 pr-4 transition-colors hover:border-mn-accent-border"
+        >
+          <span className="flex h-9 w-9 items-center justify-center rounded-[6px] bg-mn-accent-subtle text-mn-accent-text transition-colors group-hover:bg-mn-accent group-hover:text-mn-bg">
+            <Instagram size={18} strokeWidth={2} aria-hidden="true" />
+          </span>
+          <span>
+            <span className="block text-[11px] font-semibold uppercase tracking-[0.12em] text-mn-text-dim">
+              Fitness channel
+            </span>
+            <span className="mt-0.5 block text-[13px] font-medium text-mn-text-primary">
+              @{healthProfile.instagramChannel.handle}
+            </span>
+          </span>
+        </a>
       </MnPageHeader>
 
       <MnSeparator className="bg-transparent" />
