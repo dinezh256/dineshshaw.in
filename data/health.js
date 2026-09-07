@@ -11,9 +11,9 @@ export const healthProfile = {
     { label: "Focus", value: "Strength, nutrition, consistency" },
   ],
   metrics: [
-    { label: "Weight", value: "72.5", unit: "kg", note: "Current" },
-    { label: "Body fat", value: "22.4", unit: "%", note: "Tracked estimate" },
-    { label: "Lean mass", value: "56.3", unit: "kg", note: "Tracked estimate" },
+    { label: "Weight", value: "72", unit: "kg", note: "Current" },
+    { label: "Body fat", value: "22", unit: "%", note: "Tracked estimate" },
+    { label: "Lean mass", value: "56.2", unit: "kg", note: "Tracked estimate" },
     { label: "Training", value: "6", unit: "days/week", note: "Current rhythm" },
     { label: "Protein", value: "130+", unit: "g/day", note: "Most days" },
     { label: "Sleep", value: "7", unit: "hrs", note: "Average target" },
@@ -143,7 +143,7 @@ export const healthProfile = {
   progress: {
     goal: {
       label: "Weight direction",
-      current: 72.5,
+      current: 72,
       target: 68,
       unit: "kg",
       note: "Direction, not medical precision.",
@@ -155,6 +155,7 @@ export const healthProfile = {
       { date: "Jul 15", weight: 73.9, bodyFat: 23.1, leanMass: 56.6 },
       { date: "Aug 01", weight: 73.1, bodyFat: 22.7, leanMass: 56.5 },
       { date: "Aug 15", weight: 72.5, bodyFat: 22.4, leanMass: 56.3 },
+      { date: "Sep 07", weight: 72, bodyFat: 22, leanMass: 56.2 },
     ],
   },
   principles: [
