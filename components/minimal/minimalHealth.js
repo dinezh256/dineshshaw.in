@@ -17,6 +17,17 @@ const metricOptions = [
 const formatNumber = (value) =>
   Number.isInteger(value) ? value.toString() : value.toFixed(1);
 
+const formatCurrentMonth = () =>
+  new Intl.DateTimeFormat("en-US", {
+    month: "short",
+    year: "numeric",
+    timeZone: "Asia/Kolkata",
+  }).format(new Date());
+
+const CurrentMonth = () => (
+  <time suppressHydrationWarning>{formatCurrentMonth()}</time>
+);
+
 const Section = ({ title, children, className = "" }) => (
   <section className={`mn-section ${className}`}>
     <MnSectionTitle>{title}</MnSectionTitle>
@@ -232,7 +243,7 @@ const MinimalHealth = () => {
           ))}
         </div>
         <p className="mt-4 text-[12.5px] text-mn-text-dim">
-          Last updated {healthProfile.lastUpdated}
+          Last updated <CurrentMonth />
         </p>
       </Section>
 
@@ -245,7 +256,7 @@ const MinimalHealth = () => {
             <article key={item.title} className="relative pl-7 md:pl-0 md:pt-8">
               <span className="absolute left-0 top-1.5 h-3 w-3 rounded-full border-2 border-mn-accent bg-mn-bg md:top-0" />
               <div className="text-[11px] font-semibold uppercase tracking-[0.12em] text-mn-accent-text">
-                {item.date}
+                {item.isCurrent ? <CurrentMonth /> : item.date}
               </div>
               <h3 className="mt-2 text-[15px] font-semibold leading-snug text-mn-text-primary">
                 {item.title}

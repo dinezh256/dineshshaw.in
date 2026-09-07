@@ -1,5 +1,4 @@
 export const healthProfile = {
-  lastUpdated: "Aug 2026",
   currentPhase: "Cut / Recomposition",
   headline: "Getting stronger, leaner, and healthier.",
   summary:
@@ -33,7 +32,7 @@ export const healthProfile = {
         "Started paying closer attention to protein, body composition, and meals that fit normal days.",
     },
     {
-      date: "Aug 2026",
+      isCurrent: true,
       title: "Consistent morning training",
       description:
         "Settled into a 7:30-9:30 AM training block and began tracking the journey more visibly.",
