@@ -152,9 +152,23 @@ export const navMenuItems = [
   },
 ];
 
-export const whiteListRoutes = ["/", "/work", "/contact", "/blogs", "/health"];
+export const whiteListRoutes = [
+  "/",
+  "/work",
+  "/resume",
+  "/contact",
+  "/blogs",
+  "/health",
+];
 
-export const navbarRoutes = ["/", "/work", "/contact", "/blogs", "/health"];
+export const navbarRoutes = [
+  "/",
+  "/work",
+  "/resume",
+  "/contact",
+  "/blogs",
+  "/health",
+];
 
 const docsDirectory = path.join(process.cwd(), "markdown");
 

@@ -2717,3 +2717,576 @@ body.minimal-light .mn-bulging-separator {
 .theme-transition-active * {
   transition: none !important;
 }
+
+// Resume — intentionally quiet and editorial, with the same tokens as the rest
+// of the minimal portfolio.
+.mn-resume-page {
+  // A4's 1:√2 ratio, expressed as a generous web-paper width. The content is
+  // allowed to grow past one screen-paper height when needed.
+  width: min(100% - 48px, 900px);
+  min-height: 1273px;
+  margin: 0 auto;
+  padding: 22px 0 64px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+// The app shell normally constrains minimal pages to 680px. A résumé needs the
+// wider A4-like sheet while still retaining generous outer breathing room.
+body[class*="minimal-"] .main-wrapper.main-wrapper--resume {
+  max-width: none !important;
+}
+
+.mn-resume-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 72px;
+  color: var(--mn-text-secondary);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .08em;
+
+  > a, > div a, button {
+    color: inherit;
+    text-decoration: none;
+  }
+  > div { display: flex; align-items: center; gap: 13px; }
+  > div a { display: inline-flex; align-items: center; gap: 5px; }
+  button { border: 0; padding: 0; background: none; font: inherit; letter-spacing: inherit; cursor: pointer; }
+  a:hover, button:hover { color: var(--mn-accent-text); }
+}
+
+.mn-resume-hero {
+  padding-bottom: 44px;
+  border-bottom: 1px solid var(--mn-divider);
+  h1 {
+    margin: 0 0 9px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif;
+    font-size: clamp(31px, 5vw, 39px);
+    line-height: 1.1;
+    letter-spacing: -.04em;
+    font-weight: 700;
+  }
+}
+
+.mn-resume-eyebrow {
+  margin: 0;
+  color: var(--mn-accent-text);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .16em;
+}
+
+.mn-resume-role,
+.mn-resume-copy,
+.mn-resume-job p,
+.mn-resume-education p {
+  color: var(--mn-text-secondary);
+}
+
+.mn-resume-role {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.mn-resume-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  flex-shrink: 0;
+  border: 1px solid var(--mn-accent-border);
+  border-radius: 8px;
+  padding: 9px 11px;
+  color: var(--mn-accent-text);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color .15s ease, transform .15s ease;
+
+  &:hover {
+    background: var(--mn-accent-subtle);
+    transform: translateY(-1px);
+  }
+}
+
+.mn-resume-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px 18px;
+  margin-top: 22px;
+  color: var(--mn-text-secondary);
+  font-size: 13px;
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    color: inherit;
+    text-decoration: none;
+
+    &:hover { color: var(--mn-accent-text); }
+  }
+}
+
+.mn-resume-section {
+  padding: 38px 0;
+  border-bottom: 1px solid var(--mn-divider);
+
+  .mn-section-title { margin-bottom: 16px; }
+}
+
+.mn-resume-copy {
+  max-width: 630px;
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.mn-resume-experience { display: grid; gap: 25px; }
+
+.mn-resume-company-head,
+.mn-resume-job-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 24px;
+}
+
+.mn-resume-company {
+  h3, h4 { margin: 0; }
+  h3 {
+    font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: -.012em;
+    text-transform: uppercase;
+  }
+  > .mn-resume-company-head > span,
+  time { color: var(--mn-text-dim); font-size: 12px; white-space: nowrap; }
+}
+
+.mn-resume-job {
+  h3, p { margin: 0; }
+  h3 { font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif; font-size: 15px; font-weight: 650; letter-spacing: -.015em; }
+  h3 span { color: var(--mn-text-secondary); font-weight: 400; }
+  .mn-resume-date { margin-top: 7px; color: var(--mn-text-dim); font-size: 12px; line-height: 1.5; }
+  &:not(:first-of-type) { margin-top: 20px; }
+  h4 { font-size: 14px; font-style: italic; font-weight: 500; }
+  ul, .mn-resume-project ul {
+    display: grid;
+    gap: 7px;
+    margin: 12px 0 0;
+    padding-left: 20px;
+    color: var(--mn-text-secondary);
+    font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif;
+    font-size: 13.5px;
+    line-height: 1.55;
+  }
+}
+
+.mn-resume-roles {
+  display: grid;
+  gap: 1px;
+  margin-top: 13px;
+  border-left: 1px solid var(--mn-divider);
+  padding-left: 14px;
+}
+
+.mn-resume-role-row,
+.mn-resume-education {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 4px 0;
+  color: var(--mn-text-primary);
+  font-size: 13px;
+
+  time { color: var(--mn-text-dim); font-size: 12px; white-space: nowrap; }
+}
+
+.mn-resume-project {
+  h3 { margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif; font-size: 15px; font-weight: 700; }
+  h3 span { color: var(--mn-text-secondary); font-weight: 400; }
+  h3 a { display: inline-flex; align-items: center; gap: 3px; color: var(--mn-accent-text); font-size: 13px; text-decoration: none; }
+  ul { display: grid; gap: 7px; margin: 12px 0 0; padding-left: 20px; color: var(--mn-text-secondary); font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif; font-size: 13.5px; line-height: 1.55; }
+}
+
+.mn-resume-skills {
+  display: grid;
+  grid-template-columns: 170px 1fr;
+  gap: 12px 20px;
+  font-size: 13px;
+  line-height: 1.6;
+  strong { font-size: 12px; }
+  p { margin: 0; color: var(--mn-text-secondary); }
+}
+
+.mn-resume-education {
+  h3, p { margin: 0; }
+  h3 { font-size: 15px; font-weight: 600; }
+  p { margin-top: 4px; font-size: 13px; }
+}
+
+.mn-resume-closing {
+  padding-top: 34px;
+  color: var(--mn-text-secondary);
+  font-size: 13px;
+  line-height: 1.65;
+  a { color: var(--mn-accent-text); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+}
+
+@media screen and (max-width: 500px) {
+  .mn-resume-page { padding-top: 26px; }
+  .mn-resume-page { width: min(100% - 40px, 900px); min-height: 0; }
+  .mn-resume-topbar { margin-bottom: 48px; }
+  .mn-resume-links { gap: 10px 14px; }
+  .mn-resume-role-row, .mn-resume-education { align-items: flex-start; }
+  .mn-resume-skills { grid-template-columns: 1fr; gap: 3px; }
+  .mn-resume-company-head, .mn-resume-job-head { align-items: flex-start; flex-direction: column; gap: 4px; }
+}
+
+@media print {
+  .mn-minimal-only, .minimal-toggle, .mn-resume-download { display: none !important; }
+  .minimal-page, .mn-resume-page { max-width: none; width: 100%; padding: 0; }
+  .mn-resume-page { color: #111; }
+}
+
+// Standalone resume: a two-column editorial layout inspired by the supplied
+// reference, deliberately separate from the portfolio's minimal components.
+.resume-page {
+  width: min(100% - 48px, 1120px);
+  margin: 0 auto;
+  padding: 36px 0 64px;
+  color: #e4e4e7;
+  font-family: var(--font-plex), -apple-system, BlinkMacSystemFont, sans-serif;
+
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--mn-accent, #EBAB00);
+    outline-offset: 2px;
+  }
+}
+
+.resume-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2px 20px;
+  color: #a1a1aa;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .08em;
+
+  > a, a, button { color: inherit; text-decoration: none; }
+  > div { display: flex; align-items: center; gap: 10px; }
+  > div a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.03);
+    transition: background-color .15s ease, border-color .15s ease, color .15s ease;
+  }
+  button {
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.03);
+    font: inherit;
+    cursor: pointer;
+    transition: background-color .15s ease, border-color .15s ease, color .15s ease;
+  }
+  .resume-theme-toggle { display: inline-flex; align-items: center; justify-content: center; padding: 8px 10px; }
+  .resume-download-button {
+    border-color: #ffffff;
+    background: #ffffff;
+    color: #09090b;
+    font-weight: 600;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    &:hover { border-color: #f4f4f5; background: #f4f4f5; color: #000000; }
+  }
+  a:hover, button:hover { border-color: rgba(255, 255, 255, 0.24); background: rgba(255, 255, 255, 0.07); color: #ffffff; }
+}
+
+.resume-canvas { overflow-x: auto; }
+.resume-sheet {
+  width: 1120px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  background: #111114;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.04), 0 32px 84px -16px rgba(0, 0, 0, 0.7);
+  zoom: var(--resume-zoom, 1);
+
+  strong {
+    color: #ffffff;
+    font-weight: 600;
+  }
+}
+
+.resume-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 48px;
+  padding: 42px 50px 34px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: #16161b;
+
+  h1 { margin: 0; color: #ffffff; font-size: clamp(34px, 5vw, 46px); letter-spacing: -.045em; line-height: 1; }
+  > div > p { margin: 12px 0 21px; color: #a1a1aa; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13.5px; letter-spacing: .01em; }
+  nav { display: flex; flex-wrap: wrap; gap: 16px; }
+  nav a, address a, address span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #a1a1aa;
+    font-size: 13px;
+    text-decoration: none;
+    transition: color .15s ease;
+  }
+  nav a:hover, address a:hover { color: #ffffff; }
+  address { display: grid; align-content: end; gap: 13px; font-style: normal; }
+}
+
+.resume-summary { padding: 30px 50px 34px; }
+.resume-summary > p { max-width: 800px; margin: 0; color: #d4d4d8; font-size: 14.5px; line-height: 1.7; }
+
+.resume-section-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 18px;
+  color: #a1a1aa;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+
+  svg { flex: none; color: var(--mn-accent, #EBAB00); }
+
+  &::after { height: 1px; flex: 1; background: rgba(255, 255, 255, 0.08); content: ""; }
+}
+
+.resume-columns { display: grid; grid-template-columns: minmax(0, 1.85fr) minmax(270px, 1fr); border-top: 1px solid rgba(255, 255, 255, 0.08); }
+.resume-primary { padding: 34px 38px 46px 50px; }
+.resume-sidebar { display: grid; align-content: start; border-left: 1px solid rgba(255, 255, 255, 0.08); }
+.resume-sidebar > section { padding: 34px 38px; border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
+.resume-sidebar > section:last-child { border-bottom: none; }
+
+.resume-company + .resume-company { margin-top: 44px; }
+.resume-company-head, .resume-role > div { display: flex; align-items: baseline; justify-content: space-between; gap: 18px; }
+.resume-company-head { align-items: center; padding-bottom: 11px; border-bottom: 1px solid rgba(255, 255, 255, 0.06); }
+.resume-company-head h3, .resume-sidebar h3 { margin: 0; color: #ffffff; font-size: 15px; font-weight: 700; letter-spacing: -.02em; }
+.resume-company-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.15s ease;
+
+  svg {
+    opacity: 0.45;
+    transition: opacity 0.15s ease, transform 0.15s ease;
+  }
+
+  &:hover {
+    color: var(--mn-accent, #EBAB00);
+
+    svg {
+      opacity: 1;
+      transform: translate(1px, -1px);
+    }
+  }
+}
+.resume-company-head > span {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  color: #a1a1aa;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 10.5px;
+  white-space: nowrap;
+}
+.resume-role time, .resume-muted { color: #9a9aa5; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; white-space: nowrap; }
+.resume-role { margin-top: 15px; }
+.resume-role h4 { margin: 0; color: #f4f4f5; font-size: 13.5px; font-weight: 600; }
+.resume-role-note { margin: 8px 0 0; color: #a1a1aa; font-size: 12.5px; font-style: italic; line-height: 1.55; }
+.resume-role ul, .resume-sidebar p { margin: 11px 0 0; color: #d4d4d8; font-size: 13px; line-height: 1.6; }
+.resume-role ul { display: grid; gap: 8px; padding-left: 19px; list-style: disc !important; }
+.resume-role li::marker { color: #8b8b98; font-size: .8em; }
+.resume-sidebar dl { display: grid; gap: 16px; margin: 0; }
+.resume-sidebar dl div { display: grid; gap: 4px; }
+.resume-sidebar dt { color: #ffffff; font-size: 12px; font-weight: 600; }
+.resume-sidebar dd { margin: 0; color: #a1a1aa; font-size: 12.5px; line-height: 1.55; }
+.resume-sidebar .resume-muted { margin-top: 9px; font-size: 11px; color: #9a9aa5; }
+.resume-links { display: flex; flex-wrap: wrap; gap: 13px; }
+.resume-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: #d4d4d8;
+  text-decoration: none;
+  transition: color .15s ease;
+}
+.resume-links a:hover { color: #ffffff; }
+
+.resume-footer { padding: 25px 2px 0; color: #a1a1aa; font-size: 13px; }
+.resume-footer a { color: #d4d4d8; text-decoration: none; transition: color .15s ease; }
+.resume-footer a:hover { color: #ffffff; text-decoration: underline; }
+
+// Keep direct contact information in the résumé document, not on the portfolio page.
+.resume-phone { display: none !important; }
+
+// The résumé owns its theme styles, so its light version remains as intentional
+// as the dark reference-inspired version.
+body.minimal-light {
+  .resume-page { color: #27272a; }
+  .resume-topbar {
+    color: #52525b;
+    > div a, > div button {
+      border-color: #d4d4d8;
+      background: #ffffff;
+      color: #27272a;
+    }
+    a:hover, > div button:hover {
+      border-color: #71717a;
+      background: #f4f4f5;
+      color: #09090b;
+    }
+    .resume-download-button {
+      border-color: #09090b;
+      background: #09090b;
+      color: #ffffff;
+      &:hover {
+        border-color: #27272a;
+        background: #27272a;
+        color: #ffffff;
+      }
+    }
+  }
+  .resume-sheet {
+    border-color: #e4e4e7;
+    background: #ffffff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 24px 60px -12px rgba(0, 0, 0, 0.08);
+
+    strong {
+      color: #09090b;
+      font-weight: 600;
+    }
+  }
+  .resume-hero {
+    border-color: #e4e4e7;
+    background: #fafafb;
+    h1 { color: #09090b; }
+    > div > p { color: #52525b; }
+    nav a, address a, address span { color: #52525b; }
+    nav a:hover, address a:hover { color: #09090b; }
+  }
+  .resume-summary > p { color: #27272a; }
+  .resume-section-title {
+    color: #52525b;
+    svg { color: #8a6600; }
+    &::after { background: #e4e4e7; }
+  }
+  .resume-columns, .resume-sidebar, .resume-sidebar > section { border-color: #e4e4e7; }
+  .resume-company-head h3, .resume-sidebar h3 { color: #09090b; }
+  .resume-company-link:hover { color: #8a6600; }
+  .resume-role h4 { color: #18181b; }
+  .resume-company-head { border-bottom-color: #e4e4e7; }
+  .resume-company-head > span {
+    background: #f4f4f5;
+    border-color: #e4e4e7;
+    color: #52525b;
+  }
+  .resume-company-head > span, .resume-role time, .resume-muted { color: #52525b; }
+  .resume-role ul, .resume-sidebar p { color: #27272a; }
+  .resume-role-note { color: #52525b; }
+  .resume-role li::marker { color: #71717a; }
+  .resume-sidebar dt { color: #09090b; }
+  .resume-sidebar dd { color: #52525b; }
+  .resume-links a { color: #27272a; }
+  .resume-links a:hover { color: #09090b; }
+  .resume-footer { color: #52525b; }
+  .resume-footer a { color: #18181b; }
+  .resume-footer a:hover { color: #09090b; }
+}
+
+@media screen and (max-width: 760px) {
+  .resume-page { width: min(100% - 32px, 1120px); padding-top: 18px; }
+  .resume-hero { grid-template-columns: 1fr; gap: 25px; padding: 32px 24px 28px; }
+  .resume-summary { padding: 28px 24px; }
+  .resume-columns { grid-template-columns: 1fr; }
+  .resume-primary, .resume-sidebar > section { padding: 30px 24px; }
+  .resume-sidebar { border-top: 1px solid rgba(255, 255, 255, 0.08); border-left: 0; }
+  .resume-topbar > div { gap: 6px; }
+  .resume-topbar > div a, .resume-topbar button { padding: 8px; }
+}
+
+@media print {
+  @page { size: A4 portrait; margin: 0; }
+
+  html, body {
+    background: #fff !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .main-wrapper, .main-wrapper--resume { display: block !important; max-width: none !important; }
+  .resume-page {
+    width: auto;
+    padding: 0;
+    color: #e4e4e7;
+  }
+  .resume-topbar { display: none; }
+  .resume-canvas { overflow: visible; }
+  .resume-sheet {
+    width: auto !important;
+    min-height: 297mm;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 0;
+    background: #111114;
+    box-shadow: none;
+    zoom: 1 !important;
+  }
+  .resume-hero { gap: 28px; padding: 30px 32px 24px; border-color: rgba(255, 255, 255, 0.08); background: #16161b; }
+  .resume-hero h1 { font-size: 32px; }
+  .resume-hero > div > p { margin: 6px 0 12px; font-size: 11px; }
+  .resume-hero nav { gap: 10px; }
+  .resume-hero nav a, .resume-hero address a, .resume-hero address span { font-size: 10px; }
+  .resume-hero address { gap: 7px; }
+  .resume-summary { padding: 22px 32px; }
+  .resume-summary > p { font-size: 11px; line-height: 1.5; }
+  .resume-section-title { margin-bottom: 12px; font-size: 8.5px; }
+  .resume-columns, .resume-sidebar, .resume-sidebar > section { border-color: rgba(255, 255, 255, 0.08); }
+  .resume-columns { flex: 1; }
+  .resume-primary { padding: 26px 26px 36px 32px; }
+  .resume-sidebar > section { padding: 18px 20px; }
+  .resume-sidebar > section:last-child { border-bottom: none; }
+  .resume-company + .resume-company { margin-top: 22px; }
+  .resume-company-head h3, .resume-sidebar h3 { font-size: 12px; }
+  .resume-company-link svg { display: none !important; }
+  .resume-company-head > span, .resume-role time, .resume-muted { font-size: 9.5px; }
+  .resume-company-head { padding-bottom: 7px; }
+  .resume-role { margin-top: 13px; }
+  .resume-role h4 { font-size: 11px; }
+  .resume-role-note { margin-top: 6px; font-size: 10px; line-height: 1.45; }
+  .resume-role ul, .resume-sidebar p { margin-top: 7px; font-size: 10px; line-height: 1.45; }
+  .resume-role ul { gap: 5px; padding-left: 15px; }
+  .resume-sidebar dl { gap: 8px; }
+  .resume-sidebar dl div { gap: 2px; }
+  .resume-sidebar dt { font-size: 9.5px; }
+  .resume-sidebar dd { font-size: 9px; line-height: 1.32; }
+  .resume-phone { display: inline-flex !important; }
+  .resume-footer { display: none !important; }
+  .resume-company, .resume-sidebar > section { break-inside: avoid; }
+}

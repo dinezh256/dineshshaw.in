@@ -37,6 +37,7 @@ const AppInner = ({ Component, pageProps }) => {
   const showNavbar =
     navbarRoutes.includes(router.pathname) ||
     router.pathname.includes("/blogs/");
+  const isResumePage = router.pathname === "/resume";
 
   // Apply viewMode class to html and body
   useEffect(() => {
@@ -100,19 +101,20 @@ const AppInner = ({ Component, pageProps }) => {
             "main-wrapper",
             acorn.variable,
             "main-wrapper--minimal",
+            isResumePage && "main-wrapper--resume",
           )}
         >
-          {showNavbar && (
+          {showNavbar && !isResumePage && (
             <div className="mn-minimal-only sticky top-0 z-50 w-full">
               <MinimalNav />
             </div>
           )}
-          <div className="pt-20 max-[500px]:pt-[72px]">
+          <div className={isResumePage ? "" : "pt-20 max-[500px]:pt-[72px]"}>
             <Component {...pageProps} />
           </div>
         </main>
 
-        {showNavbar && <MinimalToggle />}
+        {showNavbar && !isResumePage && <MinimalToggle />}
       </div>
     </>
   );
