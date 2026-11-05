@@ -30,8 +30,7 @@ export const humanizeDuration = (time) => {
   return formatDuration(durations);
 };
 
-export const resumeLink =
-  "https://drive.google.com/file/d/11uQnNntOxyKUO5hKKFobUmZoaWrSrlrQ/view?usp=drive_link";
+export const resumeLink = "/resume";
 
 export const timeline = [
   {

@@ -10,7 +10,6 @@ import { GlobalContext } from "../../contexts";
 const navLinks = [
   { href: "/", label: "About" },
   { href: "/work", label: "Work" },
-  { href: "/resume", label: "Resume" },
   { href: "/blogs", label: "Blogs" },
   { href: "/health", label: "Health" },
 ];
@@ -122,7 +121,7 @@ const MinimalNav = () => {
                   <Link
                     key={href}
                     href={href}
-                    className={`relative z-20 flex h-8 items-center justify-center px-3 no-underline transition-colors duration-150 ${href === "/blogs" ? "max-[460px]:hidden " : ""}${
+                    className={`relative z-20 flex h-8 items-center justify-center px-3 no-underline transition-colors duration-150 ${
                       active
                         ? "text-mn-text-primary"
                         : "text-mn-text-secondary hover:text-mn-text-primary"

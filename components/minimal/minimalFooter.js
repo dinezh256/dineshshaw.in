@@ -59,14 +59,9 @@ const MinimalFooter = () => {
         </FooterColumn>
 
         <FooterColumn title={t("footer.extra")}>
-          <a
-            href={resumeLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={footerLinkCls}
-          >
+          <Link href={resumeLink} className={footerLinkCls}>
             {t("footer.resume")}
-          </a>
+          </Link>
           <a
             href="https://github.com/dinezh256/dineshshaw.in"
             target="_blank"

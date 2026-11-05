@@ -127,12 +127,7 @@ const MinimalAbout = () => {
 
           {/* CTAs */}
           <div className="flex gap-2.5 flex-wrap">
-            <MnButton
-              href={resumeLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              variant="resume"
-            >
+            <MnButton href={resumeLink} variant="resume">
               <ChevronsUp size={18} strokeWidth={2.5} aria-hidden="true" />
               <span>{t("about.resume")}</span>
             </MnButton>

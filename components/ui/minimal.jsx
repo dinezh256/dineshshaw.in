@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { ChevronDown } from "react-feather";
 import { cn } from "../../lib/utils";
@@ -50,6 +51,13 @@ export function MnButton({
   );
 
   if (href) {
+    if (href.startsWith("/")) {
+      return (
+        <Link href={href} className={cls} {...props}>
+          {children}
+        </Link>
+      );
+    }
     return (
       <a href={href} target={target} rel={rel} className={cls} {...props}>
         {children}
