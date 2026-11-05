@@ -34,32 +34,48 @@ export const resumeLink = "/resume";
 
 export const timeline = [
   {
+    orgId: 3,
+    orgName: "American Technology Consulting (ATC)",
+    url: "https://atc.xyz",
+    note: "Auzmor's engineering team moved to ATC under the same ownership; continuing to build the Auzmor LMS platform.",
+    yearwise: [
+      {
+        id: 0,
+        start: "Apr 2026",
+        end: "Present",
+        position: "Senior Software Engineer",
+      },
+    ],
+  },
+  {
     orgId: 2,
-    orgName: "Auzmor Inc.",
+    orgName: "Auzmor Technology",
+    url: "https://auzmor.com",
     yearwise: [
       {
         id: 2,
         start: "Jan 2025",
-        end: "Present",
-        position: "SSE I",
+        end: "Mar 2026",
+        position: "Senior Software Engineer",
       },
       {
         id: 1,
         start: "Jan 2023",
         end: "Dec 2024",
-        position: "SWE III",
+        position: "Software Engineer III",
       },
       {
         id: 0,
         start: "Jan 2022",
         end: "Dec 2022",
-        position: "SWE I",
+        position: "Software Engineer I",
       },
     ],
   },
   {
     orgId: 1,
     orgName: "PuStack Technologies",
+    url: "https://pustack.com",
     yearwise: [
       {
         id: 1,

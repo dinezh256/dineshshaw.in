@@ -94,7 +94,7 @@ const MinimalAbout = () => {
           subtitle={
             <>
               {t("about.subtitle1")}
-              <strong>Auzmor</strong>
+              <strong>ATC</strong>
               {t("about.subtitle2")}
             </>
           }
@@ -177,7 +177,7 @@ const MinimalAbout = () => {
               style={{ left: "-0.5px", transform: "scaleY(var(--timeline-active-ratio, 0))" }}
             />
 
-            {timeline.map(({ orgId, orgName, yearwise }) => {
+            {timeline.map(({ orgId, orgName, url, note, yearwise }) => {
               const isCurrent = yearwise.some((y) => y.end === "Present");
               return (
                 <div key={orgId} className="relative flex flex-col gap-2.5">
@@ -191,9 +191,20 @@ const MinimalAbout = () => {
                   
                   {/* Org header */}
                   <div className="flex items-center gap-2">
-                    <span className="text-[14.5px] font-semibold text-mn-text-primary">
-                      {t(`companies.${orgId}`, { defaultValue: orgName })}
-                    </span>
+                    {url ? (
+                      <a
+                        href={url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[14.5px] font-semibold text-mn-text-primary transition-colors duration-150 hover:text-mn-accent-text"
+                      >
+                        {t(`companies.${orgId}`, { defaultValue: orgName })}
+                      </a>
+                    ) : (
+                      <span className="text-[14.5px] font-semibold text-mn-text-primary">
+                        {t(`companies.${orgId}`, { defaultValue: orgName })}
+                      </span>
+                    )}
                     {isCurrent && (
                       <span className="inline-flex items-center gap-[5px] text-[10.5px] font-semibold tracking-wide uppercase px-2 py-[3px] rounded-full bg-[#22c55e]/15 text-[#22c55e]">
                         <span className="w-[5px] h-[5px] rounded-full bg-[#22c55e]" />
@@ -201,6 +212,12 @@ const MinimalAbout = () => {
                       </span>
                     )}
                   </div>
+
+                  {note && (
+                    <p className="text-[12px] text-mn-text-secondary italic -mt-1 leading-snug">
+                      {note}
+                    </p>
+                  )}
 
                   {/* Roles */}
                   <div className="flex flex-col gap-0.5 pl-1">

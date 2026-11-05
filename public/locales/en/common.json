@@ -11,7 +11,7 @@
     "sectionTitleAbout": "About",
     "bullets": [
       "I've spent the last 5+ years working mostly in <1>JavaScript</1> and <2>React.js</2>, building web and mobile interfaces across startups and product companies.",
-      "At <1>Auzmor</1>, I work on the LMS platform as a Senior Software Engineer, across the web app and the <2>React Native</2> mobile app.",
+      "At <1>ATC</1>, I work on the Auzmor LMS platform as a Senior Software Engineer, across the web app and the <2>React Native</2> mobile app.",
       "I studied Electronics and Communication at <1>Tezpur University</1>, graduating in 2020. Turned out writing code was more fun than building circuits.",
       "I like knowing how things work under the hood. Performance, accessibility, and clean APIs are things I think about more than I probably should.",
       "Outside work, I go to the gym 4 times a week, follow <1>cricket</1> way too closely, and try to <2>travel</2> whenever I get the chance."
@@ -75,7 +75,8 @@
     "health": "Health"
   },
   "companies": {
-    "2": "Auzmor Inc.",
+    "3": "American Technology Consulting (ATC)",
+    "2": "Auzmor Technology",
     "1": "PuStack Technologies",
     "0": "C-DAC Centre, Kolkata"
   },
